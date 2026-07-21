@@ -61,6 +61,7 @@ function CandidateCard({
               ? `From your archive${placeLatestLabel(city, cand.p.id) ? ` · shot ${placeLatestLabel(city, cand.p.id)}` : ''}`
               : 'From web notes'}
           </span>
+          {cand.p.meal && <span className="tag tag-meal">{cand.p.meal}</span>}
           {cand.p.role === 'anchor' && <span className="tag tag-accent-2">Anchor · one per day</span>}
           {cand.p.timed && <span className="tag tag-neutral">timed entry</span>}
         </div>
@@ -405,6 +406,7 @@ export function BuildPage() {
                         </span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 6, fontSize: 11 }}>
+                        {c.meal && <span className="tag tag-meal">{c.meal}</span>}
                         <span className={verified ? 'tag tag-accent' : 'tag tag-neutral'}>
                           {verified ? (placeLatestLabel(city, c.id) ? `shot ${placeLatestLabel(city, c.id)}` : 'from your archive') : 'from web notes'}
                         </span>

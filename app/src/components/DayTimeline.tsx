@@ -162,11 +162,14 @@ function Stop({ stop, isLast }: { stop: DayStop; isLast: boolean }) {
     >
       <div className="stop-time-col" style={{ textAlign: 'right', paddingTop: 2 }}>
         <div style={{ fontFamily: 'var(--font-heading)', fontSize: 19, fontVariantNumeric: 'tabular-nums' }}>{stop.time}</div>
-        {stop.timeNote && (
-          <div className="text-muted" style={{ fontSize: 11 }}>
-            {stop.timeNote}
-          </div>
-        )}
+        {stop.timeNote &&
+          (stop.timeNote === 'lunch' || stop.timeNote === 'dinner' || stop.timeNote === 'coffee' ? (
+            <span className="tag tag-meal" style={{ marginTop: 3 }}>{stop.timeNote}</span>
+          ) : (
+            <div className="text-muted" style={{ fontSize: 11 }}>
+              {stop.timeNote}
+            </div>
+          ))}
       </div>
       <div className="stop-body" style={{ borderLeft: `1.5px solid ${lineColor}`, padding: `0 0 ${isLast ? 8 : 40}px 28px`, position: 'relative' }}>
         {verified ? (

@@ -9,7 +9,7 @@ export function builtDayStops(city: City, day: DayState): DayStop[] {
     const next = day.committed[i + 1]
     const stop: DayStop = {
       time: fmt(c.timeIn),
-      timeNote: c.meal === 'lunch' ? 'lunch' : c.meal === 'dinner' ? 'dinner' : c.meal === 'coffee' ? 'morning' : undefined,
+      timeNote: c.meal ?? undefined,
       name: c.name,
       sub: media?.sub ?? c.area,
       desc: media?.desc ?? '',
