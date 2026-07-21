@@ -1,0 +1,27 @@
+{
+  "santeustachio": {
+    "price": "$",
+    "menu": "https://santeustachioilcaffe.com/",
+    "lang": "EN"
+  },
+  "daenzo": {
+    "price": "$$",
+    "menu": "https://www.daenzoal29.com/",
+    "lang": "EN"
+  },
+  "armando": {
+    "price": "$$",
+    "menu": "https://armandoalpantheon.it/",
+    "lang": "EN"
+  },
+  "trapizzino": {
+    "price": "$",
+    "menu": "https://www.trapizzino.it/",
+    "lang": "EN"
+  },
+  "testacciomkt": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=Mercato+di+Testaccio+stalls",
+    "lang": "EN"
+  }
+}

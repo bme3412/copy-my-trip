@@ -127,7 +127,7 @@ Changes:
 buffer; no day busts curfew under max durations"; day population counts stay in
 their current ranges.
 
-## Phase 6 — Second city (the pipeline proof)
+## Phase 6 — Second city (the pipeline proof) ✅ (shipped 2026-07-21 — Rome)
 
 **Goal:** a new city is a data drop plus registration — zero planner edits.
 

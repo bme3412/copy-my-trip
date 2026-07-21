@@ -1,0 +1,38 @@
+{
+  "colosseo": {
+    "cost": "€18",
+    "url": "https://colosseo.it/en/",
+    "needed": true,
+    "note": "includes Forum & Palatine"
+  },
+  "vaticanmus": {
+    "cost": "€20",
+    "url": "https://www.museivaticani.va/",
+    "needed": true,
+    "note": "book weeks ahead"
+  },
+  "borghese": {
+    "cost": "€15",
+    "url": "https://galleriaborghese.cultura.gov.it/en/",
+    "needed": true,
+    "note": "strict 2-hour slots"
+  },
+  "pantheon": {
+    "cost": "€5",
+    "url": "https://www.pantheonroma.com/",
+    "needed": false,
+    "note": "walk-up ok"
+  },
+  "ostia": {
+    "cost": "€12",
+    "url": "https://parcoarcheologicostiantica.it/en/",
+    "needed": false,
+    "note": ""
+  },
+  "stpeters": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": "dome climb €10"
+  }
+}

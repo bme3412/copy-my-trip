@@ -1,0 +1,77 @@
+{
+  "id": "rome",
+  "name": "Rome",
+  "tagline": "Researched, not yet walked",
+  "hero": {
+    "title": "Rome, planned with the same discipline.",
+    "body": "No archive here yet — every stop is web-researched and marked as such until it has been walked and shot.",
+    "stats": []
+  },
+  "start": {
+    "name": "your stay",
+    "area": "Monti",
+    "lat": 41.895,
+    "lon": 12.49,
+    "src": null
+  },
+  "startLabel": "Your stay, Monti · 9:00 start",
+  "homeBase": "your stay in Monti",
+  "dayStart": 540,
+  "dayEnd": 1320,
+  "hoodOrder": [
+    "Centro Storico",
+    "Ancient Rome",
+    "Tridente & Trevi",
+    "Vatican & Borgo",
+    "Trastevere",
+    "Monti & Esquilino",
+    "Aventine & Testaccio",
+    "Villa Borghese"
+  ],
+  "dayTemplates": [
+    {
+      "purpose": "Centro Storico first — the Pantheon, the piazzas, the city at street level."
+    },
+    {
+      "purpose": "One demanding anchor — the Vatican Museums — then the basilica and the river.",
+      "seed": "vaticanmus",
+      "alt": {
+        "purpose": "The city without the queues — neighborhoods first."
+      }
+    },
+    {
+      "purpose": "A gentler middle day — gardens, terraces, the Aventine keyhole."
+    },
+    {
+      "purpose": "The icons at golden hour — Trevi late, the climb to the Pincio.",
+      "hoodBias": "Tridente & Trevi"
+    },
+    {
+      "purpose": "The Colosseum early, then the Forum at ease.",
+      "seed": "colosseo",
+      "alt": {
+        "purpose": "The slow side of the river — Trastevere, no museum required."
+      }
+    },
+    {
+      "purpose": "A full day at Ostia Antica — the ancient port, whole and quiet.",
+      "dayTripId": "ostia",
+      "dayTripFor": [
+        "Museums",
+        "Architecture"
+      ],
+      "alt": {
+        "purpose": "A personality day — Testaccio: the market, the Aventine, no monuments.",
+        "hoodBias": "Aventine & Testaccio",
+        "noAnchors": true
+      }
+    },
+    {
+      "purpose": "No checklist. A buffer for weather, favourites and long caffès.",
+      "noAnchors": true,
+      "noTimed": true,
+      "maxStops": 3,
+      "paceOverride": "gentle"
+    }
+  ]
+}

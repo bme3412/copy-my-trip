@@ -1,10 +1,14 @@
 /** Day-by-day replay of the recommendation engine for eyeballing quality.
- * Usage: npm run diag [-- presetId [dayCount]] (defaults: first-time, 4) */
+ * Usage: npm run diag [-- presetId [dayCount [cityId]]] (defaults: first-time, 4, paris) */
 import { CITIES } from '../src/cities'
 import { generatePlan, PLAN_PRESETS } from '../src/lib/plan-presets'
 import { dayWeekday, fmt, stayLoc, stopPlace } from '../src/lib/planner'
 
-const city = CITIES.paris
+const city = CITIES[process.argv[4] ?? 'paris']
+if (!city) {
+  console.error(`Unknown city: ${process.argv[4]} (have: ${Object.keys(CITIES).join(', ')})`)
+  process.exit(1)
+}
 const presetId = process.argv[2] ?? 'first-time'
 const dayCount = Number(process.argv[3] ?? 4)
 const ARRIVING = '2026-09-12'

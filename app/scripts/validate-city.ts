@@ -113,6 +113,28 @@ function validateCity(cid: string, city: City) {
     check(`${tag} node "${n.name}" position 0–100`, n.x >= 0 && n.x <= 100 && n.y >= 0 && n.y <= 100)
   }
 
+  // ── Day templates ──
+  check(`${tag} dayTemplates covers the full 7-day framework`, city.dayTemplates.length === 7, `${city.dayTemplates.length}`)
+  const checkTemplate = (t: (typeof city.dayTemplates)[number], label: string) => {
+    check(`${tag} ${label}: purpose non-empty`, t.purpose.length > 0)
+    if (t.seed !== undefined) {
+      const p = city.places.find((pl) => pl.id === t.seed)
+      check(`${tag} ${label}: seed "${t.seed}" is a place`, p !== undefined)
+      if (p && t.seedExp !== undefined) check(`${tag} ${label}: seedExp exists on the seed`, (p.experiences ?? []).some((e) => e.id === t.seedExp))
+    }
+    if (t.dayTripId !== undefined) {
+      const p = city.places.find((pl) => pl.id === t.dayTripId)
+      check(`${tag} ${label}: dayTripId "${t.dayTripId}" is a dayTrip place`, p?.dayTrip === true)
+    }
+    if (t.hoodBias !== undefined) check(`${tag} ${label}: hoodBias in hoodOrder`, city.hoodOrder.includes(t.hoodBias), t.hoodBias)
+    if (t.maxStops !== undefined) check(`${tag} ${label}: maxStops positive`, Number.isInteger(t.maxStops) && t.maxStops > 0)
+    if (t.paceOverride !== undefined) check(`${tag} ${label}: paceOverride valid`, ['gentle', 'balanced', 'full'].includes(t.paceOverride))
+  }
+  city.dayTemplates.forEach((t, i) => {
+    checkTemplate(t, `template ${i + 1}`)
+    if (t.alt) checkTemplate(t.alt as (typeof city.dayTemplates)[number], `template ${i + 1} alt`)
+  })
+
   // ── Curated days ──
   const slotIds = new Set<string>()
   for (const m of Object.values(city.media)) {

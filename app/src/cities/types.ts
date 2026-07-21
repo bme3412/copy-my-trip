@@ -171,6 +171,28 @@ export interface Hood {
   image: string
 }
 
+/** One day of the first-trip framework, as city data — purposes, seeds and
+ * biases are the city's own, so a new city never inherits another's icons. */
+export interface DayTemplate {
+  purpose: string
+  /** Seed this place first thing (skipped when closed that day). */
+  seed?: string
+  /** Which experience of the seed to commit (default: the place's default variant). */
+  seedExp?: string
+  /** The whole day is one committed day-trip. */
+  dayTripId?: string
+  /** Interests that justify the day trip; no stated interests also qualifies. */
+  dayTripFor?: string[]
+  noAnchors?: boolean
+  noTimed?: boolean
+  maxStops?: number
+  paceOverride?: Pace
+  /** Soft pull toward a hood (the personality day). */
+  hoodBias?: string
+  /** Replacement when the preset dodges icons, or the day trip isn't justified. */
+  alt?: Omit<DayTemplate, 'alt'>
+}
+
 export interface City {
   id: string
   name: string
@@ -188,6 +210,8 @@ export interface City {
   nodes: GraphNode[]
   hoodOrder: string[]
   hoods: Hood[]
+  /** The 7-day first-trip framework: 4-day core plus what days 5–7 add. */
+  dayTemplates: DayTemplate[]
   curatedDays: FinishedDay[]
   media: Record<string, PlaceMedia>
   /** Maps slot ids to archive filenames in `public/media/<id>/`. Slots without

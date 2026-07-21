@@ -1,4 +1,4 @@
-import type { City, Pace, StartLoc } from '../cities/types'
+import type { City, DayTemplate, Pace, StartLoc } from '../cities/types'
 import {
   blankDay,
   buildCandidates,
@@ -73,42 +73,19 @@ export const PLAN_PRESETS: PlanPreset[] = [
   },
 ]
 
-interface DayProfile {
-  purpose: string
-  /** Seed this place first thing (skipped when closed that weekday). */
-  seed?: string
-  /** Which experience of the seed to commit (default: the place's default variant). */
-  seedExp?: string
-  /** The whole day is one committed day-trip. */
-  dayTripId?: string
-  /** Buffer-day shape: no anchors, no bookings, a small budget, gentle rhythm. */
-  noAnchors?: boolean
-  noTimed?: boolean
-  maxStops?: number
-  paceOverride?: Pace
-  hoodBias?: string
-}
-
-/** The framework's day templates: the 4-day core, then what 5/6/7 days add. */
-function dayProfiles(dayCount: number, interests: string[], avoidIcons = false): DayProfile[] {
-  const wantsVersailles =
-    !avoidIcons && (interests.includes('Museums') || interests.includes('Architecture') || interests.length === 0)
-  const profiles: DayProfile[] = [
-    { purpose: 'Historic Paris and the Seine — context before any giant museum.' },
-    avoidIcons
-      ? { purpose: 'The city without the queues — neighborhoods first.' }
-      : { purpose: 'One demanding anchor — the Louvre — then Tuileries and the Palais-Royal at ease.', seed: 'louvre', seedExp: 'interior' },
-    { purpose: 'A gentler middle day — gardens, bookshops, the river.' },
-    { purpose: 'The icons at golden hour — and the climb toward Montmartre.', hoodBias: 'Montmartre (18e)' },
-    avoidIcons
-      ? { purpose: 'The slow Left Bank, no museum required.' }
-      : { purpose: 'Orsay in the morning, then the slow Left Bank.', seed: 'orsay' },
-    wantsVersailles
-      ? { purpose: 'A full day at Versailles — palace, gardens, Trianon.', dayTripId: 'versailles' }
-      : { purpose: 'A personality day — the east: canal, market streets, no monuments.', hoodBias: 'Bastille & the East (11e–12e–20e)', noAnchors: true },
-    { purpose: 'No checklist. A buffer for weather, favourites and long cafés.', noAnchors: true, noTimed: true, maxStops: 3, paceOverride: 'gentle' },
-  ]
-  return profiles.slice(0, Math.max(dayCount, 4))
+/** The framework's day templates come from city data (City.dayTemplates) —
+ * this resolves each day's variant: the alt when the preset dodges icons,
+ * and for day-trip days, the alt when interests don't justify the trip. */
+function dayProfiles(city: City, dayCount: number, interests: string[], avoidIcons = false): DayTemplate[] {
+  return city.dayTemplates
+    .map((t) => {
+      if (t.dayTripId) {
+        const wants = !avoidIcons && (interests.length === 0 || (t.dayTripFor ?? []).some((i) => interests.includes(i)))
+        return wants ? t : (t.alt ?? t)
+      }
+      return avoidIcons && t.alt ? t.alt : t
+    })
+    .slice(0, Math.max(dayCount, 4))
 }
 
 /** Deterministic greedy simulation — the same engine the interactive builder runs. */
@@ -122,7 +99,7 @@ export function generatePlan(
   interests: string[] = [],
 ): GeneratedPlan {
   const basePace = preset.pace ?? travelerPace
-  const profiles = dayProfiles(dayCount, interests, preset.avoidIcons)
+  const profiles = dayProfiles(city, dayCount, interests, preset.avoidIcons)
   const days: DayState[] = []
   const purposes: string[] = []
   const visited = new Set<string>()

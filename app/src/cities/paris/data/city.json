@@ -29,5 +29,52 @@
     "Montmartre (18e)",
     "Canal Saint-Martin (10e)",
     "Bastille & the East (11e–12e–20e)"
+  ],
+  "dayTemplates": [
+    {
+      "purpose": "Historic Paris and the Seine — context before any giant museum."
+    },
+    {
+      "purpose": "One demanding anchor — the Louvre — then Tuileries and the Palais-Royal at ease.",
+      "seed": "louvre",
+      "seedExp": "interior",
+      "alt": {
+        "purpose": "The city without the queues — neighborhoods first."
+      }
+    },
+    {
+      "purpose": "A gentler middle day — gardens, bookshops, the river."
+    },
+    {
+      "purpose": "The icons at golden hour — and the climb toward Montmartre.",
+      "hoodBias": "Montmartre (18e)"
+    },
+    {
+      "purpose": "Orsay in the morning, then the slow Left Bank.",
+      "seed": "orsay",
+      "alt": {
+        "purpose": "The slow Left Bank, no museum required."
+      }
+    },
+    {
+      "purpose": "A full day at Versailles — palace, gardens, Trianon.",
+      "dayTripId": "versailles",
+      "dayTripFor": [
+        "Museums",
+        "Architecture"
+      ],
+      "alt": {
+        "purpose": "A personality day — the east: canal, market streets, no monuments.",
+        "hoodBias": "Bastille & the East (11e–12e–20e)",
+        "noAnchors": true
+      }
+    },
+    {
+      "purpose": "No checklist. A buffer for weather, favourites and long cafés.",
+      "noAnchors": true,
+      "noTimed": true,
+      "maxStops": 3,
+      "paceOverride": "gentle"
+    }
   ]
 }

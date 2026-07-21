@@ -15,65 +15,69 @@ const check = (name: string, ok: boolean, detail = '') => {
   if (!ok) fail++
 }
 
-const gen = (presetId: string, dayCount: number) =>
-  generatePlan(city, PLAN_PRESETS.find((p) => p.id === presetId)!, dayCount, 'balanced', STAY, ARRIVING, [])
+const genFor = (c: City, presetId: string, dayCount: number) =>
+  generatePlan(c, PLAN_PRESETS.find((p) => p.id === presetId)!, dayCount, 'balanced', stayLoc(c, c.hoodOrder[0]), ARRIVING, [])
+const gen = (presetId: string, dayCount: number) => genFor(city, presetId, dayCount)
 
-function checkDays(tag: string, plan: GeneratedPlan, dayCount: number) {
-  const allIds = plan.days.flatMap((d) => d.committed.map((c) => c.id))
+function checkDays(c: City, tag: string, plan: GeneratedPlan, dayCount: number) {
+  const allIds = plan.days.flatMap((d) => d.committed.map((s) => s.id))
   check(`${tag}: no repeats across the trip`, new Set(allIds).size === allIds.length)
 
   plan.days.slice(0, dayCount).forEach((d, i) => {
     const day = `${tag} day ${i + 1}`
     const wd = dayWeekday(ARRIVING, i)!
-    const isDayTrip = d.committed.some((c) => placeOf(c.id)?.dayTrip)
+    const isDayTrip = d.committed.some((s) => stopPlace(c, s)?.dayTrip)
     const minStops = isDayTrip ? 1 : i === 6 ? 2 : 3
     check(`${day}: populated (${minStops}–8 stops)`, d.committed.length >= minStops && d.committed.length <= 8, `${d.committed.length}`)
 
-    const late = d.committed.filter((c) => c.timeIn + c.dur > 22 * 60)
-    check(`${day}: home by 22:00`, late.length === 0, late.map((c) => c.name).join(', '))
+    const late = d.committed.filter((s) => s.timeIn + s.dur > 22 * 60)
+    check(`${day}: home by 22:00`, late.length === 0, late.map((s) => s.name).join(', '))
 
-    const anchors = d.committed.filter((c) => stopPlace(city, c)?.role === 'anchor').length
+    const anchors = d.committed.filter((s) => stopPlace(c, s)?.role === 'anchor').length
     check(`${day}: ≤1 anchor`, anchors <= 1, `${anchors}`)
 
-    const timed = d.committed.filter((c) => stopPlace(city, c)?.timed).length
+    const timed = d.committed.filter((s) => stopPlace(c, s)?.timed).length
     check(`${day}: ≤2 timed`, timed <= 2, `${timed}`)
 
-    const longLegs = d.committed.filter((c, j) => j > 0 && c.travelMode === 'metro' && c.travelMin >= 20).length
+    const longLegs = d.committed.filter((s, j) => j > 0 && s.travelMode === 'metro' && s.travelMin >= 20).length
     check(`${day}: ≤1 long transfer`, longLegs <= 1, `${longLegs}`)
 
     const date = dayDate(ARRIVING, i)
-    const closed = d.committed.filter((c) => {
-      const p = stopPlace(city, c)
+    const closed = d.committed.filter((s) => {
+      const p = stopPlace(c, s)
       return p && effectiveHours(p, date, wd) === null
     })
-    check(`${day}: nothing visited on its closing day`, closed.length === 0, closed.map((c) => c.name).join(', '))
+    check(`${day}: nothing visited on its closing day`, closed.length === 0, closed.map((s) => s.name).join(', '))
 
-    const earlyLunch = d.committed.filter((c) => c.meal === 'lunch' && c.timeIn < 11 * 60)
-    check(`${day}: no lunch before 11:00`, earlyLunch.length === 0, earlyLunch.map((c) => c.name).join(', '))
+    const earlyLunch = d.committed.filter((s) => s.meal === 'lunch' && s.timeIn < 11 * 60)
+    check(`${day}: no lunch before 11:00`, earlyLunch.length === 0, earlyLunch.map((s) => s.name).join(', '))
 
-    const offWindow = d.committed.filter((c) => {
-      const best = stopPlace(city, c)?.best
+    const offWindow = d.committed.filter((s) => {
+      const best = stopPlace(c, s)?.best
       if (!best) return false
-      const h = c.timeIn / 60
+      const h = s.timeIn / 60
       return h < best[0] - 0.5 || h > best[1] + 0.5
     })
-    check(`${day}: best-time respected (±30 min)`, offWindow.length === 0, offWindow.map((c) => c.name).join(', '))
+    check(`${day}: best-time respected (±30 min)`, offWindow.length === 0, offWindow.map((s) => s.name).join(', '))
   })
 }
 
-// Determinism + distinctness at the 4-day core.
-const seq = (x: GeneratedPlan) => x.days.flatMap((d) => d.committed.map((c) => c.id)).join(',')
-for (const p of PLAN_PRESETS) {
-  const a = gen(p.id, 4)
-  const b = gen(p.id, 4)
-  check(`${p.id}: deterministic`, seq(a) === seq(b))
-  checkDays(p.id, a, 4)
+// Generic invariants run for EVERY registered city — a new city is a data
+// drop, and this is where its data meets the engine.
+const seq = (x: GeneratedPlan) => x.days.flatMap((d) => d.committed.map((s) => s.id)).join(',')
+for (const [cid, c] of Object.entries(CITIES)) {
+  for (const p of PLAN_PRESETS) {
+    const a = genFor(c, p.id, 4)
+    const b = genFor(c, p.id, 4)
+    check(`${cid}/${p.id}: deterministic`, seq(a) === seq(b))
+    checkDays(c, `${cid}/${p.id}`, a, 4)
+  }
+  check(`${cid}: three presets produce distinct itineraries`, new Set(PLAN_PRESETS.map((p) => seq(genFor(c, p.id, 4)))).size === 3)
+  checkDays(c, `${cid}/first-time 7d`, genFor(c, 'first-time', 7), 7)
 }
-check('three presets produce distinct itineraries', new Set(PLAN_PRESETS.map((p) => seq(gen(p.id, 4)))).size === 3)
 
 // The 7-day trip: Orsay day, Versailles day-trip, buffer day.
 const seven = gen('first-time', 7)
-checkDays('7-day', seven, 7)
 check('7-day: day 5 contains Orsay', seven.days[4].committed.some((c) => c.id === 'orsay'), seven.days[4].committed.map((c) => c.id).join(','))
 check('7-day: day 6 is the Versailles day-trip', seven.days[5].committed.some((c) => c.id === 'versailles'))
 check('7-day: day 7 is a small buffer day', seven.days[6].committed.length <= 4 && !seven.days[6].committed.some((c) => stopPlace(city, c)?.role === 'anchor'))
@@ -155,14 +159,15 @@ check('experiences: Eiffel has view + summit variants', eiffelVariants.length ==
 
 // ── Structured explanations: every stop can say why ──
 const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage'])
-for (const preset of PLAN_PRESETS) {
-  const plan = gen(preset.id, 7)
-  const stops = plan.days.flatMap((d) => d.committed)
-  check(`${preset.id}: every stop has at least one reason`, stops.every((s) => (s.reasons?.length ?? 0) > 0),
-    stops.filter((s) => !s.reasons?.length).map((s) => s.name).join(', '))
-  check(`${preset.id}: reasons use canonical terms only`, stops.every((s) => s.reasons!.every((r) => CANONICAL_TERMS.has(r.term))))
-  check(`${preset.id}: reason notes are prose`, stops.every((s) => s.reasons!.every((r) => r.note.length > 0)))
-}
+for (const [cid, c] of Object.entries(CITIES))
+  for (const preset of PLAN_PRESETS) {
+    const plan = genFor(c, preset.id, 7)
+    const stops = plan.days.flatMap((d) => d.committed)
+    check(`${cid}/${preset.id}: every stop has at least one reason`, stops.every((s) => (s.reasons?.length ?? 0) > 0),
+      stops.filter((s) => !s.reasons?.length).map((s) => s.name).join(', '))
+    check(`${cid}/${preset.id}: reasons use canonical terms only`, stops.every((s) => s.reasons!.every((r) => CANONICAL_TERMS.has(r.term))))
+    check(`${cid}/${preset.id}: reason notes are prose`, stops.every((s) => s.reasons!.every((r) => r.note.length > 0)))
+  }
 const reasonsA = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
 const reasonsB = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
 check('reasons: deterministic across runs', reasonsA === reasonsB)
@@ -171,23 +176,24 @@ check('reasons: deterministic across runs', reasonsA === reasonsB)
 // No day busts curfew even when every stop runs to dur + durVar. The stored
 // dur is pace-scaled, so durVar scales by the same pace (day 7 is the gentle
 // buffer day in every preset; all other generated days run balanced).
-for (const preset of PLAN_PRESETS) {
-  const plan = gen(preset.id, 7)
-  const busts = plan.days.flatMap((d, i) =>
-    d.committed.filter((c) => {
-      const p = stopPlace(city, c)
-      if (!p) return false
-      const pf = PACE[i === 6 ? 'gentle' : 'balanced'].f
-      // Worst case caps at closing time (the venue ends the overrun), never
-      // below the typical plan — mirrors the engine's curfew rule.
-      const hrs = effectiveHours(p, dayDate(ARRIVING, i), dayWeekday(ARRIVING, i))
-      const close = (hrs?.[1] ?? 24) * 60
-      const worstEnd = Math.max(c.timeIn + c.dur, Math.min(c.timeIn + c.dur + Math.round((p.durVar ?? 0) * pf), close))
-      return worstEnd > 22 * 60
-    }),
-  )
-  check(`${preset.id}: home by 22:00 even at worst-case durations`, busts.length === 0, busts.map((c) => c.name).join(', '))
-}
+for (const [cid, c] of Object.entries(CITIES))
+  for (const preset of PLAN_PRESETS) {
+    const plan = genFor(c, preset.id, 7)
+    const busts = plan.days.flatMap((d, i) =>
+      d.committed.filter((s) => {
+        const p = stopPlace(c, s)
+        if (!p) return false
+        const pf = PACE[i === 6 ? 'gentle' : 'balanced'].f
+        // Worst case caps at closing time (the venue ends the overrun), never
+        // below the typical plan — mirrors the engine's curfew rule.
+        const hrs = effectiveHours(p, dayDate(ARRIVING, i), dayWeekday(ARRIVING, i))
+        const close = (hrs?.[1] ?? 24) * 60
+        const worstEnd = Math.max(s.timeIn + s.dur, Math.min(s.timeIn + s.dur + Math.round((p.durVar ?? 0) * pf), close))
+        return worstEnd > 22 * 60
+      }),
+    )
+    check(`${cid}/${preset.id}: home by 22:00 even at worst-case durations`, busts.length === 0, busts.map((s) => s.name).join(', '))
+  }
 // Timed candidates carry the entry buffer: the slot sits ≥ buffer past
 // expected physical arrival (clock + travel). Narrow the pool to force each
 // timed place into the returned picks.

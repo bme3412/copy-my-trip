@@ -23,6 +23,11 @@ async function main() {
     ['/paris/day/3', 'Canal Saint-Martin &amp; Montmartre'],
     ['/paris/archive', 'every trip merged'],
     ['/paris/neighbourhoods', 'The neighborhoods'],
+    ['/rome', 'planned with the same discipline'],
+    ['/rome/compose', 'Tell me about the trip'],
+    ['/rome/build', 'Choose your next move'],
+    ['/rome/archive', 'Trastevere'],
+    ['/rome/neighbourhoods', 'The neighborhoods'],
   ]
   let fail = 0
   for (const [path, expect] of cases) {

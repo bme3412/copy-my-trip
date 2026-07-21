@@ -1,0 +1,844 @@
+[
+  {
+    "id": "pantheon",
+    "name": "Pantheon",
+    "area": "Piazza della Rotonda",
+    "hood": "Centro Storico",
+    "lat": 41.8986,
+    "lon": 12.4769,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      9,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Monument",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "historic"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "navona",
+    "name": "Piazza Navona",
+    "area": "Centro Storico",
+    "hood": "Centro Storico",
+    "lat": 41.8992,
+    "lon": 12.4731,
+    "dur": 35,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Piazza",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "santeustachio",
+    "name": "Sant'Eustachio Il Caffè",
+    "area": "behind the Pantheon",
+    "hood": "Centro Storico",
+    "lat": 41.8984,
+    "lon": 12.4753,
+    "dur": 25,
+    "meal": "coffee",
+    "open": [
+      7.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Coffee",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "campodefiori",
+    "name": "Campo de' Fiori market",
+    "area": "Centro Storico",
+    "hood": "Centro Storico",
+    "lat": 41.8956,
+    "lon": 12.4722,
+    "dur": 45,
+    "meal": "lunch",
+    "open": [
+      8,
+      14
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · market",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "armando",
+    "name": "Armando al Pantheon",
+    "area": "Salita de’ Crescenzi",
+    "hood": "Centro Storico",
+    "lat": 41.8983,
+    "lon": 12.4766,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · Roman",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "sanluigi",
+    "name": "San Luigi dei Francesi",
+    "area": "the Caravaggio chapel",
+    "hood": "Centro Storico",
+    "lat": 41.8994,
+    "lon": 12.4744,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      9.5,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church · art",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ]
+  },
+  {
+    "id": "colosseo",
+    "name": "Colosseum",
+    "area": "Piazza del Colosseo",
+    "hood": "Ancient Rome",
+    "lat": 41.8902,
+    "lon": 12.4922,
+    "dur": 120,
+    "meal": null,
+    "open": [
+      8.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Monument · anchor",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "historic"
+    ],
+    "role": "anchor",
+    "timed": true,
+    "durVar": 45
+  },
+  {
+    "id": "forum",
+    "name": "Roman Forum & Palatine",
+    "area": "Via dei Fori Imperiali",
+    "hood": "Ancient Rome",
+    "lat": 41.8925,
+    "lon": 12.4853,
+    "dur": 120,
+    "meal": null,
+    "open": [
+      8.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Ruins · long walk",
+    "group": "sight",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "capitoline",
+    "name": "Capitoline Museums",
+    "area": "Piazza del Campidoglio",
+    "hood": "Ancient Rome",
+    "lat": 41.8931,
+    "lon": 12.4828,
+    "dur": 105,
+    "meal": null,
+    "open": [
+      9.5,
+      19.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "campidoglio",
+    "name": "Campidoglio terrace",
+    "area": "over the Forum",
+    "hood": "Ancient Rome",
+    "lat": 41.8934,
+    "lon": 12.4828,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Viewpoint",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "afterdark"
+    ],
+    "best": [
+      16,
+      22
+    ]
+  },
+  {
+    "id": "taverna",
+    "name": "La Taverna dei Fori Imperiali",
+    "area": "Via della Madonna dei Monti",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8925,
+    "lon": 12.4877,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · osteria",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "trevi",
+    "name": "Trevi Fountain",
+    "area": "Rione Trevi",
+    "hood": "Tridente & Trevi",
+    "lat": 41.9009,
+    "lon": 12.4833,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Fountain",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "afterdark"
+    ]
+  },
+  {
+    "id": "spanishsteps",
+    "name": "Spanish Steps",
+    "area": "Piazza di Spagna",
+    "hood": "Tridente & Trevi",
+    "lat": 41.9058,
+    "lon": 12.4823,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Piazza",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "pincio",
+    "name": "Pincio Terrace",
+    "area": "above Piazza del Popolo",
+    "hood": "Tridente & Trevi",
+    "lat": 41.9109,
+    "lon": 12.4788,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Viewpoint",
+    "group": "park",
+    "themes": [
+      "afterdark",
+      "everyday"
+    ],
+    "best": [
+      17,
+      21
+    ]
+  },
+  {
+    "id": "vaticanmus",
+    "name": "Vatican Museums & Sistine Chapel",
+    "area": "Viale Vaticano · book ahead",
+    "hood": "Vatican & Borgo",
+    "lat": 41.9065,
+    "lon": 12.4536,
+    "dur": 210,
+    "meal": null,
+    "open": [
+      8,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · anchor",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ],
+    "role": "anchor",
+    "timed": true,
+    "closedOn": [
+      0
+    ],
+    "durVar": 45
+  },
+  {
+    "id": "stpeters",
+    "name": "St Peter's Basilica",
+    "area": "Piazza San Pietro",
+    "hood": "Vatican & Borgo",
+    "lat": 41.9022,
+    "lon": 12.4539,
+    "dur": 90,
+    "meal": null,
+    "open": [
+      7,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Basilica",
+    "group": "indoor",
+    "themes": [
+      "monumental",
+      "historic"
+    ],
+    "durVar": 30,
+    "experiences": [
+      {
+        "id": "basilica",
+        "name": "St Peter's Basilica",
+        "label": "Basilica"
+      },
+      {
+        "id": "dome",
+        "name": "St Peter's dome climb",
+        "label": "Basilica · dome",
+        "dur": 150,
+        "durVar": 45,
+        "open": [
+          7.5,
+          17
+        ],
+        "note": "551 steps past the elevator — the best view in Rome"
+      }
+    ]
+  },
+  {
+    "id": "santangelo",
+    "name": "Castel Sant'Angelo & bridge",
+    "area": "Lungotevere",
+    "hood": "Vatican & Borgo",
+    "lat": 41.9031,
+    "lon": 12.4663,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Riverside",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "afterdark"
+    ],
+    "best": [
+      16,
+      22
+    ]
+  },
+  {
+    "id": "smtrastevere",
+    "name": "Santa Maria in Trastevere",
+    "area": "the golden mosaics",
+    "hood": "Trastevere",
+    "lat": 41.8894,
+    "lon": 12.4695,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      7.5,
+      21
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "trasteverewalk",
+    "name": "Trastevere lanes",
+    "area": "east of Viale Trastevere",
+    "hood": "Trastevere",
+    "lat": 41.888,
+    "lon": 12.4692,
+    "dur": 50,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Long walk",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "everyday"
+    ]
+  },
+  {
+    "id": "sancalisto",
+    "name": "Bar San Calisto",
+    "area": "Piazza San Calisto",
+    "hood": "Trastevere",
+    "lat": 41.889,
+    "lon": 12.4692,
+    "dur": 25,
+    "meal": "coffee",
+    "open": [
+      6.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Coffee",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "trapizzino",
+    "name": "Trapizzino Trastevere",
+    "area": "Piazza Trilussa",
+    "hood": "Trastevere",
+    "lat": 41.8867,
+    "lon": 12.4699,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · street",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "daenzo",
+    "name": "Da Enzo al 29",
+    "area": "Via dei Vascellari",
+    "hood": "Trastevere",
+    "lat": 41.8878,
+    "lon": 12.4776,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · trattoria",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "gianicolo",
+    "name": "Gianicolo Terrace",
+    "area": "above Trastevere",
+    "hood": "Trastevere",
+    "lat": 41.8916,
+    "lon": 12.4614,
+    "dur": 35,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Viewpoint",
+    "group": "park",
+    "themes": [
+      "afterdark",
+      "everyday"
+    ],
+    "best": [
+      16,
+      21
+    ]
+  },
+  {
+    "id": "monti",
+    "name": "Monti & Via Urbana",
+    "area": "the village in the city",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8946,
+    "lon": 12.4915,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The lanes",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "everyday"
+    ]
+  },
+  {
+    "id": "vincoli",
+    "name": "San Pietro in Vincoli",
+    "area": "the Moses",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8938,
+    "lon": 12.4931,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      8.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church · art",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ]
+  },
+  {
+    "id": "maggiore",
+    "name": "Santa Maria Maggiore",
+    "area": "Esquilino",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8976,
+    "lon": 12.4986,
+    "dur": 35,
+    "meal": null,
+    "open": [
+      7,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Basilica",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "monumental"
+    ]
+  },
+  {
+    "id": "panella",
+    "name": "Panella",
+    "area": "Via Merulana",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8956,
+    "lon": 12.5027,
+    "dur": 30,
+    "meal": "coffee",
+    "open": [
+      7,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Coffee · pastry",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "mercatocentrale",
+    "name": "Mercato Centrale Roma",
+    "area": "inside Termini",
+    "hood": "Monti & Esquilino",
+    "lat": 41.901,
+    "lon": 12.5003,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      8,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · food hall",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "orangegarden",
+    "name": "Giardino degli Aranci",
+    "area": "the Aventine keyhole",
+    "hood": "Aventine & Testaccio",
+    "lat": 41.8846,
+    "lon": 12.4779,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      7,
+      20
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Garden",
+    "group": "park",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "best": [
+      16,
+      20
+    ]
+  },
+  {
+    "id": "testacciomkt",
+    "name": "Testaccio Market",
+    "area": "Via Beniamino Franklin",
+    "hood": "Aventine & Testaccio",
+    "lat": 41.8815,
+    "lon": 12.4744,
+    "dur": 45,
+    "meal": "lunch",
+    "open": [
+      9,
+      15.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · market",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "bocca",
+    "name": "Bocca della Verità",
+    "area": "Santa Maria in Cosmedin",
+    "hood": "Aventine & Testaccio",
+    "lat": 41.888,
+    "lon": 12.4816,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      9.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Curiosity",
+    "group": "sight",
+    "themes": [
+      "historic"
+    ]
+  },
+  {
+    "id": "borghese",
+    "name": "Galleria Borghese",
+    "area": "strict two-hour slots",
+    "hood": "Villa Borghese",
+    "lat": 41.9142,
+    "lon": 12.4922,
+    "dur": 120,
+    "meal": null,
+    "open": [
+      9,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · anchor",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "role": "anchor",
+    "timed": true,
+    "closedOn": [
+      1
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "borghesepark",
+    "name": "Villa Borghese gardens",
+    "area": "above the Spanish Steps",
+    "hood": "Villa Borghese",
+    "lat": 41.9128,
+    "lon": 12.4853,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      6,
+      21
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Garden",
+    "group": "park",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "ostia",
+    "name": "Ostia Antica",
+    "area": "the whole day · Roma-Lido line",
+    "hood": "Beyond Rome",
+    "lat": 41.7554,
+    "lon": 12.2916,
+    "dur": 360,
+    "meal": null,
+    "open": [
+      8.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Day trip",
+    "group": "sight",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "role": "anchor",
+    "closedOn": [
+      1
+    ],
+    "dayTrip": true,
+    "durVar": 60
+  }
+]
