@@ -43,5 +43,30 @@
     "price": "$$",
     "menu": "https://www.google.com/search?q=Le+Baron+Rouge+Paris+menu",
     "lang": "FR"
+  },
+  "le404": {
+    "price": "$$",
+    "menu": "https://www.404-resto.com/",
+    "lang": "FR"
+  },
+  "sainteanne": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=rue+sainte-anne+ramen+udon",
+    "lang": "FR"
+  },
+  "miznon": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=Miznon+Paris+menu",
+    "lang": "EN"
+  },
+  "walyfay": {
+    "price": "$$",
+    "menu": "https://www.google.com/search?q=Waly-Fay+Paris+menu",
+    "lang": "FR"
+  },
+  "bellevillechinois": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=Belleville+Paris+hand+pulled+noodles",
+    "lang": "FR"
   }
 }

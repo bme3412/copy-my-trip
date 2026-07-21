@@ -6,7 +6,7 @@ import type { City, Theme } from '../src/cities/types'
 
 const MEALS = ['coffee', 'lunch', 'dinner', null]
 const GROUPS = ['food', 'sight', 'indoor', 'park']
-const VENUE_TYPES = ['cafe', 'bakery', 'patisserie', 'tea_room', 'market', 'bistro', 'brasserie', 'bouillon', 'wine_bar', 'modern_bistro', 'fine_dining', 'street_food', 'creperie']
+const VENUE_TYPES = ['cafe', 'bakery', 'patisserie', 'tea_room', 'market', 'bistro', 'brasserie', 'bouillon', 'wine_bar', 'modern_bistro', 'fine_dining', 'street_food', 'creperie', 'restaurant']
 const SOURCES = ['verified', 'web']
 const THEMES: Theme[] = ['monumental', 'historic', 'artistic', 'neighborhood', 'everyday', 'afterdark']
 

@@ -23,6 +23,7 @@ export type VenueType =
   | 'fine_dining'
   | 'street_food'
   | 'creperie'
+  | 'restaurant'
 
 /** A schedulable variant of a place — the Louvre interior vs its courtyard,
  * the Eiffel summit vs the Trocadéro view. Every omitted field inherits the

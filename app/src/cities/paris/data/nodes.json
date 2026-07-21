@@ -805,5 +805,40 @@
     "x": 68.2,
     "y": 73.9,
     "v": false
+  },
+  {
+    "name": "Le 404",
+    "hood": "Le Marais (3e–4e)",
+    "x": 68.4,
+    "y": 54.1,
+    "v": false
+  },
+  {
+    "name": "Rue Sainte-Anne — Little Tokyo",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 54.9,
+    "y": 49.4,
+    "v": false
+  },
+  {
+    "name": "Miznon",
+    "hood": "Le Marais (3e–4e)",
+    "x": 71.3,
+    "y": 65.4,
+    "v": false
+  },
+  {
+    "name": "Waly-Fay",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 88.2,
+    "y": 71.5,
+    "v": false
+  },
+  {
+    "name": "Belleville Chinese canteens",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 84.7,
+    "y": 44.6,
+    "v": false
   }
 ]

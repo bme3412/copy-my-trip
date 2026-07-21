@@ -3257,5 +3257,130 @@
         "note": "seasonal — summer evenings only; check before counting on it"
       }
     ]
+  },
+  {
+    "id": "le404",
+    "name": "Le 404",
+    "area": "Maghrebi couscous, Rue des Gravilliers",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8645,
+    "lon": 2.3549,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · Maghrebi",
+    "group": "food",
+    "venueType": "restaurant",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "sainteanne",
+    "name": "Rue Sainte-Anne — Little Tokyo",
+    "area": "ramen and udon queues, 1er–2e",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.868,
+    "lon": 2.3355,
+    "dur": 60,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · Japanese",
+    "group": "food",
+    "venueType": "restaurant",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "miznon",
+    "name": "Miznon",
+    "area": "pita out of hand, Rue des Écouffes",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.856,
+    "lon": 2.3591,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · Levantine",
+    "group": "food",
+    "venueType": "street_food",
+    "themes": [
+      "everyday"
+    ],
+    "closedOn": [
+      6
+    ]
+  },
+  {
+    "id": "walyfay",
+    "name": "Waly-Fay",
+    "area": "West African soul food, 11e",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8515,
+    "lon": 2.3835,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      23.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · West African",
+    "group": "food",
+    "venueType": "restaurant",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "bellevillechinois",
+    "name": "Belleville Chinese canteens",
+    "area": "hand-pulled noodles — follow the queues",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8716,
+    "lon": 2.3785,
+    "dur": 50,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · Chinese",
+    "group": "food",
+    "venueType": "restaurant",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "rank": 3
   }
 ]
