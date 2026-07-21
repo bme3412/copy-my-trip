@@ -260,6 +260,30 @@ check('sanitize: clamps weights to ±1 and drops unknown/zero themes',
 check('sanitize: invalid pace becomes null and summary truncates', dirty?.pace === null && (dirty?.summary.length ?? 0) <= 280)
 check('sanitize: junk input rejected', sanitizeExtracted({ interests: [], themeWeights: {}, pace: null, summary: 'hi' }) === null)
 
+// ── Sun times + the deck: the day tied to its date ──
+import { euTzOffsetMin, sunTimes } from '../src/lib/sun'
+import { builtDayDeck } from '../src/lib/built-day'
+const inRange = (v: number, lo: string, hi: string) => {
+  const m = (s: string) => Number(s.split(':')[0]) * 60 + Number(s.split(':')[1])
+  return v >= m(lo) && v <= m(hi)
+}
+const paris = { lat: city.start.lat, lon: city.start.lon }
+const jun = sunTimes(paris.lat, paris.lon, '2026-06-21', euTzOffsetMin('2026-06-21'))
+const dec = sunTimes(paris.lat, paris.lon, '2026-12-21', euTzOffsetMin('2026-12-21'))
+const sep = sunTimes(paris.lat, paris.lon, '2026-09-12', euTzOffsetMin('2026-09-12'))
+check('sun: Paris June solstice sunset ~21:58', inRange(jun.sunset, '21:40', '22:15'), fmtClock(Math.round(jun.sunset)))
+check('sun: Paris December solstice sunset ~16:56', inRange(dec.sunset, '16:40', '17:15'), fmtClock(Math.round(dec.sunset)))
+check('sun: Paris mid-September sunset ~20:10', inRange(sep.sunset, '19:55', '20:25'), fmtClock(Math.round(sep.sunset)))
+check('sun: DST rule flips (CEST in June, CET in December)', euTzOffsetMin('2026-06-21') === 120 && euTzOffsetMin('2026-12-21') === 60)
+
+// Deck v3: dated days mention the light; closure days explain themselves.
+const sevenPlan = gen('first-time', 7)
+const deckFor = (i: number) => builtDayDeck(city, sevenPlan.days[i], { date: dayDate(ARRIVING, i), weekday: dayWeekday(ARRIVING, i) })
+check('deck: dated day mentions sunset', deckFor(0).includes('sunset comes at'), deckFor(0))
+// Day 3 of the 2026-09-12 trip is Monday — Orsay (rank 1) closes.
+check('deck: Monday explains the closures', /closed on Mondays/.test(deckFor(2)), deckFor(2))
+check('deck: deterministic', deckFor(1) === builtDayDeck(city, sevenPlan.days[1], { date: dayDate(ARRIVING, 1), weekday: dayWeekday(ARRIVING, 1) }))
+
 // ── Diversity: where you stay and which preset you pick must matter ──
 import { dayAnchor } from '../src/lib/planner'
 for (const [cid, c] of Object.entries(CITIES)) {

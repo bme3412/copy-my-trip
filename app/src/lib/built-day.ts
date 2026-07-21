@@ -1,5 +1,9 @@
 import type { City, DayStop } from '../cities/types'
-import { fmt, stopPlace, type DayState } from './planner'
+import { effectiveHours, fmt, placeVariants, stopPlace, type DayState } from './planner'
+import { euTzOffsetMin, sunTimes } from './sun'
+
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 /** "The Islands" reads as "the Islands" mid-phrase; French articles stay. */
 const midPhrase = (hood: string) => (hood === 'Latin Quarter' ? 'the Latin Quarter' : hood.replace(/^The /, 'the '))
@@ -37,31 +41,94 @@ export function builtDayTitle(city: City, day: DayState): string {
   return evening && !base.includes(', then') ? `${base}, into the evening` : base
 }
 
-/** A proper deck paragraph for a built day: the template's purpose line,
- * then what the day actually holds — stops, meals, and how it ends. */
-export function builtDayDeck(day: DayState, purpose?: string): string {
+export interface DeckOpts {
+  purpose?: string
+  /** Real ISO date of this trip day — unlocks the light and closure sentences. */
+  date?: string
+  /** JS getDay of this trip day. */
+  weekday?: number
+}
+
+/** First-visit icons (with any of their variants) closed on this date and not
+ * on the day — the fact that explains the day's shape. */
+function notableClosures(city: City, day: DayState, date: string, weekday: number): string[] {
+  const visited = new Set(day.committed.map((s) => s.id))
+  const names: string[] = []
+  for (const p of city.places) {
+    if (p.rank !== 1 || visited.has(p.id)) continue
+    for (const v of placeVariants(p)) {
+      if (effectiveHours(v, date, weekday) === null) {
+        names.push(shortName(v.name))
+        break
+      }
+    }
+  }
+  return [...new Set(names)].slice(0, 2)
+}
+
+/** A proper deck paragraph for a built day: the template's purpose line, the
+ * date and its light, why the day is shaped this way, and what it holds. */
+export function builtDayDeck(city: City, day: DayState, opts: DeckOpts = {}): string {
+  const { purpose, date, weekday } = opts
   const stops = day.committed
   if (stops.length === 0) return purpose ?? ''
+
+  const dated = date !== undefined && weekday !== undefined
+  const sun = dated ? sunTimes(city.start.lat, city.start.lon, date, euTzOffsetMin(date)) : null
+  const goldenStart = sun ? sun.sunset - 60 : null
+
   // A day-trip day is one commitment — say so instead of listing it.
   if (stops.length === 1 && stops[0].dur >= 240) {
     const endT = fmt(stops[0].timeIn + stops[0].dur)
     return [purpose, `The whole day out — back in the city around ${endT}.`].filter(Boolean).join(' ')
   }
+
   const coffee = stops.find((s) => s.meal === 'coffee')
   const lunch = stops.find((s) => s.meal === 'lunch')
   const dinner = stops.find((s) => s.meal === 'dinner')
   const sights = stops.filter((s) => !s.meal).map((s) => shortName(s.name))
   const list = (xs: string[]) => (xs.length <= 1 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`)
   const last = stops[stops.length - 1]
-  const endT = fmt(last.timeIn + last.dur)
+  const end = last.timeIn + last.dur
+  const endT = fmt(end)
 
   const parts: string[] = []
   if (purpose) parts.push(purpose)
+
+  // The date and its light — and whether the schedule is set for it.
+  if (dated && sun && goldenStart !== null) {
+    const [, m, d] = date.split('-').map(Number)
+    const phase = d <= 10 ? 'early' : d <= 20 ? 'mid' : 'late'
+    const goldenStop = stops.find((s) => {
+      const p = stopPlace(city, s)
+      return p?.best !== undefined && s.timeIn + s.dur >= goldenStart - 30
+    })
+    parts.push(
+      `A ${WEEKDAYS[weekday]} in ${phase}-${MONTHS[m - 1]}: sunset comes at ${fmt(sun.sunset)}, golden hour from about ${fmt(goldenStart)}${
+        goldenStop ? ` — the ${shortName(goldenStop.name)} slot is set for it` : ''
+      }.`,
+    )
+    const closed = notableClosures(city, day, date, weekday)
+    if (closed.length > 0) {
+      const hoodCounts = new Map<string, number>()
+      for (const s of stops) {
+        const p = stopPlace(city, s)
+        if (p) hoodCounts.set(p.hood, (hoodCounts.get(p.hood) ?? 0) + 1)
+      }
+      const mainHood = shortHood([...hoodCounts.entries()].sort((a, b) => b[1] - a[1])[0][0])
+      parts.push(
+        `${closed.join(' and ')} ${closed.length > 1 ? 'are' : 'is'} closed on ${WEEKDAYS[weekday]}s, so the day stays around ${midPhrase(mainHood)} instead.`,
+      )
+    }
+  }
+
   if (sights.length > 0) parts.push(`${coffee ? `Coffee first at ${shortName(coffee.name)}, then ` : ''}${list(sights)}.`)
   else if (coffee) parts.push(`Coffee first at ${shortName(coffee.name)}.`)
+
   const closing: string[] = []
   if (lunch) closing.push(`lunch lands at ${shortName(lunch.name)}`)
   if (dinner) closing.push(`dinner at ${shortName(dinner.name)} closes the day around ${endT}`)
+  else if (goldenStart !== null && end <= goldenStart - 60) closing.push(`the day winds down around ${endT}, well before the light goes`)
   else closing.push(`the day winds down around ${endT}`)
   parts.push(closing.join('; ').replace(/^./, (c) => c.toUpperCase()) + '.')
   return parts.join(' ')

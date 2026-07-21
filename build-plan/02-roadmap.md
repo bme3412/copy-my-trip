@@ -159,6 +159,14 @@ engine *inputs* (theme weights, interests, pace) — stored in trip state so
 regeneration is deterministic and never re-calls the API. It does not
 schedule, and it cannot write city data.
 
+**Second narrow LLM role shipped (2026-07-21):** day narration
+(`app/api/narrate-day.ts`) — the principles' *explanation* job. The app
+computes all facts deterministically (sun times via `src/lib/sun.ts` — the
+Phase 2 sunrise/sunset backlog item, now done — weekday closures, route,
+meals); the LLM only restyles those facts as curator prose, cached per
+day-content in trip state, with the deterministic deck as instant render and
+fallback. It may omit facts; it may never add any.
+
 No further design yet. Any one of these opens the phase proper:
 
 1. **Live or scheduled data feeds** worth ingesting (hours refresh, disruptions,

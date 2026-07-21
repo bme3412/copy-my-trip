@@ -22,6 +22,9 @@ export interface TripState {
   days: DayState[]
   /** One-line purpose per day, set when a generated plan is chosen. */
   dayPurposes?: string[]
+  /** LLM narration per day index, keyed by the day's content so edits
+   * invalidate — fetched once, then served from state. */
+  dayNarrations?: Record<number, { key: string; text: string }>
 }
 
 /** Trips scale 1–7 days (the framework's 4-day core plus Orsay, Versailles/personality, buffer). */

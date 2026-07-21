@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { DayTimeline } from '../components/DayTimeline'
 import { Page } from '../components/Layout'
 import { DayMap } from '../components/DayMap'
 import { builtDayDeck, builtDayStops, builtDayTitle } from '../lib/built-day'
-import { stayLoc, stopPlace } from '../lib/planner'
+import { dayDate, dayWeekday, fmt, stayLoc, stopPlace } from '../lib/planner'
+import { euTzOffsetMin, sunTimes } from '../lib/sun'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
 
@@ -15,7 +16,7 @@ export function DayPage() {
   const { n } = useParams()
   const { hash } = useLocation()
   const city = useCity()
-  const { trip, dayCount } = useTrip()
+  const { trip, update, dayCount } = useTrip()
 
   // Arriving from the archive: scroll to the linked stop and flash it.
   useEffect(() => {
@@ -38,7 +39,52 @@ export function DayPage() {
 
   const stops = isBuilt ? builtDayStops(city, built) : (curated?.stops ?? [])
   const title = isBuilt ? builtDayTitle(city, built) : (curated?.title ?? `Day ${num}`)
-  const deck = isBuilt ? builtDayDeck(built, trip.dayPurposes?.[num - 1]) : undefined
+  const date = trip.arriving ? dayDate(trip.arriving, num - 1) : undefined
+  const weekday = trip.arriving ? dayWeekday(trip.arriving, num - 1) : undefined
+  const purpose = trip.dayPurposes?.[num - 1]
+  const deck = isBuilt ? builtDayDeck(city, built, { purpose, date, weekday }) : undefined
+
+  // The LLM narration: computed facts in, curator prose out — fetched once
+  // per day-content, cached in trip state, deck as instant fallback.
+  const dayKey = isBuilt ? built.committed.map((c) => `${c.id}@${c.timeIn}`).join(',') : ''
+  const narration = trip.dayNarrations?.[num - 1]
+  const narrated = narration?.key === dayKey ? narration.text : undefined
+  const attemptedRef = useRef<string | null>(null)
+  useEffect(() => {
+    if (!isBuilt || !date || weekday === undefined || narrated || attemptedRef.current === dayKey) return
+    attemptedRef.current = dayKey
+    const sun = sunTimes(city.start.lat, city.start.lon, date, euTzOffsetMin(date))
+    const facts = {
+      stops: built.committed.map((c) => ({
+        name: c.name,
+        time: fmt(c.timeIn),
+        minutes: c.dur,
+        meal: c.meal,
+        hood: stopPlace(city, c)?.hood,
+        fromArchive: c.src === 'verified',
+      })),
+      sunset: fmt(sun.sunset),
+      goldenHourFrom: fmt(sun.sunset - 60),
+      walkingMinutes: built.committed.filter((c) => c.travelMode === 'walk').reduce((a, c) => a + c.travelMin, 0),
+      metroHops: built.committed.filter((c) => c.travelMode === 'metro').length,
+      endsAround: fmt(built.committed[built.committed.length - 1].timeIn + built.committed[built.committed.length - 1].dur),
+    }
+    fetch('/api/narrate-day', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city: city.name, date, title, purpose, facts }),
+    })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((j: { narration?: string }) => {
+        if (typeof j.narration === 'string' && j.narration.length > 0) {
+          update({ dayNarrations: { ...trip.dayNarrations, [num - 1]: { key: dayKey, text: j.narration } } })
+        }
+      })
+      .catch(() => {
+        /* no API locally — the deterministic deck stands */
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isBuilt, dayKey, date, weekday, narrated])
   const timedNames = isBuilt
     ? built.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => c.name)
     : []
@@ -70,9 +116,9 @@ export function DayPage() {
       }
       title={title}
     >
-      {deck && (
+      {(narrated ?? deck) && (
         <p style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, margin: '14px 0 0', maxWidth: 620, lineHeight: 1.75, color: 'color-mix(in srgb, var(--color-text) 82%, transparent)' }}>
-          {deck}
+          {narrated ?? deck}
         </p>
       )}
       {isBuilt && (
