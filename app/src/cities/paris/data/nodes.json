@@ -1,0 +1,270 @@
+[
+  {
+    "name": "Place des Vosges",
+    "hood": "Le Marais (3e–4e)",
+    "day": 1,
+    "x": 46,
+    "y": 40,
+    "v": true
+  },
+  {
+    "name": "Marché des Enfants Rouges",
+    "hood": "Le Marais (3e–4e)",
+    "day": 1,
+    "x": 35,
+    "y": 25,
+    "v": true
+  },
+  {
+    "name": "Musée Carnavalet",
+    "hood": "Le Marais (3e–4e)",
+    "day": 1,
+    "x": 56,
+    "y": 33,
+    "v": false
+  },
+  {
+    "name": "Sainte-Chapelle",
+    "hood": "The Islands (1er–4e)",
+    "day": 1,
+    "x": 39,
+    "y": 53,
+    "v": false
+  },
+  {
+    "name": "Berthillon",
+    "hood": "The Islands (1er–4e)",
+    "day": 1,
+    "x": 61,
+    "y": 56,
+    "v": true
+  },
+  {
+    "name": "Pont de la Tournelle",
+    "hood": "The Islands (1er–4e)",
+    "day": 1,
+    "x": 56,
+    "y": 67,
+    "v": true
+  },
+  {
+    "name": "Jardin du Luxembourg",
+    "hood": "Saint-Germain (6e–7e)",
+    "day": 2,
+    "x": 26,
+    "y": 75,
+    "v": true
+  },
+  {
+    "name": "Shakespeare & Co",
+    "hood": "Latin Quarter (5e)",
+    "day": 2,
+    "x": 45,
+    "y": 64,
+    "v": true
+  },
+  {
+    "name": "Rue Mouffetard",
+    "hood": "Latin Quarter (5e)",
+    "day": 2,
+    "x": 33,
+    "y": 88,
+    "v": true
+  },
+  {
+    "name": "Canal Saint-Martin",
+    "hood": "Canal Saint-Martin (10e)",
+    "day": 3,
+    "x": 67,
+    "y": 12,
+    "v": true
+  },
+  {
+    "name": "Sacré-Cœur",
+    "hood": "Montmartre (18e)",
+    "day": 3,
+    "x": 49,
+    "y": 8,
+    "v": false
+  },
+  {
+    "name": "Marché d’Aligre",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "day": 4,
+    "x": 83,
+    "y": 70,
+    "v": true
+  },
+  {
+    "name": "Père-Lachaise",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "day": 4,
+    "x": 87,
+    "y": 47,
+    "v": true
+  },
+  {
+    "name": "Notre-Dame",
+    "hood": "The Islands (1er–4e)",
+    "x": 46,
+    "y": 62,
+    "v": true
+  },
+  {
+    "name": "Square du Vert-Galant",
+    "hood": "The Islands (1er–4e)",
+    "x": 32,
+    "y": 57,
+    "v": true
+  },
+  {
+    "name": "Pont des Arts",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 27,
+    "y": 50,
+    "v": true
+  },
+  {
+    "name": "Cour Napoléon, Louvre",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 23,
+    "y": 40,
+    "v": true
+  },
+  {
+    "name": "Centre Pompidou",
+    "hood": "Le Marais (3e–4e)",
+    "x": 48,
+    "y": 27,
+    "v": true
+  },
+  {
+    "name": "Saint-Germain-des-Prés",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 20,
+    "y": 65,
+    "v": true
+  },
+  {
+    "name": "Pont Alexandre III",
+    "hood": "Champs-Élysées (8e)",
+    "x": 13,
+    "y": 42,
+    "v": true
+  },
+  {
+    "name": "Arc de Triomphe",
+    "hood": "Champs-Élysées (8e)",
+    "x": 8,
+    "y": 26,
+    "v": true
+  },
+  {
+    "name": "Eiffel Tower, from Trocadéro",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 7,
+    "y": 60,
+    "v": true
+  },
+  {
+    "name": "Café Hugo",
+    "hood": "Le Marais (3e–4e)",
+    "day": 1,
+    "x": 51,
+    "y": 45,
+    "v": true
+  },
+  {
+    "name": "Rue des Rosiers",
+    "hood": "Le Marais (3e–4e)",
+    "x": 41,
+    "y": 35,
+    "v": true
+  },
+  {
+    "name": "Ten Belles",
+    "hood": "Canal Saint-Martin (10e)",
+    "day": 3,
+    "x": 73,
+    "y": 18,
+    "v": true
+  },
+  {
+    "name": "Chez Janou",
+    "hood": "Le Marais (3e–4e)",
+    "x": 53,
+    "y": 21,
+    "v": true
+  },
+  {
+    "name": "Le Baron Rouge",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "day": 4,
+    "x": 78,
+    "y": 77,
+    "v": false
+  },
+  {
+    "name": "The Louvre, inside",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 22,
+    "y": 37,
+    "v": false
+  },
+  {
+    "name": "Musée d’Orsay",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 18,
+    "y": 52,
+    "v": false
+  },
+  {
+    "name": "Jardin des Tuileries",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 18,
+    "y": 36,
+    "v": false
+  },
+  {
+    "name": "Palais-Royal",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 25,
+    "y": 32,
+    "v": false
+  },
+  {
+    "name": "Musée Rodin",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 12,
+    "y": 52,
+    "v": false
+  },
+  {
+    "name": "Les Invalides",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 10,
+    "y": 48,
+    "v": false
+  },
+  {
+    "name": "Rue Cler",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 8,
+    "y": 52,
+    "v": false
+  },
+  {
+    "name": "Musée de l’Orangerie",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 15,
+    "y": 38,
+    "v": false
+  },
+  {
+    "name": "Rue des Abbesses",
+    "hood": "Montmartre (18e)",
+    "x": 45,
+    "y": 10,
+    "v": false
+  }
+]

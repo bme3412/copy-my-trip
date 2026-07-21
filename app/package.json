@@ -10,7 +10,8 @@
     "smoke": "esbuild scripts/route-smoke.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=node_modules/.tmp/route-smoke.cjs --log-level=error && node node_modules/.tmp/route-smoke.cjs",
     "smoke:plans": "esbuild scripts/preset-smoke.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/preset-smoke.cjs --log-level=error && node node_modules/.tmp/preset-smoke.cjs",
     "media:slots": "esbuild scripts/list-slots.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/list-slots.cjs --log-level=error && node node_modules/.tmp/list-slots.cjs",
-    "diag": "esbuild scripts/diag.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/diag.cjs --log-level=error && node node_modules/.tmp/diag.cjs"
+    "diag": "esbuild scripts/diag.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/diag.cjs --log-level=error && node node_modules/.tmp/diag.cjs",
+    "validate:cities": "esbuild scripts/validate-city.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/validate-city.cjs --log-level=error && node node_modules/.tmp/validate-city.cjs"
   },
   "dependencies": {
     "mapbox-gl": "^3.26.0",

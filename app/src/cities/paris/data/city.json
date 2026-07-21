@@ -1,0 +1,33 @@
+{
+  "id": "paris",
+  "name": "Paris",
+  "tagline": "A verified archive, not a diary",
+  "hero": {
+    "title": "Paris, from someone who’s actually been.",
+    "body": "Real photos, real routes, real timings — copy a trip that’s already been walked.",
+    "stats": []
+  },
+  "start": {
+    "name": "your flat",
+    "area": "Le Marais",
+    "lat": 48.858,
+    "lon": 2.362,
+    "src": null
+  },
+  "startLabel": "Your flat, Le Marais · 9:00 start",
+  "homeBase": "your flat in Le Marais",
+  "dayStart": 540,
+  "dayEnd": 1320,
+  "hoodOrder": [
+    "Le Marais (3e–4e)",
+    "The Islands (1er–4e)",
+    "Latin Quarter (5e)",
+    "Saint-Germain (6e–7e)",
+    "Louvre & Opéra (1er–2e)",
+    "Champs-Élysées (8e)",
+    "Eiffel & Invalides (7e–16e)",
+    "Montmartre (18e)",
+    "Canal Saint-Martin (10e)",
+    "Bastille & the East (11e–12e–20e)"
+  ]
+}

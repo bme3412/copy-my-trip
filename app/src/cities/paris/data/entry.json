@@ -1,0 +1,56 @@
+{
+  "carnavalet": {
+    "cost": "Free",
+    "url": "https://www.carnavalet.paris.fr/en",
+    "needed": false,
+    "note": "timed slot"
+  },
+  "saintechapelle": {
+    "cost": "€13",
+    "url": "https://www.sainte-chapelle.fr/en",
+    "needed": true,
+    "note": ""
+  },
+  "sacre": {
+    "cost": "€7 dome",
+    "url": "https://www.sacre-coeur-montmartre.com/english/",
+    "needed": true,
+    "note": "basilica free"
+  },
+  "pere": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  },
+  "luxembourg": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  },
+  "shakespeare": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  },
+  "vosges": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  },
+  "tournelle": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  },
+  "canal": {
+    "cost": "Free",
+    "url": null,
+    "needed": false,
+    "note": ""
+  }
+}

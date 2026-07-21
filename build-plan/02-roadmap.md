@@ -13,7 +13,7 @@ earlier phases motivate), backend last and conditional.
 
 ---
 
-## Phase 1 — Cities become data
+## Phase 1 — Cities become data ✅ (shipped 2026-07-21)
 
 **Goal:** city data moves from compiled TS modules to per-city static JSON with a
 validation gate, so adding city #2 is a data drop and editing city #1 can't silently

@@ -1,0 +1,47 @@
+{
+  "cafehugo": {
+    "price": "$$",
+    "menu": "https://www.google.com/search?q=Caf%C3%A9+Hugo+Place+des+Vosges+menu",
+    "lang": "FR"
+  },
+  "tenbelles": {
+    "price": "$",
+    "menu": "https://tenbelles.com/",
+    "lang": "EN"
+  },
+  "marche": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=March%C3%A9+des+Enfants+Rouges+stalls",
+    "lang": "FR"
+  },
+  "rosiers": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=L%27As+du+Fallafel+menu",
+    "lang": "FR"
+  },
+  "mouffetard": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=Rue+Mouffetard+market+stalls",
+    "lang": "FR"
+  },
+  "aligre": {
+    "price": "$",
+    "menu": "https://www.google.com/search?q=March%C3%A9+d%27Aligre",
+    "lang": "FR"
+  },
+  "berthillon": {
+    "price": "$",
+    "menu": "https://www.berthillon.fr/en/",
+    "lang": "EN"
+  },
+  "chezjanou": {
+    "price": "$$",
+    "menu": "https://www.google.com/search?q=Chez+Janou+Paris+menu",
+    "lang": "FR"
+  },
+  "baronrouge": {
+    "price": "$$",
+    "menu": "https://www.google.com/search?q=Le+Baron+Rouge+Paris+menu",
+    "lang": "FR"
+  }
+}
