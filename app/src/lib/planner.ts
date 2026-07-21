@@ -67,6 +67,8 @@ export function dayAnchor(city: City, day: DayState, visited: Set<string>): stri
 
 export interface CommittedStop {
   id: string
+  /** Which experience of the place was scheduled; unset = the place itself. */
+  experienceId?: string
   name: string
   area: string
   group: Place['group']
@@ -90,7 +92,7 @@ export interface DayState {
 }
 
 export interface Candidate {
-  p: Place
+  p: EffectivePlace
   t: { min: number; mode: 'walk' | 'metro'; measured: boolean }
   dur: number
   arrive: number
@@ -143,6 +145,41 @@ function weekdayHours(p: Place, weekday?: number): [number, number] | null {
     if (p.closedOn?.includes(weekday)) return null
   }
   return p.open
+}
+
+/** A place seen through one of its experiences — parent fields with the
+ * variant's overrides applied. The id stays the parent's. */
+export type EffectivePlace = Place & { experienceId?: string }
+
+/** The schedulable views of a place: its experience variants (first = default),
+ * or the place itself when it declares none. */
+export function placeVariants(p: Place): EffectivePlace[] {
+  if (!p.experiences?.length) return [p]
+  return p.experiences.map((e) => ({
+    ...p,
+    name: e.name ?? p.name,
+    label: e.label ?? p.label,
+    dur: e.dur ?? p.dur,
+    open: e.open ?? p.open,
+    hours: e.hours ?? p.hours,
+    timed: e.timed ?? p.timed,
+    best: e.best ?? p.best,
+    role: e.role ?? p.role,
+    group: e.group ?? p.group,
+    src: e.src ?? p.src,
+    visits: e.visits ?? p.visits,
+    last: e.last ?? p.last,
+    experienceId: e.id,
+  }))
+}
+
+/** Resolve a committed stop back to the variant it was scheduled as —
+ * for anything (tests, diagnostics, UI) asking about role/timed/best. */
+export function stopPlace(city: City, stop: { id: string; experienceId?: string }): EffectivePlace | undefined {
+  const p = city.places.find((pl) => pl.id === stop.id)
+  if (!p) return undefined
+  const variants = placeVariants(p)
+  return variants.find((v) => v.experienceId === stop.experienceId) ?? variants[0]
 }
 
 /** Coverage themes the trip has already satisfied. */
@@ -229,15 +266,17 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   const firstLeg = day.committed.length === 0
   // Once the day's budget is spent, only dinner is still on the table.
   const budgetReached = day.committed.filter((c) => c.meal !== 'dinner').length >= ENGINE.stopBudget[pace]
-  const placeOf = (id: string) => city.places.find((p) => p.id === id)
   // Day-anatomy state: one anchor, ≤2 timed bookings, ≤1 cross-city transfer.
-  const anchorTaken = opts.blockAnchors || day.committed.some((c) => placeOf(c.id)?.role === 'anchor')
-  const timedTaken = day.committed.filter((c) => placeOf(c.id)?.timed).length
+  // Committed stops resolve through their scheduled variant (stopPlace) —
+  // an anchor may live on an experience rather than its parent place.
+  const anchorTaken = opts.blockAnchors || day.committed.some((c) => stopPlace(city, c)?.role === 'anchor')
+  const timedTaken = day.committed.filter((c) => stopPlace(city, c)?.timed).length
   const longTransfers = day.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
 
   const en = city.places
     .filter((p) => !visited.has(p.id))
     .filter((p) => !p.dayTrip)
+    .flatMap(placeVariants)
     .filter((p) => effectiveHours(p, opts.date, opts.weekday) !== null)
     .filter((p) => !(anchorTaken && p.role === 'anchor'))
     .filter((p) => !(p.timed && (opts.blockTimed || timedTaken >= ENGINE.maxTimedPerDay)))
@@ -268,30 +307,6 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     })
     .filter((e) => e.open)
 
-  let needMeal: 'lunch' | 'dinner' | null = null
-  if (!day.meals.lunch && clk >= ENGINE.lunchForceFrom && clk <= 14.5 * 60) needMeal = 'lunch'
-  if (!day.meals.dinner && clk >= 18 * 60) needMeal = 'dinner'
-  const mealEls = needMeal ? en.filter((e) => e.p.meal === needMeal).sort((a, b) => a.t.min - b.t.min) : []
-  const picks: typeof en = []
-  mealEls.slice(0, 2).forEach((e) => picks.push(e))
-  // Morning coffee is forced like a meal — but only when a café is genuinely close.
-  if (!day.meals.coffee && clk < 10.5 * 60) {
-    const coffee = en
-      .filter((e) => e.p.meal === 'coffee' && e.t.min <= ENGINE.coffeeReach && !picks.includes(e))
-      .sort((a, b) => a.t.min - b.t.min)[0]
-    if (coffee) picks.unshift(coffee)
-  }
-  const rest = en
-    .filter((e) => !picks.includes(e))
-    .filter((e) => {
-      // Meal windows judge the *arrival* time, not the current clock — waiting
-      // out a 10:30 lull for an 11:00 lunch opening is how humans do it.
-      if (!e.p.meal) return true
-      if (e.p.meal === 'coffee') return e.arrive < 12 * 60 && !day.meals.coffee
-      if (e.p.meal === 'lunch') return !day.meals.lunch && e.arrive >= 10.75 * 60 && e.arrive <= 14.5 * 60
-      if (e.p.meal === 'dinner') return needMeal === 'dinner'
-      return true
-    })
   const lastGroup = day.committed.length ? day.committed[day.committed.length - 1].group : null
   const score = (e: (typeof en)[number]) => {
     let v = 0
@@ -321,6 +336,40 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     if (opts.hoodBias && e.p.hood === opts.hoodBias) v += 1.5
     return v
   }
+
+  // One schedulable view per place — the best-scoring open variant wins.
+  // The place stays the dedup unit, so a trip never gets two Louvres.
+  const bestVariant = new Map<string, (typeof en)[number]>()
+  for (const e of en) {
+    const cur = bestVariant.get(e.p.id)
+    if (!cur || score(e) > score(cur)) bestVariant.set(e.p.id, e)
+  }
+  const pool = [...bestVariant.values()]
+
+  let needMeal: 'lunch' | 'dinner' | null = null
+  if (!day.meals.lunch && clk >= ENGINE.lunchForceFrom && clk <= 14.5 * 60) needMeal = 'lunch'
+  if (!day.meals.dinner && clk >= 18 * 60) needMeal = 'dinner'
+  const mealEls = needMeal ? pool.filter((e) => e.p.meal === needMeal).sort((a, b) => a.t.min - b.t.min) : []
+  const picks: typeof pool = []
+  mealEls.slice(0, 2).forEach((e) => picks.push(e))
+  // Morning coffee is forced like a meal — but only when a café is genuinely close.
+  if (!day.meals.coffee && clk < 10.5 * 60) {
+    const coffee = pool
+      .filter((e) => e.p.meal === 'coffee' && e.t.min <= ENGINE.coffeeReach && !picks.includes(e))
+      .sort((a, b) => a.t.min - b.t.min)[0]
+    if (coffee) picks.unshift(coffee)
+  }
+  const rest = pool
+    .filter((e) => !picks.includes(e))
+    .filter((e) => {
+      // Meal windows judge the *arrival* time, not the current clock — waiting
+      // out a 10:30 lull for an 11:00 lunch opening is how humans do it.
+      if (!e.p.meal) return true
+      if (e.p.meal === 'coffee') return e.arrive < 12 * 60 && !day.meals.coffee
+      if (e.p.meal === 'lunch') return !day.meals.lunch && e.arrive >= 10.75 * 60 && e.arrive <= 14.5 * 60
+      if (e.p.meal === 'dinner') return needMeal === 'dinner'
+      return true
+    })
   rest.sort((a, b) => score(b) - score(a))
   for (const e of rest) {
     if (picks.length >= 3) break
@@ -349,7 +398,7 @@ export function isDayDone(day: DayState, pace: Pace, candidates: Candidate[], ma
 /** Commit a specific place directly (generator seeds: the Louvre morning,
  * Orsay, the Versailles day-trip) — same travel/wait math as candidates.
  * `hours` is the day's resolved window (from effectiveHours); defaults to typical. */
-export function commitPlace(day: DayState, place: Place, pace: Pace, hours?: [number, number]): DayState {
+export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, hours?: [number, number]): DayState {
   const t = travel(day.loc, place)
   const dur = Math.round(place.dur * PACE[pace].f)
   let arrive = day.clock + t.min
@@ -363,6 +412,7 @@ export function commitPlace(day: DayState, place: Place, pace: Pace, hours?: [nu
 export function commitCandidate(day: DayState, c: Candidate): DayState {
   const item: CommittedStop = {
     id: c.p.id,
+    experienceId: c.p.experienceId,
     name: c.p.name,
     area: c.p.area,
     group: c.p.group,

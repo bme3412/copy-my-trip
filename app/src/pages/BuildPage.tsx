@@ -7,7 +7,7 @@ import { CheckIcon, ClockIcon, MenuIcon, TicketIcon, WalkIcon } from '../compone
 import type { Pace } from '../cities/types'
 import { CoverageStrip } from '../components/CoverageStrip'
 import { placeLatestLabel } from '../lib/media'
-import { buildCandidates, commitCandidate, dayAnchor, dayDate, dayWeekday, fmt, isDayDone, stayLoc, tripThemes, type Candidate } from '../lib/planner'
+import { buildCandidates, commitCandidate, dayAnchor, dayDate, dayWeekday, fmt, isDayDone, stayLoc, stopPlace, tripThemes, type Candidate } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
 
@@ -460,7 +460,7 @@ export function BuildPage() {
               </div>
               {(() => {
                 const timedNames = day.committed
-                  .filter((c) => city.places.find((p) => p.id === c.id)?.timed)
+                  .filter((c) => stopPlace(city, c)?.timed)
                   .map((c) => `${c.name} (${fmt(c.timeIn)})`)
                 return timedNames.length > 0 ? (
                   <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, margin: '0 0 12px' }}>

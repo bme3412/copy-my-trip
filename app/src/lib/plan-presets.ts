@@ -8,6 +8,7 @@ import {
   dayWeekday,
   effectiveHours,
   isDayDone,
+  placeVariants,
   tripThemes,
   type Candidate,
   type CandidateOpts,
@@ -76,6 +77,8 @@ interface DayProfile {
   purpose: string
   /** Seed this place first thing (skipped when closed that weekday). */
   seed?: string
+  /** Which experience of the seed to commit (default: the place's default variant). */
+  seedExp?: string
   /** The whole day is one committed day-trip. */
   dayTripId?: string
   /** Buffer-day shape: no anchors, no bookings, a small budget, gentle rhythm. */
@@ -94,7 +97,7 @@ function dayProfiles(dayCount: number, interests: string[], avoidIcons = false):
     { purpose: 'Historic Paris and the Seine — context before any giant museum.' },
     avoidIcons
       ? { purpose: 'The city without the queues — neighborhoods first.' }
-      : { purpose: 'One demanding anchor — the Louvre — then Tuileries and the Palais-Royal at ease.', seed: 'louvremus' },
+      : { purpose: 'One demanding anchor — the Louvre — then Tuileries and the Palais-Royal at ease.', seed: 'louvre', seedExp: 'interior' },
     { purpose: 'A gentler middle day — gardens, bookshops, the river.' },
     { purpose: 'The icons at golden hour — and the climb toward Montmartre.', hoodBias: 'Montmartre (18e)' },
     avoidIcons
@@ -140,11 +143,14 @@ export function generatePlan(
         hoodBias: profile.hoodBias,
       }
 
-      const openToday = (id: string) => {
+      const openToday = (id: string, expId?: string) => {
         const p = city.places.find((pl) => pl.id === id)
         if (!p || visited.has(p.id)) return null
-        const hrs = effectiveHours(p, date, weekday)
-        return hrs ? { p, hrs } : null
+        const variants = placeVariants(p)
+        const v = expId ? variants.find((x) => x.experienceId === expId) : variants[0]
+        if (!v) return null
+        const hrs = effectiveHours(v, date, weekday)
+        return hrs ? { p: v, hrs } : null
       }
 
       const tripPlace = profile.dayTripId ? openToday(profile.dayTripId) : null
@@ -153,7 +159,7 @@ export function generatePlan(
         day = commitPlace(day, tripPlace.p, pace, tripPlace.hrs)
         visited.add(tripPlace.p.id)
       } else {
-        const seed = profile.seed ? openToday(profile.seed) : null
+        const seed = profile.seed ? openToday(profile.seed, profile.seedExp) : null
         if (seed) {
           day = commitPlace(day, seed.p, pace, seed.hrs)
           visited.add(seed.p.id)

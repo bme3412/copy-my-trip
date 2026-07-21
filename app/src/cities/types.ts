@@ -7,6 +7,30 @@ export type Pace = 'gentle' | 'balanced' | 'full'
 /** Coverage themes a first trip should contain. */
 export type Theme = 'monumental' | 'historic' | 'artistic' | 'neighborhood' | 'everyday' | 'afterdark'
 
+/** A schedulable variant of a place — the Louvre interior vs its courtyard,
+ * the Eiffel summit vs the Trocadéro view. Every omitted field inherits the
+ * parent place's value; a place with `experiences` is scheduled only through
+ * them (the first entry is the default). The place stays the dedup unit:
+ * one visit per place per trip, whichever variant is chosen. */
+export interface Experience {
+  id: string
+  name?: string
+  label?: string
+  dur?: number
+  open?: [number, number]
+  hours?: ([number, number] | null)[]
+  timed?: boolean
+  best?: [number, number]
+  role?: 'anchor'
+  group?: PlaceGroup
+  /** Provenance can differ per experience — the curator has shot the
+   * courtyard for years without ever going inside. */
+  src?: Source
+  visits?: number
+  last?: string
+  note?: string
+}
+
 /** A date-specific override of a place's hours. Exactly one of `closed`/`open`. */
 export interface PlaceException {
   /** ISO date, e.g. '2026-07-13'. */
@@ -54,6 +78,8 @@ export interface Place {
   exceptions?: PlaceException[]
   /** Consumes an entire day (Versailles) — never a normal candidate. */
   dayTrip?: boolean
+  /** Schedulable variants; see Experience. */
+  experiences?: Experience[]
 }
 
 export interface StartLoc {

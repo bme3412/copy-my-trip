@@ -2,7 +2,7 @@
  * Usage: npm run diag [-- presetId [dayCount]] (defaults: first-time, 4) */
 import { CITIES } from '../src/cities'
 import { generatePlan, PLAN_PRESETS } from '../src/lib/plan-presets'
-import { dayWeekday, fmt, stayLoc } from '../src/lib/planner'
+import { dayWeekday, fmt, stayLoc, stopPlace } from '../src/lib/planner'
 
 const city = CITIES.paris
 const presetId = process.argv[2] ?? 'first-time'
@@ -22,8 +22,8 @@ plan.days.slice(0, dayCount).forEach((day, d) => {
   const wd = dayWeekday(ARRIVING, d)
   console.log(`\n═══ DAY ${d + 1} · ${wd !== undefined ? WD[wd] : '?'} ═══  ${plan.purposes[d]}`)
   for (const s of day.committed) {
-    const p = placeOf(s.id)
-    const flags = [p?.role === 'anchor' ? 'ANCHOR' : '', p?.timed ? 'timed' : ''].filter(Boolean).join(' ')
+    const p = stopPlace(city, s)
+    const flags = [p?.role === 'anchor' ? 'ANCHOR' : '', p?.timed ? 'timed' : '', s.experienceId ? `exp:${s.experienceId}` : ''].filter(Boolean).join(' ')
     console.log(
       `  ${fmt(s.timeIn)}–${fmt(s.timeIn + s.dur)}  ${s.name}  [${s.group}${s.meal ? '/' + s.meal : ''}] (${p?.hood ?? '?'})  ← ${s.travelMin}m ${s.travelMode}${flags ? '  · ' + flags : ''}`,
     )

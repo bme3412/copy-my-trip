@@ -51,6 +51,31 @@ function validateCity(cid: string, city: City) {
       check(`${t}: hours entries are null or hour tuples`, p.hours.every((h) => h === null || isHourTuple(h)), JSON.stringify(p.hours))
       check(`${t}: open at least one weekday`, p.hours.some((h) => h !== null))
     }
+    if (p.experiences !== undefined) {
+      check(`${t}: experiences non-empty`, p.experiences.length > 0)
+      const eids = p.experiences.map((e) => e.id)
+      check(`${t}: experience ids unique`, new Set(eids).size === eids.length)
+      for (const e of p.experiences) {
+        const et = `${t} experience ${e.id}`
+        check(`${et}: id non-empty`, typeof e.id === 'string' && e.id.length > 0)
+        if (e.dur !== undefined) check(`${et}: duration positive`, Number.isFinite(e.dur) && e.dur > 0)
+        if (e.open !== undefined) check(`${et}: open tuple`, isHourTuple(e.open), JSON.stringify(e.open))
+        if (e.best !== undefined) check(`${et}: best tuple`, isHourTuple(e.best), JSON.stringify(e.best))
+        if (e.hours !== undefined) {
+          check(`${et}: hours has 7 weekday entries`, e.hours.length === 7)
+          check(`${et}: hours entries valid`, e.hours.every((h) => h === null || isHourTuple(h)))
+          check(`${et}: open at least one weekday`, e.hours.some((h) => h !== null))
+        }
+        if (e.src !== undefined) check(`${et}: src valid`, SOURCES.includes(e.src))
+        if (e.role !== undefined) check(`${et}: role is 'anchor'`, e.role === 'anchor')
+        if (e.group !== undefined) check(`${et}: group valid`, GROUPS.includes(e.group))
+        // Effective provenance must stay honest per variant.
+        const src = e.src ?? p.src
+        const visits = e.visits ?? p.visits
+        const last = e.last ?? p.last
+        if (src === 'verified') check(`${et}: verified ⇒ visits ≥ 1 and a last-visit date`, visits >= 1 && last.length > 0)
+      }
+    }
     if (p.exceptions !== undefined) {
       const dates = p.exceptions.map((e) => e.date)
       check(`${t}: exception dates unique`, new Set(dates).size === dates.length)

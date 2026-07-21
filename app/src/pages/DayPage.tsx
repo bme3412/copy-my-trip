@@ -5,6 +5,7 @@ import { FlowStepper } from '../components/FlowStepper'
 import { Page } from '../components/Layout'
 import { CheckIcon } from '../components/icons'
 import { builtDayStops, builtDayVerifiedLabel } from '../lib/built-day'
+import { stopPlace } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
 
@@ -39,7 +40,7 @@ export function DayPage() {
   const verifiedLabel = isBuilt ? builtDayVerifiedLabel(built) : (curated?.verifiedLabel ?? 'nothing planned yet')
   const purpose = isBuilt ? trip.dayPurposes?.[num - 1] : undefined
   const timedNames = isBuilt
-    ? built.committed.filter((c) => city.places.find((p) => p.id === c.id)?.timed).map((c) => c.name)
+    ? built.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => c.name)
     : []
 
   const setLeafDir = (target: number) => {

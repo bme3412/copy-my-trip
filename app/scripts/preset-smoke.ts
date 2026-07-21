@@ -1,7 +1,7 @@
 /** Engine quality invariants — regression guards for the recommendation engine. */
 import { CITIES } from '../src/cities'
 import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../src/lib/plan-presets'
-import { blankDay, buildCandidates, dayDate, dayWeekday, effectiveHours, stayLoc } from '../src/lib/planner'
+import { blankDay, buildCandidates, dayDate, dayWeekday, effectiveHours, placeVariants, stayLoc, stopPlace } from '../src/lib/planner'
 import type { City } from '../src/cities/types'
 
 const city = CITIES.paris
@@ -32,10 +32,10 @@ function checkDays(tag: string, plan: GeneratedPlan, dayCount: number) {
     const late = d.committed.filter((c) => c.timeIn + c.dur > 22 * 60)
     check(`${day}: home by 22:00`, late.length === 0, late.map((c) => c.name).join(', '))
 
-    const anchors = d.committed.filter((c) => placeOf(c.id)?.role === 'anchor').length
+    const anchors = d.committed.filter((c) => stopPlace(city, c)?.role === 'anchor').length
     check(`${day}: ≤1 anchor`, anchors <= 1, `${anchors}`)
 
-    const timed = d.committed.filter((c) => placeOf(c.id)?.timed).length
+    const timed = d.committed.filter((c) => stopPlace(city, c)?.timed).length
     check(`${day}: ≤2 timed`, timed <= 2, `${timed}`)
 
     const longLegs = d.committed.filter((c, j) => j > 0 && c.travelMode === 'metro' && c.travelMin >= 20).length
@@ -43,7 +43,7 @@ function checkDays(tag: string, plan: GeneratedPlan, dayCount: number) {
 
     const date = dayDate(ARRIVING, i)
     const closed = d.committed.filter((c) => {
-      const p = placeOf(c.id)
+      const p = stopPlace(city, c)
       return p && effectiveHours(p, date, wd) === null
     })
     check(`${day}: nothing visited on its closing day`, closed.length === 0, closed.map((c) => c.name).join(', '))
@@ -52,7 +52,7 @@ function checkDays(tag: string, plan: GeneratedPlan, dayCount: number) {
     check(`${day}: no lunch before 11:00`, earlyLunch.length === 0, earlyLunch.map((c) => c.name).join(', '))
 
     const offWindow = d.committed.filter((c) => {
-      const best = placeOf(c.id)?.best
+      const best = stopPlace(city, c)?.best
       if (!best) return false
       const h = c.timeIn / 60
       return h < best[0] - 0.5 || h > best[1] + 0.5
@@ -76,11 +76,11 @@ const seven = gen('first-time', 7)
 checkDays('7-day', seven, 7)
 check('7-day: day 5 contains Orsay', seven.days[4].committed.some((c) => c.id === 'orsay'), seven.days[4].committed.map((c) => c.id).join(','))
 check('7-day: day 6 is the Versailles day-trip', seven.days[5].committed.some((c) => c.id === 'versailles'))
-check('7-day: day 7 is a small buffer day', seven.days[6].committed.length <= 4 && !seven.days[6].committed.some((c) => placeOf(c.id)?.role === 'anchor'))
+check('7-day: day 7 is a small buffer day', seven.days[6].committed.length <= 4 && !seven.days[6].committed.some((c) => stopPlace(city, c)?.role === 'anchor'))
 check('7-day: purposes present', seven.purposes.slice(0, 7).every((p) => p.length > 0))
 
 // ── Operating rules v2: weekday hours + date exceptions ──
-const louvre = placeOf('louvremus')!
+const louvre = placeVariants(placeOf('louvre')!).find((v) => v.experienceId === 'interior')!
 const orsay = placeOf('orsay')!
 // 2026-09-16 is a Wednesday; -09-17 a Thursday; -09-15 a Tuesday; -09-14 a Monday.
 check('hours: Louvre closed Tuesday', effectiveHours(louvre, '2026-09-15', 2) === null)
@@ -102,14 +102,18 @@ check('exceptions: one-off closure beats a nocturne weekday', effectiveHours(tes
 check('exceptions: one-off late night beats normal hours', effectiveHours(testEx, '2026-09-17', 4)?.[1] === 22)
 check('exceptions: other dates unaffected', effectiveHours(testEx, '2026-09-18', 5)?.[1] === 21.75)
 
-// The nocturne is schedulable: with the pool narrowed to the Louvre, a
-// 17:30 start passes the hard filters on Wednesday and fails them on Thursday.
+// The nocturne is schedulable: in a city whose Louvre offers only the interior,
+// a 17:30 start passes the hard filters on Wednesday and fails them on Thursday.
 const wedEvening = { ...blankDay(city, STAY), clock: 17.5 * 60 }
-const allButLouvre = new Set(city.places.filter((p) => p.id !== 'louvremus').map((p) => p.id))
-const wedCands = buildCandidates(city, wedEvening, 'balanced', allButLouvre, { weekday: 3, date: '2026-09-16' })
-check('hours: Louvre evening visit feasible on nocturne Wednesday', wedCands.some((c) => c.p.id === 'louvremus'))
-const thuCands = buildCandidates(city, wedEvening, 'balanced', allButLouvre, { weekday: 4, date: '2026-09-17' })
-check('hours: same evening visit infeasible on a normal Thursday', !thuCands.some((c) => c.p.id === 'louvremus'))
+const interiorOnly: City = {
+  ...city,
+  places: city.places.map((p) => (p.id === 'louvre' ? { ...p, experiences: p.experiences?.filter((e) => e.id === 'interior') } : p)),
+}
+const allButLouvre = new Set(city.places.filter((p) => p.id !== 'louvre').map((p) => p.id))
+const wedCands = buildCandidates(interiorOnly, wedEvening, 'balanced', allButLouvre, { weekday: 3, date: '2026-09-16' })
+check('hours: Louvre-interior evening visit feasible on nocturne Wednesday', wedCands.some((c) => c.p.id === 'louvre' && c.p.experienceId === 'interior'))
+const thuCands = buildCandidates(interiorOnly, wedEvening, 'balanced', allButLouvre, { weekday: 4, date: '2026-09-17' })
+check('hours: same evening visit infeasible on a normal Thursday', !thuCands.some((c) => c.p.id === 'louvre'))
 
 // Generation-level: an exception on one trip date removes the place that day only.
 // Trip 2026-09-12 (Sat): day 3 is Monday 09-14, where the baseline schedules
@@ -124,5 +128,29 @@ const onDate = (plan: GeneratedPlan, id: string) =>
   plan.days.filter((_, i) => dayDate(ARRIVING, i) === '2026-09-14').some((d) => d.committed.some((c) => c.id === id))
 check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'invalides'))
 check('exceptions: baseline actually schedules it that day (test is live)', onDate(basePlan, 'invalides'))
+
+// ── Experiences: embedded variants, place-level dedup ──
+check('experiences: the two Louvre records are one place', !placeOf('louvremus') && placeOf('louvre')?.experiences?.length === 2)
+check('experiences: variants inherit parent fields', louvre.hood === placeOf('louvre')!.hood && louvre.lat === placeOf('louvre')!.lat)
+check('experiences: interior carries its own provenance', louvre.src === 'web' && placeOf('louvre')!.src === 'verified')
+
+// The Louvre day seeds the interior experience specifically.
+const louvreStops = seven.days.flatMap((d) => d.committed.filter((c) => c.id === 'louvre'))
+check('experiences: the trip visits the Louvre exactly once', louvreStops.length === 1, `${louvreStops.length}`)
+check('experiences: the seeded visit is the interior variant', louvreStops[0]?.experienceId === 'interior')
+check('experiences: committed stop carries the variant name', louvreStops[0]?.name === 'The Louvre, inside')
+
+// Visited is place-level: once any variant is committed, no variant returns.
+const afterLouvre = buildCandidates(city, blankDay(city, STAY), 'balanced', new Set(['louvre']), { weekday: 3, date: '2026-09-16' })
+check('experiences: visited place blocks all its variants', !afterLouvre.some((c) => c.p.id === 'louvre'))
+
+// Candidate lists never offer two variants of one place.
+const openCands = buildCandidates(city, blankDay(city, STAY), 'balanced', new Set(), { weekday: 3, date: '2026-09-16' })
+const candIds = openCands.map((c) => c.p.id)
+check('experiences: one variant per place in candidates', new Set(candIds).size === candIds.length, candIds.join(','))
+
+// From Trocadéro at golden hour, the verified view outscores the web summit.
+const eiffelVariants = placeVariants(placeOf('eiffel')!)
+check('experiences: Eiffel has view + summit variants', eiffelVariants.length === 2 && eiffelVariants.some((v) => v.experienceId === 'summit'))
 
 process.exit(fail ? 1 : 0)

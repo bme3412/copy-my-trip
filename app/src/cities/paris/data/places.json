@@ -507,6 +507,57 @@
     "themes": [
       "monumental",
       "artistic"
+    ],
+    "experiences": [
+      {
+        "id": "courtyard",
+        "name": "Cour Napoléon, Louvre",
+        "label": "Courtyard"
+      },
+      {
+        "id": "interior",
+        "name": "The Louvre, inside",
+        "label": "Museum · anchor",
+        "dur": 180,
+        "open": [
+          9,
+          18
+        ],
+        "hours": [
+          [
+            9,
+            18
+          ],
+          [
+            9,
+            18
+          ],
+          null,
+          [
+            9,
+            21.75
+          ],
+          [
+            9,
+            18
+          ],
+          [
+            9,
+            21.75
+          ],
+          [
+            9,
+            18
+          ]
+        ],
+        "timed": true,
+        "role": "anchor",
+        "group": "indoor",
+        "src": "web",
+        "visits": 0,
+        "last": "",
+        "note": "book the first entry"
+      }
     ]
   },
   {
@@ -632,57 +683,28 @@
     "themes": [
       "monumental",
       "afterdark"
-    ]
-  },
-  {
-    "id": "louvremus",
-    "name": "The Louvre, inside",
-    "area": "1er · book the first entry",
-    "hood": "Louvre & Opéra (1er–2e)",
-    "lat": 48.8606,
-    "lon": 2.3376,
-    "dur": 180,
-    "meal": null,
-    "open": [
-      9,
-      18
     ],
-    "src": "web",
-    "visits": 0,
-    "last": "",
-    "label": "Museum · anchor",
-    "group": "indoor",
-    "role": "anchor",
-    "themes": [
-      "artistic"
-    ],
-    "timed": true,
-    "hours": [
-      [
-        9,
-        18
-      ],
-      [
-        9,
-        18
-      ],
-      null,
-      [
-        9,
-        21.75
-      ],
-      [
-        9,
-        18
-      ],
-      [
-        9,
-        21.75
-      ],
-      [
-        9,
-        18
-      ]
+    "experiences": [
+      {
+        "id": "trocadero",
+        "name": "Eiffel Tower, from Trocadéro",
+        "label": "The tower"
+      },
+      {
+        "id": "summit",
+        "name": "Eiffel Tower, the summit",
+        "label": "The tower · summit",
+        "dur": 120,
+        "open": [
+          9.5,
+          23
+        ],
+        "timed": true,
+        "src": "web",
+        "visits": 0,
+        "last": "",
+        "note": "elevator slots release ~60 days out"
+      }
     ]
   },
   {
@@ -930,6 +952,20 @@
     "closedOn": [
       1
     ],
-    "dayTrip": true
+    "dayTrip": true,
+    "experiences": [
+      {
+        "id": "full-day",
+        "name": "Versailles",
+        "label": "Day trip"
+      },
+      {
+        "id": "palace-only",
+        "name": "Versailles, palace only",
+        "label": "Day trip · shorter",
+        "dur": 300,
+        "note": "palace and gardens, skip the Trianon"
+      }
+    ]
   }
 ]

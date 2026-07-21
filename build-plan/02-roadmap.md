@@ -67,7 +67,7 @@ Changes:
 `preset-smoke.ts` gains a date-exception test (a place with an exception on one trip
 date never appears that day, and appears on others).
 
-## Phase 3 — Experiences as embedded variants
+## Phase 3 — Experiences as embedded variants ✅ (shipped 2026-07-21)
 
 **Goal:** one place, several schedulable experiences ("masterpieces route" vs
 "courtyard at blue hour") — the reference docs' core upgrade, at archive scale.
