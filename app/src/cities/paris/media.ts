@@ -1,0 +1,226 @@
+import type { PlaceMedia } from '../types'
+
+export const PLACE_MEDIA: Record<string, PlaceMedia> = {
+  cafehugo: {
+    sub: 'Place des Vosges, 4e',
+    desc: 'Slow start under the arcades. The corner table I always end up at — order the *tartine* and watch the square wake up.',
+    plates: [
+      { id: 'cafe-1', w: 230, h: 168, caption: 'Café / arcade' },
+      { id: 'cafe-2', w: 150, h: 168, caption: 'The table' },
+      { id: 'cafe-3', w: 150, h: 168, caption: 'Coffee', video: '0:14' },
+    ],
+  },
+  vosges: {
+    sub: 'arcades & the central garden',
+    desc: "A full loop of the arcades, then the garden. My most-shot place in the city — I've never once walked through without stopping.",
+    plates: [
+      { id: 'vosges-1', w: 300, h: 180, caption: 'Arcade colonnade' },
+      { id: 'vosges-2', w: 150, h: 180, caption: 'Garden' },
+      { id: 'vosges-3', w: 150, h: 180, caption: 'Detail' },
+    ],
+  },
+  carnavalet: {
+    sub: 'history of Paris · free',
+    desc: "A gap in my own archive — I've walked past but never shot it. Added from current visitor notes because it fits the morning and the interest in the city's history.",
+    pin: '23 Rue de Sévigné',
+  },
+  marche: {
+    sub: 'oldest covered market, 3e',
+    desc: 'Lunch standing up. Go to the Moroccan stall at the back — the line looks worse than it is, moves in ten minutes.',
+    plates: [
+      { id: 'marche-1', w: 250, h: 172, caption: 'Market stalls' },
+      { id: 'marche-2', w: 180, h: 172, caption: 'The plate' },
+    ],
+  },
+  rosiers: {
+    sub: 'Le Marais, 4e',
+    desc: 'Falafel in hand, eaten leaning on whatever wall has sun — the line at the green storefront moves faster than it looks.',
+    plates: [
+      { id: 'rosiers-1', w: 250, h: 172, caption: 'The line' },
+      { id: 'rosiers-2', w: 180, h: 172, caption: 'Falafel' },
+    ],
+  },
+  mouffetard: {
+    sub: 'the market street, 5e',
+    desc: 'Buy lunch in pieces down the hill — cheese, bread, a paper cone of fruit — and eat it on the church steps at the bottom.',
+    plates: [
+      { id: 'd2-mouff-1', w: 250, h: 172, caption: 'Market street' },
+      { id: 'd2-mouff-2', w: 180, h: 172, caption: 'Cheese stall' },
+    ],
+  },
+  saintechapelle: {
+    sub: 'Île de la Cité · timed entry',
+    desc: "I've never gotten a shot here worth keeping — always too crowded. One clean reference image from the web; book the 2pm slot to beat the afternoon queue.",
+    webImage: { id: 'saintechapelle-1', caption: 'Stained glass (web reference)' },
+  },
+  berthillon: {
+    sub: "Île Saint-Louis · 31 Rue Saint-Louis-en-l'Île",
+    desc: "The one I've come back to most. Get the *salted-caramel* and eat it walking the quai — the whole island is the point.",
+    plates: [
+      { id: 'berthillon-1', w: 170, h: 190, caption: 'The cone' },
+      { id: 'berthillon-2', w: 150, h: 190, caption: 'Quai walk' },
+      { id: 'berthillon-3', w: 150, h: 190, caption: 'Island', video: '0:22' },
+    ],
+    prov: { range: '2015 – 2024', archive: '214 photos · 11 videos', walkNote: 'measured from EXIF gaps across 5 separate visits, not estimated' },
+  },
+  tournelle: {
+    sub: 'back toward Notre-Dame',
+    desc: 'Stand on the bridge facing west about forty minutes before sunset — the light comes straight down the river. I have this shot from five different years.',
+    plates: [
+      { id: 'tournelle-1', w: 340, h: 190, caption: 'River at golden hour' },
+      { id: 'tournelle-2', w: 150, h: 190, caption: 'Same view, another year' },
+    ],
+  },
+  luxembourg: {
+    sub: 'grab a green chair by the pond',
+    desc: 'The chairs by the octagonal pond are the whole point — drag one to face the palace and stay longer than you planned.',
+    plates: [
+      { id: 'd2-lux-1', w: 300, h: 180, caption: 'The pond' },
+      { id: 'd2-lux-2', w: 150, h: 180, caption: 'Green chairs' },
+      { id: 'd2-lux-3', w: 150, h: 180, caption: 'Palace', video: '0:18' },
+    ],
+  },
+  shakespeare: {
+    sub: '37 Rue de la Bûcherie',
+    desc: 'Go upstairs to the reading room and actually sit down — the front is a scrum, the top floor is quiet.',
+    plates: [
+      { id: 'd2-shak-1', w: 200, h: 172, caption: 'Storefront' },
+      { id: 'd2-shak-2', w: 230, h: 172, caption: 'Reading room' },
+    ],
+  },
+  tenbelles: {
+    sub: '10 Rue de la Grange aux Belles',
+    desc: 'Flat white to go, then straight down to the water — this whole morning is meant to be walked with a cup in hand.',
+    plates: [
+      { id: 'd3-ten-1', w: 250, h: 168, caption: 'Coffee bar' },
+      { id: 'd3-ten-2', w: 170, h: 168, caption: 'Cup' },
+    ],
+  },
+  canal: {
+    sub: 'the iron footbridges, 10e',
+    desc: 'Cross every footbridge you come to — the arched green ones frame the water perfectly, and a lock or two usually opens mid-morning.',
+    plates: [
+      { id: 'd3-canal-1', w: 300, h: 180, caption: 'Footbridge' },
+      { id: 'd3-canal-2', w: 150, h: 180, caption: 'The water' },
+      { id: 'd3-canal-3', w: 150, h: 180, caption: 'A lock', video: '0:20' },
+    ],
+  },
+  sacre: {
+    sub: 'the steps, not the summit crowd',
+    desc: 'Outside my archive at its best — sit on the steps below the basilica facing out; the view down over the city beats the summit crowd.',
+    pin: 'Parvis du Sacré-Cœur, 18e',
+  },
+  pere: {
+    sub: 'enter at the Gambetta gate, walk down',
+    desc: 'Come in high and let gravity carry you downhill through the oldest section — the cobbled avenues under the planes are the reason to come, not the famous graves.',
+    plates: [
+      { id: 'd4-pere-1', w: 300, h: 180, caption: 'Cobbled avenue' },
+      { id: 'd4-pere-2', w: 150, h: 180, caption: 'Under the planes' },
+      { id: 'd4-pere-3', w: 150, h: 180, caption: 'A quiet row', video: '0:16' },
+    ],
+  },
+  aligre: {
+    sub: 'covered market + open stalls, 12e',
+    desc: 'Two markets in one — the rowdy open-air street and the calm covered hall behind it. Do the street first, coffee in the hall after.',
+    plates: [
+      { id: 'd4-aligre-1', w: 250, h: 168, caption: 'Open stalls' },
+      { id: 'd4-aligre-2', w: 170, h: 168, caption: 'Covered hall' },
+    ],
+  },
+  chezjanou: {
+    sub: 'Le Marais, 3e',
+    desc: 'Provençal dinner two streets off the square — book the early seating; the pastis list alone is worth the walk.',
+    plates: [
+      { id: 'janou-1', w: 250, h: 172, caption: 'Dining room' },
+      { id: 'janou-2', w: 180, h: 172, caption: 'The daube' },
+    ],
+  },
+  baronrouge: {
+    sub: 'standing wine bar, by Aligre',
+    desc: 'Never shot it — added from web notes. A glass and a plate of oysters at a barrel out front; cash is easiest.',
+    webImage: { id: 'd4-baron-1', caption: 'Wine bar (web reference)' },
+  },
+
+  // ── The icons — archive-only places from the media drop ──
+  notredame: {
+    sub: 'Île de la Cité · reopened',
+    desc: 'Go early — the parvis before nine is almost private. Inside, the stone is *pale again* since the reopening; I finally have interior shots worth keeping.',
+    plates: [
+      { id: 'nd-1', w: 300, h: 180, caption: 'From the bridge' },
+      { id: 'nd-2', w: 150, h: 180, caption: 'Inside, reopened' },
+      { id: 'nd-3', w: 150, h: 180, caption: 'The empty parvis', video: '0:14' },
+      { id: 'nd-4', w: 250, h: 180, caption: 'Mid-restoration, from the quai' },
+      { id: 'nd-5', w: 150, h: 180, caption: 'The chapel' },
+      { id: 'nd-6', w: 150, h: 180, caption: 'Under the rose window' },
+      { id: 'nd-7', w: 150, h: 180, caption: 'Boxing Day crowds' },
+    ],
+    prov: { range: '2019 – 2025', walkNote: 'shot across five visits, before and after the reopening' },
+  },
+  vertgalant: {
+    sub: 'the point of the Île de la Cité',
+    desc: 'Down the steps behind the Pont Neuf statue — the prow of the island, water on both sides. Face west and let the boats slide past.',
+    plates: [
+      { id: 'vg-1', w: 250, h: 172, caption: 'Looking west' },
+      { id: 'vg-2', w: 180, h: 172, caption: 'The point', video: '0:11' },
+    ],
+  },
+  pontdesarts: {
+    sub: 'the wooden footbridge',
+    desc: 'Come at dusk with something to drink and sit on the quai below — the Institut dome goes gold and there is always a busker mid-span.',
+    plates: [
+      { id: 'pda-1', w: 250, h: 172, caption: 'The quai, December' },
+      { id: 'pda-2', w: 180, h: 172, caption: 'Mid-span', video: '0:12' },
+    ],
+  },
+  louvre: {
+    sub: 'the pyramid, no ticket',
+    desc: "The courtyard is the visit — pyramid, Louis XIV on his horse, and the long façades. Save the galleries for a rainy day; the cour costs nothing.",
+    plates: [{ id: 'louvre-1', w: 340, h: 190, caption: 'The pyramid' }],
+  },
+  pompidou: {
+    sub: 'Beaubourg, mid-renovation',
+    desc: 'The inside-out building, currently wrapped for its long renovation — which is its own kind of honest: pipes on pipes. The plateau out front still earns the detour.',
+    plates: [
+      { id: 'pomp-1', w: 250, h: 172, caption: 'The escalators, wrapped' },
+      { id: 'pomp-2', w: 180, h: 172, caption: 'The plateau', video: '0:08' },
+    ],
+  },
+  stgermain: {
+    sub: 'Deux Magots & Le Bonaparte',
+    desc: 'One coffee, two terraces — pick whichever corner has sun. In December the whole crossroads strings itself in lights.',
+    plates: [
+      { id: 'sg-1', w: 250, h: 168, caption: 'The terrace' },
+      { id: 'sg-2', w: 170, h: 168, caption: 'Le Bonaparte' },
+      { id: 'sg-3', w: 150, h: 168, caption: 'December lights', video: '0:08' },
+    ],
+  },
+  alexiii: {
+    sub: 'the gold-winged bridge',
+    desc: 'Cross it at last light — the Grand Palais roof and the gilded horses catch fire, and the tower shows up small and silhouetted downstream.',
+    plates: [
+      { id: 'alexiii-1', w: 250, h: 172, caption: 'Grand Palais, sunset' },
+      { id: 'alexiii-2', w: 180, h: 172, caption: 'Toward the tower' },
+    ],
+  },
+  arc: {
+    sub: 'climb it — the view beats the tower’s',
+    desc: 'The rooftop is the best viewpoint in Paris *because the tower is in it*. Twelve avenues below, and the Champs running straight back down.',
+    plates: [
+      { id: 'arc-1', w: 250, h: 172, caption: 'Up the avenue' },
+      { id: 'arc-2', w: 180, h: 172, caption: 'From the top', video: '0:09' },
+    ],
+  },
+  eiffel: {
+    sub: 'Trocadéro, at the hour it goes gold',
+    desc: 'Skip the queue, keep the view: the Trocadéro terrace at dusk, then walk down through the gardens and stand under it when the lights come on.',
+    plates: [
+      { id: 'eiffel-1', w: 300, h: 180, caption: 'Lit, from Trocadéro' },
+      { id: 'eiffel-2', w: 150, h: 180, caption: 'The Olympic summer' },
+      { id: 'eiffel-3', w: 150, h: 180, caption: 'Underneath, at dusk' },
+      { id: 'eiffel-4', w: 250, h: 180, caption: 'From Concorde, last light' },
+      { id: 'eiffel-5', w: 150, h: 180, caption: 'From the water' },
+      { id: 'eiffel-6', w: 150, h: 180, caption: 'The rings, from below' },
+    ],
+    prov: { range: '2022 – 2024', walkNote: 'six visits — dusk is the reliable one' },
+  },
+}

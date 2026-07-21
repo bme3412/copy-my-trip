@@ -1,0 +1,408 @@
+/* ── Motion tokens — print metaphor: settle, draw, stamp. No springs. ── */
+:root {
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+  --ease-out: cubic-bezier(.2, .7, .3, 1);
+}
+
+@keyframes cmt-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cmt-draw-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes cmt-stamp {
+  from { opacity: 0; transform: scale(1.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cmt-fade-swap {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: none; }
+}
+
+.page-enter { animation: cmt-fade-up var(--dur-base) var(--ease-out); }
+/* Staggered card arrival — pair with an inline animation-delay; `both` keeps it hidden until its turn. */
+.deal-in { animation: cmt-fade-up var(--dur-base) var(--ease-out) both; }
+/* Value change — key the element on the value so the swap re-runs. */
+.fade-swap { animation: cmt-fade-swap var(--dur-fast) var(--ease-out); }
+
+
+/* ── Builder choice sequence: the chosen path lifts toward the timeline, the others close. ── */
+@keyframes cmt-choose { to { opacity: 0; transform: translate(-24px, -8px) scale(.98); } }
+@keyframes cmt-reject { to { opacity: 0; transform: translateY(12px); } }
+.cand-chosen-exit { animation: cmt-choose 300ms var(--ease-out) forwards; }
+.cand-rejected-exit { animation: cmt-reject 300ms var(--ease-out) forwards; filter: grayscale(1); }
+.commit-enter { animation: cmt-fade-up var(--dur-base) var(--ease-out); }
+.dot-stamp { animation: cmt-stamp var(--dur-base) var(--ease-out); }
+
+/* Segmented day meter — each choice deposits a block; travel shows as track gaps. */
+.meter-seg { height: 100%; }
+.meter-seg-new { animation: cmt-draw-in var(--dur-slow) var(--ease-out); transform-origin: left; }
+
+/* ── Verified-only fold: web stops close like a shut page rather than vanishing. ── */
+.fold {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out), opacity var(--dur-slow) var(--ease-out);
+}
+.fold-closed { grid-template-rows: 0fr; opacity: 0; }
+.fold-inner { overflow: hidden; min-height: 0; }
+/* An open fold must not clip popovers (the date picker's calendar drops
+   beyond its bounds); hidden only matters while closed/animating shut. */
+.fold:not(.fold-closed) > .fold-inner { overflow: visible; }
+
+/* ── Scroll reveal: stops settle in; verified plates arrive layered (stagger via inline delay). ── */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.reveal.is-revealed { opacity: 1; transform: none; }
+/* Plates (as figures with captions): staggered arrival via --stagger on the
+   figure; smooth size/shadow for the click-to-pop-out on the plate itself. */
+.reveal .plate-fig {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  transition-delay: var(--stagger, 0s);
+}
+.reveal.is-revealed .plate-fig { opacity: 1; transform: none; }
+.plate-item {
+  transition:
+    width var(--dur-base) var(--ease-out),
+    height var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+/* Archival caption line under each photo: what it is · when it was shot. */
+.plate-cap {
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  margin-top: 5px;
+}
+.plate-cap .cap-date { font-variant-numeric: tabular-nums; }
+
+/* Deep galleries wrap into a second row of plates, like a contact-sheet spread. */
+.plate-row { flex-wrap: wrap; }
+
+/* Stop names are quiet entities — underline only on hover, linking into the archive. */
+.stop-name-link { text-decoration: none; }
+.stop-name-link:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--color-accent); }
+
+/* Inline time + sheet handle are mobile affordances; hidden at desk. */
+.stop-time-inline { display: none; }
+.prov-handle { display: none; }
+
+.panel-enter { animation: cmt-panel var(--dur-fast) var(--ease-out); }
+@keyframes cmt-panel { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+
+/* ── Full-bleed archive map: the map IS the page; the index floats over it. ── */
+.archive-bleed { position: relative; }
+.archive-map-area { position: relative; height: calc(100vh - 54px); min-height: 520px; }
+.archive-map-panel { position: absolute; inset: 0; }
+.archive-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--color-bg) 90%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-divider);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+}
+.archive-overlay .overlay-scroll { flex: 1; overflow-y: auto; padding: 0 22px 18px; }
+
+/* ── Archive map markers (Mapbox) — same ring language as the graph nodes.
+   Rings are always visible; names appear on hover (either side of the sync)
+   so the dense centre stays readable — the full list lives in the table. ── */
+.map-node { text-align: center; width: 130px; cursor: pointer; font-family: var(--font-body); }
+.map-node:hover, .map-node.gnode-hot, .map-node.gnode-pulse { z-index: 5; }
+.map-node .map-ring { display: block; margin: 0 auto; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255, 255, 255, .85); }
+.map-node .map-ring-v { width: 18px; height: 18px; border: 2.5px solid var(--color-accent); background: color-mix(in srgb, var(--color-accent-100) 92%, transparent); }
+.map-node .map-ring-w { width: 14px; height: 14px; border: 1.5px dashed var(--color-neutral-700); background: rgba(255, 255, 255, .75); }
+.map-node .map-name {
+  display: none; margin-top: 3px; font-size: 11.5px; line-height: 1.2;
+  color: var(--color-text);
+  background: rgba(248, 244, 244, .95);
+  padding: 2px 7px; border-radius: 3px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+.map-node .map-sub {
+  display: none; font-size: 10px; font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  background: rgba(248, 244, 244, .9);
+  width: max-content; margin: 2px auto 0; padding: 0 5px; border-radius: 3px;
+}
+.map-node:hover .map-name, .map-node.gnode-hot .map-name, .map-node.gnode-pulse .map-name { display: inline-block; }
+.map-node:hover .map-sub, .map-node.gnode-hot .map-sub, .map-node.gnode-pulse .map-sub { display: block; }
+
+/* Builder-map specifics: numbered committed stops, home base, candidate pins
+   (candidates keep their labels — there are only three). */
+.map-node .map-ring-num { display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 10px; font-weight: 600; color: var(--color-accent-800); }
+.map-node .map-ring-home { width: 13px; height: 13px; border: 2px solid #fff; background: var(--color-text); }
+.map-node .map-ring-cand { width: 18px; height: 18px; border: 2px dashed var(--color-accent-600); background: rgba(255, 255, 255, .85); }
+.map-cand .map-name { display: inline-block; }
+.map-cand:hover .map-ring-cand, .map-cand.gnode-hot .map-ring-cand { border-style: solid; background: var(--color-accent-100); }
+
+/* ── Archive ↔ days cross-linking ── */
+.gnode { cursor: pointer; }
+.gnode .gnode-ring { transition: box-shadow var(--dur-fast) var(--ease-out); }
+.gnode-hot .gnode-ring { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 25%, transparent); }
+.gnode-pulse .gnode-ring { animation: cmt-pulse 1.1s var(--ease-out) 2; }
+@keyframes cmt-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent); }
+  70% { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.stop-flash { animation: cmt-flash 1.3s var(--ease-out); }
+@keyframes cmt-flash {
+  0% { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+  100% { background: transparent; }
+}
+
+/* Real photos develop like prints when they land. */
+.develop { animation: cmt-develop var(--dur-slow) var(--ease-out); }
+@keyframes cmt-develop {
+  from { filter: sepia(.5) contrast(.85) brightness(1.05); opacity: 0; }
+  to { filter: none; opacity: 1; }
+}
+
+/* ── Layout shell (media queries override; inline styles can't) ── */
+.page-shell { max-width: 1200px; margin: 0 auto; padding: 44px 32px 96px; }
+.web-frame { max-width: 100%; }
+.prov-scrim { display: none; }
+
+/* ── Mobile — per the design doc's phone mockups (§07): single column, inline
+   times, line–icon–line transits, horizontal plate scroll, bottom-sheet provenance. ── */
+@media (max-width: 880px) {
+  .page-shell { padding: 28px 18px 80px; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding-top: 8px !important; }
+  .hero-photo { height: 440px !important; }
+  .nav { overflow-x: auto; white-space: nowrap; }
+
+  .plans-grid, .hood-grid, .builder-grid { grid-template-columns: 1fr !important; }
+  .hood-grid .plate { width: 100%; }
+  /* Full-bleed map stacks on phones: map band, then the list in flow. */
+  .archive-map-area { height: 55vh; min-height: 380px; }
+  .archive-overlay { position: static; width: auto; margin: 0; border-radius: 0; border-left: none; border-right: none; box-shadow: none; }
+  .archive-overlay .overlay-scroll { overflow: visible; }
+
+  /* Timeline: drop the rail, time moves inline with the name. */
+  .stop-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .stop-time-col { display: none; }
+  .stop-time-inline { display: inline !important; }
+  .stop-body { border-left: none !important; padding-left: 0 !important; }
+  .stop-dot { display: none; }
+
+  /* Transit becomes the centered line–icon–line divider from the mockup. */
+  .transit-cell { border-left: none !important; padding: 0 !important; margin: -8px 0 24px !important; display: flex; align-items: center; gap: 10px; }
+  .transit-cell::before, .transit-cell::after { content: ''; flex: 1; height: 1px; background: var(--color-accent-200); }
+  .transit-cell .cmt-chip { border: none; padding: 0; background: transparent !important; }
+
+  /* Plates keep their sizes and scroll sideways (no wrapping on phones). */
+  .plate-row { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; padding-bottom: 6px; }
+
+  /* Provenance panel → bottom sheet with scrim and grab handle. */
+  .prov-scrim { display: block; position: fixed; inset: 0; z-index: 30; background: color-mix(in srgb, #191816 42%, transparent); }
+  .prov-panel {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    width: auto !important; border-radius: 20px 20px 0 0 !important;
+    padding-bottom: 34px !important; box-shadow: var(--shadow-lg);
+    animation: cmt-sheet var(--dur-base) var(--ease-out) !important;
+  }
+  .prov-handle { display: block; }
+}
+@keyframes cmt-sheet { from { transform: translateY(100%); } }
+.hr-draw { animation: cmt-draw-in var(--dur-slow) var(--ease-out); transform-origin: left; }
+
+/* ── View transitions — content settles like laid paper; nav stays put;
+   day timelines leaf; the hero plate is pinned. ── */
+.site-nav { view-transition-name: site-nav; }
+@keyframes cmt-vt-out {
+  to { opacity: 0; }
+}
+@keyframes cmt-vt-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+::view-transition-old(root) {
+  animation: cmt-vt-out var(--dur-fast) var(--ease-out) both;
+}
+::view-transition-new(root) {
+  animation: cmt-vt-in var(--dur-slow) var(--ease-out) both;
+}
+/* The title morph keeps pace with the settle. */
+::view-transition-group(page-title) {
+  animation-duration: var(--dur-base);
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(day-timeline),
+::view-transition-new(day-timeline) {
+  animation-duration: var(--dur-base);
+  animation-timing-function: var(--ease-out);
+}
+/* The hero plate morphs frame between pages while the two photos crossfade —
+   the frame carries, the picture changes inside it. */
+@keyframes cmt-vt-fade-in { from { opacity: 0; } }
+::view-transition-group(hero-photo) {
+  animation-duration: var(--dur-slow);
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(hero-photo) {
+  animation: cmt-vt-out var(--dur-base) var(--ease-out) both;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+::view-transition-new(hero-photo) {
+  animation: cmt-vt-fade-in var(--dur-slow) var(--ease-out) both;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+@keyframes cmt-leaf-out-left { to { opacity: 0; transform: translateX(-32px); } }
+@keyframes cmt-leaf-in-right { from { opacity: 0; transform: translateX(32px); } }
+@keyframes cmt-leaf-out-right { to { opacity: 0; transform: translateX(32px); } }
+@keyframes cmt-leaf-in-left { from { opacity: 0; transform: translateX(-32px); } }
+html[data-nav-dir='fwd'] ::view-transition-old(day-timeline) { animation-name: cmt-leaf-out-left; }
+html[data-nav-dir='fwd'] ::view-transition-new(day-timeline) { animation-name: cmt-leaf-in-right; }
+html[data-nav-dir='back'] ::view-transition-old(day-timeline) { animation-name: cmt-leaf-out-right; }
+html[data-nav-dir='back'] ::view-transition-new(day-timeline) { animation-name: cmt-leaf-in-left; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  ::view-transition-old(root), ::view-transition-new(root),
+  ::view-transition-old(day-timeline), ::view-transition-new(day-timeline),
+  ::view-transition-group(hero-photo) {
+    animation: none !important;
+  }
+}
+
+/* The design system's .plate applies an "archival grade" (sepia + desaturate)
+   that washes out real photographs — keep the mat and hairline, drop the fade. */
+.plate { filter: none; }
+
+/* Page-level styles from the design doc (Copy My Trip.dc.html <helmet> block). */
+.cmt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 4px 11px;
+  border-radius: 2px;
+  border: 1px solid var(--color-divider);
+  cursor: default;
+}
+.cmt-slot { position: absolute; inset: 0; }
+a { color: var(--color-accent); }
+a:hover { color: var(--color-accent-700); }
+a.btn { text-decoration: none; }
+
+/* ── Compose wizard: an answered stage folds shut into a one-line summary
+   the next stage rises beneath. Click a summary to reopen and edit. ── */
+.wiz-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--color-divider);
+  padding: 9px 0;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+.wiz-summary .wiz-label {
+  font-family: var(--font-heading);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  min-width: 64px;
+}
+.wiz-summary .wiz-edit {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.wiz-summary:hover .wiz-edit { opacity: 1; }
+
+/* ── Date-range calendar — no spinners, no segmented fields. ── */
+.cal {
+  width: 350px;
+  max-width: 100%;
+  border: 1px solid var(--color-divider);
+  border-radius: 6px;
+  padding: 12px 14px 14px;
+}
+/* Popover form: drops under the fields, on paper, above everything nearby. */
+.cal-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 30;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-md);
+}
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.cal-head .btn-icon { font-size: 20px; line-height: 1; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.cal-dow {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: color-mix(in srgb, var(--color-text) 45%, transparent);
+  padding: 4px 0 6px;
+}
+.cal-day {
+  height: 38px;
+  border: 0;
+  background: none;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.cal-day:hover:not(:disabled) { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.cal-day:disabled { opacity: .3; cursor: default; }
+.cal-day.cal-inrange { background: var(--color-accent-100); }
+.cal-day.cal-endpoint {
+  background: var(--color-accent-100);
+  box-shadow: inset 0 0 0 1.5px var(--color-accent);
+  color: var(--color-accent-800);
+  font-weight: 600;
+}
+
+/* Button that reads as an inline link. */
+.linklike {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.linklike:hover { color: var(--color-accent-700); }

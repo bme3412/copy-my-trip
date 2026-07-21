@@ -1,0 +1,28 @@
+{
+  "name": "copy-my-trip",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "smoke": "esbuild scripts/route-smoke.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=node_modules/.tmp/route-smoke.cjs --log-level=error && node node_modules/.tmp/route-smoke.cjs",
+    "smoke:plans": "esbuild scripts/preset-smoke.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/preset-smoke.cjs --log-level=error && node node_modules/.tmp/preset-smoke.cjs",
+    "media:slots": "esbuild scripts/list-slots.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/list-slots.cjs --log-level=error && node node_modules/.tmp/list-slots.cjs",
+    "diag": "esbuild scripts/diag.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/diag.cjs --log-level=error && node node_modules/.tmp/diag.cjs"
+  },
+  "dependencies": {
+    "mapbox-gl": "^3.26.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.0"
+  }
+}

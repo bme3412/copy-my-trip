@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/classical-ffed69ed-0a5d-494e-ad20-db55ed454d95/styles.css">
+  <script src="_ds/classical-ffed69ed-0a5d-494e-ad20-db55ed454d95/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    .cmt-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:12px;padding:4px 11px;border-radius:2px;border:1px solid var(--color-divider);cursor:default}
+    .cmt-slot{position:absolute;inset:0}
+    a{color:var(--color-accent)}a:hover{color:var(--color-accent-700)}
+  </style>
+</helmet>
+
+<div style="min-width:1440px;padding:64px 72px 96px;display:flex;flex-direction:column;gap:80px;background:var(--color-bg)">
+
+  <!-- ══ COLOPHON HEADER ══ -->
+  <div style="background:#191816;color:#efe9df;border-radius:8px;padding:64px 72px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:40px;top:-40px;font-family:var(--font-heading);font-size:340px;line-height:1;color:color-mix(in srgb,var(--color-accent) 16%,transparent);font-variant-numeric:tabular-nums;pointer-events:none">01</div>
+    <div style="position:relative;max-width:760px">
+      <div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:22px">Copy My Trip &nbsp;·&nbsp; A verified archive, not a diary</div>
+      <h1 style="font-size:62px;font-weight:400;line-height:1.05;letter-spacing:-.02em;color:#f4efe6;margin:0 0 24px">These are the places I keep going back to in&nbsp;Paris.</h1>
+      <p style="font-family:var(--font-body);font-size:19px;line-height:1.6;color:color-mix(in srgb,#efe9df 82%,transparent);max-width:640px;margin:0">Not one trip's diary — every photo and video I've ever shot, clustered by <em>where it is</em> rather than <em>when I went</em>. A running record of a place, and a plan built only on ground I've actually walked.</p>
+      <div style="display:flex;gap:28px;margin-top:36px;font-family:var(--font-body);font-size:13px;color:color-mix(in srgb,#efe9df 60%,transparent)">
+        <span>Paris</span><span style="color:var(--color-accent-300)">·</span>
+        <span>Single-source archive</span><span style="color:var(--color-accent-300)">·</span>
+        <span style="font-variant-numeric:tabular-nums">2015 – 2024</span><span style="color:var(--color-accent-300)">·</span>
+        <span style="font-variant-numeric:tabular-nums">1,940 photos & 210 videos across 34 places</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 01 · COMPOSE ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">01</span>
+      <h3 style="margin:0;font-size:27px">Compose the days</h3>
+      <span class="text-muted" style="font-size:14px">A new traveler gives me their dates, pace and interests.</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:start">
+      <div style="padding-top:10px">
+        <p style="font-family:var(--font-body);font-size:15px;line-height:1.7">The agent doesn't hand back one of my old itineraries. It reads the <em>place-graph</em> — my clustered archive — and assembles a fresh day-by-day plan for <em>their</em> constraints.</p>
+        <hr class="hr">
+        <p style="font-family:var(--font-body);font-size:14px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Wherever my archive is deep, the day leans on it. Where it goes quiet, the agent reaches into current web notes to fill the gap — and marks the seam quietly, in the texture of the images rather than a badge.</p>
+      </div>
+
+      <!-- desktop screen frame -->
+      <div style="border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+        <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+          <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+          <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / compose</div>
+        </div>
+        <div style="padding:44px 52px;max-width:720px">
+          <div style="font-family:var(--font-heading);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent)">Plan a visit</div>
+          <h4 style="font-size:26px;margin:8px 0 30px;font-weight:400">Tell me about the trip</h4>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:26px">
+            <div class="field"><label>Arriving</label><div class="input" style="display:flex;align-items:center;justify-content:space-between;color:var(--color-text)">Fri · Sep 12<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="opacity:.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div></div>
+            <div class="field"><label>Departing</label><div class="input" style="display:flex;align-items:center;justify-content:space-between;color:var(--color-text)">Tue · Sep 16<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="opacity:.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div></div>
+          </div>
+
+          <div class="field" style="margin-bottom:26px">
+            <label>Pace</label>
+            <div class="seg" role="group">
+              <label class="seg-opt"><input type="radio" name="pace">Gentle</label>
+              <label class="seg-opt"><input type="radio" name="pace" checked>Balanced</label>
+              <label class="seg-opt"><input type="radio" name="pace">Full</label>
+            </div>
+          </div>
+
+          <div class="field" style="margin-bottom:34px">
+            <label>Interests</label>
+            <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:4px">
+              <span class="tag tag-outline">Food &amp; markets</span>
+              <span class="tag tag-outline">Quiet corners</span>
+              <span class="tag tag-outline">Riverside</span>
+              <span class="tag tag-neutral">Architecture</span>
+              <span class="tag tag-neutral">Museums</span>
+              <span class="tag tag-neutral">Nightlife</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" style="font-size:14px;padding:12px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg>
+            Compose the days
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 · CHOOSE A PLAN ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">02</span>
+      <h3 style="margin:0;font-size:27px">Choose a plan</h3>
+      <span class="text-muted" style="font-size:14px">The agent proposes a few — same dates, different trade-offs between verified depth and breadth.</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+      <!-- variant A selected -->
+      <div class="card elev-sm" style="border-color:var(--color-accent);border-width:1.5px;padding:26px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <span class="card-kicker">Recommended</span>
+          <span class="tag tag-accent" style="display:inline-flex;align-items:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Selected</span>
+        </div>
+        <div class="card-title" style="font-size:22px">First time in Paris</div>
+        <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">The confident first visit — the essentials, but only the ones I keep coming back to, at an easy pace with short hops between them.</p>
+        <div style="margin:6px 0 4px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-variant-numeric:tabular-nums;margin-bottom:6px"><span class="text-muted">Personally verified</span><span style="color:var(--color-accent-700)">6 of 8 stops</span></div>
+          <div style="height:4px;border-radius:2px;background:var(--color-neutral-300);overflow:hidden"><div style="width:75%;height:100%;background:var(--color-accent)"></div></div>
+        </div>
+        <div style="font-family:var(--font-body);font-size:12.5px;color:color-mix(in srgb,var(--color-text) 60%,transparent);line-height:1.8">Place des Vosges · Marché des Enfants Rouges · Berthillon<br>4 days · 3–4 stops each</div>
+        <button class="btn btn-primary btn-block">View these days</button>
+      </div>
+
+      <!-- variant B -->
+      <div class="card" style="padding:26px">
+        <span class="card-kicker">More ground</span>
+        <div class="card-title" style="font-size:22px">Broader mix</div>
+        <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">Covers more of the city. Fuller days, more stops I've never shot — filled from current web notes.</p>
+        <div style="margin:6px 0 4px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-variant-numeric:tabular-nums;margin-bottom:6px"><span class="text-muted">Personally verified</span><span style="color:var(--color-text)">4 of 9 stops</span></div>
+          <div style="height:4px;border-radius:2px;background:var(--color-neutral-300);overflow:hidden"><div style="width:44%;height:100%;background:var(--color-neutral-500)"></div></div>
+        </div>
+        <div style="font-family:var(--font-body);font-size:12.5px;color:color-mix(in srgb,var(--color-text) 60%,transparent);line-height:1.8">Louvre · Sainte-Chapelle · Montmartre · Le Marais<br>4 days · 4–5 stops each</div>
+        <button class="btn btn-secondary btn-block">View these days</button>
+      </div>
+
+      <!-- variant C -->
+      <div class="card" style="padding:26px">
+        <span class="card-kicker">Slower</span>
+        <div class="card-title" style="font-size:22px">Gentler pace</div>
+        <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 72%,transparent);margin:0">Fewer stops, longer sits. Almost entirely from the archive — the unhurried version of my own days.</p>
+        <div style="margin:6px 0 4px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-variant-numeric:tabular-nums;margin-bottom:6px"><span class="text-muted">Personally verified</span><span style="color:var(--color-accent-700)">5 of 6 stops</span></div>
+          <div style="height:4px;border-radius:2px;background:var(--color-neutral-300);overflow:hidden"><div style="width:83%;height:100%;background:var(--color-accent)"></div></div>
+        </div>
+        <div style="font-family:var(--font-body);font-size:12.5px;color:color-mix(in srgb,var(--color-text) 60%,transparent);line-height:1.8">Jardin du Luxembourg · Île Saint-Louis · Canal Saint-Martin<br>4 days · 2–3 stops each</div>
+        <button class="btn btn-secondary btn-block">View these days</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 · THE ADAPTIVE BUILDER (CENTERPIECE) ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">03</span>
+      <h3 style="margin:0;font-size:27px">Build the day, stop by stop</h3>
+      <span class="text-muted" style="font-size:14px">Sequential &amp; adaptive: pick one of a few next moves; where it is and how long it takes reshape everything after it. Meals and getting from A to B are constraints, not afterthoughts.</span>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / build</div>
+      </div>
+
+      <div style="padding:36px 48px 48px">
+        <!-- header: day + constraint chips -->
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div>
+            <div style="display:flex;gap:20px;font-family:var(--font-heading);font-size:15px;margin-bottom:12px">
+              <sc-for list="{{ dayTabs }}" as="tab" hint-placeholder-count="4">
+                <sc-if value="{{ tab.active }}"><span style="color:var(--color-accent);border-bottom:2px solid var(--color-accent);padding-bottom:6px;cursor:pointer" onClick="{{ tab.onSet }}">{{ tab.label }}</span></sc-if>
+                <sc-if value="{{ tab.inactive }}"><span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px;cursor:pointer" onClick="{{ tab.onSet }}">{{ tab.label }}</span></sc-if>
+              </sc-for>
+            </div>
+            <h2 style="font-size:30px;font-weight:400;margin:0">Your flat, Le Marais · 9:00 start</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+              <span class="tag tag-outline" style="display:inline-flex;align-items:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Now {{ clock }}</span>
+              <sc-for list="{{ mealChips }}" as="mc" hint-placeholder-count="2"><span class="{{ mc.klass }}">{{ mc.label }}</span></sc-for>
+              <span class="tag tag-neutral">Home by 22:00</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="text-muted" style="font-size:10px;letter-spacing:.1em">PACE</span>
+              <div class="seg">
+                <sc-for list="{{ paceOpts }}" as="po" hint-placeholder-count="3">
+                  <sc-if value="{{ po.active }}"><label class="seg-opt" style="color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent);cursor:pointer" onClick="{{ po.onSet }}">{{ po.label }}</label></sc-if>
+                  <sc-if value="{{ po.inactive }}"><label class="seg-opt" style="cursor:pointer" onClick="{{ po.onSet }}">{{ po.label }}</label></sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- day meter -->
+        <div style="margin:22px 0 6px;height:6px;background:var(--color-neutral-300);border-radius:3px;overflow:hidden"><div style="height:100%;background:var(--color-accent);width:{{ meterPct }};transition:width .35s ease"></div></div>
+        <div class="text-muted" style="display:flex;justify-content:space-between;font-size:11px;font-variant-numeric:tabular-nums"><span>9:00</span><span>the day fills in as you choose</span><span>22:00</span></div>
+        <div style="display:flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;color:var(--color-accent-700);margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">{{ trip.label }}</span></div>
+
+        <hr class="hr" style="margin:20px 0 4px">
+
+        <div style="display:grid;grid-template-columns:minmax(280px,1fr) minmax(360px,1.25fr);gap:44px;align-items:start">
+
+          <!-- LEFT — the day so far -->
+          <div>
+            <h4 style="font-size:15px;margin:0 0 18px;font-family:var(--font-heading);letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent)">The day so far</h4>
+            <sc-if value="{{ notStarted }}" hint-placeholder-val="{{ true }}">
+              <div style="border:1px dashed var(--color-divider);border-radius:6px;padding:28px;text-align:center">
+                <div style="font-family:var(--font-heading);font-size:19px;margin-bottom:6px">Nothing chosen yet</div>
+                <p class="text-muted" style="font-size:13.5px;line-height:1.6;margin:0">You're at your flat in Le Marais at 9:00. Pick your first move on the right — every choice sets the clock and the map for the next one.</p>
+              </div>
+            </sc-if>
+            <sc-if value="{{ hasCommitted }}">
+              <div style="display:flex;flex-direction:column">
+                <sc-for list="{{ committed }}" as="c" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:56px 1fr;gap:14px">
+                    <div style="text-align:right;padding-top:1px"><div style="font-family:var(--font-heading);font-size:17px;font-variant-numeric:tabular-nums">{{ c.timeIn }}</div></div>
+                    <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 22px 22px;position:relative">
+                      <sc-if value="{{ c.isVerified }}"><span style="position:absolute;left:-6.5px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span></sc-if>
+                      <sc-if value="{{ c.notVerified }}"><span style="position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span></sc-if>
+                      <div class="text-muted" style="display:flex;align-items:center;gap:6px;font-size:11px;margin-bottom:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>{{ c.travelLabel }}</div>
+                      <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font-family:var(--font-heading);font-size:18px;font-weight:600">{{ c.name }}</span><span class="text-muted" style="font-size:12px">{{ c.area }}</span></div>
+                      <div style="display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px">
+                        <sc-if value="{{ c.isVerified }}"><span class="tag tag-accent">{{ c.srcLabel }}</span></sc-if>
+                        <sc-if value="{{ c.notVerified }}"><span class="tag tag-neutral">{{ c.srcLabel }}</span></sc-if>
+                        <span class="text-muted">{{ c.durLabel }} here</span>
+                        <sc-if value="{{ c.isFood }}"><span class="text-muted" style="letter-spacing:1.5px"><span style="color:var(--color-text)">{{ c.price }}</span>{{ c.priceRest }}</span></sc-if>
+                        <sc-if value="{{ c.hasEntry }}"><span class="text-muted" style="font-variant-numeric:tabular-nums">{{ c.entryCost }}</span></sc-if>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+
+          <!-- RIGHT — the decision -->
+          <div>
+            <sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+              <h4 style="font-size:15px;margin:0 0 4px;font-family:var(--font-heading);letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent)">Choose your next move</h4>
+              <p class="text-muted" style="font-size:13px;line-height:1.55;margin:0 0 18px">Three ways forward from <span style="color:var(--color-text)">{{ currentPlace }}</span>. You can only take one — its length and location decide what's still reachable after.</p>
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <sc-for list="{{ candidates }}" as="cand" hint-placeholder-count="3">
+                  <div class="card" style="display:grid;grid-template-columns:1fr 200px;gap:22px;align-items:center;padding:20px 22px">
+                    <div>
+                      <div style="display:flex;align-items:center;gap:9px;margin-bottom:7px">
+                        <span class="tag tag-outline">{{ cand.label }}</span>
+                        <sc-if value="{{ cand.isVerified }}"><span class="tag tag-accent">{{ cand.srcLabel }}</span></sc-if>
+                        <sc-if value="{{ cand.notVerified }}"><span class="tag tag-neutral">{{ cand.srcLabel }}</span></sc-if>
+                      </div>
+                      <div style="font-family:var(--font-heading);font-size:20px;font-weight:600;line-height:1.15">{{ cand.name }}</div>
+                      <div class="text-muted" style="font-size:12.5px;margin-bottom:9px">{{ cand.area }}</div>
+                      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 68%,transparent);font-variant-numeric:tabular-nums">
+                        <span style="display:inline-flex;align-items:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>{{ cand.travelLabel }} · {{ cand.measuredLabel }}</span>
+                        <span>arrive {{ cand.arriveLabel }}</span>
+                        <span>{{ cand.durLabel }}</span>
+                      </div>
+                      <sc-if value="{{ cand.hasOpen }}"><div class="text-muted" style="font-size:11px;margin-top:5px">{{ cand.openLabel }}</div></sc-if>
+                      <sc-if value="{{ cand.isFood }}">
+                        <div style="display:flex;align-items:center;gap:12px;margin-top:8px;font-size:12px;flex-wrap:wrap">
+                          <span style="font-variant-numeric:tabular-nums;letter-spacing:1.5px"><span style="color:var(--color-text)">{{ cand.price }}</span><span class="text-muted">{{ cand.priceRest }}</span></span>
+                          <a href="{{ cand.menuUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>View menu</a>
+                          <span class="text-muted">{{ cand.menuNote }}</span>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ cand.hasEntry }}">
+                        <div style="display:flex;align-items:center;gap:12px;margin-top:8px;font-size:12px;flex-wrap:wrap">
+                          <span style="display:inline-flex;align-items:center;gap:5px;font-variant-numeric:tabular-nums"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v14"/></svg>{{ cand.entryCost }}</span>
+                          <sc-if value="{{ cand.entryHasLink }}"><a href="{{ cand.entryUrl }}" target="_blank" rel="noopener">{{ cand.entryLabel }}</a></sc-if>
+                          <span class="text-muted">{{ cand.entryNote }}</span>
+                        </div>
+                      </sc-if>
+                    </div>
+                    <div style="border-left:1px solid var(--color-divider);padding-left:20px;display:flex;flex-direction:column;gap:12px;align-self:stretch;justify-content:center">
+                      <div style="font-family:var(--font-body);font-size:12px;line-height:1.5;color:var(--color-accent-700);font-variant-numeric:tabular-nums">{{ cand.forecast }}</div>
+                      <button class="btn btn-primary" style="width:100%" onClick="{{ cand.onChoose }}">Choose this</button>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+              <div class="card elev-sm" style="padding:30px">
+                <span class="card-kicker">Day complete</span>
+                <h3 style="font-size:26px;font-weight:400;margin:4px 0 2px">One path through the day</h3>
+                <p class="text-muted" style="font-size:14px;margin:0 0 14px;font-variant-numeric:tabular-nums">{{ summary.stops }} stops · {{ summary.span }} · {{ summary.walkLabel }}</p>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-accent-700);margin-bottom:16px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">{{ summary.ratioLabel }}</span></div>
+                <p style="font-family:var(--font-body);font-size:13.5px;line-height:1.65;margin:0 0 20px">This is <em>one</em> path. Every choice above forked the rest of the day — a longer stop or a hop across the river would have closed off everything downstream. Start over to feel how a different first move reshapes the whole day.</p>
+                <button class="btn btn-secondary" onClick="{{ onReset }}">Start over</button>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-muted" style="max-width:620px;font-family:var(--font-body);font-size:13.5px;line-height:1.7;margin:22px 0 0">Adaptive, not real-time: the plan re-solves at each decision, not while you're walking. Travel times between two places you've both photographed are <span style="color:var(--color-accent-700)">measured</span> from the archive; anywhere else they're <span class="text-muted">estimated</span>. Commit a full path and it renders as the seamless day below.</p>
+  </section>
+
+  <!-- ══ 04 · THE FINISHED DAY ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">04</span>
+      <h3 style="margin:0;font-size:27px">The finished day</h3>
+      <span class="text-muted" style="font-size:14px">The committed path, rendered as one seamless day — this is what the builder above produces. The imagery does the trust-signaling; tap any stop for the provenance underneath.</span>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / day-1</div>
+      </div>
+
+      <div style="padding:40px 56px 56px">
+        <!-- day header: tabs + rollup + filter -->
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div>
+            <div style="display:flex;gap:22px;font-family:var(--font-heading);font-size:15px;margin-bottom:14px">
+              <span style="color:var(--color-accent);border-bottom:2px solid var(--color-accent);padding-bottom:6px">Day 1</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 2</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 3</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 4</span>
+            </div>
+            <h2 style="font-size:34px;font-weight:400;margin:0">Marais &amp; the two islands</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              <span style="font-variant-numeric:tabular-nums">6 of 8 stops personally verified</span>
+            </div>
+            <div class="seg">
+              <label class="seg-opt"><input type="radio" name="filter" checked>Full plan</label>
+              <label class="seg-opt"><input type="radio" name="filter">Verified only</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="hr" style="margin:28px 0 8px">
+
+        <!-- ── TIMELINE ── -->
+        <div style="display:flex;flex-direction:column">
+
+          <!-- STOP 1 — verified — Café Hugo -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">9:15</div><div class="text-muted" style="font-size:11px">morning</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Café Hugo</h4><span class="text-muted" style="font-size:13px">Place des Vosges, 4e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Slow start under the arcades. The corner table I always end up at — order the <em>tartine</em> and watch the square wake up.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="position:relative;width:230px;height:168px"><div class="cmt-slot"><image-slot id="cafe-1" shape="rect" placeholder="Café / arcade"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:168px"><div class="cmt-slot"><image-slot id="cafe-2" shape="rect" placeholder="The table"></image-slot></div></div>
+                <div class="plate" style="position:relative;width:150px;height:168px"><div class="cmt-slot"><image-slot id="cafe-3" shape="rect" placeholder="Coffee"></image-slot></div>
+                  <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:14</span>
+                </div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last May 2024 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>3 min · measured</span></div></div>
+
+          <!-- STOP 2 — verified — Place des Vosges -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">9:45</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Place des Vosges</h4><span class="text-muted" style="font-size:13px">arcades &amp; the central garden</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">A full loop of the arcades, then the garden. My most-shot place in the city — I've never once walked through without stopping.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:300px;height:180px"><div class="cmt-slot"><image-slot id="vosges-1" shape="rect" placeholder="Arcade colonnade"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:180px"><div class="cmt-slot"><image-slot id="vosges-2" shape="rect" placeholder="Garden"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:180px"><div class="cmt-slot"><image-slot id="vosges-3" shape="rect" placeholder="Detail"></image-slot></div></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 7 visits · last May 2024 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>6 min · estimated</span></div></div>
+
+          <!-- STOP 3 — web-filled — Carnavalet — PIN ONLY -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">10:30</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Musée Carnavalet</h4><span class="text-muted" style="font-size:13px">history of Paris · free</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">A gap in my own archive — I've walked past but never shot it. Added from current visitor notes because it fits the morning and the interest in the city's history.</p>
+              <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:4px;width:max-content;background:var(--color-neutral-100)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-600)" stroke-width="1.5"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><div style="font-family:var(--font-heading);font-size:14px">23 Rue de Sévigné</div><div class="text-muted" style="font-size:12px">Web-filled · one clean pin, no shots of my own</div></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · est. from posted hours &amp; reviews</div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>5 min · measured</span></div></div>
+
+          <!-- STOP 4 — verified — Marché des Enfants Rouges -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">12:30</div><div class="text-muted" style="font-size:11px">lunch</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Marché des Enfants Rouges</h4><span class="text-muted" style="font-size:13px">oldest covered market, 3e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Lunch standing up. Go to the Moroccan stall at the back — the line looks worse than it is, moves in ten minutes.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="marche-1" shape="rect" placeholder="Market stalls"></image-slot></div></div>
+                <div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="marche-2" shape="rect" placeholder="The plate"></image-slot></div></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 4 visits · last May 2024 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>18 min · estimated</span></div></div>
+
+          <!-- STOP 5 — web-filled — Sainte-Chapelle — single clean image -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">14:15</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Sainte-Chapelle</h4><span class="text-muted" style="font-size:13px">Île de la Cité · timed entry</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">I've never gotten a shot here worth keeping — always too crowded. One clean reference image from the web; book the 2pm slot to beat the afternoon queue.</p>
+              <div style="width:360px;height:210px;border:1px solid var(--color-divider);border-radius:4px;overflow:hidden"><image-slot id="saintechapelle-1" shape="rect" placeholder="Stained glass (web reference)"></image-slot></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · single reference image, no shots of my own</div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>6 min · measured</span></div></div>
+
+          <!-- STOP 6 — verified — Berthillon — PROVENANCE OPEN -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">15:00</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Berthillon</h4><span class="text-muted" style="font-size:13px">Île Saint-Louis · 31 Rue Saint-Louis-en-l'Île</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">The one I've come back to most. Get the <em>salted-caramel</em> and eat it walking the quai — the whole island is the point.</p>
+              <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+                <div style="display:flex;gap:12px">
+                  <div class="plate" style="width:170px;height:190px"><div class="cmt-slot"><image-slot id="berthillon-1" shape="rect" placeholder="The cone"></image-slot></div></div>
+                  <div class="plate" style="width:150px;height:190px"><div class="cmt-slot"><image-slot id="berthillon-2" shape="rect" placeholder="Quai walk"></image-slot></div></div>
+                  <div class="plate" style="position:relative;width:150px;height:190px"><div class="cmt-slot"><image-slot id="berthillon-3" shape="rect" placeholder="Island"></image-slot></div>
+                    <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:22</span>
+                  </div>
+                </div>
+
+                <!-- PROVENANCE PANEL (revealed) -->
+                <div class="elev-md" style="width:290px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:7px;padding:20px 22px">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-family:var(--font-heading);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent)">How I know this</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-500)" stroke-width="1.6"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+                  <div style="display:flex;flex-direction:column;gap:11px;font-family:var(--font-body);font-size:13px">
+                    <div style="display:flex;justify-content:space-between"><span class="text-muted">Visits recorded</span><span style="font-variant-numeric:tabular-nums;color:var(--color-accent-700)">8</span></div>
+                    <div style="display:flex;justify-content:space-between"><span class="text-muted">Date range</span><span style="font-variant-numeric:tabular-nums">2015 – 2024</span></div>
+                    <div style="display:flex;justify-content:space-between"><span class="text-muted">Last visited</span><span style="font-variant-numeric:tabular-nums">May 2024</span></div>
+                    <div style="display:flex;justify-content:space-between"><span class="text-muted">In the archive</span><span style="font-variant-numeric:tabular-nums">214 photos · 11 videos</span></div>
+                    <hr class="hr" style="margin:4px 0">
+                    <div style="display:flex;justify-content:space-between"><span class="text-muted">Walk from last stop</span><span style="font-variant-numeric:tabular-nums">6 min</span></div>
+                    <div class="text-muted" style="font-size:11.5px;line-height:1.5;margin-top:-4px">measured from EXIF gaps across 5 separate visits, not estimated</div>
+                    <div style="display:flex;align-items:center;gap:7px;margin-top:6px"><span class="tag tag-accent" style="display:inline-flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Confidence: High</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:14px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 8 visits · last May 2024 &nbsp;·&nbsp; <span style="color:var(--color-accent-700)">panel shown open</span></div>
+            </div>
+          </div>
+
+          <!-- transit -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>9 min · measured</span></div></div>
+
+          <!-- STOP 7 — verified — Pont de la Tournelle -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">19:40</div><div class="text-muted" style="font-size:11px">golden hour</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 8px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Pont de la Tournelle</h4><span class="text-muted" style="font-size:13px">back toward Notre-Dame</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">End here. Stand on the bridge facing west about forty minutes before sunset — the light comes straight down the river. I have this shot from five different years.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:340px;height:190px"><div class="cmt-slot"><image-slot id="tournelle-1" shape="rect" placeholder="River at golden hour"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:190px"><div class="cmt-slot"><image-slot id="tournelle-2" shape="rect" placeholder="Same view, another year"></image-slot></div></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last May 2024 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- ═══ DAY 2 ═══ -->
+    <div style="margin-top:44px;border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / day-2</div>
+      </div>
+      <div style="padding:40px 56px 56px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div>
+            <div style="display:flex;gap:22px;font-family:var(--font-heading);font-size:15px;margin-bottom:14px">
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 1</span>
+              <span style="color:var(--color-accent);border-bottom:2px solid var(--color-accent);padding-bottom:6px">Day 2</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 3</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 4</span>
+            </div>
+            <h2 style="font-size:34px;font-weight:400;margin:0">Latin Quarter &amp; the gardens</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">5 of 7 stops personally verified</span></div>
+            <div class="seg"><label class="seg-opt"><input type="radio" name="filter2" checked>Full plan</label><label class="seg-opt"><input type="radio" name="filter2">Verified only</label></div>
+          </div>
+        </div>
+        <hr class="hr" style="margin:28px 0 8px">
+        <div style="display:flex;flex-direction:column">
+
+          <!-- verified -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">8:45</div><div class="text-muted" style="font-size:11px">morning</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Café de la Mairie</h4><span class="text-muted" style="font-size:13px">Place Saint-Sulpice, 6e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Terrace coffee facing the fountain — sit on the square side, not the street side, and let the morning fill in.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:168px"><div class="cmt-slot"><image-slot id="d2-cafe-1" shape="rect" placeholder="Terrace"></image-slot></div></div><div class="plate" style="width:170px;height:168px"><div class="cmt-slot"><image-slot id="d2-cafe-2" shape="rect" placeholder="Fountain"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 4 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>4 min · estimated</span></div></div>
+
+          <!-- web-filled single -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">9:30</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Église Saint-Sulpice</h4><span class="text-muted" style="font-size:13px">the Delacroix murals · free</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Never shot the interior myself — added from web notes for the Delacroix chapel just inside the door.</p>
+              <div style="width:360px;height:210px;border:1px solid var(--color-divider);border-radius:4px;overflow:hidden"><image-slot id="d2-sulpice-1" shape="rect" placeholder="Interior (web reference)"></image-slot></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · single reference image, no shots of my own</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>7 min · measured</span></div></div>
+
+          <!-- verified hero -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">10:30</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Jardin du Luxembourg</h4><span class="text-muted" style="font-size:13px">grab a green chair by the pond</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">The chairs by the octagonal pond are the whole point — drag one to face the palace and stay longer than you planned.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:300px;height:180px"><div class="cmt-slot"><image-slot id="d2-lux-1" shape="rect" placeholder="The pond"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:180px"><div class="cmt-slot"><image-slot id="d2-lux-2" shape="rect" placeholder="Green chairs"></image-slot></div></div>
+                <div class="plate" style="position:relative;width:150px;height:180px"><div class="cmt-slot"><image-slot id="d2-lux-3" shape="rect" placeholder="Palace"></image-slot></div><span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:18</span></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 4 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>12 min · measured</span></div></div>
+
+          <!-- verified lunch -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">12:30</div><div class="text-muted" style="font-size:11px">lunch</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Rue Mouffetard</h4><span class="text-muted" style="font-size:13px">the market street, 5e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Buy lunch in pieces down the hill — cheese, bread, a paper cone of fruit — and eat it on the church steps at the bottom.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="d2-mouff-1" shape="rect" placeholder="Market street"></image-slot></div></div><div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="d2-mouff-2" shape="rect" placeholder="Cheese stall"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 3 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>6 min · estimated</span></div></div>
+
+          <!-- web-filled pin -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">14:15</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Panthéon</h4><span class="text-muted" style="font-size:13px">the dome &amp; the crypt</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Outside my archive — placed here from web notes because the rooftop colonnade is worth the climb on a clear afternoon.</p>
+              <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:4px;width:max-content;background:var(--color-neutral-100)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-600)" stroke-width="1.5"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><div><div style="font-family:var(--font-heading);font-size:14px">Place du Panthéon</div><div class="text-muted" style="font-size:12px">Web-filled · one clean pin, no shots of my own</div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · est. from posted hours &amp; reviews</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>10 min · measured</span></div></div>
+
+          <!-- verified -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">15:30</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Shakespeare and Company</h4><span class="text-muted" style="font-size:13px">37 Rue de la Bûcherie</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Go upstairs to the reading room and actually sit down — the front is a scrum, the top floor is quiet.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:200px;height:172px"><div class="cmt-slot"><image-slot id="d2-shak-1" shape="rect" placeholder="Storefront"></image-slot></div></div><div class="plate" style="width:230px;height:172px"><div class="cmt-slot"><image-slot id="d2-shak-2" shape="rect" placeholder="Reading room"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>4 min · measured</span></div></div>
+
+          <!-- verified golden hour -->
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">18:30</div><div class="text-muted" style="font-size:11px">golden hour</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 8px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Quai de Montebello</h4><span class="text-muted" style="font-size:13px">the bouquinistes, facing Notre-Dame</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Walk the green book-boxes as the light drops — Notre-Dame across the water is the reason to end the day on this bank.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:340px;height:190px"><div class="cmt-slot"><image-slot id="d2-quai-1" shape="rect" placeholder="Booksellers &amp; river"></image-slot></div></div><div class="plate" style="position:relative;width:150px;height:190px"><div class="cmt-slot"><image-slot id="d2-quai-2" shape="rect" placeholder="Notre-Dame"></image-slot></div><span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:11</span></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 4 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 3 ═══ -->
+    <div style="margin-top:44px;border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / day-3</div>
+      </div>
+      <div style="padding:40px 56px 56px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div>
+            <div style="display:flex;gap:22px;font-family:var(--font-heading);font-size:15px;margin-bottom:14px">
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 1</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 2</span>
+              <span style="color:var(--color-accent);border-bottom:2px solid var(--color-accent);padding-bottom:6px">Day 3</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 4</span>
+            </div>
+            <h2 style="font-size:34px;font-weight:400;margin:0">Canal Saint-Martin &amp; Montmartre</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">4 of 7 stops personally verified</span></div>
+            <div class="seg"><label class="seg-opt"><input type="radio" name="filter3" checked>Full plan</label><label class="seg-opt"><input type="radio" name="filter3">Verified only</label></div>
+          </div>
+        </div>
+        <hr class="hr" style="margin:28px 0 8px">
+        <div style="display:flex;flex-direction:column">
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">9:15</div><div class="text-muted" style="font-size:11px">morning</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Ten Belles</h4><span class="text-muted" style="font-size:13px">10 Rue de la Grange aux Belles</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Flat white to go, then straight down to the water — this whole morning is meant to be walked with a cup in hand.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:168px"><div class="cmt-slot"><image-slot id="d3-ten-1" shape="rect" placeholder="Coffee bar"></image-slot></div></div><div class="plate" style="width:170px;height:168px"><div class="cmt-slot"><image-slot id="d3-ten-2" shape="rect" placeholder="Cup"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>3 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">10:00</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Canal Saint-Martin</h4><span class="text-muted" style="font-size:13px">the iron footbridges, 10e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Cross every footbridge you come to — the arched green ones frame the water perfectly, and a lock or two usually opens mid-morning.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:300px;height:180px"><div class="cmt-slot"><image-slot id="d3-canal-1" shape="rect" placeholder="Footbridge"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:180px"><div class="cmt-slot"><image-slot id="d3-canal-2" shape="rect" placeholder="The water"></image-slot></div></div>
+                <div class="plate" style="position:relative;width:150px;height:180px"><div class="cmt-slot"><image-slot id="d3-canal-3" shape="rect" placeholder="A lock"></image-slot></div><span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:20</span></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last Sep ’23 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>15 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">11:30</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Rue des Martyrs</h4><span class="text-muted" style="font-size:13px">the climb toward Montmartre</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">The best-fed street in Paris — take the slow uphill and let the food shops set the pace toward the hill.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="d3-martyrs-1" shape="rect" placeholder="Shopfronts"></image-slot></div></div><div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="d3-martyrs-2" shape="rect" placeholder="Up the hill"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 3 visits · last Apr ’22 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>5 min · estimated</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">13:00</div><div class="text-muted" style="font-size:11px">lunch</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Le Bon Georges</h4><span class="text-muted" style="font-size:13px">neighbourhood bistro, 9e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Not one of mine — picked from current notes as a sit-down lunch before the hill. Book ahead if it's a weekend.</p>
+              <div style="width:360px;height:210px;border:1px solid var(--color-divider);border-radius:4px;overflow:hidden"><image-slot id="d3-lunch-1" shape="rect" placeholder="Bistro (web reference)"></image-slot></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · single reference image, no shots of my own</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>8 min · estimated</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">14:30</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Sacré-Cœur</h4><span class="text-muted" style="font-size:13px">the steps, not the summit crowd</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Sit on the steps below the basilica facing out — the view down over the city is better than the one from the very top.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="d3-sacre-1" shape="rect" placeholder="From the steps"></image-slot></div></div><div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="d3-sacre-2" shape="rect" placeholder="The dome"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 2 visits · last Apr ’19 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>4 min · estimated</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">15:30</div><div class="text-muted" style="font-size:11px">afternoon</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 8px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Place du Tertre &amp; the lanes</h4><span class="text-muted" style="font-size:13px">Montmartre backstreets</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">A gap in my archive — added from web notes. Skip the painters' square itself and use it as a doorway into the quieter lanes behind.</p>
+              <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--color-divider);border-radius:4px;width:max-content;background:var(--color-neutral-100)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-neutral-600)" stroke-width="1.5"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><div><div style="font-family:var(--font-heading);font-size:14px">Place du Tertre, 18e</div><div class="text-muted" style="font-size:12px">Web-filled · one clean pin, no shots of my own</div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · est. from posted hours &amp; reviews</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 4 ═══ -->
+    <div style="margin-top:44px;border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / day-4</div>
+      </div>
+      <div style="padding:40px 56px 56px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div>
+            <div style="display:flex;gap:22px;font-family:var(--font-heading);font-size:15px;margin-bottom:14px">
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 1</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 2</span>
+              <span style="color:color-mix(in srgb,var(--color-text) 45%,transparent);padding-bottom:6px">Day 3</span>
+              <span style="color:var(--color-accent);border-bottom:2px solid var(--color-accent);padding-bottom:6px">Day 4</span>
+            </div>
+            <h2 style="font-size:34px;font-weight:400;margin:0">The east side &amp; a last river light</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13px;color:var(--color-accent-700)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">5 of 6 stops personally verified</span></div>
+            <div class="seg"><label class="seg-opt"><input type="radio" name="filter4" checked>Full plan</label><label class="seg-opt"><input type="radio" name="filter4">Verified only</label></div>
+          </div>
+        </div>
+        <hr class="hr" style="margin:28px 0 8px">
+        <div style="display:flex;flex-direction:column">
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">9:30</div><div class="text-muted" style="font-size:11px">morning</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Marché d'Aligre</h4><span class="text-muted" style="font-size:13px">covered market + open stalls, 12e</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Two markets in one — the rowdy open-air street and the calm covered hall behind it. Do the street first, coffee in the hall after.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:168px"><div class="cmt-slot"><image-slot id="d4-aligre-1" shape="rect" placeholder="Open stalls"></image-slot></div></div><div class="plate" style="width:170px;height:168px"><div class="cmt-slot"><image-slot id="d4-aligre-2" shape="rect" placeholder="Covered hall"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 3 visits · last Jun ’22 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>9 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">11:00</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Père-Lachaise</h4><span class="text-muted" style="font-size:13px">enter at the Gambetta gate, walk down</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Come in high and let gravity carry you downhill through the oldest section — the cobbled avenues under the planes are the reason to come, not the famous graves.</p>
+              <div style="display:flex;gap:12px">
+                <div class="plate" style="width:300px;height:180px"><div class="cmt-slot"><image-slot id="d4-pere-1" shape="rect" placeholder="Cobbled avenue"></image-slot></div></div>
+                <div class="plate" style="width:150px;height:180px"><div class="cmt-slot"><image-slot id="d4-pere-2" shape="rect" placeholder="Under the planes"></image-slot></div></div>
+                <div class="plate" style="position:relative;width:150px;height:180px"><div class="cmt-slot"><image-slot id="d4-pere-3" shape="rect" placeholder="A quiet row"></image-slot></div><span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:16</span></div>
+              </div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 3 visits · last Jun ’22 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip text-muted"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>7 min · estimated</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">13:00</div><div class="text-muted" style="font-size:11px">lunch</div></div>
+            <div style="border-left:1.5px solid var(--color-neutral-300);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--color-bg);border:1.5px solid var(--color-neutral-400)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600;color:color-mix(in srgb,var(--color-text) 88%,transparent)">Le Baron Rouge</h4><span class="text-muted" style="font-size:13px">standing wine bar, by Aligre</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Never shot it — added from web notes. A glass and a plate of oysters at a barrel out front; cash is easiest.</p>
+              <div style="width:360px;height:210px;border:1px solid var(--color-divider);border-radius:4px;overflow:hidden"><image-slot id="d4-baron-1" shape="rect" placeholder="Wine bar (web reference)"></image-slot></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Suggested from web · single reference image, no shots of my own</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>6 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">15:00</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Coulée verte René-Dumont</h4><span class="text-muted" style="font-size:13px">the planted railway viaduct</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Walk the old rail line above the street — start at Bastille and let it carry you east through the rose arches, well above the traffic.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="d4-coulee-1" shape="rect" placeholder="The promenade"></image-slot></div></div><div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="d4-coulee-2" shape="rect" placeholder="Rose arches"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 2 visits · last Jun ’22 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>12 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">17:30</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 40px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Place des Vosges</h4><span class="text-muted" style="font-size:13px">back where Day 1 began</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">Close the loop on the square that started the trip — a last turn under the arcades before the river.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:250px;height:172px"><div class="cmt-slot"><image-slot id="d4-vosges-1" shape="rect" placeholder="Arcades again"></image-slot></div></div><div class="plate" style="width:180px;height:172px"><div class="cmt-slot"><image-slot id="d4-vosges-2" shape="rect" placeholder="The garden"></image-slot></div></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 7 visits · last May ’24 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px"><div></div><div style="border-left:1.5px solid var(--color-accent);padding:0 0 0 28px;position:relative;margin-top:-24px;margin-bottom:24px"><span class="cmt-chip" style="color:var(--color-accent-700);border-color:var(--color-accent-200);background:var(--color-accent-100)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg>10 min · measured</span></div></div>
+
+          <div style="display:grid;grid-template-columns:76px 1fr;gap:28px">
+            <div style="text-align:right;padding-top:2px"><div style="font-family:var(--font-heading);font-size:19px;font-variant-numeric:tabular-nums">19:40</div><div class="text-muted" style="font-size:11px">golden hour</div></div>
+            <div style="border-left:1.5px solid var(--color-accent);padding:0 0 8px 28px;position:relative">
+              <span style="position:absolute;left:-6.5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--color-accent)"></span>
+              <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h4 style="font-size:22px;margin:0;font-weight:600">Pont de la Tournelle</h4><span class="text-muted" style="font-size:13px">the last light of the trip</span></div>
+              <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.6;margin:8px 0 16px;max-width:560px">End where Day 1 ended, on purpose — the same bridge, the same westward light, now with four days behind it.</p>
+              <div style="display:flex;gap:12px"><div class="plate" style="width:340px;height:190px"><div class="cmt-slot"><image-slot id="d4-tournelle-1" shape="rect" placeholder="River, last light"></image-slot></div></div><div class="plate" style="position:relative;width:150px;height:190px"><div class="cmt-slot"><image-slot id="d4-tournelle-2" shape="rect" placeholder="Looking west"></image-slot></div><span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-family:var(--font-body);font-size:11px;padding:3px 8px;border-radius:3px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:24</span></div></div>
+              <div class="text-muted" style="display:flex;align-items:center;gap:8px;font-size:12px;margin-top:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last May ’24 &nbsp;<a href="#" style="font-size:12px" onClick="{{ noop }}">how I know</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 04 · THE PLACE-GRAPH ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">05</span>
+      <h3 style="margin:0;font-size:27px">The place-graph</h3>
+      <span class="text-muted" style="font-size:14px">Every shot of the same place, across every trip, collapses into one node.</span>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / archive</div>
+      </div>
+
+      <div style="padding:22px 32px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <span class="text-muted" style="font-size:12px">{{ graphCount }} nodes · one per place, every trip merged</span>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="text-muted" style="font-size:10px;letter-spacing:.1em">GROUP BY</span>
+          <div class="seg">
+            <sc-if value="{{ graphModeDay }}" hint-placeholder-val="{{ true }}"><label class="seg-opt" style="color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent);cursor:pointer" onClick="{{ onGraphDay }}">Day</label></sc-if>
+            <sc-if value="{{ graphModeHood }}"><label class="seg-opt" style="cursor:pointer" onClick="{{ onGraphDay }}">Day</label></sc-if>
+            <sc-if value="{{ graphModeHood }}"><label class="seg-opt" style="color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent);cursor:pointer" onClick="{{ onGraphHood }}">Neighbourhood</label></sc-if>
+            <sc-if value="{{ graphModeDay }}"><label class="seg-opt" style="cursor:pointer" onClick="{{ onGraphHood }}">Neighbourhood</label></sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+        <!-- schematic map -->
+        <div style="position:relative;background:var(--color-neutral-100);border-right:1px solid var(--color-divider);min-height:560px;padding:32px">
+          <div style="font-family:var(--font-heading);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent)">Clustered by GPS · Paris centre</div>
+          <svg viewBox="0 0 520 520" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            <path d="M-10 300 C 120 250, 220 340, 320 300 S 520 250, 540 280" fill="none" stroke="color-mix(in srgb,var(--color-accent) 30%,transparent)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M210 300 q 40 -20 70 0 q -35 30 -70 0" fill="none" stroke="color-mix(in srgb,var(--color-accent) 30%,transparent)" stroke-width="1.5"/>
+          </svg>
+          <sc-for list="{{ graphNodes }}" as="gn" hint-placeholder-count="12">
+            <div style="position:absolute;left:{{ gn.left }};top:{{ gn.top }};transform:translate(-50%,-50%);text-align:center;width:110px">
+              <sc-if value="{{ gn.isV }}"><span style="display:block;width:26px;height:26px;border-radius:50%;border:2px solid var(--color-accent);background:var(--color-accent-100);margin:0 auto"></span></sc-if>
+              <sc-if value="{{ gn.isW }}"><span style="display:block;width:18px;height:18px;border-radius:50%;border:1.5px dashed var(--color-neutral-500);margin:0 auto"></span></sc-if>
+              <span style="font-family:var(--font-body);font-size:11px;display:block;margin-top:5px;line-height:1.25">{{ gn.name }}</span>
+              <span class="text-muted" style="font-family:var(--font-body);font-size:10px;font-variant-numeric:tabular-nums">{{ gn.sub }}</span>
+            </div>
+          </sc-for>
+          <div style="position:absolute;left:32px;bottom:24px;font-family:var(--font-body);font-size:11px;color:color-mix(in srgb,var(--color-text) 55%,transparent);display:flex;align-items:center;gap:16px">
+            <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:50%;border:2px solid var(--color-accent);background:var(--color-accent-100)"></span>from the archive</span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;border:1.5px dashed var(--color-neutral-500)"></span>web-filled</span>
+          </div>
+        </div>
+
+        <!-- node index -->
+        <div style="padding:24px 32px">
+          <table class="table">
+            <thead><tr><th>Place</th><th>Day</th><th>Neighbourhood</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ graphGroups }}" as="grp" hint-placeholder-count="4">
+                <tr><td colspan="3" style="border-bottom:none;padding-top:16px;padding-bottom:2px"><span class="card-kicker">{{ grp.label }}</span></td></tr>
+                <sc-for list="{{ grp.rows }}" as="r" hint-placeholder-count="3">
+                  <tr>
+                    <td style="font-family:var(--font-heading);font-size:15px">{{ r.name }}</td>
+                    <td style="font-variant-numeric:tabular-nums">{{ r.dayLabel }}</td>
+                    <td>{{ r.hood }}</td>
+                  </tr>
+                </sc-for>
+              </sc-for>
+            </tbody>
+          </table>
+          <p class="text-muted" style="font-size:12px;line-height:1.6;margin-top:18px">A node is a place, not a trip. Group by <em>day</em> to read the route each day draws through the city, or by <em>neighbourhood</em> to see where the archive runs deepest. Photos and video both fold into the same node.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 06 · THE NEIGHBOURHOODS ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">06</span>
+      <h3 style="margin:0;font-size:27px">The neighbourhoods</h3>
+      <span class="text-muted" style="font-size:14px">Where the archive actually lives — the five quartiers the days are drawn from.</span>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;border:1px solid var(--color-divider);box-shadow:var(--shadow-md);background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:16px;padding:11px 18px;background:var(--color-surface);border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;gap:7px"><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span><span style="width:11px;height:11px;border-radius:50%;background:var(--color-neutral-400)"></span></div>
+        <div style="flex:1;text-align:center;font-family:var(--font-body);font-size:12px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">copymytrip.app / paris / neighbourhoods</div>
+      </div>
+
+      <div style="padding:44px 56px 48px">
+        <p style="max-width:660px;font-family:var(--font-body);font-size:16px;line-height:1.7;margin:0">Paris, to me, is five neighbourhoods I know by heart and a lot of city I don't. The plans lean on the five — each one is years of photos <em>and video</em> of the same streets, not a single afternoon.</p>
+        <hr class="hr" style="margin:28px 0 4px">
+
+        <!-- Le Marais -->
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:38px;padding:30px 0">
+          <div class="plate" style="height:210px"><div style="position:absolute;inset:0"><image-slot id="hood-marais" shape="rect" placeholder="Le Marais arcades"></image-slot></div></div>
+          <div>
+            <div class="card-kicker">3e – 4e · Days 1 &amp; 4</div>
+            <h4 style="font-size:25px;margin:6px 0 10px;font-weight:600">Le Marais</h4>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.7;text-align:justify;max-width:600px">The hinge of every trip — I start here and, four days later, close the loop here too. Falafel on Rue des Rosiers, the arcades at Place des Vosges, the covered market at Enfants Rouges: flat, endlessly walkable, and shot from every angle across nine years.</p>
+            <div class="text-muted" style="display:flex;align-items:center;gap:14px;font-size:12px;font-variant-numeric:tabular-nums;margin-top:6px"><span>6 places in the archive</span><span>·</span><span style="display:inline-flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>photos &amp; video</span></div>
+          </div>
+        </div>
+
+        <!-- The Islands -->
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:38px;padding:30px 0;border-top:1px solid var(--color-divider)">
+          <div class="plate" style="height:210px"><div style="position:absolute;inset:0"><image-slot id="hood-islands" shape="rect" placeholder="Île Saint-Louis quai"></image-slot></div></div>
+          <div>
+            <div class="card-kicker">Cité &amp; Saint-Louis · Day 1</div>
+            <h4 style="font-size:25px;margin:6px 0 10px;font-weight:600">The two islands</h4>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.7;text-align:justify;max-width:600px">Île de la Cité and Île Saint-Louis, treated as one slow evening. Berthillon, the quai, and the view west from Pont de la Tournelle — a sunset I've filmed five years running and still never tire of.</p>
+            <div class="text-muted" style="display:flex;align-items:center;gap:14px;font-size:12px;font-variant-numeric:tabular-nums;margin-top:6px"><span>3 places in the archive</span><span>·</span><span style="display:inline-flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>photos &amp; video</span></div>
+          </div>
+        </div>
+
+        <!-- Latin Quarter -->
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:38px;padding:30px 0;border-top:1px solid var(--color-divider)">
+          <div class="plate" style="height:210px"><div style="position:absolute;inset:0"><image-slot id="hood-latin" shape="rect" placeholder="Luxembourg chairs"></image-slot></div></div>
+          <div>
+            <div class="card-kicker">5e – 6e · Day 2</div>
+            <h4 style="font-size:25px;margin:6px 0 10px;font-weight:600">Latin Quarter &amp; Left Bank</h4>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.7;text-align:justify;max-width:600px">A gentler day of gardens and bookshops. The green chairs at the Luxembourg, the bouquinistes along the Seine, Rue Mouffetard downhill at lunch — the Left Bank at reading pace.</p>
+            <div class="text-muted" style="display:flex;align-items:center;gap:14px;font-size:12px;font-variant-numeric:tabular-nums;margin-top:6px"><span>4 places in the archive</span><span>·</span><span style="display:inline-flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>photos &amp; video</span></div>
+          </div>
+        </div>
+
+        <!-- Canal & Montmartre -->
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:38px;padding:30px 0;border-top:1px solid var(--color-divider)">
+          <div class="plate" style="height:210px"><div style="position:absolute;inset:0"><image-slot id="hood-canal" shape="rect" placeholder="Canal footbridge"></image-slot></div></div>
+          <div>
+            <div class="card-kicker">9e – 10e – 18e · Day 3</div>
+            <h4 style="font-size:25px;margin:6px 0 10px;font-weight:600">Canal &amp; Montmartre</h4>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.7;text-align:justify;max-width:600px">The northern half — the iron footbridges of the Canal Saint-Martin (I have a lock opening on video) and the long climb up to Sacré-Cœur for the light coming off the whole city.</p>
+            <div class="text-muted" style="display:flex;align-items:center;gap:14px;font-size:12px;font-variant-numeric:tabular-nums;margin-top:6px"><span>4 places in the archive</span><span>·</span><span style="display:inline-flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>photos &amp; video</span></div>
+          </div>
+        </div>
+
+        <!-- The East -->
+        <div style="display:grid;grid-template-columns:300px 1fr;gap:38px;padding:30px 0 6px;border-top:1px solid var(--color-divider)">
+          <div class="plate" style="height:210px"><div style="position:absolute;inset:0"><image-slot id="hood-east" shape="rect" placeholder="Père-Lachaise avenue"></image-slot></div></div>
+          <div>
+            <div class="card-kicker">11e – 12e – 20e · Day 4</div>
+            <h4 style="font-size:25px;margin:6px 0 10px;font-weight:600">The east side</h4>
+            <p style="font-family:var(--font-body);font-size:14.5px;line-height:1.7;text-align:justify;max-width:600px">Least touristed, most lived-in. The two markets at Aligre, the cobbled avenues of Père-Lachaise under the planes, the old railway promenade home — the Paris I photograph when no one's asked me to.</p>
+            <div class="text-muted" style="display:flex;align-items:center;gap:14px;font-size:12px;font-variant-numeric:tabular-nums;margin-top:6px"><span>3 places in the archive</span><span>·</span><span style="display:inline-flex;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>photos &amp; video</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 07 · ON THE PHONE ══ -->
+  <section>
+    <div style="display:flex;align-items:baseline;gap:18px;margin:0 0 26px">
+      <span style="font-family:var(--font-heading);font-size:15px;font-variant-numeric:tabular-nums;color:var(--color-accent);letter-spacing:.12em">07</span>
+      <h3 style="margin:0;font-size:27px">On the phone</h3>
+      <span class="text-muted" style="font-size:14px">The same day, in the pocket — and the provenance as a bottom sheet.</span>
+    </div>
+
+    <div style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start">
+
+      <!-- phone 1: the day -->
+      <div style="width:390px;border-radius:44px;padding:12px;background:#191816;box-shadow:var(--shadow-lg)">
+        <div style="border-radius:33px;overflow:hidden;background:var(--color-bg);height:800px;position:relative">
+          <div style="height:44px;display:flex;align-items:center;justify-content:center;position:relative"><span style="width:120px;height:26px;background:#191816;border-radius:0 0 16px 16px"></span></div>
+          <div style="padding:8px 22px 22px;overflow:hidden;height:calc(100% - 44px)">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span class="text-muted" style="font-size:12px">Day 1 of 4</span><span style="font-family:var(--font-heading);font-size:13px;color:var(--color-accent)">Verified only</span></div>
+            <h3 style="font-size:26px;font-weight:400;margin:8px 0 4px">Marais &amp; the islands</h3>
+            <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--color-accent-700);margin-bottom:16px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span style="font-variant-numeric:tabular-nums">6 of 8 stops personally verified</span></div>
+
+            <div style="display:flex;gap:10px;margin-bottom:6px"><span style="font-family:var(--font-heading);font-size:16px;font-variant-numeric:tabular-nums">9:15</span><span style="font-family:var(--font-heading);font-size:16px">Café Hugo</span></div>
+            <div class="plate" style="position:relative;width:100%;height:190px;margin-bottom:8px"><div class="cmt-slot"><image-slot id="m-cafe-1" shape="rect" placeholder="Arcade morning"></image-slot></div>
+              <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;background:rgba(20,18,16,.72);color:#f4efe6;font-size:10px;padding:3px 7px;border-radius:3px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.5L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>0:14</span></div>
+            <div class="text-muted" style="font-size:11px;display:flex;align-items:center;gap:6px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>From 5 visits · last May ’24</div>
+
+            <div style="display:flex;align-items:center;gap:8px;margin:16px 0;color:var(--color-accent-700);font-size:11.5px"><span style="flex:1;height:1px;background:var(--color-accent-200)"></span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16v-2.4C4 11.5 3 10.5 3 8c0-2.7 1.5-6 4.5-6C9.4 2 10 3.8 10 5.5c0 3.1-2 5.7-2 8.7V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.4c0-2.1 1-3.1 1-5.6 0-2.7-1.5-6-4.5-6C14.6 6 14 7.8 14 9.5c0 3.1 2 5.7 2 8.7V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></svg><span style="font-variant-numeric:tabular-nums">3 min · measured</span><span style="flex:1;height:1px;background:var(--color-accent-200)"></span></div>
+
+            <div style="display:flex;gap:10px;margin-bottom:6px"><span style="font-family:var(--font-heading);font-size:16px;font-variant-numeric:tabular-nums">9:45</span><span style="font-family:var(--font-heading);font-size:16px">Place des Vosges</span></div>
+            <div style="display:flex;gap:8px"><div class="plate" style="flex:1;height:130px"><div class="cmt-slot"><image-slot id="m-vosges-1" shape="rect" placeholder="Arcades"></image-slot></div></div><div class="plate" style="width:88px;height:130px"><div class="cmt-slot"><image-slot id="m-vosges-2" shape="rect" placeholder="Garden"></image-slot></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- phone 2: provenance bottom sheet -->
+      <div style="width:390px;border-radius:44px;padding:12px;background:#191816;box-shadow:var(--shadow-lg)">
+        <div style="border-radius:33px;overflow:hidden;background:var(--color-bg);height:800px;position:relative">
+          <div style="height:44px;display:flex;align-items:center;justify-content:center;position:relative"><span style="width:120px;height:26px;background:#191816;border-radius:0 0 16px 16px"></span></div>
+          <!-- dimmed content behind -->
+          <div style="padding:8px 22px;height:calc(100% - 44px);filter:brightness(.9)">
+            <div style="display:flex;gap:10px;margin-bottom:6px"><span style="font-family:var(--font-heading);font-size:16px;font-variant-numeric:tabular-nums">15:00</span><span style="font-family:var(--font-heading);font-size:16px">Berthillon</span></div>
+            <div class="plate" style="width:100%;height:200px"><div class="cmt-slot"><image-slot id="m-berthillon-1" shape="rect" placeholder="Île Saint-Louis"></image-slot></div></div>
+          </div>
+          <!-- scrim -->
+          <div style="position:absolute;inset:44px 0 0;background:color-mix(in srgb,#191816 42%,transparent)"></div>
+          <!-- bottom sheet -->
+          <div class="elev-lg" style="position:absolute;left:0;right:0;bottom:0;background:var(--color-surface);border-radius:20px 20px 33px 33px;padding:22px 24px 34px">
+            <div style="width:38px;height:4px;border-radius:2px;background:var(--color-neutral-400);margin:0 auto 18px"></div>
+            <div style="font-family:var(--font-heading);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:4px">How I know this</div>
+            <h4 style="font-size:22px;font-weight:600;margin:0 0 16px">Berthillon · Île Saint-Louis</h4>
+            <div style="display:flex;flex-direction:column;gap:12px;font-family:var(--font-body);font-size:14px">
+              <div style="display:flex;justify-content:space-between"><span class="text-muted">Visits recorded</span><span style="font-variant-numeric:tabular-nums;color:var(--color-accent-700)">8</span></div>
+              <div style="display:flex;justify-content:space-between"><span class="text-muted">Date range</span><span style="font-variant-numeric:tabular-nums">2015 – 2024</span></div>
+              <div style="display:flex;justify-content:space-between"><span class="text-muted">Last visited</span><span style="font-variant-numeric:tabular-nums">May 2024</span></div>
+              <div style="display:flex;justify-content:space-between"><span class="text-muted">In the archive</span><span style="font-variant-numeric:tabular-nums">214 photos · 11 videos</span></div>
+              <hr class="hr" style="margin:4px 0">
+              <div style="display:flex;justify-content:space-between"><span class="text-muted">Walk from Sainte-Chapelle</span><span style="font-variant-numeric:tabular-nums">6 min · measured</span></div>
+              <div style="margin-top:6px"><span class="tag tag-accent" style="display:inline-flex;align-items:center;gap:5px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Confidence: High</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:300px;padding-top:20px">
+        <p style="font-family:var(--font-body);font-size:15px;line-height:1.7">On mobile the seam reads the same way: a personally-shot stop carries a gallery and a video, a web-filled stop stays a single image or a pin.</p>
+        <hr class="hr">
+        <p class="text-muted" style="font-family:var(--font-body);font-size:13.5px;line-height:1.7">Every stop keeps <em>source, visit count, last-visited and confidence</em> in the data model — so the seamless view can ship first and the reveal, rollup and verified-only filter layer on later without re-architecting.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  DAY_START = 540; DAY_END = 1320;
+  START = { name: 'your flat', area: 'Le Marais', lat: 48.8580, lon: 2.3620, src: null };
+  PLACES = [
+    { id:'cafehugo', name:'Café Hugo', area:'Place des Vosges, 4e', lat:48.8553, lon:2.3663, dur:40, meal:'coffee', open:[8,19], src:'verified', visits:5, last:'May \u201924', label:'Coffee', group:'food' },
+    { id:'tenbelles', name:'Ten Belles', area:'Canal Saint-Martin, 10e', lat:48.8709, lon:2.3663, dur:30, meal:'coffee', open:[8,17], src:'verified', visits:5, last:'Sep \u201923', label:'Coffee', group:'food' },
+    { id:'vosges', name:'Place des Vosges', area:'Le Marais, 4e', lat:48.8556, lon:2.3655, dur:45, meal:null, open:[0,24], src:'verified', visits:7, last:'May \u201924', label:'Square', group:'sight' },
+    { id:'carnavalet', name:'Mus\u00e9e Carnavalet', area:'Le Marais, 3e', lat:48.8577, lon:2.3626, dur:90, meal:null, open:[10,18], src:'web', visits:0, last:'', label:'Museum', group:'indoor' },
+    { id:'marche', name:'March\u00e9 des Enfants Rouges', area:'Le Marais, 3e', lat:48.8630, lon:2.3626, dur:45, meal:'lunch', open:[9,14], src:'verified', visits:4, last:'May \u201924', label:'Lunch \u00b7 market', group:'food' },
+    { id:'rosiers', name:'Rue des Rosiers', area:'Le Marais, 4e', lat:48.8571, lon:2.3592, dur:40, meal:'lunch', open:[11,23], src:'verified', visits:6, last:'May \u201924', label:'Lunch \u00b7 falafel', group:'food' },
+    { id:'mouffetard', name:'Rue Mouffetard', area:'Latin Quarter, 5e', lat:48.8420, lon:2.3496, dur:45, meal:'lunch', open:[9,14], src:'verified', visits:3, last:'Sep \u201923', label:'Lunch \u00b7 market', group:'food' },
+    { id:'saintechapelle', name:'Sainte-Chapelle', area:'\u00cele de la Cit\u00e9', lat:48.8554, lon:2.3450, dur:45, meal:null, open:[9,17], src:'web', visits:0, last:'', label:'Monument', group:'indoor' },
+    { id:'berthillon', name:'Berthillon', area:'\u00cele Saint-Louis', lat:48.8517, lon:2.3570, dur:30, meal:null, open:[10,20], src:'verified', visits:8, last:'May \u201924', label:'Sweet stop', group:'sight' },
+    { id:'tournelle', name:'Pont de la Tournelle', area:'by the islands', lat:48.8508, lon:2.3548, dur:40, meal:null, open:[0,24], src:'verified', visits:5, last:'May \u201924', label:'Riverside', group:'sight' },
+    { id:'luxembourg', name:'Jardin du Luxembourg', area:'Latin Quarter, 6e', lat:48.8462, lon:2.3372, dur:60, meal:null, open:[8,20], src:'verified', visits:4, last:'Sep \u201923', label:'Garden', group:'park' },
+    { id:'shakespeare', name:'Shakespeare & Co', area:'Latin Quarter, 5e', lat:48.8526, lon:2.3471, dur:40, meal:null, open:[10,20], src:'verified', visits:5, last:'Sep \u201923', label:'Bookshop', group:'indoor' },
+    { id:'canal', name:'Canal Saint-Martin', area:'10e', lat:48.8709, lon:2.3663, dur:50, meal:null, open:[0,24], src:'verified', visits:5, last:'Sep \u201923', label:'Long walk', group:'park' },
+    { id:'sacre', name:'Sacr\u00e9-C\u0153ur', area:'Montmartre, 18e', lat:48.8867, lon:2.3431, dur:40, meal:null, open:[6,22], src:'web', visits:0, last:'', label:'Viewpoint', group:'sight' },
+    { id:'pere', name:'P\u00e8re-Lachaise', area:'20e', lat:48.8610, lon:2.3934, dur:75, meal:null, open:[9,18], src:'verified', visits:3, last:'Jun \u201922', label:'Long walk', group:'park' },
+    { id:'aligre', name:'March\u00e9 d\u2019Aligre', area:'12e', lat:48.8500, lon:2.3789, dur:50, meal:null, open:[9,14], src:'verified', visits:3, last:'Jun \u201922', label:'Market', group:'food' },
+    { id:'chezjanou', name:'Chez Janou', area:'Le Marais, 3e', lat:48.8590, lon:2.3660, dur:90, meal:'dinner', open:[19,23], src:'verified', visits:3, last:'May \u201924', label:'Dinner \u00b7 Proven\u00e7al', group:'food' },
+    { id:'baronrouge', name:'Le Baron Rouge', area:'12e', lat:48.8500, lon:2.3789, dur:75, meal:'dinner', open:[10,22], src:'web', visits:0, last:'', label:'Dinner \u00b7 wine bar', group:'food' }
+  ];
+  PACE = { gentle:{ f:1.3, slot:90 }, balanced:{ f:1, slot:75 }, full:{ f:0.78, slot:60 } };
+  INFO = {
+    cafehugo:{ price:'$$', menu:'https://www.google.com/search?q=Caf%C3%A9+Hugo+Place+des+Vosges+menu', lang:'FR' },
+    tenbelles:{ price:'$', menu:'https://tenbelles.com/', lang:'EN' },
+    marche:{ price:'$', menu:'https://www.google.com/search?q=March%C3%A9+des+Enfants+Rouges+stalls', lang:'FR' },
+    rosiers:{ price:'$', menu:'https://www.google.com/search?q=L%27As+du+Fallafel+menu', lang:'FR' },
+    mouffetard:{ price:'$', menu:'https://www.google.com/search?q=Rue+Mouffetard+market+stalls', lang:'FR' },
+    aligre:{ price:'$', menu:'https://www.google.com/search?q=March%C3%A9+d%27Aligre', lang:'FR' },
+    berthillon:{ price:'$', menu:'https://www.berthillon.fr/en/', lang:'EN' },
+    chezjanou:{ price:'$$', menu:'https://www.google.com/search?q=Chez+Janou+Paris+menu', lang:'FR' },
+    baronrouge:{ price:'$$', menu:'https://www.google.com/search?q=Le+Baron+Rouge+Paris+menu', lang:'FR' }
+  };
+  ENTRY = {
+    carnavalet:{ cost:'Free', url:'https://www.carnavalet.paris.fr/en', needed:false, note:'timed slot' },
+    saintechapelle:{ cost:'\u20ac13', url:'https://www.sainte-chapelle.fr/en', needed:true, note:'' },
+    sacre:{ cost:'\u20ac7 dome', url:'https://www.sacre-coeur-montmartre.com/english/', needed:true, note:'basilica free' },
+    pere:{ cost:'Free', url:null, needed:false, note:'' },
+    luxembourg:{ cost:'Free', url:null, needed:false, note:'' },
+    shakespeare:{ cost:'Free', url:null, needed:false, note:'' },
+    vosges:{ cost:'Free', url:null, needed:false, note:'' },
+    tournelle:{ cost:'Free', url:null, needed:false, note:'' },
+    canal:{ cost:'Free', url:null, needed:false, note:'' }
+  };
+  HOOD_ORDER = ['Le Marais','The Islands','Latin Quarter','Canal & Montmartre','The East'];
+  NODES = [
+    { name:'Place des Vosges', hood:'Le Marais', day:1, x:46, y:40, v:true },
+    { name:'March\u00e9 des Enfants Rouges', hood:'Le Marais', day:1, x:35, y:25, v:true },
+    { name:'Mus\u00e9e Carnavalet', hood:'Le Marais', day:1, x:56, y:33, v:false },
+    { name:'Sainte-Chapelle', hood:'The Islands', day:1, x:39, y:53, v:false },
+    { name:'Berthillon', hood:'The Islands', day:1, x:61, y:56, v:true },
+    { name:'Pont de la Tournelle', hood:'The Islands', day:1, x:56, y:67, v:true },
+    { name:'Jardin du Luxembourg', hood:'Latin Quarter', day:2, x:26, y:75, v:true },
+    { name:'Shakespeare & Co', hood:'Latin Quarter', day:2, x:45, y:64, v:true },
+    { name:'Rue Mouffetard', hood:'Latin Quarter', day:2, x:33, y:88, v:true },
+    { name:'Canal Saint-Martin', hood:'Canal & Montmartre', day:3, x:67, y:12, v:true },
+    { name:'Sacr\u00e9-C\u0153ur', hood:'Canal & Montmartre', day:3, x:49, y:8, v:false },
+    { name:'March\u00e9 d\u2019Aligre', hood:'The East', day:4, x:83, y:70, v:true },
+    { name:'P\u00e8re-Lachaise', hood:'The East', day:4, x:87, y:47, v:true }
+  ];
+  state = { pace:'balanced', day:0, graphMode:'day', days:[ this.blankDay(), this.blankDay(), this.blankDay(), this.blankDay() ] };
+
+  fmt(m){ m = Math.round(m); const h = Math.floor(m/60), mm = m%60; return h + ':' + String(mm).padStart(2,'0'); }
+  dist(a,b){ const R=6371, rad=Math.PI/180; const dLat=(b.lat-a.lat)*rad, dLon=(b.lon-a.lon)*rad, la1=a.lat*rad, la2=b.lat*rad; const h=Math.sin(dLat/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLon/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+  travel(a,b){ const d=this.dist(a,b); let min, mode; if(d<=1.2){ min=Math.max(3, Math.round(d/4.5*60)); mode='walk'; } else { min=Math.round(11 + d*4); mode='metro'; } const measured = !!(a && a.src==='verified' && b.src==='verified' && mode==='walk' && d<1.6); return { min, mode, measured }; }
+
+  buildCandidates(){
+    const s=this.state, d=this.cur(), clk=d.clock, pf=this.PACE[s.pace].f;
+    const visited=this.tripVisited();
+    const en=this.PLACES.filter(p=>!visited.has(p.id)).map(p=>{ const t=this.travel(d.loc,p); const dur=Math.round(p.dur*pf); const arrive=clk+t.min; const leave=arrive+dur; const open = arrive >= p.open[0]*60 && arrive <= (p.open[1]*60 - Math.min(dur,30)); return { p, t, dur, arrive, leave, open }; }).filter(e=>e.open);
+    let needMeal=null;
+    if(!d.meals.lunch && clk>=11*60 && clk<=15*60) needMeal='lunch';
+    if(!d.meals.dinner && clk>=18*60) needMeal='dinner';
+    const mealEls = needMeal ? en.filter(e=>e.p.meal===needMeal).sort((a,b)=>a.t.min-b.t.min) : [];
+    const picks=[]; mealEls.slice(0,2).forEach(e=>picks.push(e));
+    const rest = en.filter(e=>!picks.includes(e)).filter(e=>{
+      if(!e.p.meal) return true;
+      if(e.p.meal==='coffee') return clk<12*60 && !d.meals.coffee;
+      if(e.p.meal==='lunch') return needMeal==='lunch';
+      if(e.p.meal==='dinner') return needMeal==='dinner';
+      return true;
+    });
+    const lastGroup = d.committed.length ? d.committed[d.committed.length-1].group : null;
+    const score = e => { let v=0; v += e.p.src==='verified'?2:0; v -= e.t.min/18; if(e.p.group===lastGroup) v -= 1.5; return v; };
+    rest.sort((a,b)=>score(b)-score(a));
+    for(const e of rest){ if(picks.length>=3) break; if(picks.some(x=>x.p.group===e.p.group)) continue; picks.push(e); }
+    for(const e of rest){ if(picks.length>=3) break; if(!picks.includes(e)) picks.push(e); }
+    picks.forEach(e=>{ e.forecast = this.forecast(e); });
+    this._cands = picks;
+    return picks;
+  }
+
+  forecast(e){
+    const s=this.state, d=this.cur(), newClock=e.leave;
+    const dinnerAfter = d.meals.dinner || e.p.meal==='dinner';
+    if(e.p.meal==='dinner') return 'Dinner wraps \u2248' + this.fmt(newClock) + ' \u00b7 short walk home from here';
+    if(e.p.meal==='lunch') return 'Fed by ' + this.fmt(newClock) + ' \u00b7 the afternoon stays open';
+    const endBudget = dinnerAfter ? this.DAY_END : 21*60;
+    const more = Math.max(0, Math.floor((endBudget-newClock)/this.PACE[s.pace].slot));
+    if(newClock >= 20*60) return 'Runs to ' + this.fmt(newClock) + ' \u00b7 likely your last stop before dinner';
+    const mealNote = d.meals.lunch ? '' : (newClock<15*60 ? ' incl. lunch' : '');
+    return 'Free by ' + this.fmt(newClock) + ' \u00b7 room for \u2248' + more + ' more ' + (more===1?'stop':'stops') + mealNote;
+  }
+
+  choose(id){
+    const c=(this._cands||[]).find(e=>e.p.id===id); if(!c) return; const d=this.cur();
+    const item={ id:c.p.id, name:c.p.name, area:c.p.area, group:c.p.group, label:c.p.label, src:c.p.src, visits:c.p.visits, last:c.p.last, timeIn:c.arrive, dur:c.dur, travelMin:c.t.min, travelMode:c.t.mode, measured:c.t.measured, meal:c.p.meal };
+    const meals={...d.meals}; if(c.p.meal==='lunch')meals.lunch=true; if(c.p.meal==='dinner')meals.dinner=true; if(c.p.meal==='coffee')meals.coffee=true;
+    this.updateDay({ committed:[...d.committed, item], clock:c.leave, loc:c.p, meals });
+  }
+  reset(){ this.updateDay(this.blankDay()); }
+  blankDay(){ return { clock:540, loc:this.START, committed:[], meals:{ lunch:false, dinner:false, coffee:false } }; }
+  cur(){ return this.state.days[this.state.day]; }
+  tripVisited(){ const set=new Set(); this.state.days.forEach(dd=>dd.committed.forEach(c=>set.add(c.id))); return set; }
+  setDay(i){ this.setState({ day:i }); }
+  setPace(p){ this.setState({ pace:p }); }
+  updateDay(patch){ const days=this.state.days.map((dd,i)=> i===this.state.day ? {...dd,...patch} : dd); this.setState({ days }); }
+
+  renderVals(){
+    const s=this.state, d=this.cur();
+    const cands=this.buildCandidates();
+    const done = d.meals.dinner || (cands.length===0 && d.committed.length>0);
+    const pct = Math.max(0, Math.min(1, (d.clock-this.DAY_START)/(this.DAY_END-this.DAY_START)));
+    const chip=(label,st)=>({ label, klass:'tag ' + (st==='done'?'tag-accent':st==='now'?'tag-outline':'tag-neutral') });
+    const lunchState = d.meals.lunch?'done':(d.clock>15*60?'ahead':(d.clock>=11*60?'now':'ahead'));
+    const dinnerState = d.meals.dinner?'done':(d.clock>=18*60?'now':'ahead');
+    const mealChips=[ chip(d.meals.lunch?'Lunch \u2713':'Lunch', lunchState), chip(d.meals.dinner?'Dinner \u2713':'Dinner', dinnerState) ];
+    const committed = d.committed.map((c,i)=>({
+      timeIn:this.fmt(c.timeIn), name:c.name, area:c.area, label:c.label,
+      isVerified: c.src==='verified', notVerified: c.src!=='verified',
+      srcLabel: c.src==='verified' ? (c.visits + ' visits \u00b7 ' + c.last) : 'from web notes',
+      durLabel: c.dur + ' min',
+      isFood:!!this.INFO[c.id], price: this.INFO[c.id]?this.INFO[c.id].price:'', priceRest: this.INFO[c.id]?'$$$$'.slice(this.INFO[c.id].price.length):'', hasEntry:!!this.ENTRY[c.id], entryCost: this.ENTRY[c.id]?this.ENTRY[c.id].cost:'',
+      travelLabel: (i===0 ? (c.travelMin + ' min ' + c.travelMode + ' from your flat') : (c.travelMin + ' min ' + c.travelMode + (c.measured ? ' \u00b7 measured' : ' \u00b7 est.')))
+    }));
+    const candidates = cands.map(e=>{
+      const info=this.INFO[e.p.id], entry=this.ENTRY[e.p.id];
+      return {
+      name:e.p.name, area:e.p.area, label:e.p.label,
+      isVerified: e.p.src==='verified', notVerified: e.p.src!=='verified',
+      srcLabel: e.p.src==='verified' ? ('From your archive \u00b7 ' + e.p.visits + ' visits') : 'From web notes',
+      arriveLabel:this.fmt(e.arrive), durLabel:e.dur + ' min here',
+      travelLabel: e.t.min + ' min ' + e.t.mode, measuredLabel: e.t.measured ? 'measured' : 'estimated',
+      hasOpen: e.p.open[1]<22, openLabel: 'open to ' + e.p.open[1] + ':00',
+      isFood:!!info, price: info?info.price:'', priceRest: info?'$$$$'.slice(info.price.length):'', menuUrl: info?info.menu:'#', menuNote: info?(info.lang==='FR'?'menu \u00b7 FR\u2192EN':'menu in English'):'',
+      hasEntry:!!entry, entryCost: entry?entry.cost:'', entryUrl: entry&&entry.url?entry.url:'#', entryHasLink:!!(entry&&entry.url), entryLabel: entry&&entry.needed?'Book tickets':'Reserve slot', entryNote: entry&&entry.note?entry.note:'',
+      forecast:e.forecast, onChoose: ()=>this.choose(e.p.id)
+      };
+    });
+    const verifiedCount = d.committed.filter(c=>c.src==='verified').length;
+    const walk = d.committed.filter(c=>c.travelMode==='walk').reduce((a,c)=>a+c.travelMin,0);
+    const summary={ stops:d.committed.length, ratioLabel: verifiedCount + ' of ' + d.committed.length + ' personally verified', span: d.committed.length ? (this.fmt(d.committed[0].timeIn) + ' \u2013 ' + this.fmt(d.clock)) : '', walkLabel: walk + ' min on foot' };
+    const cap=x=>x.charAt(0).toUpperCase()+x.slice(1);
+    const dayTabs=this.state.days.map((dd,i)=>({ label:'Day '+(i+1), active:i===this.state.day, inactive:i!==this.state.day, count:dd.committed.length, onSet:()=>this.setDay(i) }));
+    const paceOpts=['gentle','balanced','full'].map(p=>({ label:cap(p), active:this.state.pace===p, inactive:this.state.pace!==p, onSet:()=>this.setPace(p) }));
+    let tS=0,tV=0; this.state.days.forEach(dd=>{ tS+=dd.committed.length; tV+=dd.committed.filter(c=>c.src==='verified').length; });
+    const trip={ label: tS>0 ? (tV+' of '+tS+' stops verified across the trip so far') : 'Choices carry across all four days \u2014 nothing repeats' };
+    const gm=this.state.graphMode;
+    const graphNodes=this.NODES.map(n=>({ name:n.name, sub: gm==='day'?('Day '+n.day):n.hood, left:n.x+'%', top:n.y+'%', isV:n.v, isW:!n.v }));
+    const gGroups = gm==='day'
+      ? [1,2,3,4].map(dn=>({ label:'Day '+dn, rows:this.NODES.filter(n=>n.day===dn) }))
+      : this.HOOD_ORDER.map(h=>({ label:h, rows:this.NODES.filter(n=>n.hood===h) }));
+    const graphGroups = gGroups.filter(g=>g.rows.length).map(g=>({ label:g.label, rows:g.rows.map(n=>({ name:n.name, dayLabel:'Day '+n.day, hood:n.hood })) }));
+    return {
+      noop:(e)=>e.preventDefault(),
+      clock:this.fmt(d.clock), meterPct:Math.round(pct*100) + '%',
+      mealChips, committed, candidates, done, notDone:!done,
+      hasCommitted:d.committed.length>0, notStarted:d.committed.length===0,
+      currentPlace: d.committed.length ? d.committed[d.committed.length-1].name : 'your flat in Le Marais',
+      summary, dayTabs, paceOpts, trip, onReset:()=>this.reset(),
+      graphNodes, graphGroups, graphCount:this.NODES.length, graphModeDay:gm==='day', graphModeHood:gm==='hood', onGraphDay:()=>this.setState({graphMode:'day'}), onGraphHood:()=>this.setState({graphMode:'hood'})
+    };
+  }
+}
+</script>
+</body>
+</html>
