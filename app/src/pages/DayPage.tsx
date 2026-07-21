@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import { DayTimeline } from '../components/DayTimeline'
 import { Page } from '../components/Layout'
 import { DayMap } from '../components/DayMap'
-import { builtDayStops, builtDayTitle } from '../lib/built-day'
+import { builtDayDeck, builtDayStops, builtDayTitle } from '../lib/built-day'
 import { stayLoc, stopPlace } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
@@ -38,7 +38,7 @@ export function DayPage() {
 
   const stops = isBuilt ? builtDayStops(city, built) : (curated?.stops ?? [])
   const title = isBuilt ? builtDayTitle(city, built) : (curated?.title ?? `Day ${num}`)
-  const purpose = isBuilt ? trip.dayPurposes?.[num - 1] : undefined
+  const deck = isBuilt ? builtDayDeck(built, trip.dayPurposes?.[num - 1]) : undefined
   const timedNames = isBuilt
     ? built.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => c.name)
     : []
@@ -49,30 +49,30 @@ export function DayPage() {
 
   return (
     <Page
-      kicker={isBuilt ? `Day ${num} · built by you` : `Day ${num}`}
+      topBar={
+        <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15, padding: '4px 0 18px' }}>
+          {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
+            <Link
+              key={d}
+              to={`/${city.id}/day/${d}`}
+              viewTransition
+              onClick={() => setLeafDir(d)}
+              style={
+                d === num
+                  ? { color: 'var(--color-accent)', borderBottom: '2px solid var(--color-accent)', paddingBottom: 6, textDecoration: 'none' }
+                  : { color: 'color-mix(in srgb, var(--color-text) 45%, transparent)', paddingBottom: 6, textDecoration: 'none' }
+              }
+            >
+              Day {d}
+            </Link>
+          ))}
+        </div>
+      }
       title={title}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15 }}>
-        {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
-          <Link
-            key={d}
-            to={`/${city.id}/day/${d}`}
-            viewTransition
-            onClick={() => setLeafDir(d)}
-            style={
-              d === num
-                ? { color: 'var(--color-accent)', borderBottom: '2px solid var(--color-accent)', paddingBottom: 6, textDecoration: 'none' }
-                : { color: 'color-mix(in srgb, var(--color-text) 45%, transparent)', paddingBottom: 6, textDecoration: 'none' }
-            }
-          >
-            Day {d}
-          </Link>
-        ))}
-      </div>
-
-      {purpose && (
-        <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, fontStyle: 'italic', margin: '18px 0 0', maxWidth: 560, lineHeight: 1.6 }}>
-          {purpose}
+      {deck && (
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, margin: '14px 0 0', maxWidth: 620, lineHeight: 1.75, color: 'color-mix(in srgb, var(--color-text) 82%, transparent)' }}>
+          {deck}
         </p>
       )}
       {isBuilt && (
