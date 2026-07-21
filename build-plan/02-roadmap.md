@@ -151,7 +151,15 @@ Then: new `app/src/cities/<city>/data/` + registration in the `CITIES` record in
 
 ## Phase 7 — Backend (deferred; triggers, not dates)
 
-No design now. Any one of these opens the phase:
+**First trigger tripped (2026-07-21):** LLM preference extraction shipped as a
+single serverless function (`app/api/extract-preferences.ts`, Vercel) because
+an Anthropic key can't live in the client. Scope stays narrow per the
+principles: the LLM reads the traveler's free-text brief and returns validated
+engine *inputs* (theme weights, interests, pace) — stored in trip state so
+regeneration is deterministic and never re-calls the API. It does not
+schedule, and it cannot write city data.
+
+No further design yet. Any one of these opens the phase proper:
 
 1. **Live or scheduled data feeds** worth ingesting (hours refresh, disruptions,
    availability) — the three-speed data model's third tier.

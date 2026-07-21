@@ -85,7 +85,7 @@ editable block (`ENGINE` in `planner.ts`) — that rule survives from the origin
 | `narrative_fit` | narrative_value; anchor-placement heuristics | `anchorMorning: 1.5` / `anchorLate: 2` (+ coffee hardcode) | **[now]** (hardcodes folded in at phase 4) |
 | `variety` | duplication_cost (within-day) | `sameGroup: 0.75` | **[now]** |
 | `coverage` | category_coverage; duplication nonlinearity ("the fourth museum") | `coverage: 1.25`, capped ×2 | **[now]** — soft by design |
-| `interest_fit` | traveler_interest_fit; personal_interest_fit | preset theme bias (`themeBias` per plan flavor); full traveler-interest weights still to come | **[now — coarse]** |
+| `interest_fit` | traveler_interest_fit; personal_interest_fit | preset theme bias + traveler theme weights extracted from the free-text brief (`interestWeights`, −1..1, negatives are real dislikes) | **[now]** |
 | `date_value` | date_specific_value (date half); temporary_event_bonus | — | **[phase 2]** |
 | `booking_risk` | booking_risk | hard caps only (`timed ≤ 2`, `maxWait`) | **[phase 5]** as a soft term |
 | `monetary_cost` | monetary_cost | entry-cost strings exist, unused by planner | **[appendix]** |

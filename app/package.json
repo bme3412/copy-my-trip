@@ -14,6 +14,7 @@
     "validate:cities": "esbuild scripts/validate-city.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/validate-city.cjs --log-level=error && node node_modules/.tmp/validate-city.cjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.4",
     "mapbox-gl": "^3.26.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

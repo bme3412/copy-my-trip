@@ -234,6 +234,32 @@ const v2 = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, []
 check('shuffle: same variant regenerates the same plan', seq(v0a) === seq(v0b))
 check('shuffle: variants produce different plans', new Set([seq(v0a), seq(v1), seq(v2)]).size === 3)
 
+// ── Preference extraction: brief weights steer the deterministic engine ──
+import { sanitizeExtracted } from '../src/lib/extract'
+const artsy = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0, { artistic: 1, monumental: -1 })
+const baseline4 = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0)
+check('brief: weights change the plan', seq(artsy) !== seq(baseline4))
+check('brief: weights are deterministic', seq(artsy) === seq(generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0, { artistic: 1, monumental: -1 })))
+const briefReasons = artsy.days.flatMap((d) => d.committed).flatMap((s) => s.reasons ?? [])
+check('brief: stops carry interest_fit reasons from the brief', briefReasons.some((r) => r.term === 'interest_fit' && r.note.includes('brief')))
+const themeCount = (p: GeneratedPlan, th: string) =>
+  p.days.flatMap((d) => d.committed).filter((s) => stopPlace(city, s)?.themes?.includes(th as never)).length
+check('brief: artistic lean yields ≥ as many artistic stops', themeCount(artsy, 'artistic') >= themeCount(baseline4, 'artistic'),
+  `${themeCount(artsy, 'artistic')} vs ${themeCount(baseline4, 'artistic')}`)
+
+// Sanitizer: clamp, filter, reject — never trust model output structurally.
+const dirty = sanitizeExtracted({
+  interests: ['Museums', 'Skydiving', 42],
+  themeWeights: { artistic: 3, monumental: -2, bogus: 1, everyday: 0 },
+  pace: 'ludicrous',
+  summary: 'x'.repeat(500),
+})
+check('sanitize: keeps only vocabulary interests', JSON.stringify(dirty?.interests) === '["Museums"]')
+check('sanitize: clamps weights to ±1 and drops unknown/zero themes',
+  dirty?.themeWeights.artistic === 1 && dirty?.themeWeights.monumental === -1 && Object.keys(dirty?.themeWeights ?? {}).length === 2)
+check('sanitize: invalid pace becomes null and summary truncates', dirty?.pace === null && (dirty?.summary.length ?? 0) <= 280)
+check('sanitize: junk input rejected', sanitizeExtracted({ interests: [], themeWeights: {}, pace: null, summary: 'hi' }) === null)
+
 // ── Diversity: where you stay and which preset you pick must matter ──
 import { dayAnchor } from '../src/lib/planner'
 for (const [cid, c] of Object.entries(CITIES)) {

@@ -14,6 +14,11 @@ export interface TripState {
   /** Shuffle counter for plan generation — the same seed regenerates the same
    * plans; bumping it rotates the picks. Deterministic variety, no RNG. */
   planSeed?: number
+  /** The traveler's free-text trip brief, as typed. */
+  brief?: string
+  /** What the LLM read from the brief — stored so regeneration is
+   * deterministic and never re-calls the API. */
+  extracted?: import('../lib/extract').ExtractedPrefs
   days: DayState[]
   /** One-line purpose per day, set when a generated plan is chosen. */
   dayPurposes?: string[]

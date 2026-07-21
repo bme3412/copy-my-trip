@@ -28,6 +28,7 @@ export const ENGINE = {
     hoodRepeat: 1, // the trip already anchored a day in this hood — spread out
     groupSaturation: 0.5, // per same-group stop beyond the second today
     rank: 0.5, // editorial pull: icons up, deeper cuts down (rank 2 is neutral)
+    interest: 1, // per matched theme, scaled by the traveler's extracted −1..1 weight
   },
   /** Candidates offered per pick: the builder shows 3; generation sees more so
    * the presets' pick strategies have room to diverge. */
@@ -298,6 +299,9 @@ export interface CandidateOpts {
   home?: { lat: number; lon: number }
   /** The plan's flavor (from the preset): themes it leans toward, and how hard. */
   themeBias?: { themes: readonly Theme[]; weight: number }
+  /** The traveler's own lean, extracted from their free-text brief (−1..1 per
+   * theme). Negative weights are real dislikes, not absence of interest. */
+  interestWeights?: Partial<Record<Theme, number>>
   /** How many candidates to return (default ENGINE.candidatePool). */
   limit?: number
 }
@@ -413,6 +417,19 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     if (opts.themeBias && e.p.themes) {
       const hits = e.p.themes.filter((th) => opts.themeBias!.themes.includes(th))
       if (hits.length) add('interest_fit', hits.length * opts.themeBias.weight, `fits the plan's ${hits.join(' & ')} lean`)
+    }
+    // The traveler's own brief: what they said they love — and dislike.
+    if (opts.interestWeights && e.p.themes) {
+      let v = 0
+      const hits: Theme[] = []
+      for (const th of e.p.themes) {
+        const w = opts.interestWeights[th]
+        if (w) {
+          v += w * W.interest
+          hits.push(th)
+        }
+      }
+      if (v) add('interest_fit', v, `${v > 0 ? 'matches' : 'sits against'} your brief (${hits.join(' & ')})`)
     }
     return parts
   }

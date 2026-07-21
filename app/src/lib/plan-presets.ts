@@ -106,6 +106,7 @@ export function generatePlan(
   arriving?: string,
   interests: string[] = [],
   variant = 0,
+  interestWeights?: Partial<Record<Theme, number>>,
 ): GeneratedPlan {
   const basePace = preset.pace ?? travelerPace
   const profiles = dayProfiles(city, dayCount, interests, preset.avoidIcons)
@@ -137,6 +138,7 @@ export function generatePlan(
         usedHoods,
         home: stay ?? city.start,
         themeBias: preset.themeBias,
+        interestWeights,
         limit: ENGINE.candidatePoolGenerate,
       }
 
