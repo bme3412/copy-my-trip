@@ -298,6 +298,21 @@ const avoided = generatePlan(city, PLAN_PRESETS[0], 5, 'balanced', STAY, ARRIVIN
 ])
 check('avoid: the skipped place never appears', !avoided.days.some((d) => d.committed.some((s) => s.id === 'eiffel')))
 
+// The pin holds across configurations — the user's own scenario (late-August
+// trip, Montmartre stay), every preset, several shuffle seeds.
+for (const preset of PLAN_PRESETS)
+  for (const seed of [0, 3, 7]) {
+    const plan = generatePlan(city, preset, 5, 'balanced', stayLoc(city, 'Montmartre (18e)'), '2026-08-22', [], seed, undefined, [
+      { placeId: 'seinecruise', kind: 'include', day: 'last', slot: 'evening' },
+    ])
+    const hits = plan.days.map((d, i) => ({ i, s: d.committed.find((x) => x.id === 'seinecruise') })).filter((x) => x.s)
+    check(
+      `pin holds: ${preset.id} seed ${seed} — cruise on the last night, evening`,
+      hits.length === 1 && hits[0].i === 4 && hits[0].s!.timeIn >= 16 * 60,
+      hits.map((x) => `day${x.i + 1}@${fmtClock(x.s!.timeIn)}`).join(',') || 'never scheduled',
+    )
+  }
+
 // ── Sun times + the deck: the day tied to its date ──
 import { euTzOffsetMin, sunTimes } from '../src/lib/sun'
 import { builtDayDeck } from '../src/lib/built-day'

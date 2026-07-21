@@ -68,8 +68,9 @@ export function sanitizeExtracted(raw: unknown, validPlaceIds?: ReadonlySet<stri
       if (typeof placeId !== 'string' || !validPlaceIds.has(placeId)) continue
       if (kind !== 'include' && kind !== 'avoid') continue
       const out: ExtractedRequest = { placeId, kind }
+      const dayNum = typeof day === 'number' ? day : typeof day === 'string' && /^[1-7]$/.test(day) ? Number(day) : null
       if (day === 'first' || day === 'last') out.day = day
-      else if (typeof day === 'number' && Number.isInteger(day) && day >= 1 && day <= 7) out.day = day
+      else if (dayNum !== null && Number.isInteger(dayNum) && dayNum >= 1 && dayNum <= 7) out.day = dayNum
       if (slot === 'morning' || slot === 'afternoon' || slot === 'evening') out.slot = slot
       requests.push(out)
     }

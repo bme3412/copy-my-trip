@@ -30,7 +30,7 @@ const SCHEMA = {
         properties: {
           placeId: { type: 'string' },
           kind: { type: 'string', enum: ['include', 'avoid'] },
-          day: { type: ['string', 'integer', 'null'], enum: ['first', 'last', 1, 2, 3, 4, 5, 6, 7, null] },
+          day: { type: ['string', 'null'], enum: ['first', 'last', '1', '2', '3', '4', '5', '6', '7', null] },
           slot: { type: ['string', 'null'], enum: ['morning', 'afternoon', 'evening', null] },
         },
         required: ['placeId', 'kind', 'day', 'slot'],
@@ -49,7 +49,7 @@ Rules:
 - interests: only values from the fixed vocabulary, only when the brief clearly supports them.
 - themeWeights: a lean per theme, -1..1. The themes mean: monumental (icons, landmarks), historic (old Paris, churches, history), artistic (museums, galleries, art), neighborhood (streets, local quarters, wandering), everyday (food, markets, cafés, ordinary life), afterdark (evenings, views at night, going out). Map explicit dislikes to NEGATIVE weights — "we hate crowds and big monuments" is monumental: -0.6, not an omission. Omit themes the brief says nothing about. Be conservative: ±0.3 for a mention, ±0.6 for enthusiasm or clear aversion, ±1 only for emphatic statements.
 - pace: only when clearly implied ("we like slow mornings" → gentle; "we want to see everything" → full). Otherwise null.
-- requests: concrete asks about SPECIFIC places, matched against the provided place catalog (id + name). "Save the bateaux mouches for the last night" → the Seine cruise entry, kind "include", day "last", slot "evening". "We already did the Louvre" or "skip the Eiffel Tower" → kind "avoid". Tolerate misspellings and colloquial names (bateaux mouches = the Seine sightseeing cruise). Use ONLY placeIds that appear in the catalog; if nothing matches, omit the request. day/slot null when unstated. At most 4.
+- requests: concrete asks about SPECIFIC places, matched against the provided place catalog (id + name). "Save the bateaux mouches for the last night" → the Seine cruise entry, kind "include", day "last", slot "evening". "We already did the Louvre" or "skip the Eiffel Tower" → kind "avoid". Tolerate misspellings and colloquial names (bateaux mouches = the Seine sightseeing cruise). Use ONLY placeIds that appear in the catalog; if nothing matches, omit the request. day is a string: "first", "last", or a digit like "3"; "last night" / "final evening" always means day "last" with slot "evening" (the itinerary's days are the trip's nights — checkout day is not a day). day/slot null when unstated. At most 4.
 - summary: one warm sentence reading the brief back, so the traveler can correct you — include any concrete asks. No advice, no itinerary.
 - Never infer beyond what's written. An unmentioned preference is not a preference.`
 

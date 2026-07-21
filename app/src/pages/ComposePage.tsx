@@ -52,8 +52,10 @@ export function ComposePage() {
         ...(extracted.pace ? { pace: extracted.pace } : {}),
       })
       if (!briefFocused.current) setBriefOpen(false)
-    } catch {
-      /* quietly — the itinerary works without the reading */
+    } catch (err) {
+      // Quiet in the UI — the itinerary works without the reading — but
+      // visible in the console so a missing API isn't a mystery in dev.
+      console.warn('[brief] extraction skipped:', err instanceof Error ? err.message : err)
     } finally {
       setExtracting(false)
     }

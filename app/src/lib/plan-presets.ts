@@ -197,11 +197,35 @@ export function generatePlan(
         while (guard++ < 20) {
           const covered = tripThemes(city, [...days, day])
           const cands = buildCandidates(city, day, pace, visited, { ...opts, covered })
-          if (isDayDone(day, pace, cands, profile.maxStops)) break
+          const pinCand = cands.find((c) => pins.some((x) => x.id === c.p.id))
+          if (isDayDone(day, pace, cands, profile.maxStops)) {
+            // The day would end — but an asked-for stop is still on offer:
+            // take it before closing out. The traveler asked.
+            if (pinCand) {
+              day = { ...day, ...commitCandidate(day, pinCand) }
+              visited.add(pinCand.p.id)
+              continue
+            }
+            // No pin on offer *yet* — an evening ask on an afternoon clock.
+            // Wait it out: free time until the asked-for window opens.
+            const pending = pins.find((x) => !visited.has(x.id))
+            if (pending) {
+              const place = city.places.find((p) => p.id === pending.id)
+              const windowStart = pending.notBefore ?? (place?.best ? place.best[0] * 60 : undefined)
+              const target = windowStart !== undefined ? windowStart - 30 : undefined
+              if (target !== undefined && target > day.clock) {
+                day = { ...day, clock: target }
+                continue
+              }
+            }
+            break
+          }
           // The shuffle: variant N rotates the candidate list so the preset's
-          // pick sees a different (still high-scoring) option first.
+          // pick sees a different (still high-scoring) option first. An
+          // asked-for stop that's feasible right now outranks everything —
+          // including the forced dinner that would otherwise close the day.
           const spin = variant % Math.max(cands.length, 1)
-          const c = preset.pick([...cands.slice(spin), ...cands.slice(0, spin)])
+          const c = pinCand ?? preset.pick([...cands.slice(spin), ...cands.slice(0, spin)])
           day = { ...day, ...commitCandidate(day, c) }
           visited.add(c.p.id)
         }

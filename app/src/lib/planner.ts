@@ -328,6 +328,9 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   const timedTaken = day.committed.filter((c) => stopPlace(city, c)?.timed).length
   const longTransfers = day.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
 
+  // A concrete traveler ask outranks the day-anatomy caps: pinned places
+  // ignore the stop budget and timed cap — the traveler asked for this one.
+  const pinnedIds = new Set(opts.pins?.map((x) => x.id))
   const en = city.places
     .filter((p) => !visited.has(p.id))
     .filter((p) => !opts.exclude?.has(p.id))
@@ -335,8 +338,8 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     .flatMap(placeVariants)
     .filter((p) => effectiveHours(p, opts.date, opts.weekday) !== null)
     .filter((p) => !(anchorTaken && p.role === 'anchor'))
-    .filter((p) => !(p.timed && (opts.blockTimed || timedTaken >= ENGINE.maxTimedPerDay)))
-    .filter((p) => !budgetReached || p.meal === 'dinner')
+    .filter((p) => pinnedIds.has(p.id) || !(p.timed && (opts.blockTimed || timedTaken >= ENGINE.maxTimedPerDay)))
+    .filter((p) => pinnedIds.has(p.id) || !budgetReached || p.meal === 'dinner')
     .map((p) => {
       const hrs = effectiveHours(p, opts.date, opts.weekday)!
       const t = travel(day.loc, p)
