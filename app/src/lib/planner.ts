@@ -25,7 +25,13 @@ export const ENGINE = {
     anchorLate: 2, // …and are nearly wrong after 15:00
     coffeeMorning: 1.5, // a nearby coffee beats a sight first thing
     hoodBias: 1.5, // the personality day's soft pull toward its hood
+    hoodRepeat: 1, // the trip already anchored a day in this hood — spread out
+    groupSaturation: 0.5, // per same-group stop beyond the second today
   },
+  /** Candidates offered per pick: the builder shows 3; generation sees more so
+   * the presets' pick strategies have room to diverge. */
+  candidatePool: 3,
+  candidatePoolGenerate: 6,
   /** Timed reservations book the slot this many minutes after expected arrival —
    * the margin that absorbs a slow métro or a longer lunch. */
   timedEntryBuffer: 15,
@@ -49,8 +55,11 @@ export const ENGINE = {
   lastLeave: 21.75 * 60,
 }
 
-/** The day's theme hood: declared by its first committed stop; for an empty day,
- * suggested as the hood with the most unvisited verified places. */
+/** The day's theme hood: declared by its first committed stop; for an empty
+ * day, suggested by hood richness *discounted by distance from where the
+ * traveler is* — a Montmartre base should not be told to open in the Marais.
+ * Richness counts unvisited verified places (the archive leads), falling back
+ * to all unvisited places in a city with no archive yet. */
 export function dayAnchor(city: City, day: DayState, visited: Set<string>): string {
   // Coffee is a prelude, not the theme — the first non-coffee stop declares the day.
   const themeStop = day.committed.find((c) => c.meal !== 'coffee')
@@ -58,13 +67,20 @@ export function dayAnchor(city: City, day: DayState, visited: Set<string>): stri
     const place = city.places.find((p) => p.id === themeStop.id)
     if (place) return place.hood
   }
+  const hasArchive = city.places.some((p) => p.src === 'verified')
   let best = city.hoodOrder[0]
-  let bestN = -1
+  let bestScore = -1
   for (const h of city.hoodOrder) {
-    const n = city.places.filter((p) => p.hood === h && p.src === 'verified' && !visited.has(p.id)).length
-    if (n > bestN) {
+    const pool = city.places.filter((p) => p.hood === h && !visited.has(p.id) && (!hasArchive || p.src === 'verified'))
+    if (pool.length === 0) continue
+    const lat = pool.reduce((a, p) => a + p.lat, 0) / pool.length
+    const lon = pool.reduce((a, p) => a + p.lon, 0) / pool.length
+    // Diminishing returns on richness, steep decay on distance: a decent hood
+    // nearby beats the richest hood across town.
+    const score = Math.sqrt(pool.length) / (1 + travelMinutes(day.loc, { lat, lon }) / 10)
+    if (score > bestScore) {
       best = h
-      bestN = n
+      bestScore = score
     }
   }
   return best
@@ -101,7 +117,7 @@ export interface DayState {
 /** One contribution to a candidate's score — term from the canonical scoring
  * model (build-plan/01-principles.md), note in plain words for the UI. */
 export interface ScoreReason {
-  term: 'provenance_fit' | 'transit_cost' | 'locality_fit' | 'time_of_day_fit' | 'narrative_fit' | 'variety' | 'coverage'
+  term: 'provenance_fit' | 'transit_cost' | 'locality_fit' | 'time_of_day_fit' | 'narrative_fit' | 'variety' | 'coverage' | 'interest_fit'
   value: number
   note: string
 }
@@ -230,17 +246,16 @@ function dist(a: { lat: number; lon: number }, b: { lat: number; lon: number }):
   return 2 * R * Math.asin(Math.sqrt(h))
 }
 
+/** Door-to-door minutes between two points — walk under 1.2 km, métro above. */
+function travelMinutes(a: { lat: number; lon: number }, b: { lat: number; lon: number }): number {
+  const d = dist(a, b)
+  return d <= 1.2 ? Math.max(3, Math.round((d / 4.5) * 60)) : Math.round(11 + d * 4)
+}
+
 function travel(a: Place | StartLoc, b: Place) {
   const d = dist(a, b)
-  let min: number
-  let mode: 'walk' | 'metro'
-  if (d <= 1.2) {
-    min = Math.max(3, Math.round((d / 4.5) * 60))
-    mode = 'walk'
-  } else {
-    min = Math.round(11 + d * 4)
-    mode = 'metro'
-  }
+  const min = travelMinutes(a, b)
+  const mode: 'walk' | 'metro' = d <= 1.2 ? 'walk' : 'metro'
   const measured = !!(a && a.src === 'verified' && b.src === 'verified' && mode === 'walk' && d < 1.6)
   return { min, mode, measured }
 }
@@ -273,6 +288,14 @@ export interface CandidateOpts {
   blockTimed?: boolean
   /** Soft pull toward a hood (the personality day). */
   hoodBias?: string
+  /** Hoods that already anchored an earlier day — repeat visits score down. */
+  usedHoods?: ReadonlySet<string>
+  /** Where the day ends — evening candidates near home score up. */
+  home?: { lat: number; lon: number }
+  /** The plan's flavor (from the preset): themes it leans toward, and how hard. */
+  themeBias?: { themes: readonly Theme[]; weight: number }
+  /** How many candidates to return (default ENGINE.candidatePool). */
+  limit?: number
 }
 
 export function buildCandidates(city: City, day: DayState, pace: Pace, visited: Set<string>, opts: CandidateOpts = {}): Candidate[] {
@@ -347,8 +370,19 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       `${e.t.min} min ${e.t.mode}${firstLeg ? ' to open the day' : ' from the last stop'}`,
     )
     if (e.p.group === lastGroup) add('variety', -W.sameGroup, `another ${e.p.group} stop in a row`)
+    // Day-level saturation: the third café or third museum of the day reads
+    // as repetition even with something else in between.
+    const groupToday = day.committed.filter((c) => c.group === e.p.group).length
+    if (groupToday >= 2) add('variety', -W.groupSaturation * (groupToday - 1), `already ${groupToday} ${e.p.group} stops today`)
     if (e.p.hood === anchor) add('locality_fit', W.anchor, `in the day's theme hood`)
     else if (e.p.hood !== curHood) add('locality_fit', -W.offAnchor, `leaves the current neighbourhood`)
+    // Trip-level spread: a hood that already anchored a day pulls less.
+    if (opts.usedHoods?.has(e.p.hood) && e.p.hood !== curHood) add('locality_fit', -W.hoodRepeat, `the trip already had a day around ${e.p.hood}`)
+    // The unpriced last leg: from 17:00 the walk home starts to matter.
+    if (opts.home && e.arrive >= 17 * 60) {
+      const homeMin = travelMinutes(e.p, opts.home)
+      add('transit_cost', -homeMin * W.travelPerMin * 0.5, `${homeMin} min from home at day's end`)
+    }
     if (e.p.best) {
       const h = e.arrive / 60
       // Being early to a golden-hour spot is nearly disqualifying, not a nudge.
@@ -369,6 +403,11 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       if (freshThemes.length) add('coverage', Math.min(freshThemes.length, 2) * W.coverage, `first taste of ${freshThemes.join(' & ')} this trip`)
     }
     if (opts.hoodBias && e.p.hood === opts.hoodBias) add('locality_fit', W.hoodBias, `the day leans toward ${opts.hoodBias}`)
+    // The plan's flavor: presets are coarse interest profiles.
+    if (opts.themeBias && e.p.themes) {
+      const hits = e.p.themes.filter((th) => opts.themeBias!.themes.includes(th))
+      if (hits.length) add('interest_fit', hits.length * opts.themeBias.weight, `fits the plan's ${hits.join(' & ')} lean`)
+    }
     return parts
   }
   const score = (e: (typeof en)[number]) => scoreParts(e).reduce((a, r) => a + r.value, 0)
@@ -402,18 +441,19 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       // out a 10:30 lull for an 11:00 lunch opening is how humans do it.
       if (!e.p.meal) return true
       if (e.p.meal === 'coffee') return e.arrive < 12 * 60 && !day.meals.coffee
-      if (e.p.meal === 'lunch') return !day.meals.lunch && e.arrive >= 10.75 * 60 && e.arrive <= 14.5 * 60
+      if (e.p.meal === 'lunch') return !day.meals.lunch && e.arrive >= 11 * 60 && e.arrive <= 14.5 * 60
       if (e.p.meal === 'dinner') return needMeal === 'dinner'
       return true
     })
+  const limit = opts.limit ?? ENGINE.candidatePool
   rest.sort((a, b) => score(b) - score(a))
   for (const e of rest) {
-    if (picks.length >= 3) break
+    if (picks.length >= limit) break
     if (picks.some((x) => x.p.group === e.p.group)) continue
     picks.push(e)
   }
   for (const e of rest) {
-    if (picks.length >= 3) break
+    if (picks.length >= limit) break
     if (!picks.includes(e)) picks.push(e)
   }
   return picks.map((e) => {

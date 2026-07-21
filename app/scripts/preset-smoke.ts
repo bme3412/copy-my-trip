@@ -158,7 +158,7 @@ const eiffelVariants = placeVariants(placeOf('eiffel')!)
 check('experiences: Eiffel has view + summit variants', eiffelVariants.length === 2 && eiffelVariants.some((v) => v.experienceId === 'summit'))
 
 // ── Structured explanations: every stop can say why ──
-const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage'])
+const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage', 'interest_fit'])
 for (const [cid, c] of Object.entries(CITIES))
   for (const preset of PLAN_PRESETS) {
     const plan = genFor(c, preset.id, 7)
@@ -212,6 +212,35 @@ for (const timedId of ['saintechapelle', 'orangerie']) {
 check('timed buffer: at least two timed candidates exercised', timedSeen >= 2, `${timedSeen}`)
 function fmtClock(m: number): string {
   return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`
+}
+
+// ── Diversity: where you stay and which preset you pick must matter ──
+import { dayAnchor } from '../src/lib/planner'
+for (const [cid, c] of Object.entries(CITIES)) {
+  // The empty-day anchor localizes: many distinct day-1 theme hoods across stays.
+  const anchors = new Set(c.hoodOrder.map((h) => dayAnchor(c, blankDay(c, stayLoc(c, h)), new Set())))
+  check(`${cid}: day-1 anchors vary with the stay (≥5 distinct)`, anchors.size >= 5, `${anchors.size} of ${c.hoodOrder.length}`)
+
+  // Plans from different stay hoods genuinely differ.
+  const stays = [c.hoodOrder[0], c.hoodOrder[Math.floor(c.hoodOrder.length / 2)], c.hoodOrder[c.hoodOrder.length - 1]]
+  const stayPlans = stays.map((h) =>
+    generatePlan(c, PLAN_PRESETS[0], 4, 'balanced', stayLoc(c, h), ARRIVING, []).days.flatMap((d) => d.committed.map((s) => s.id)),
+  )
+  for (let i = 0; i < stayPlans.length; i++)
+    for (let j = i + 1; j < stayPlans.length; j++) {
+      const a = new Set(stayPlans[i]), b = new Set(stayPlans[j])
+      const diff = [...a].filter((x) => !b.has(x)).length + [...b].filter((x) => !a.has(x)).length
+      check(`${cid}: stays "${stays[i]}" vs "${stays[j]}" differ (≥3 stops)`, diff >= 3, `${diff}`)
+    }
+
+  // Presets are more than reorderings: bounded overlap between plan flavors.
+  const sets = PLAN_PRESETS.map((p) => new Set(genFor(c, p.id, 4).days.flatMap((d) => d.committed.map((s) => s.id))))
+  for (let i = 0; i < sets.length; i++)
+    for (let j = i + 1; j < sets.length; j++) {
+      const inter = [...sets[i]].filter((x) => sets[j].has(x)).length
+      const jac = inter / new Set([...sets[i], ...sets[j]]).size
+      check(`${cid}: presets ${PLAN_PRESETS[i].id}/${PLAN_PRESETS[j].id} overlap ≤ 0.8`, jac <= 0.8, jac.toFixed(2))
+    }
 }
 
 process.exit(fail ? 1 : 0)

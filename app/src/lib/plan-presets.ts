@@ -1,4 +1,4 @@
-import type { City, DayTemplate, Pace, StartLoc } from '../cities/types'
+import type { City, DayTemplate, Pace, StartLoc, Theme } from '../cities/types'
 import {
   blankDay,
   buildCandidates,
@@ -7,6 +7,7 @@ import {
   dayDate,
   dayWeekday,
   effectiveHours,
+  ENGINE,
   isDayDone,
   placeVariants,
   tripThemes,
@@ -24,6 +25,8 @@ export interface PlanPreset {
   pace: Pace | null
   /** Skip the Louvre/Orsay seeds and the Versailles day (Off the beaten path). */
   avoidIcons?: boolean
+  /** The preset's scoring lean — a coarse interest profile, applied every pick. */
+  themeBias?: { themes: Theme[]; weight: number }
   pick: (cands: Candidate[]) => Candidate
 }
 
@@ -55,6 +58,7 @@ export const PLAN_PRESETS: PlanPreset[] = [
     body: 'Skips the icons where it can — markets, canals, the east, the streets people actually live on.',
     pace: 'balanced',
     avoidIcons: true,
+    themeBias: { themes: ['neighborhood', 'everyday'], weight: 0.75 },
     // Dodge the monumental set and the big-ticket anchors when possible.
     pick: (c) =>
       c.find((x) => x.p.src === 'verified' && x.p.role !== 'anchor' && !(x.p.themes ?? []).includes('monumental')) ??
@@ -67,6 +71,7 @@ export const PLAN_PRESETS: PlanPreset[] = [
     title: 'Art + museum heavy',
     body: 'The Louvre, Orsay and the smaller collections — padded with cafés to recover in.',
     pace: 'balanced',
+    themeBias: { themes: ['artistic'], weight: 1 },
     // Chase the artistic thread; fall back to any indoor collection.
     pick: (c) =>
       c.find((x) => (x.p.themes ?? []).includes('artistic')) ?? c.find((x) => x.p.group === 'indoor') ?? c[0],
@@ -112,12 +117,23 @@ export function generatePlan(
       const pace = profile.paceOverride ?? basePace
       const weekday = arriving ? dayWeekday(arriving, d) : undefined
       const date = arriving ? dayDate(arriving, d) : undefined
+      // Hoods that already anchored an earlier day — later days spread out.
+      const usedHoods = new Set<string>()
+      for (const prev of days) {
+        const theme = prev.committed.find((c) => c.meal !== 'coffee')
+        const p = theme && city.places.find((pl) => pl.id === theme.id)
+        if (p) usedHoods.add(p.hood)
+      }
       const opts: CandidateOpts = {
         weekday,
         date,
         blockAnchors: profile.noAnchors,
         blockTimed: profile.noTimed,
         hoodBias: profile.hoodBias,
+        usedHoods,
+        home: stay ?? city.start,
+        themeBias: preset.themeBias,
+        limit: ENGINE.candidatePoolGenerate,
       }
 
       const openToday = (id: string, expId?: string) => {

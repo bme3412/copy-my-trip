@@ -840,5 +840,198 @@
     ],
     "dayTrip": true,
     "durVar": 60
+  },
+  {
+    "id": "popolo",
+    "name": "Piazza del Popolo & Santa Maria",
+    "area": "the twin churches · Caravaggios inside",
+    "hood": "Tridente & Trevi",
+    "lat": 41.9106,
+    "lon": 12.4763,
+    "dur": 50,
+    "meal": null,
+    "open": [
+      8,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Piazza · church",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "artistic"
+    ]
+  },
+  {
+    "id": "arapacis",
+    "name": "Ara Pacis Museum",
+    "area": "Lungotevere in Augusta",
+    "hood": "Tridente & Trevi",
+    "lat": 41.9061,
+    "lon": 12.4754,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      9.5,
+      19.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · small",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "artistic"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "ghetto",
+    "name": "Jewish Ghetto & Portico d’Ottavia",
+    "area": "Rione Sant’Angelo",
+    "hood": "Centro Storico",
+    "lat": 41.8925,
+    "lon": 12.4778,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The lanes",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "historic"
+    ]
+  },
+  {
+    "id": "isola",
+    "name": "Isola Tiberina",
+    "area": "Ponte Fabricio",
+    "hood": "Trastevere",
+    "lat": 41.8907,
+    "lon": 12.4778,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Riverside",
+    "group": "sight",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "best": [
+      16,
+      22
+    ]
+  },
+  {
+    "id": "caracalla",
+    "name": "Baths of Caracalla",
+    "area": "south of the Aventine",
+    "hood": "Aventine & Testaccio",
+    "lat": 41.879,
+    "lon": 12.4924,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      9,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Ruins · quiet",
+    "group": "sight",
+    "themes": [
+      "historic"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "giolitti",
+    "name": "Giolitti",
+    "area": "Via degli Uffici del Vicario",
+    "hood": "Centro Storico",
+    "lat": 41.9007,
+    "lon": 12.4773,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      7.5,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Sweet stop",
+    "group": "sight",
+    "themes": [
+      "everyday"
+    ],
+    "best": [
+      12,
+      23
+    ]
+  },
+  {
+    "id": "stignazio",
+    "name": "Sant’Ignazio",
+    "area": "the painted dome",
+    "hood": "Centro Storico",
+    "lat": 41.899,
+    "lon": 12.4797,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      9,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church · art",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ]
+  },
+  {
+    "id": "trattoriamonti",
+    "name": "Trattoria Monti",
+    "area": "Via di San Vito",
+    "hood": "Monti & Esquilino",
+    "lat": 41.8961,
+    "lon": 12.5013,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · Marche",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
   }
 ]

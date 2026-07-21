@@ -168,9 +168,21 @@ export function BuildPage() {
   const covered = useMemo(() => tripThemes(city, trip.days), [city, trip.days])
   const weekday = dayWeekday(trip.arriving, dayIdx)
   const date = dayDate(trip.arriving, dayIdx)
+  // Hoods that already anchor OTHER days of the trip — this day spreads out.
+  const usedHoods = useMemo(() => {
+    const set = new Set<string>()
+    trip.days.forEach((d, i) => {
+      if (i === dayIdx) return
+      const theme = d.committed.find((c) => c.meal !== 'coffee')
+      const p = theme && city.places.find((pl) => pl.id === theme.id)
+      if (p) set.add(p.hood)
+    })
+    return set
+  }, [city, trip.days, dayIdx])
+  const home = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const candidates = useMemo(
-    () => buildCandidates(city, day, pace, visited, { weekday, date, covered }),
-    [city, day, pace, visited, weekday, date, covered],
+    () => buildCandidates(city, day, pace, visited, { weekday, date, covered, usedHoods, home }),
+    [city, day, pace, visited, weekday, date, covered, usedHoods, home],
   )
   const done = isDayDone(day, pace, candidates)
   const anchor = dayAnchor(city, day, visited)
@@ -178,7 +190,6 @@ export function BuildPage() {
 
   const [exitingId, setExitingId] = useState<string | null>(null)
   const [hoverCandId, setHoverCandId] = useState<string | null>(null)
-  const home = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const choose = (c: Candidate) => updateDay(dayIdx, { ...day, ...commitCandidate(day, c) })
   const startChoose = (c: Candidate) => {
     if (exitingId) return
