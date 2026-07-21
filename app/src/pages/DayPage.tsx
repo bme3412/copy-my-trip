@@ -4,10 +4,14 @@ import { DayTimeline } from '../components/DayTimeline'
 import { FlowStepper } from '../components/FlowStepper'
 import { Page } from '../components/Layout'
 import { CheckIcon } from '../components/icons'
+import { DayMap } from '../components/DayMap'
 import { builtDayStops, builtDayVerifiedLabel } from '../lib/built-day'
-import { stopPlace } from '../lib/planner'
+import { stayLoc, stopPlace } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
+
+// Provided via app/.env.local — without it the day renders without a map.
+const MAPBOX_TOKEN: string | undefined = import.meta.env ? import.meta.env.VITE_MAPBOX_TOKEN : undefined
 
 export function DayPage() {
   const { n } = useParams()
@@ -106,6 +110,21 @@ export function DayPage() {
         <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, fontStyle: 'italic', margin: '14px 0 0' }}>
           {purpose}
         </p>
+      )}
+
+      {isBuilt && MAPBOX_TOKEN && (
+        <div
+          style={{
+            position: 'relative',
+            height: 320,
+            marginTop: 20,
+            border: '1px solid var(--color-divider)',
+            borderRadius: 6,
+            overflow: 'hidden',
+          }}
+        >
+          <DayMap token={MAPBOX_TOKEN} city={city} home={stayLoc(city, trip.stayHood)} day={built} />
+        </div>
       )}
 
       <hr className="hr hr-draw" style={{ margin: '24px 0 8px' }} />
