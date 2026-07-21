@@ -27,6 +27,7 @@ export const ENGINE = {
     hoodBias: 1.5, // the personality day's soft pull toward its hood
     hoodRepeat: 1, // the trip already anchored a day in this hood — spread out
     groupSaturation: 0.5, // per same-group stop beyond the second today
+    rank: 0.5, // editorial pull: icons up, deeper cuts down (rank 2 is neutral)
   },
   /** Candidates offered per pick: the builder shows 3; generation sees more so
    * the presets' pick strategies have room to diverge. */
@@ -117,7 +118,7 @@ export interface DayState {
 /** One contribution to a candidate's score — term from the canonical scoring
  * model (build-plan/01-principles.md), note in plain words for the UI. */
 export interface ScoreReason {
-  term: 'provenance_fit' | 'transit_cost' | 'locality_fit' | 'time_of_day_fit' | 'narrative_fit' | 'variety' | 'coverage' | 'interest_fit'
+  term: 'provenance_fit' | 'transit_cost' | 'locality_fit' | 'time_of_day_fit' | 'narrative_fit' | 'variety' | 'coverage' | 'interest_fit' | 'editorial_fit'
   value: number
   note: string
 }
@@ -364,6 +365,8 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       if (value !== 0) parts.push({ term, value, note })
     }
     if (e.p.src === 'verified') add('provenance_fit', W.verified, `from the archive — ${e.p.visits} visits`)
+    if (e.p.rank === 1) add('editorial_fit', W.rank, 'a first-visit icon')
+    else if (e.p.rank === 3) add('editorial_fit', -W.rank, 'a deeper cut — earns its slot on fit, not fame')
     add(
       'transit_cost',
       -(e.t.min * W.travelPerMin * (firstLeg ? ENGINE.firstLegTravelFactor : 1)),

@@ -89,11 +89,15 @@ editable block (`ENGINE` in `planner.ts`) — that rule survives from the origin
 | `date_value` | date_specific_value (date half); temporary_event_bonus | — | **[phase 2]** |
 | `booking_risk` | booking_risk | hard caps only (`timed ≤ 2`, `maxWait`) | **[phase 5]** as a soft term |
 | `monetary_cost` | monetary_cost | entry-cost strings exist, unused by planner | **[appendix]** |
+| `editorial_fit` | first_timer_value (revived) | `Place.rank` 1/2/3 → `W.rank` (icons up, deeper cuts down) | **[now]** |
 
 Terms **cut, with rationale**:
 
-- `first_timer_value`, `paris_uniqueness` — replaced by curation itself (principle 1).
-  Archive membership is the term.
+- `paris_uniqueness` — replaced by curation itself (principle 1). Archive
+  membership is the term.
+- `first_timer_value` — cut while the catalog was ~36 places ("curation is the
+  filter"); revived as `editorial_fit` (`Place.rank`) once the web tier grew
+  past the point where curation alone could order it.
 - `fatigue_cost` as a *score* term — fatigue is a **budget** (hard), not a score
   (soft); see §4. Consistent with "hard constraints are code".
 - `weather_fit`, `crowd_cost` — no client-side data source; **[appendix]**, tied to

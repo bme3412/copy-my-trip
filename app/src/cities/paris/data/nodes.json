@@ -259,5 +259,334 @@
     "x": 45,
     "y": 10,
     "v": false
+  },
+  {
+    "name": "Conciergerie",
+    "hood": "The Islands (1er–4e)",
+    "x": 60.8,
+    "y": 73.7,
+    "v": false
+  },
+  {
+    "name": "Marché aux Fleurs",
+    "hood": "The Islands (1er–4e)",
+    "x": 62.1,
+    "y": 74.8,
+    "v": false
+  },
+  {
+    "name": "Rue Saint-Louis-en-l’Île",
+    "hood": "The Islands (1er–4e)",
+    "x": 68.7,
+    "y": 80.6,
+    "v": false
+  },
+  {
+    "name": "Musée Picasso",
+    "hood": "Le Marais (3e–4e)",
+    "x": 72.7,
+    "y": 67.9,
+    "v": false
+  },
+  {
+    "name": "Breizh Café",
+    "hood": "Le Marais (3e–4e)",
+    "x": 73.0,
+    "y": 66.6,
+    "v": false
+  },
+  {
+    "name": "Jacques Genin",
+    "hood": "Le Marais (3e–4e)",
+    "x": 73.0,
+    "y": 60.6,
+    "v": false
+  },
+  {
+    "name": "Hôtel de Ville",
+    "hood": "Le Marais (3e–4e)",
+    "x": 65.6,
+    "y": 72.8,
+    "v": false
+  },
+  {
+    "name": "Village Saint-Paul",
+    "hood": "Le Marais (3e–4e)",
+    "x": 72.4,
+    "y": 76.6,
+    "v": false
+  },
+  {
+    "name": "Merci",
+    "hood": "Le Marais (3e–4e)",
+    "x": 75.8,
+    "y": 66.3,
+    "v": false
+  },
+  {
+    "name": "Panthéon",
+    "hood": "Latin Quarter (5e)",
+    "x": 61.5,
+    "y": 88.6,
+    "v": false
+  },
+  {
+    "name": "Musée de Cluny",
+    "hood": "Latin Quarter (5e)",
+    "x": 59.7,
+    "y": 82.4,
+    "v": false
+  },
+  {
+    "name": "Grande Mosquée tea room",
+    "hood": "Latin Quarter (5e)",
+    "x": 67.8,
+    "y": 95.0,
+    "v": false
+  },
+  {
+    "name": "Arènes de Lutèce",
+    "hood": "Latin Quarter (5e)",
+    "x": 66.1,
+    "y": 90.4,
+    "v": false
+  },
+  {
+    "name": "Jardin des Plantes",
+    "hood": "Latin Quarter (5e)",
+    "x": 71.1,
+    "y": 92.4,
+    "v": false
+  },
+  {
+    "name": "Pierre Hermé",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 51.9,
+    "y": 78.9,
+    "v": false
+  },
+  {
+    "name": "Poilâne",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 48.9,
+    "y": 80.7,
+    "v": false
+  },
+  {
+    "name": "Musée Delacroix",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 53.7,
+    "y": 75.8,
+    "v": false
+  },
+  {
+    "name": "Le Bon Marché",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 45.4,
+    "y": 81.6,
+    "v": false
+  },
+  {
+    "name": "Saint-Sulpice",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 53.3,
+    "y": 81.2,
+    "v": false
+  },
+  {
+    "name": "Cour du Commerce Saint-André",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 56.1,
+    "y": 78.3,
+    "v": false
+  },
+  {
+    "name": "Palais Garnier",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 50.9,
+    "y": 49.4,
+    "v": false
+  },
+  {
+    "name": "Galerie Vivienne",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 56.7,
+    "y": 57.4,
+    "v": false
+  },
+  {
+    "name": "Bourse de Commerce",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 58.9,
+    "y": 63.4,
+    "v": false
+  },
+  {
+    "name": "Rue Montorgueil",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 62.4,
+    "y": 60.6,
+    "v": false
+  },
+  {
+    "name": "Angelina",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 48.8,
+    "y": 59.9,
+    "v": false
+  },
+  {
+    "name": "Place Vendôme",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 49.4,
+    "y": 56.4,
+    "v": false
+  },
+  {
+    "name": "Place de la Concorde",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 43.5,
+    "y": 59.1,
+    "v": false
+  },
+  {
+    "name": "Petit Palais",
+    "hood": "Champs-Élysées (8e)",
+    "x": 38.7,
+    "y": 58.5,
+    "v": false
+  },
+  {
+    "name": "La Madeleine",
+    "hood": "Champs-Élysées (8e)",
+    "x": 45.8,
+    "y": 52.4,
+    "v": false
+  },
+  {
+    "name": "Parc Monceau",
+    "hood": "Champs-Élysées (8e)",
+    "x": 34.7,
+    "y": 38.1,
+    "v": false
+  },
+  {
+    "name": "Ladurée",
+    "hood": "Champs-Élysées (8e)",
+    "x": 31.0,
+    "y": 51.1,
+    "v": false
+  },
+  {
+    "name": "Palais de Tokyo",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 26.0,
+    "y": 61.3,
+    "v": false
+  },
+  {
+    "name": "Musée Marmottan Monet",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 5.0,
+    "y": 68.7,
+    "v": false
+  },
+  {
+    "name": "Musée du Quai Branly",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 26.8,
+    "y": 66.3,
+    "v": false
+  },
+  {
+    "name": "Champ de Mars",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 27.4,
+    "y": 74.3,
+    "v": false
+  },
+  {
+    "name": "La Maison Rose",
+    "hood": "Montmartre (18e)",
+    "x": 57.2,
+    "y": 25.8,
+    "v": false
+  },
+  {
+    "name": "Place du Tertre",
+    "hood": "Montmartre (18e)",
+    "x": 57.4,
+    "y": 27.3,
+    "v": false
+  },
+  {
+    "name": "Rue Lepic & the windmills",
+    "hood": "Montmartre (18e)",
+    "x": 54.9,
+    "y": 26.7,
+    "v": false
+  },
+  {
+    "name": "Rue des Martyrs",
+    "hood": "Montmartre (18e)",
+    "x": 56.2,
+    "y": 35.9,
+    "v": false
+  },
+  {
+    "name": "Puces de Saint-Ouen",
+    "hood": "Montmartre (18e)",
+    "x": 58.3,
+    "y": 5.0,
+    "v": false
+  },
+  {
+    "name": "Du Pain et des Idées",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 73.1,
+    "y": 52.6,
+    "v": false
+  },
+  {
+    "name": "Holybelly",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 70.7,
+    "y": 49.8,
+    "v": false
+  },
+  {
+    "name": "Parc des Buttes-Chaumont",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 86.8,
+    "y": 35.9,
+    "v": false
+  },
+  {
+    "name": "Coulée Verte",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 82.7,
+    "y": 85.3,
+    "v": false
+  },
+  {
+    "name": "Marché Bastille",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 78.1,
+    "y": 75.1,
+    "v": false
+  },
+  {
+    "name": "Atelier des Lumières",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 86.2,
+    "y": 64.7,
+    "v": false
+  },
+  {
+    "name": "Rue de Belleville",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 83.1,
+    "y": 49.1,
+    "v": false
   }
 ]

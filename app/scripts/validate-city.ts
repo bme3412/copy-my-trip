@@ -38,6 +38,7 @@ function validateCity(cid: string, city: City) {
     check(`${t}: coordinates`, Math.abs(p.lat) <= 90 && Math.abs(p.lon) <= 180)
     check(`${t}: duration positive`, Number.isFinite(p.dur) && p.dur > 0)
     if (p.durVar !== undefined) check(`${t}: durVar non-negative`, Number.isFinite(p.durVar) && p.durVar >= 0)
+    if (p.rank !== undefined) check(`${t}: rank ∈ {1,2,3}`, [1, 2, 3].includes(p.rank))
     check(`${t}: meal valid`, MEALS.includes(p.meal))
     check(`${t}: group valid`, GROUPS.includes(p.group))
     check(`${t}: src valid`, SOURCES.includes(p.src))

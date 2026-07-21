@@ -184,7 +184,8 @@
       "historic"
     ],
     "timed": true,
-    "durVar": 20
+    "durVar": 20,
+    "rank": 1
   },
   {
     "id": "berthillon",
@@ -327,7 +328,8 @@
     "themes": [
       "monumental",
       "neighborhood"
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "pere",
@@ -443,7 +445,8 @@
     "themes": [
       "historic",
       "monumental"
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "vertgalant",
@@ -563,7 +566,8 @@
         "note": "book the first entry",
         "durVar": 60
       }
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "pompidou",
@@ -663,7 +667,8 @@
       "monumental",
       "afterdark"
     ],
-    "durVar": 15
+    "durVar": 15,
+    "rank": 1
   },
   {
     "id": "eiffel",
@@ -713,7 +718,8 @@
         "note": "elevator slots release ~60 days out",
         "durVar": 30
       }
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "orsay",
@@ -765,7 +771,8 @@
         18
       ]
     ],
-    "durVar": 45
+    "durVar": 45,
+    "rank": 1
   },
   {
     "id": "tuileries",
@@ -979,6 +986,1159 @@
         "note": "palace and gardens, skip the Trianon"
       }
     ],
-    "durVar": 60
+    "durVar": 60,
+    "rank": 1
+  },
+  {
+    "id": "conciergerie",
+    "name": "Conciergerie",
+    "area": "Île de la Cité",
+    "hood": "The Islands (1er–4e)",
+    "lat": 48.856,
+    "lon": 2.3454,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      9.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Monument · history",
+    "group": "indoor",
+    "themes": [
+      "historic"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "fleurs",
+    "name": "Marché aux Fleurs",
+    "area": "Place Louis-Lépine",
+    "hood": "The Islands (1er–4e)",
+    "lat": 48.8553,
+    "lon": 2.3472,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      9.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Flower market",
+    "group": "sight",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "stlouisile",
+    "name": "Rue Saint-Louis-en-l’Île",
+    "area": "the island’s spine",
+    "hood": "The Islands (1er–4e)",
+    "lat": 48.8515,
+    "lon": 2.3565,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The lane",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "picasso",
+    "name": "Musée Picasso",
+    "area": "Hôtel Salé, 3e",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8598,
+    "lon": 2.3622,
+    "dur": 90,
+    "meal": null,
+    "open": [
+      10.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "breizh",
+    "name": "Breizh Café",
+    "area": "Rue Vieille-du-Temple",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8607,
+    "lon": 2.3626,
+    "dur": 60,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · crêpes",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "genin",
+    "name": "Jacques Genin",
+    "area": "Rue de Turenne",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8646,
+    "lon": 2.3625,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      11,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Sweet stop",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "hoteldeville",
+    "name": "Hôtel de Ville",
+    "area": "the square, 4e",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Monument",
+    "group": "sight",
+    "themes": [
+      "monumental"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "stpaul",
+    "name": "Village Saint-Paul",
+    "area": "antique courtyards, 4e",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8541,
+    "lon": 2.3617,
+    "dur": 35,
+    "meal": null,
+    "open": [
+      11,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Courtyards",
+    "group": "sight",
+    "themes": [
+      "neighborhood"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "merci",
+    "name": "Merci",
+    "area": "Boulevard Beaumarchais",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8609,
+    "lon": 2.3665,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      10.5,
+      19.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Concept store",
+    "group": "indoor",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "pantheonparis",
+    "name": "Panthéon",
+    "area": "Montagne Sainte-Geneviève",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8462,
+    "lon": 2.3464,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      18.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Monument",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "cluny",
+    "name": "Musée de Cluny",
+    "area": "the medieval museum",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8503,
+    "lon": 2.3439,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      9.5,
+      18.25
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "grandemosquee",
+    "name": "Grande Mosquée tea room",
+    "area": "mint tea & the courtyard",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.842,
+    "lon": 2.3552,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      9,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Tea room",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "arenes",
+    "name": "Arènes de Lutèce",
+    "area": "the Roman arena",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.845,
+    "lon": 2.3529,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      8,
+      20.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Ruins · quiet",
+    "group": "park",
+    "themes": [
+      "historic"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "jardinplantes",
+    "name": "Jardin des Plantes",
+    "area": "5e",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8437,
+    "lon": 2.3599,
+    "dur": 50,
+    "meal": null,
+    "open": [
+      7.5,
+      20
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Garden",
+    "group": "park",
+    "themes": [
+      "everyday"
+    ]
+  },
+  {
+    "id": "pierreherme",
+    "name": "Pierre Hermé",
+    "area": "Rue Bonaparte",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8526,
+    "lon": 2.333,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      10,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Sweet stop",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "poilane",
+    "name": "Poilâne",
+    "area": "Rue du Cherche-Midi",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8514,
+    "lon": 2.3288,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      7.5,
+      19.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Bakery",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "delacroix",
+    "name": "Musée Delacroix",
+    "area": "Place de Furstenberg",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8546,
+    "lon": 2.3355,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      9.5,
+      17.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · small",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      2
+    ],
+    "rank": 3
+  },
+  {
+    "id": "bonmarche",
+    "name": "Le Bon Marché",
+    "area": "& the Grande Épicerie",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8508,
+    "lon": 2.3238,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      10,
+      19.75
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Department store",
+    "group": "indoor",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "stsulpice",
+    "name": "Saint-Sulpice",
+    "area": "the Delacroix chapel",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8511,
+    "lon": 2.3349,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      8,
+      19.75
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church",
+    "group": "indoor",
+    "themes": [
+      "historic"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "odeon",
+    "name": "Cour du Commerce Saint-André",
+    "area": "Odéon’s hidden passage",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.853,
+    "lon": 2.3389,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The passage",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "historic"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "garnier",
+    "name": "Palais Garnier",
+    "area": "the opera house, self-visit",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.872,
+    "lon": 2.3316,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      17
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Opera house",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "monumental"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "vivienne",
+    "name": "Galerie Vivienne",
+    "area": "& the covered passages",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8667,
+    "lon": 2.3397,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      8.5,
+      20.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Covered passage",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "historic"
+    ]
+  },
+  {
+    "id": "bourse",
+    "name": "Bourse de Commerce",
+    "area": "Pinault Collection",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8628,
+    "lon": 2.3428,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      11,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      2
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "montorgueil",
+    "name": "Rue Montorgueil",
+    "area": "the market street, 2e",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8646,
+    "lon": 2.3477,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      8,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · market",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "angelina",
+    "name": "Angelina",
+    "area": "Rue de Rivoli",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8651,
+    "lon": 2.3286,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      8,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Hot chocolate",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "vendome",
+    "name": "Place Vendôme",
+    "area": "1er",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8674,
+    "lon": 2.3294,
+    "dur": 15,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The square",
+    "group": "sight",
+    "themes": [
+      "monumental"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "concorde",
+    "name": "Place de la Concorde",
+    "area": "the obelisk",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8656,
+    "lon": 2.3212,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The square",
+    "group": "sight",
+    "themes": [
+      "monumental"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "petitpalais",
+    "name": "Petit Palais",
+    "area": "free, and never crowded",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.866,
+    "lon": 2.3145,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · free",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "madeleine",
+    "name": "La Madeleine",
+    "area": "8e",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.87,
+    "lon": 2.3244,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      9.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Church",
+    "group": "indoor",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "parcmonceau",
+    "name": "Parc Monceau",
+    "area": "the 8e’s garden",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.8794,
+    "lon": 2.3089,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      7,
+      21
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Garden",
+    "group": "park",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "laduree",
+    "name": "Ladurée",
+    "area": "Champs-Élysées",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.8709,
+    "lon": 2.3037,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      8,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Sweet stop",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "palaisdetokyo",
+    "name": "Palais de Tokyo",
+    "area": "open late, 16e",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "lat": 48.8642,
+    "lon": 2.2967,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      12,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · contemporary",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      2
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "marmottan",
+    "name": "Musée Marmottan Monet",
+    "area": "the Monet trove, 16e",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "lat": 48.8593,
+    "lon": 2.2672,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "branly",
+    "name": "Musée du Quai Branly",
+    "area": "by the tower",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "lat": 48.8609,
+    "lon": 2.2978,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      10.5,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "historic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "champdemars",
+    "name": "Champ de Mars",
+    "area": "the lawns under the tower",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "lat": 48.8556,
+    "lon": 2.2986,
+    "dur": 35,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lawns",
+    "group": "park",
+    "themes": [
+      "everyday"
+    ],
+    "best": [
+      15,
+      22
+    ],
+    "rank": 3
+  },
+  {
+    "id": "maisonrose",
+    "name": "La Maison Rose",
+    "area": "Rue de l’Abreuvoir",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8875,
+    "lon": 2.3404,
+    "dur": 15,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The corner",
+    "group": "sight",
+    "themes": [
+      "neighborhood"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "placetertre",
+    "name": "Place du Tertre",
+    "area": "the painters’ square",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8865,
+    "lon": 2.3407,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The square",
+    "group": "sight",
+    "themes": [
+      "neighborhood"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "moulins",
+    "name": "Rue Lepic & the windmills",
+    "area": "up from the Moulin Rouge",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8869,
+    "lon": 2.3372,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The climb",
+    "group": "sight",
+    "themes": [
+      "neighborhood"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "martyrs",
+    "name": "Rue des Martyrs",
+    "area": "the food street below the hill",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8809,
+    "lon": 2.339,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      8,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · food street",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "puces",
+    "name": "Puces de Saint-Ouen",
+    "area": "the flea market — weekends",
+    "hood": "Montmartre (18e)",
+    "lat": 48.9012,
+    "lon": 2.3419,
+    "dur": 90,
+    "meal": null,
+    "open": [
+      10,
+      17.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Flea market",
+    "group": "sight",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "hours": [
+      [
+        10,
+        17.5
+      ],
+      [
+        11,
+        17
+      ],
+      null,
+      null,
+      null,
+      null,
+      [
+        9,
+        18
+      ]
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "dupain",
+    "name": "Du Pain et des Idées",
+    "area": "closed weekends — plan for it",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8699,
+    "lon": 2.3627,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      7,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Bakery",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "closedOn": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "holybelly",
+    "name": "Holybelly",
+    "area": "Rue Lucien Sampaix",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8717,
+    "lon": 2.3593,
+    "dur": 50,
+    "meal": "lunch",
+    "open": [
+      9,
+      17
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Brunch",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "buttes",
+    "name": "Parc des Buttes-Chaumont",
+    "area": "the 19e’s cliffs and folly",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8809,
+    "lon": 2.3819,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      7,
+      21
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Park · wild",
+    "group": "park",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "couleeverte",
+    "name": "Coulée Verte",
+    "area": "the planted viaduct",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8484,
+    "lon": 2.3762,
+    "dur": 50,
+    "meal": null,
+    "open": [
+      8,
+      20.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Elevated walk",
+    "group": "park",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ]
+  },
+  {
+    "id": "marchebastille",
+    "name": "Marché Bastille",
+    "area": "Thursday & Sunday mornings",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8551,
+    "lon": 2.3697,
+    "dur": 45,
+    "meal": "lunch",
+    "open": [
+      7,
+      14.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · market",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "hours": [
+      [
+        7,
+        14.5
+      ],
+      null,
+      null,
+      null,
+      [
+        7,
+        14.5
+      ],
+      null,
+      null
+    ]
+  },
+  {
+    "id": "atelierlumieres",
+    "name": "Atelier des Lumières",
+    "area": "immersive light shows, 11e",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8619,
+    "lon": 2.381,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Digital art",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "timed": true,
+    "durVar": 15
+  },
+  {
+    "id": "belleville",
+    "name": "Rue de Belleville",
+    "area": "street art & the 20e",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8722,
+    "lon": 2.3767,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "The climb",
+    "group": "sight",
+    "themes": [
+      "neighborhood"
+    ],
+    "rank": 3
   }
 ]

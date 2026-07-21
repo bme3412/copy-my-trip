@@ -21,7 +21,8 @@
       "monumental",
       "historic"
     ],
-    "durVar": 15
+    "durVar": 15,
+    "rank": 1
   },
   {
     "id": "navona",
@@ -162,7 +163,8 @@
     ],
     "role": "anchor",
     "timed": true,
-    "durVar": 45
+    "durVar": 45,
+    "rank": 1
   },
   {
     "id": "forum",
@@ -284,7 +286,8 @@
     "themes": [
       "monumental",
       "afterdark"
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "spanishsteps",
@@ -363,7 +366,8 @@
     "closedOn": [
       0
     ],
-    "durVar": 45
+    "durVar": 45,
+    "rank": 1
   },
   {
     "id": "stpeters",
@@ -406,7 +410,8 @@
         ],
         "note": "551 steps past the elevator — the best view in Rome"
       }
-    ]
+    ],
+    "rank": 1
   },
   {
     "id": "santangelo",
@@ -788,7 +793,8 @@
     "closedOn": [
       1
     ],
-    "durVar": 15
+    "durVar": 15,
+    "rank": 1
   },
   {
     "id": "borghesepark",

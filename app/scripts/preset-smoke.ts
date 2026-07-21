@@ -121,17 +121,17 @@ check('hours: same evening visit infeasible on a normal Thursday', !thuCands.som
 
 // Generation-level: an exception on one trip date removes the place that day only.
 // Trip 2026-09-12 (Sat): day 3 is Monday 09-14, where the baseline schedules
-// Les Invalides — a one-off closure that date must keep it off that day.
+// the Conciergerie — a one-off closure that date must keep it off that day.
 const exCity: City = {
   ...city,
-  places: city.places.map((p) => (p.id === 'invalides' ? { ...p, exceptions: [{ date: '2026-09-14', closed: true as const }] } : p)),
+  places: city.places.map((p) => (p.id === 'conciergerie' ? { ...p, exceptions: [{ date: '2026-09-14', closed: true as const }] } : p)),
 }
 const basePlan = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
 const exPlan = generatePlan(exCity, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
 const onDate = (plan: GeneratedPlan, id: string) =>
   plan.days.filter((_, i) => dayDate(ARRIVING, i) === '2026-09-14').some((d) => d.committed.some((c) => c.id === id))
-check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'invalides'))
-check('exceptions: baseline actually schedules it that day (test is live)', onDate(basePlan, 'invalides'))
+check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'conciergerie'))
+check('exceptions: baseline actually schedules it that day (test is live)', onDate(basePlan, 'conciergerie'))
 
 // ── Experiences: embedded variants, place-level dedup ──
 check('experiences: the two Louvre records are one place', !placeOf('louvremus') && placeOf('louvre')?.experiences?.length === 2)
@@ -158,7 +158,7 @@ const eiffelVariants = placeVariants(placeOf('eiffel')!)
 check('experiences: Eiffel has view + summit variants', eiffelVariants.length === 2 && eiffelVariants.some((v) => v.experienceId === 'summit'))
 
 // ── Structured explanations: every stop can say why ──
-const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage', 'interest_fit'])
+const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage', 'interest_fit', 'editorial_fit'])
 for (const [cid, c] of Object.entries(CITIES))
   for (const preset of PLAN_PRESETS) {
     const plan = genFor(c, preset.id, 7)

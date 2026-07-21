@@ -65,6 +65,10 @@ export interface Place {
   group: PlaceGroup
   /** Preferred arrival window (hours) — e.g. golden-hour spots, no morning gelato. */
   best?: [number, number]
+  /** Editorial importance within the catalog: 1 = first-visit icon,
+   * 2 (default) = notable, 3 = deeper cut. Needed once the web tier grows
+   * past the point where curation alone orders it. */
+  rank?: 1 | 2 | 3
   /** A major commitment (Louvre, Orsay, Versailles) — at most one per day, mornings preferred. */
   role?: 'anchor'
   /** Coverage themes this place satisfies. */
