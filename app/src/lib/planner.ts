@@ -29,6 +29,7 @@ export const ENGINE = {
     groupSaturation: 0.5, // per same-group stop beyond the second today
     rank: 0.5, // editorial pull: icons up, deeper cuts down (rank 2 is neutral)
     interest: 1, // per matched theme, scaled by the traveler's extracted −1..1 weight
+    pin: 6, // "I asked for this" — a pinned place wins its day as soon as it's feasible
   },
   /** Candidates offered per pick: the builder shows 3; generation sees more so
    * the presets' pick strategies have room to diverge. */
@@ -302,6 +303,11 @@ export interface CandidateOpts {
   /** The traveler's own lean, extracted from their free-text brief (−1..1 per
    * theme). Negative weights are real dislikes, not absence of interest. */
   interestWeights?: Partial<Record<Theme, number>>
+  /** Places the traveler asked to skip — never offered. */
+  exclude?: ReadonlySet<string>
+  /** Places the traveler asked for on THIS day: boosted hard, and held back
+   * until `notBefore` (minutes) when they asked for a time of day. */
+  pins?: ReadonlyArray<{ id: string; notBefore?: number }>
   /** How many candidates to return (default ENGINE.candidatePool). */
   limit?: number
 }
@@ -324,6 +330,7 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
 
   const en = city.places
     .filter((p) => !visited.has(p.id))
+    .filter((p) => !opts.exclude?.has(p.id))
     .filter((p) => !p.dayTrip)
     .flatMap(placeVariants)
     .filter((p) => effectiveHours(p, opts.date, opts.weekday) !== null)
@@ -355,10 +362,13 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       // More than 30 min outside a place's best window is a hard skip —
       // no morning gelato, no midday golden-hour bridges.
       const timely = !p.best || (arrive >= (p.best[0] - 0.5) * 60 && arrive <= (p.best[1] + 0.5) * 60)
+      // A pinned-for-later place waits for its asked-for time of day.
+      const pin = opts.pins?.find((x) => x.id === p.id)
+      const pinReady = !pin?.notBefore || arrive >= pin.notBefore - 45
       // The day's second long metro leg is off the table (opening commute exempt).
       const transferOk =
         firstLeg || !(t.mode === 'metro' && t.min >= ENGINE.longTransferMin && longTransfers >= ENGINE.maxLongTransfers)
-      return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk }
+      return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk && pinReady }
     })
     .filter((e) => e.open)
 
@@ -418,6 +428,8 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       const hits = e.p.themes.filter((th) => opts.themeBias!.themes.includes(th))
       if (hits.length) add('interest_fit', hits.length * opts.themeBias.weight, `fits the plan's ${hits.join(' & ')} lean`)
     }
+    // A concrete ask from the brief — this place, this day.
+    if (opts.pins?.some((x) => x.id === e.p.id)) add('interest_fit', W.pin, 'you asked for this — saved for today')
     // The traveler's own brief: what they said they love — and dislike.
     if (opts.interestWeights && e.p.themes) {
       let v = 0

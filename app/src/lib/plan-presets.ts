@@ -1,4 +1,19 @@
 import type { City, DayTemplate, Pace, StartLoc, Theme } from '../cities/types'
+import type { ExtractedRequest } from './extract'
+
+const SLOT_START: Record<'morning' | 'afternoon' | 'evening', number | undefined> = {
+  morning: undefined, // schedulable from the day's start
+  afternoon: 13 * 60,
+  evening: 17 * 60,
+}
+
+/** Which trip day (0-based) a request names; undefined = any day. */
+function requestDay(r: ExtractedRequest, dayCount: number): number | undefined {
+  if (r.day === 'first') return 0
+  if (r.day === 'last') return dayCount - 1
+  if (typeof r.day === 'number') return Math.min(r.day, dayCount) - 1
+  return undefined
+}
 import {
   blankDay,
   buildCandidates,
@@ -107,9 +122,15 @@ export function generatePlan(
   interests: string[] = [],
   variant = 0,
   interestWeights?: Partial<Record<Theme, number>>,
+  requests: ExtractedRequest[] = [],
 ): GeneratedPlan {
   const basePace = preset.pace ?? travelerPace
   const profiles = dayProfiles(city, dayCount, interests, preset.avoidIcons)
+
+  // The brief's concrete asks: avoids never appear; day-pinned includes are
+  // held OFF every other day so they're guaranteed available for theirs.
+  const avoids = new Set(requests.filter((r) => r.kind === 'avoid').map((r) => r.placeId))
+  const includes = requests.filter((r) => r.kind === 'include' && !avoids.has(r.placeId))
   const days: DayState[] = []
   const purposes: string[] = []
   const visited = new Set<string>()
@@ -129,6 +150,13 @@ export function generatePlan(
         const p = theme && city.places.find((pl) => pl.id === theme.id)
         if (p) usedHoods.add(p.hood)
       }
+      const exclude = new Set(avoids)
+      const pins: { id: string; notBefore?: number }[] = []
+      for (const r of includes) {
+        const pinDay = requestDay(r, dayCount)
+        if (pinDay === undefined || pinDay === d) pins.push({ id: r.placeId, notBefore: r.slot ? SLOT_START[r.slot] : undefined })
+        else exclude.add(r.placeId) // held for its own day
+      }
       const opts: CandidateOpts = {
         weekday,
         date,
@@ -139,6 +167,8 @@ export function generatePlan(
         home: stay ?? city.start,
         themeBias: preset.themeBias,
         interestWeights,
+        exclude,
+        pins,
         limit: ENGINE.candidatePoolGenerate,
       }
 

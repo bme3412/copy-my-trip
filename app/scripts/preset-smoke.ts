@@ -260,6 +260,44 @@ check('sanitize: clamps weights to ±1 and drops unknown/zero themes',
 check('sanitize: invalid pace becomes null and summary truncates', dirty?.pace === null && (dirty?.summary.length ?? 0) <= 280)
 check('sanitize: junk input rejected', sanitizeExtracted({ interests: [], themeWeights: {}, pace: null, summary: 'hi' }) === null)
 
+// ── Concrete asks: "save the bateaux mouches for the last night" ──
+const validIds = new Set(city.places.map((p) => p.id))
+const reqRaw = sanitizeExtracted(
+  {
+    interests: [],
+    themeWeights: {},
+    pace: null,
+    summary: 'cruise last night',
+    requests: [
+      { placeId: 'seinecruise', kind: 'include', day: 'last', slot: 'evening' },
+      { placeId: 'not-a-place', kind: 'include', day: null, slot: null },
+      { placeId: 'eiffel', kind: 'avoid', day: 9, slot: 'brunch' },
+    ],
+  },
+  validIds,
+)
+check('requests: valid ids survive, bogus ids drop', reqRaw?.requests.length === 2 && reqRaw.requests[0].placeId === 'seinecruise')
+check('requests: bad day/slot values are stripped', reqRaw?.requests[1].day === undefined && reqRaw?.requests[1].slot === undefined)
+
+// Engine: the pin lands on its day, in its slot — and nowhere else.
+const pinned = generatePlan(city, PLAN_PRESETS[0], 5, 'balanced', STAY, ARRIVING, [], 0, undefined, [
+  { placeId: 'seinecruise', kind: 'include', day: 'last', slot: 'evening' },
+])
+const cruiseStops = pinned.days.map((d, i) => ({ i, stop: d.committed.find((s) => s.id === 'seinecruise') })).filter((x) => x.stop)
+check('pin: the cruise sails exactly once, on the last day', cruiseStops.length === 1 && cruiseStops[0].i === 4,
+  cruiseStops.map((x) => `day${x.i + 1}`).join(',') || 'never scheduled')
+check('pin: and in the evening', (cruiseStops[0]?.stop?.timeIn ?? 0) >= 16 * 60, cruiseStops[0] ? fmtClock(cruiseStops[0].stop!.timeIn) : '—')
+check('pin: deterministic', JSON.stringify(pinned.days.map((d) => d.committed.map((s) => s.id))) ===
+  JSON.stringify(generatePlan(city, PLAN_PRESETS[0], 5, 'balanced', STAY, ARRIVING, [], 0, undefined, [
+    { placeId: 'seinecruise', kind: 'include', day: 'last', slot: 'evening' },
+  ]).days.map((d) => d.committed.map((s) => s.id))))
+
+// Avoid: the place never appears anywhere in the trip.
+const avoided = generatePlan(city, PLAN_PRESETS[0], 5, 'balanced', STAY, ARRIVING, [], 0, undefined, [
+  { placeId: 'eiffel', kind: 'avoid' },
+])
+check('avoid: the skipped place never appears', !avoided.days.some((d) => d.committed.some((s) => s.id === 'eiffel')))
+
 // ── Sun times + the deck: the day tied to its date ──
 import { euTzOffsetMin, sunTimes } from '../src/lib/sun'
 import { builtDayDeck } from '../src/lib/built-day'

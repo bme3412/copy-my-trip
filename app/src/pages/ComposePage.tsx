@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DateRangePicker } from '../components/DateRangePicker'
 import { HeroPhoto } from '../components/HeroPhoto'
@@ -30,30 +30,39 @@ export function ComposePage() {
   const [briefDraft, setBriefDraft] = useState(trip.brief ?? '')
   const [briefOpen, setBriefOpen] = useState(false)
   const [extracting, setExtracting] = useState(false)
-  const [extractError, setExtractError] = useState<string | null>(null)
+  const briefFocused = useRef(false)
+  const lastTried = useRef<string | null>(null)
   const selectedId = trip.planId
 
-  const readBrief = async () => {
-    if (extracting || briefDraft.trim().length < 8) return
+  // The brief reads itself: no button. Debounced while typing, immediate on
+  // blur; failures are silent (no API locally just means no extraction) and
+  // each text is tried once. Results are stored, so plans regenerate
+  // deterministically without another call.
+  const runExtract = async (text: string) => {
+    const trimmed = text.trim()
+    if (extracting || trimmed.length < 12 || trimmed === trip.brief || lastTried.current === trimmed) return
+    lastTried.current = trimmed
     setExtracting(true)
-    setExtractError(null)
     try {
-      const extracted = await extractPreferences(briefDraft, city.name)
-      // Extraction produces engine *inputs*, stored once — regeneration
-      // stays deterministic and never re-calls the API.
+      const extracted = await extractPreferences(trimmed, city)
       update({
-        brief: briefDraft,
+        brief: trimmed,
         extracted,
         interests: extracted.interests,
         ...(extracted.pace ? { pace: extracted.pace } : {}),
       })
-      setBriefOpen(false)
-    } catch (err) {
-      setExtractError(err instanceof Error ? err.message : 'Extraction failed')
+      if (!briefFocused.current) setBriefOpen(false)
+    } catch {
+      /* quietly — the itinerary works without the reading */
     } finally {
       setExtracting(false)
     }
   }
+  useEffect(() => {
+    const t = window.setTimeout(() => runExtract(briefDraft), 1400)
+    return () => window.clearTimeout(t)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [briefDraft])
 
   // Until a plan is chosen or days are built, compose starts fresh each visit —
   // half-entered answers don't survive as phantom "defaults".
@@ -73,7 +82,7 @@ export function ComposePage() {
       PLAN_PRESETS.map((p) =>
         generatePlan(
           city, p, dayCount, trip.pace, stayLoc(city, trip.stayHood), trip.arriving, trip.interests,
-          planSeed, trip.extracted?.themeWeights,
+          planSeed, trip.extracted?.themeWeights, trip.extracted?.requests,
         ),
       ),
     [city, dayCount, trip.pace, trip.stayHood, trip.arriving, trip.interests, planSeed, trip.extracted],
@@ -251,44 +260,23 @@ export function ComposePage() {
                 <textarea
                   className="input"
                   rows={2}
-                  placeholder="e.g. We love food and wandering neighborhoods; my wife loves the Impressionists, but I max out at two hours in a museum. Not into big crowded monuments."
+                  placeholder="e.g. We love food and wandering neighborhoods; save the Seine cruise for the last night. Not into big crowded monuments."
                   value={briefDraft}
                   onChange={(e) => setBriefDraft(e.target.value)}
+                  onFocus={() => (briefFocused.current = true)}
+                  onBlur={() => {
+                    briefFocused.current = false
+                    runExtract(briefDraft)
+                  }}
                   style={{ resize: 'vertical', fontFamily: 'var(--font-body)', fontSize: 13.5, lineHeight: 1.55 }}
                 />
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
-                <button
-                  className="btn btn-secondary"
-                  style={{ fontSize: 12.5, padding: '5px 14px' }}
-                  disabled={extracting || briefDraft.trim().length < 8}
-                  onClick={readBrief}
-                >
-                  {extracting ? 'Reading…' : trip.extracted ? 'Read it again' : 'Read my brief'}
-                </button>
-                {trip.extracted && (
-                  <button
-                    className="btn"
-                    style={{ fontSize: 12, padding: '5px 10px' }}
-                    onClick={() => {
-                      update({ extracted: undefined, brief: '', interests: [] })
-                      setBriefDraft('')
-                      setExtractError(null)
-                    }}
-                  >
-                    clear
-                  </button>
-                )}
-                <button className="linklike" style={{ fontSize: 12 }} onClick={() => setBriefOpen(false)}>
-                  minimize
-                </button>
-                {extractError && (
-                  <span className="text-muted" style={{ fontSize: 12, color: 'var(--color-accent-800)' }}>
-                    {extractError}
-                  </span>
-                )}
-              </div>
-              {trip.extracted && (
+              {extracting && (
+                <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, fontStyle: 'italic', margin: '8px 0 0' }}>
+                  reading…
+                </p>
+              )}
+              {trip.extracted && !extracting && (
                 <div className="deal-in" style={{ marginTop: 10 }}>
                   <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 13, fontStyle: 'italic', margin: '0 0 8px' }}>
                     {trip.extracted.summary}
@@ -302,6 +290,18 @@ export function ComposePage() {
                         {w > 0 ? '+' : '−'} {th}
                       </span>
                     ))}
+                    {trip.extracted.requests.map((r) => {
+                      const place = city.places.find((p) => p.id === r.placeId)
+                      if (!place) return null
+                      const when = [r.day === 'first' ? 'first day' : r.day === 'last' ? 'last day' : typeof r.day === 'number' ? `day ${r.day}` : '', r.slot ?? '']
+                        .filter(Boolean)
+                        .join(' ')
+                      return (
+                        <span key={`${r.placeId}-${r.kind}`} className="tag tag-accent-2">
+                          {r.kind === 'avoid' ? `skip ${place.name}` : `${place.name}${when ? ` · ${when}` : ''}`}
+                        </span>
+                      )
+                    })}
                   </div>
                 </div>
               )}
