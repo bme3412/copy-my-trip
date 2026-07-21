@@ -46,7 +46,7 @@ function TransitChip({ min, measured, hidden }: { min: number; measured: boolean
 
 /** A plate's media: slots with real footage play it (looping, muted) and fall
  * back to the photo, which falls back to the placeholder. */
-function PlateMedia({ city, plate }: { city: ReturnType<typeof useCity>; plate: Plate }) {
+function PlateMedia({ city, plate, eager = false }: { city: ReturnType<typeof useCity>; plate: Plate; eager?: boolean }) {
   const [videoFailed, setVideoFailed] = useState(false)
   if (plate.video && !videoFailed) {
     return (
@@ -57,12 +57,13 @@ function PlateMedia({ city, plate }: { city: ReturnType<typeof useCity>; plate: 
         muted
         loop
         playsInline
+        preload={eager ? 'auto' : 'metadata'}
         onError={() => setVideoFailed(true)}
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
       />
     )
   }
-  return <ImageSlot src={slotSrc(city, plate.id)} placeholder={plate.caption} />
+  return <ImageSlot src={slotSrc(city, plate.id)} placeholder={plate.caption} eager={eager} />
 }
 
 /** How much a clicked plate grows — same framing, just larger. */
@@ -72,7 +73,7 @@ const EXPAND_FACTOR = 1.35
  * aspect, just bigger, with a whisper of elevation. Click again to settle
  * back. Only plates with real media respond — placeholders stay inert.
  * Filled plates carry an archival caption: what it is · when it was shot. */
-function PlateFrame({ city, plate, delayIndex }: { city: ReturnType<typeof useCity>; plate: Plate; delayIndex: number }) {
+function PlateFrame({ city, plate, delayIndex, eager = false }: { city: ReturnType<typeof useCity>; plate: Plate; delayIndex: number; eager?: boolean }) {
   const [expanded, setExpanded] = useState(false)
   const entry = city.slotFiles?.[plate.id]
   const expandable = !!(entry?.img || entry?.video)
@@ -94,7 +95,7 @@ function PlateFrame({ city, plate, delayIndex }: { city: ReturnType<typeof useCi
         }}
       >
         <div className="cmt-slot">
-          <PlateMedia city={city} plate={plate} />
+          <PlateMedia city={city} plate={plate} eager={eager} />
         </div>
         {badge && <VideoBadge time={plate.video!} />}
       </div>
@@ -144,7 +145,7 @@ function WebFrame({ city, webImage }: { city: ReturnType<typeof useCity>; webIma
   )
 }
 
-function Stop({ stop, isLast }: { stop: DayStop; isLast: boolean }) {
+function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean; eager?: boolean }) {
   const city = useCity()
   const { ref, revealed } = useReveal<HTMLDivElement>()
   const verified = stop.kind === 'verified'
@@ -220,7 +221,7 @@ function Stop({ stop, isLast }: { stop: DayStop; isLast: boolean }) {
         {stop.kind === 'verified' && stop.plates && (
           <div className="plate-row" style={{ display: 'flex', gap: 12 }}>
             {stop.plates.map((pl, i) => (
-              <PlateFrame key={pl.id} city={city} plate={pl} delayIndex={i} />
+              <PlateFrame key={pl.id} city={city} plate={pl} delayIndex={i} eager={eager} />
             ))}
           </div>
         )}
@@ -288,7 +289,7 @@ export function DayTimeline({ stops }: { stops: DayStop[] }) {
           <Fragment key={stop.time + stop.name}>
             <div className="fold">
               <div className="fold-inner">
-                <Stop stop={stop} isLast={isLast} />
+                <Stop stop={stop} isLast={isLast} eager={i === 0} />
               </div>
             </div>
             {stop.transitAfter && <TransitChip min={stop.transitAfter.min} measured={stop.transitAfter.measured} hidden={!next} />}

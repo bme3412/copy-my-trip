@@ -83,31 +83,27 @@ export function builtDayDeck(city: City, day: DayState, opts: DeckOpts = {}): st
     return [purpose, `The whole day out — back in the city around ${endT}.`].filter(Boolean).join(' ')
   }
 
-  const coffee = stops.find((s) => s.meal === 'coffee')
-  const lunch = stops.find((s) => s.meal === 'lunch')
   const dinner = stops.find((s) => s.meal === 'dinner')
-  const sights = stops.filter((s) => !s.meal).map((s) => shortName(s.name))
   const list = (xs: string[]) => (xs.length <= 1 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`)
   const last = stops[stops.length - 1]
   const end = last.timeIn + last.dur
   const endT = fmt(end)
+  const cap = (s: string) => s.replace(/^./, (c) => c.toUpperCase())
 
   const parts: string[] = []
-  if (purpose) parts.push(purpose)
+  if (purpose) {
+    // The date belongs with the framing, not with the sunset.
+    if (dated) {
+      const [, m, d] = date.split('-').map(Number)
+      const phase = d <= 10 ? 'early' : d <= 20 ? 'mid' : 'late'
+      parts.push(`${purpose.replace(/\.$/, '')}, on a ${WEEKDAYS[weekday]} in ${phase}-${MONTHS[m - 1]}.`)
+    } else {
+      parts.push(purpose)
+    }
+  }
 
-  // The date and its light — and whether the schedule is set for it.
-  if (dated && sun && goldenStart !== null) {
-    const [, m, d] = date.split('-').map(Number)
-    const phase = d <= 10 ? 'early' : d <= 20 ? 'mid' : 'late'
-    const goldenStop = stops.find((s) => {
-      const p = stopPlace(city, s)
-      return p?.best !== undefined && s.timeIn + s.dur >= goldenStart - 30
-    })
-    parts.push(
-      `A ${WEEKDAYS[weekday]} in ${phase}-${MONTHS[m - 1]}: sunset comes at ${fmt(sun.sunset)}, golden hour from about ${fmt(goldenStart)}${
-        goldenStop ? ` — the ${shortName(goldenStop.name)} slot is set for it` : ''
-      }.`,
-    )
+  // Why the day is shaped this way — closures come as context, up front.
+  if (dated) {
     const closed = notableClosures(city, day, date, weekday)
     if (closed.length > 0) {
       const hoodCounts = new Map<string, number>()
@@ -122,15 +118,47 @@ export function builtDayDeck(city: City, day: DayState, opts: DeckOpts = {}): st
     }
   }
 
-  if (sights.length > 0) parts.push(`${coffee ? `Coffee first at ${shortName(coffee.name)}, then ` : ''}${list(sights)}.`)
-  else if (coffee) parts.push(`Coffee first at ${shortName(coffee.name)}.`)
+  // The route in day order, grouped by neighbourhood with meals inline —
+  // movement, not a flat list.
+  type Seg = { hood: string; bits: string[] }
+  const segs: Seg[] = []
+  for (const s of stops) {
+    if (s.meal === 'dinner') continue
+    const p = stopPlace(city, s)
+    const hood = p ? shortHood(p.hood) : ''
+    const bit = s.meal === 'coffee' ? `coffee at ${shortName(s.name)}` : s.meal === 'lunch' ? `lunch at ${shortName(s.name)}` : shortName(s.name)
+    const prev = segs[segs.length - 1]
+    if (prev && prev.hood === hood) prev.bits.push(bit)
+    else segs.push({ hood, bits: [bit] })
+  }
+  if (segs.length > 0) {
+    const phrases = segs.map((g, i) => {
+      const names = list(g.bits)
+      if (i === 0) return `${g.hood} first — ${names}`
+      if (g.bits.length === 1 && g.bits[0] === g.hood) return `then along ${names}`
+      const lead = i === segs.length - 1 && segs.length > 2 ? 'and finally' : 'then'
+      return `${lead} ${midPhrase(g.hood)} for ${names}`
+    })
+    parts.push(cap(phrases.join('; ')) + '.')
+  }
 
-  const closing: string[] = []
-  if (lunch) closing.push(`lunch lands at ${shortName(lunch.name)}`)
-  if (dinner) closing.push(`dinner at ${shortName(dinner.name)} closes the day around ${endT}`)
-  else if (goldenStart !== null && end <= goldenStart - 60) closing.push(`the day winds down around ${endT}, well before the light goes`)
-  else closing.push(`the day winds down around ${endT}`)
-  parts.push(closing.join('; ').replace(/^./, (c) => c.toUpperCase()) + '.')
+  // The close, in the order the evening actually happens: light, then dinner.
+  if (dated && sun && goldenStart !== null) {
+    const goldenStop = stops.find((s) => {
+      const p = stopPlace(city, s)
+      return p?.best !== undefined && s.timeIn + s.dur >= goldenStart - 30
+    })
+    const golden = `golden hour comes around ${fmt(goldenStart)}${goldenStop ? ` — the ${shortName(goldenStop.name)} slot is set for it —` : ','} with sunset at ${fmt(sun.sunset)}`
+    if (dinner) {
+      parts.push(`${cap(golden)}; dinner at ${shortName(dinner.name)} closes the day around ${endT}.`)
+    } else if (end <= goldenStart - 60) {
+      parts.push(`The day winds down around ${endT} — golden hour isn't until ${fmt(goldenStart)}, so the evening stays yours.`)
+    } else {
+      parts.push(`${cap(golden)}; the day winds down around ${endT}.`)
+    }
+  } else {
+    parts.push(dinner ? `Dinner at ${shortName(dinner.name)} closes the day around ${endT}.` : `The day winds down around ${endT}.`)
+  }
   return parts.join(' ')
 }
 

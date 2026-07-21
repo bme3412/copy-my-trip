@@ -276,10 +276,14 @@ check('sun: Paris December solstice sunset ~16:56', inRange(dec.sunset, '16:40',
 check('sun: Paris mid-September sunset ~20:10', inRange(sep.sunset, '19:55', '20:25'), fmtClock(Math.round(sep.sunset)))
 check('sun: DST rule flips (CEST in June, CET in December)', euTzOffsetMin('2026-06-21') === 120 && euTzOffsetMin('2026-12-21') === 60)
 
-// Deck v3: dated days mention the light; closure days explain themselves.
+// Deck v4: sequential — the route first, the light where it falls, closures
+// as context; deterministic.
 const sevenPlan = gen('first-time', 7)
 const deckFor = (i: number) => builtDayDeck(city, sevenPlan.days[i], { date: dayDate(ARRIVING, i), weekday: dayWeekday(ARRIVING, i) })
-check('deck: dated day mentions sunset', deckFor(0).includes('sunset comes at'), deckFor(0))
+const dinnerDeck = deckFor(1) // Sunday: dinner day → full light sentence
+check('deck: dinner day mentions golden hour and sunset', dinnerDeck.includes('Golden hour comes around') && dinnerDeck.includes('sunset at'), dinnerDeck)
+check('deck: the light never leads — route comes first', dinnerDeck.indexOf('first —') < dinnerDeck.indexOf('sunset at'), dinnerDeck)
+check('deck: early days keep their evenings', deckFor(0).includes('the evening stays yours'), deckFor(0))
 // Day 3 of the 2026-09-12 trip is Monday — Orsay (rank 1) closes.
 check('deck: Monday explains the closures', /closed on Mondays/.test(deckFor(2)), deckFor(2))
 check('deck: deterministic', deckFor(1) === builtDayDeck(city, sevenPlan.days[1], { date: dayDate(ARRIVING, 1), weekday: dayWeekday(ARRIVING, 1) }))

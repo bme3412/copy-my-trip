@@ -6,7 +6,7 @@ import { ImageIcon } from './icons'
  * renders the photo (developing in like a print); if the file is missing or
  * fails to load, the warm-paper placeholder shows instead.
  */
-export function ImageSlot({ placeholder, src, style }: { placeholder: string; src?: string; style?: CSSProperties }) {
+export function ImageSlot({ placeholder, src, style, eager = false }: { placeholder: string; src?: string; style?: CSSProperties; eager?: boolean }) {
   const [failed, setFailed] = useState(false)
   useEffect(() => setFailed(false), [src])
 
@@ -16,6 +16,8 @@ export function ImageSlot({ placeholder, src, style }: { placeholder: string; sr
         src={src}
         alt={placeholder}
         className="develop"
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
         onError={() => setFailed(true)}
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...style }}
       />
