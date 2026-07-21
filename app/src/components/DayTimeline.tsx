@@ -278,25 +278,20 @@ function Stop({ stop, isLast }: { stop: DayStop; isLast: boolean }) {
   )
 }
 
-export function DayTimeline({ stops, verifiedOnly }: { stops: DayStop[]; verifiedOnly: boolean }) {
-  const isHidden = (s: DayStop) => verifiedOnly && s.kind !== 'verified'
-  const visible = stops.filter((s) => !isHidden(s))
+export function DayTimeline({ stops }: { stops: DayStop[] }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {stops.map((stop, i) => {
-        const hidden = isHidden(stop)
-        const isLast = visible.length > 0 && stop === visible[visible.length - 1]
+        const isLast = i === stops.length - 1
         const next = stops[i + 1]
-        // A transit chip only makes sense when both of its endpoints are on the page.
-        const transitHidden = hidden || !next || isHidden(next)
         return (
           <Fragment key={stop.time + stop.name}>
-            <div className={`fold ${hidden ? 'fold-closed' : ''}`}>
+            <div className="fold">
               <div className="fold-inner">
                 <Stop stop={stop} isLast={isLast} />
               </div>
             </div>
-            {stop.transitAfter && <TransitChip min={stop.transitAfter.min} measured={stop.transitAfter.measured} hidden={transitHidden} />}
+            {stop.transitAfter && <TransitChip min={stop.transitAfter.min} measured={stop.transitAfter.measured} hidden={!next} />}
           </Fragment>
         )
       })}

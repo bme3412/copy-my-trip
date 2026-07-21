@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { DayTimeline } from '../components/DayTimeline'
 import { FlowStepper } from '../components/FlowStepper'
 import { Page } from '../components/Layout'
-import { CheckIcon } from '../components/icons'
 import { DayMap } from '../components/DayMap'
-import { builtDayStops, builtDayVerifiedLabel } from '../lib/built-day'
+import { builtDayStops } from '../lib/built-day'
 import { stayLoc, stopPlace } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
@@ -18,7 +17,6 @@ export function DayPage() {
   const { hash } = useLocation()
   const city = useCity()
   const { trip, dayCount } = useTrip()
-  const [verifiedOnly, setVerifiedOnly] = useState(false)
 
   // Arriving from the archive: scroll to the linked stop and flash it.
   useEffect(() => {
@@ -41,7 +39,6 @@ export function DayPage() {
 
   const stops = isBuilt ? builtDayStops(city, built) : (curated?.stops ?? [])
   const title = isBuilt ? `Day ${num} — your path` : (curated?.title ?? `Day ${num}`)
-  const verifiedLabel = isBuilt ? builtDayVerifiedLabel(built) : (curated?.verifiedLabel ?? 'nothing planned yet')
   const purpose = isBuilt ? trip.dayPurposes?.[num - 1] : undefined
   const timedNames = isBuilt
     ? built.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => c.name)
@@ -56,24 +53,6 @@ export function DayPage() {
       topBar={<FlowStepper />}
       kicker={`Day ${num} of ${dayCount}`}
       title={title}
-      aside={
-        <>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--color-accent-700)' }}>
-            <CheckIcon size={15} strokeWidth={2.2} />
-            <span style={{ fontVariantNumeric: 'tabular-nums' }}>{verifiedLabel}</span>
-          </div>
-          <div className="seg">
-            <label className="seg-opt">
-              <input type="radio" name="day-filter" checked={!verifiedOnly} onChange={() => setVerifiedOnly(false)} />
-              Full plan
-            </label>
-            <label className="seg-opt">
-              <input type="radio" name="day-filter" checked={verifiedOnly} onChange={() => setVerifiedOnly(true)} />
-              Verified only
-            </label>
-          </div>
-        </>
-      }
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15 }}>
         {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
@@ -131,7 +110,7 @@ export function DayPage() {
 
       <div style={{ viewTransitionName: 'day-timeline' }}>
         {stops.length > 0 ? (
-          <DayTimeline stops={stops} verifiedOnly={verifiedOnly} />
+          <DayTimeline stops={stops} />
         ) : (
           <div style={{ border: '1px dashed var(--color-divider)', borderRadius: 6, padding: 36, textAlign: 'center', maxWidth: 560 }}>
             <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, marginBottom: 8 }}>Day {num} isn't composed yet</div>
