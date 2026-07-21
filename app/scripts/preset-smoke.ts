@@ -1,7 +1,7 @@
 /** Engine quality invariants — regression guards for the recommendation engine. */
 import { CITIES } from '../src/cities'
 import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../src/lib/plan-presets'
-import { blankDay, buildCandidates, dayDate, dayWeekday, effectiveHours, placeVariants, stayLoc, stopPlace } from '../src/lib/planner'
+import { blankDay, buildCandidates, dayDate, dayWeekday, effectiveHours, ENGINE, PACE, placeVariants, stayLoc, stopPlace } from '../src/lib/planner'
 import type { City } from '../src/cities/types'
 
 const city = CITIES.paris
@@ -166,5 +166,46 @@ for (const preset of PLAN_PRESETS) {
 const reasonsA = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
 const reasonsB = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
 check('reasons: deterministic across runs', reasonsA === reasonsB)
+
+// ── Robustness: worst-case durations and timed-entry buffers ──
+// No day busts curfew even when every stop runs to dur + durVar. The stored
+// dur is pace-scaled, so durVar scales by the same pace (day 7 is the gentle
+// buffer day in every preset; all other generated days run balanced).
+for (const preset of PLAN_PRESETS) {
+  const plan = gen(preset.id, 7)
+  const busts = plan.days.flatMap((d, i) =>
+    d.committed.filter((c) => {
+      const p = stopPlace(city, c)
+      if (!p) return false
+      const pf = PACE[i === 6 ? 'gentle' : 'balanced'].f
+      // Worst case caps at closing time (the venue ends the overrun), never
+      // below the typical plan — mirrors the engine's curfew rule.
+      const hrs = effectiveHours(p, dayDate(ARRIVING, i), dayWeekday(ARRIVING, i))
+      const close = (hrs?.[1] ?? 24) * 60
+      const worstEnd = Math.max(c.timeIn + c.dur, Math.min(c.timeIn + c.dur + Math.round((p.durVar ?? 0) * pf), close))
+      return worstEnd > 22 * 60
+    }),
+  )
+  check(`${preset.id}: home by 22:00 even at worst-case durations`, busts.length === 0, busts.map((c) => c.name).join(', '))
+}
+// Timed candidates carry the entry buffer: the slot sits ≥ buffer past
+// expected physical arrival (clock + travel). Narrow the pool to force each
+// timed place into the returned picks.
+let timedSeen = 0
+for (const timedId of ['saintechapelle', 'orangerie']) {
+  const others = new Set(city.places.filter((p) => p.id !== timedId).map((p) => p.id))
+  for (const clk of [city.dayStart, 14 * 60]) {
+    const state = { ...blankDay(city, STAY), clock: clk }
+    for (const c of buildCandidates(city, state, 'balanced', others, { weekday: 6, date: '2026-09-12' })) {
+      if (!c.p.timed) continue
+      timedSeen++
+      check(`timed buffer: ${c.p.name} at ${fmtClock(clk)} slot ≥${ENGINE.timedEntryBuffer} min past arrival`, c.arrive - (clk + c.t.min) >= ENGINE.timedEntryBuffer)
+    }
+  }
+}
+check('timed buffer: at least two timed candidates exercised', timedSeen >= 2, `${timedSeen}`)
+function fmtClock(m: number): string {
+  return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`
+}
 
 process.exit(fail ? 1 : 0)

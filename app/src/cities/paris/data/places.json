@@ -90,7 +90,8 @@
     ],
     "closedOn": [
       1
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "marche",
@@ -182,7 +183,8 @@
     "themes": [
       "historic"
     ],
-    "timed": true
+    "timed": true,
+    "durVar": 20
   },
   {
     "id": "berthillon",
@@ -393,7 +395,8 @@
     "themes": [
       "afterdark",
       "everyday"
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "baronrouge",
@@ -416,7 +419,8 @@
     "themes": [
       "afterdark",
       "everyday"
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "notredame",
@@ -556,7 +560,8 @@
         "src": "web",
         "visits": 0,
         "last": "",
-        "note": "book the first entry"
+        "note": "book the first entry",
+        "durVar": 60
       }
     ]
   },
@@ -583,7 +588,8 @@
     ],
     "closedOn": [
       2
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "stgermain",
@@ -656,7 +662,8 @@
     "themes": [
       "monumental",
       "afterdark"
-    ]
+    ],
+    "durVar": 15
   },
   {
     "id": "eiffel",
@@ -703,7 +710,8 @@
         "src": "web",
         "visits": 0,
         "last": "",
-        "note": "elevator slots release ~60 days out"
+        "note": "elevator slots release ~60 days out",
+        "durVar": 30
       }
     ]
   },
@@ -756,7 +764,8 @@
         9.5,
         18
       ]
-    ]
+    ],
+    "durVar": 45
   },
   {
     "id": "tuileries",
@@ -828,7 +837,8 @@
     ],
     "closedOn": [
       1
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "invalides",
@@ -851,7 +861,8 @@
     "themes": [
       "historic",
       "monumental"
-    ]
+    ],
+    "durVar": 30
   },
   {
     "id": "ruecler",
@@ -899,7 +910,8 @@
     "timed": true,
     "closedOn": [
       2
-    ]
+    ],
+    "durVar": 20
   },
   {
     "id": "abbesses",
@@ -966,6 +978,7 @@
         "dur": 300,
         "note": "palace and gardens, skip the Trianon"
       }
-    ]
+    ],
+    "durVar": 60
   }
 ]

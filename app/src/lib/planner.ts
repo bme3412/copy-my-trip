@@ -26,6 +26,9 @@ export const ENGINE = {
     coffeeMorning: 1.5, // a nearby coffee beats a sight first thing
     hoodBias: 1.5, // the personality day's soft pull toward its hood
   },
+  /** Timed reservations book the slot this many minutes after expected arrival —
+   * the margin that absorbs a slow métro or a longer lunch. */
+  timedEntryBuffer: 15,
   /** Day-anatomy limits from the first-trip framework. */
   maxTimedPerDay: 2,
   longTransferMin: 20, // a metro leg this long counts as a cross-city transfer
@@ -174,6 +177,7 @@ export function placeVariants(p: Place): EffectivePlace[] {
     name: e.name ?? p.name,
     label: e.label ?? p.label,
     dur: e.dur ?? p.dur,
+    durVar: e.durVar ?? p.durVar,
     open: e.open ?? p.open,
     hours: e.hours ?? p.hours,
     timed: e.timed ?? p.timed,
@@ -299,7 +303,10 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       const hrs = effectiveHours(p, opts.date, opts.weekday)!
       const t = travel(day.loc, p)
       const dur = Math.round(p.dur * pf)
-      let arrive = clk + t.min
+      // The worst realistic case — feasibility is judged here, not at typical.
+      const durMax = Math.round((p.dur + (p.durVar ?? 0)) * pf)
+      // A timed slot is booked a buffer after expected arrival, absorbing delays.
+      let arrive = clk + t.min + (p.timed ? ENGINE.timedEntryBuffer : 0)
       // A short wait for opening is human — you don't skip dinner because you're early.
       const opensAt = hrs[0] * 60
       const waitCap = p.meal === 'dinner' ? ENGINE.maxWaitDinner : ENGINE.maxWait
@@ -309,8 +316,11 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       // unscheduled drift (wandering, sitting longer than planned).
       const leave = depart + ENGINE.linger[pace]
       const open = arrive >= opensAt && arrive <= hrs[1] * 60 - Math.min(dur, 30)
-      // Home by 22:00 is a real constraint: only dinner may run to dayEnd.
-      const curfew = depart <= (p.meal === 'dinner' ? city.dayEnd : ENGINE.lastLeave)
+      // Home by 22:00 is a real constraint even when the visit runs long.
+      // An overrun can't outlast the venue: closing time caps the worst case
+      // (and the typical plan is the floor — close reads as last entry).
+      const worstDepart = Math.max(depart, Math.min(arrive + durMax, hrs[1] * 60))
+      const curfew = worstDepart <= (p.meal === 'dinner' ? city.dayEnd : ENGINE.lastLeave)
       // More than 30 min outside a place's best window is a hard skip —
       // no morning gelato, no midday golden-hour bridges.
       const timely = !p.best || (arrive >= (p.best[0] - 0.5) * 60 && arrive <= (p.best[1] + 0.5) * 60)
@@ -436,7 +446,7 @@ export function isDayDone(day: DayState, pace: Pace, candidates: Candidate[], ma
 export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, hours?: [number, number], why?: string): DayState {
   const t = travel(day.loc, place)
   const dur = Math.round(place.dur * PACE[pace].f)
-  let arrive = day.clock + t.min
+  let arrive = day.clock + t.min + (place.timed ? ENGINE.timedEntryBuffer : 0)
   const opensAt = (hours ?? place.open)[0] * 60
   if (arrive < opensAt) arrive = opensAt
   const depart = arrive + dur

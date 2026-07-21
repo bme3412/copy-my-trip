@@ -37,6 +37,7 @@ function validateCity(cid: string, city: City) {
     check(`${t}: id/name/area/hood/label non-empty`, [p.id, p.name, p.area, p.hood, p.label].every((s) => typeof s === 'string' && s.length > 0))
     check(`${t}: coordinates`, Math.abs(p.lat) <= 90 && Math.abs(p.lon) <= 180)
     check(`${t}: duration positive`, Number.isFinite(p.dur) && p.dur > 0)
+    if (p.durVar !== undefined) check(`${t}: durVar non-negative`, Number.isFinite(p.durVar) && p.durVar >= 0)
     check(`${t}: meal valid`, MEALS.includes(p.meal))
     check(`${t}: group valid`, GROUPS.includes(p.group))
     check(`${t}: src valid`, SOURCES.includes(p.src))
@@ -59,6 +60,7 @@ function validateCity(cid: string, city: City) {
         const et = `${t} experience ${e.id}`
         check(`${et}: id non-empty`, typeof e.id === 'string' && e.id.length > 0)
         if (e.dur !== undefined) check(`${et}: duration positive`, Number.isFinite(e.dur) && e.dur > 0)
+        if (e.durVar !== undefined) check(`${et}: durVar non-negative`, Number.isFinite(e.durVar) && e.durVar >= 0)
         if (e.open !== undefined) check(`${et}: open tuple`, isHourTuple(e.open), JSON.stringify(e.open))
         if (e.best !== undefined) check(`${et}: best tuple`, isHourTuple(e.best), JSON.stringify(e.best))
         if (e.hours !== undefined) {

@@ -17,6 +17,7 @@ export interface Experience {
   name?: string
   label?: string
   dur?: number
+  durVar?: number
   open?: [number, number]
   hours?: ([number, number] | null)[]
   timed?: boolean
@@ -51,6 +52,10 @@ export interface Place {
   lat: number
   lon: number
   dur: number
+  /** How many minutes past `dur` a visit realistically runs (queues, lingering,
+   * a deeper wander). Days are scheduled on `dur` but must stay feasible at
+   * `dur + durVar` — a plan that only works when everything runs typical is fragile. */
+  durVar?: number
   meal: Meal
   open: [number, number]
   src: Source

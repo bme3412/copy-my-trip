@@ -112,7 +112,7 @@ Changes:
 **Done when:** every committed stop shows at least one reason naming a canonical
 term; `preset-smoke.ts` asserts reasons are non-empty and deterministic.
 
-## Phase 5 — Duration ranges and arrival buffers
+## Phase 5 — Duration ranges and arrival buffers ✅ (shipped 2026-07-21)
 
 **Goal:** lightweight robustness, client-side — plans that survive a slow lunch.
 
