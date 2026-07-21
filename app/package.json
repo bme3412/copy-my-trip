@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:full": "vercel dev --listen 3333",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "smoke": "esbuild scripts/route-smoke.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=node_modules/.tmp/route-smoke.cjs --log-level=error && node node_modules/.tmp/route-smoke.cjs",

@@ -12,8 +12,7 @@ export function Layout() {
   const base = `/${city.id}`
   const tripLinks = [
     { to: `${base}/compose`, label: 'Plan a visit' },
-    { to: `${base}/build`, label: 'Day builder' },
-    { to: `${base}/day/1`, label: 'The days', match: `${base}/day` },
+    { to: `${base}/itinerary/1`, label: 'Itinerary', match: `${base}/itinerary` },
   ]
   const archiveLinks = [
     { to: `${base}/archive`, label: 'Map' },

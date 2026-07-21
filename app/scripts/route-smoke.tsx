@@ -18,14 +18,14 @@ async function main() {
   const cases: [string, string][] = [
     ['/paris', 'actually been'],
     ['/paris/compose', 'Tell me about the trip'],
-    ['/paris/build', 'Choose your next move'],
-    ['/paris/day/1', 'Marais &amp; the two islands'],
-    ['/paris/day/3', 'Canal Saint-Martin &amp; Montmartre'],
+    ['/paris/itinerary/1', 'Marais &amp; the two islands'],
+    ['/paris/itinerary/1', 'Reconsider any stop'],
+    ['/paris/itinerary/3', 'Canal Saint-Martin &amp; Montmartre'],
     ['/paris/archive', 'every trip merged'],
     ['/paris/neighbourhoods', 'The neighborhoods'],
     ['/rome', 'planned with the same discipline'],
     ['/rome/compose', 'Tell me about the trip'],
-    ['/rome/build', 'Choose your next move'],
+    ['/rome/itinerary/1', 'composed yet'],
     ['/rome/archive', 'Trastevere'],
     ['/rome/neighbourhoods', 'The neighborhoods'],
   ]
@@ -46,6 +46,10 @@ async function main() {
     ['/lyon/day/1', '/paris'],
     ['/paris/nope', '/paris'],
     ['/paris/plans', '/paris/compose'],
+    // The builder folded into the itinerary; the days became the itinerary.
+    ['/paris/build', '/paris/itinerary/1'],
+    ['/paris/day/3', '/paris/itinerary/3'],
+    ['/rome/build', '/rome/itinerary/1'],
   ]
   for (const [path, expected] of redirects) {
     const { landed } = await render(path)

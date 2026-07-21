@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ImageSlot } from './ImageSlot'
 import { VideoBadge } from './VideoBadge'
-import { CameraIcon, InfoIcon, MapPinIcon, WalkIcon } from './icons'
+import { CameraIcon, CloseIcon, FanIcon, InfoIcon, MapPinIcon, TicketIcon, WalkIcon } from './icons'
 import type { DayStop, Plate } from '../cities/types'
 import { slotDatesLabel, slotHasVideo, slotSrc, slotVideoSrc } from '../lib/media'
 // (captions use slotDatesLabel per-plate for the "· Jul 2024" suffix)
@@ -145,7 +145,21 @@ function WebFrame({ city, webImage }: { city: ReturnType<typeof useCity>; webIma
   )
 }
 
-function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean; eager?: boolean }) {
+function Stop({
+  stop,
+  isLast,
+  eager = false,
+  onReconsider,
+  onRemove,
+  open = false,
+}: {
+  stop: DayStop
+  isLast: boolean
+  eager?: boolean
+  onReconsider?: () => void
+  onRemove?: () => void
+  open?: boolean
+}) {
   const city = useCity()
   const { ref, revealed } = useReveal<HTMLDivElement>()
   const verified = stop.kind === 'verified'
@@ -199,9 +213,33 @@ function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean;
               {stop.name}
             </Link>
           </h4>
+          {stop.tag && <span className="tag tag-accent-2">{stop.tag}</span>}
           <span className="text-muted" style={{ fontSize: 13 }}>
             {stop.sub}
           </span>
+          {onReconsider && (
+            <button
+              type="button"
+              className="reconsider-btn"
+              aria-expanded={open}
+              aria-label={`Reconsider ${stop.name}`}
+              title="Other ways from the stop before"
+              onClick={onReconsider}
+            >
+              <FanIcon size={15} />
+            </button>
+          )}
+          {onRemove && (
+            <button
+              type="button"
+              className="remove-btn"
+              aria-label={`Remove ${stop.name} — the day re-routes and re-times itself`}
+              title="Remove this stop"
+              onClick={onRemove}
+            >
+              <CloseIcon size={12} />
+            </button>
+          )}
         </div>
         {stop.desc && (
           <p
@@ -216,6 +254,40 @@ function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean;
           >
             {em(stop.desc)}
           </p>
+        )}
+
+        {stop.booking && (
+          <div
+            style={{
+              display: 'flex',
+              gap: 12,
+              alignItems: 'flex-start',
+              border: '1px solid var(--color-accent-300)',
+              borderLeft: '3px solid var(--color-accent)',
+              background: 'var(--color-accent-100)',
+              borderRadius: 4,
+              padding: '14px 16px',
+              margin: '0 0 16px',
+              maxWidth: 560,
+            }}
+          >
+            <TicketIcon size={16} stroke="var(--color-accent-700)" style={{ flex: 'none', marginTop: 2 }} />
+            <div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 14, fontWeight: 600, color: 'var(--color-accent-800)' }}>
+                Book a timed slot before you go
+              </div>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, lineHeight: 1.6, color: 'var(--color-accent-800)', margin: '4px 0 10px' }}>
+                {stop.booking.cost}
+                {stop.booking.site ? ` · ${stop.booking.site}` : ''}
+                {stop.booking.note ? ` — ${stop.booking.note}` : ''}
+              </div>
+              {stop.booking.url && (
+                <a className="btn btn-secondary" style={{ fontSize: 12 }} href={stop.booking.url} target="_blank" rel="noopener">
+                  {stop.booking.needed ? 'Book tickets' : 'Reserve a slot'}
+                </a>
+              )}
+            </div>
+          </div>
         )}
 
         {stop.kind === 'verified' && stop.plates && (
@@ -257,6 +329,12 @@ function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean;
             {stop.why.join(' · ')}
           </div>
         )}
+        {stop.flagNote && (
+          <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.55, marginTop: 10, color: 'var(--color-accent-2-700)' }}>
+            <span style={{ letterSpacing: 1.2, textTransform: 'uppercase', fontSize: 10.5 }}>Needs a look · </span>
+            {stop.flagNote}
+          </div>
+        )}
         {(shotLabel || !verified) && (
           <div className="text-muted" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, marginTop: 12 }}>
             {verified ? (
@@ -279,7 +357,22 @@ function Stop({ stop, isLast, eager = false }: { stop: DayStop; isLast: boolean;
   )
 }
 
-export function DayTimeline({ stops }: { stops: DayStop[] }) {
+export function DayTimeline({
+  stops,
+  onReconsider,
+  onRemove,
+  openIndex = null,
+  deck,
+}: {
+  stops: DayStop[]
+  /** When given, each stop carries the reconsider affordance. */
+  onReconsider?: (i: number) => void
+  /** When given, each stop carries the remove affordance — the day re-times. */
+  onRemove?: (i: number) => void
+  /** Stop whose reconsider deck is open — `deck` renders right below it. */
+  openIndex?: number | null
+  deck?: ReactNode
+}) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {stops.map((stop, i) => {
@@ -289,9 +382,17 @@ export function DayTimeline({ stops }: { stops: DayStop[] }) {
           <Fragment key={stop.time + stop.name}>
             <div className="fold">
               <div className="fold-inner">
-                <Stop stop={stop} isLast={isLast} eager={i === 0} />
+                <Stop
+                  stop={stop}
+                  isLast={isLast}
+                  eager={i === 0}
+                  onReconsider={onReconsider ? () => onReconsider(i) : undefined}
+                  onRemove={onRemove ? () => onRemove(i) : undefined}
+                  open={openIndex === i}
+                />
               </div>
             </div>
+            {openIndex === i && deck}
             {stop.transitAfter && <TransitChip min={stop.transitAfter.min} measured={stop.transitAfter.measured} hidden={!next} />}
           </Fragment>
         )

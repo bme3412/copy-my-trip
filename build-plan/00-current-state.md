@@ -26,11 +26,14 @@ Pages (`app/src/pages/`, routed in `app/src/App.tsx`):
 - **Home** — hero + entry points.
 - **ComposePage** — collects arrival/departure dates, pace (gentle/balanced/full),
   stay neighbourhood, interests; then a choice of three generated plan presets.
-- **BuildPage** — the interactive builder: the day so far on one side, up to three
-  candidate next moves on the other, each with travel time, arrival, duration,
-  provenance and a one-line forecast.
-- **DayPage** — a finished day (curated or built) rendered as a timeline with photo
-  plates and provenance; both paths render through `app/src/lib/built-day.ts`.
+- **ItineraryPage** (`itinerary/:n`) — a day, curated or built, rendered as a
+  timeline with photo plates and provenance — with the builder folded in
+  (`03-itinerary.md`): every stop carries a reconsider deck (alternatives
+  relative to the prior activity, swap replay with recomputed transit and
+  flagged breaks), unfinished days end in an append slot, and curated days
+  fork into an editable engine-scheduled copy on first touch. Replaces the
+  former BuildPage and DayPage; `build` and `day/:n` redirect. Both curated
+  and built render through `app/src/lib/built-day.ts`.
 - **ArchivePage / NeighbourhoodsPage** — the curator's archive on a map, and
   neighbourhood essays.
 

@@ -19,7 +19,7 @@ export function ArchivePage() {
   const pulseSlug = searchParams.get('place')
   // Archive-only places have no curated day to jump to.
   const openDay = (n: { name: string; day?: number }) => {
-    if (n.day) navigate(`/${city.id}/day/${n.day}#${slug(n.name)}`, { viewTransition: true })
+    if (n.day) navigate(`/${city.id}/itinerary/${n.day}#${slug(n.name)}`, { viewTransition: true })
   }
   // Real GPS positions come from the places catalogue, joined by name.
   const mapNodes: MapNode[] = NODES.flatMap((n) => {

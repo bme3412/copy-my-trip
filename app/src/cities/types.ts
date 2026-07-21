@@ -155,6 +155,9 @@ export interface Plate {
 export interface DayStop {
   time: string
   timeNote?: string
+  /** The place this stop is, when it exists in the city data — what lets a
+   * curated day materialize into an editable built day. */
+  placeId?: string
   name: string
   sub: string
   desc: string
@@ -168,6 +171,12 @@ export interface DayStop {
   transitAfter?: { min: number; measured: boolean }
   /** Why this stop, why now — from the engine's scoring reasons (built days only). */
   why?: string[]
+  /** A replay flagged this stop — the named constraint it now violates. */
+  flagNote?: string
+  /** A chip beside the name — "Anchor · the day's one museum". */
+  tag?: string
+  /** Timed-entry booking facts (from entry.json): the "book before you go" callout. */
+  booking?: { cost: string; url?: string; needed?: boolean; note?: string; site?: string }
 }
 
 export interface FinishedDay {
@@ -230,6 +239,9 @@ export interface City {
   homeBase: string
   dayStart: number
   dayEnd: number
+  /** The river's course through the center, [lat, lon] points — drawn as the
+   * soft ribbon on the schematic route map. Decorative wayfinding, not routing. */
+  river?: [number, number][]
   places: Place[]
   info: Record<string, PlaceInfo>
   entry: Record<string, PlaceEntry>

@@ -22,7 +22,7 @@ import mediaDatesJson from './data/media-dates.json'
  * `City` contracts here. `npm run validate:cities` is the real guarantee —
  * it checks every field, range and cross-reference the types can't. */
 export const PARIS: City = {
-  ...(cityJson as Omit<City, 'places' | 'info' | 'entry' | 'nodes' | 'hoods' | 'curatedDays' | 'media' | 'slotFiles' | 'mediaDates'> & { start: StartLoc }),
+  ...(cityJson as unknown as Omit<City, 'places' | 'info' | 'entry' | 'nodes' | 'hoods' | 'curatedDays' | 'media' | 'slotFiles' | 'mediaDates'> & { start: StartLoc }),
   places: placesJson as unknown as Place[],
   info: infoJson as Record<string, PlaceInfo>,
   entry: entryJson as Record<string, PlaceEntry>,

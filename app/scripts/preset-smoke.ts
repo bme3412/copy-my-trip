@@ -1,7 +1,24 @@
 /** Engine quality invariants — regression guards for the recommendation engine. */
 import { CITIES } from '../src/cities'
 import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../src/lib/plan-presets'
-import { blankDay, buildCandidates, dayDate, dayWeekday, effectiveHours, ENGINE, PACE, placeVariants, stayLoc, stopPlace } from '../src/lib/planner'
+import {
+  alternativesAt,
+  blankDay,
+  buildCandidates,
+  dayDate,
+  dayWeekday,
+  effectiveHours,
+  ENGINE,
+  insertionSuggestions,
+  PACE,
+  placeVariants,
+  removeAt,
+  replayFrom,
+  replaySequence,
+  stayLoc,
+  stopPlace,
+  truncateDay,
+} from '../src/lib/planner'
 import type { City } from '../src/cities/types'
 
 const city = CITIES.paris
@@ -315,7 +332,6 @@ for (const preset of PLAN_PRESETS)
 
 // ── Sun times + the deck: the day tied to its date ──
 import { euTzOffsetMin, sunTimes } from '../src/lib/sun'
-import { builtDayDeck } from '../src/lib/built-day'
 const inRange = (v: number, lo: string, hi: string) => {
   const m = (s: string) => Number(s.split(':')[0]) * 60 + Number(s.split(':')[1])
   return v >= m(lo) && v <= m(hi)
@@ -328,18 +344,6 @@ check('sun: Paris June solstice sunset ~21:58', inRange(jun.sunset, '21:40', '22
 check('sun: Paris December solstice sunset ~16:56', inRange(dec.sunset, '16:40', '17:15'), fmtClock(Math.round(dec.sunset)))
 check('sun: Paris mid-September sunset ~20:10', inRange(sep.sunset, '19:55', '20:25'), fmtClock(Math.round(sep.sunset)))
 check('sun: DST rule flips (CEST in June, CET in December)', euTzOffsetMin('2026-06-21') === 120 && euTzOffsetMin('2026-12-21') === 60)
-
-// Deck v4: sequential — the route first, the light where it falls, closures
-// as context; deterministic.
-const sevenPlan = gen('first-time', 7)
-const deckFor = (i: number) => builtDayDeck(city, sevenPlan.days[i], { date: dayDate(ARRIVING, i), weekday: dayWeekday(ARRIVING, i) })
-const dinnerDeck = deckFor(1) // Sunday: dinner day → full light sentence
-check('deck: dinner day mentions golden hour and sunset', dinnerDeck.includes('Golden hour comes around') && dinnerDeck.includes('sunset at'), dinnerDeck)
-check('deck: the light never leads — route comes first', dinnerDeck.indexOf('first —') < dinnerDeck.indexOf('sunset at'), dinnerDeck)
-check('deck: early days keep their evenings', deckFor(0).includes('the evening stays yours'), deckFor(0))
-// Day 3 of the 2026-09-12 trip is Monday — Orsay (rank 1) closes.
-check('deck: Monday explains the closures', /closed on Mondays/.test(deckFor(2)), deckFor(2))
-check('deck: deterministic', deckFor(1) === builtDayDeck(city, sevenPlan.days[1], { date: dayDate(ARRIVING, 1), weekday: dayWeekday(ARRIVING, 1) }))
 
 // ── Diversity: where you stay and which preset you pick must matter ──
 import { dayAnchor } from '../src/lib/planner'
@@ -369,5 +373,139 @@ for (const [cid, c] of Object.entries(CITIES)) {
       check(`${cid}: presets ${PLAN_PRESETS[i].id}/${PLAN_PRESETS[j].id} overlap ≤ 0.8`, jac <= 0.8, jac.toFixed(2))
     }
 }
+
+// ── Reconsidering: slot alternatives, swap replay, curated fork ──
+// (build-plan/03-itinerary.md §6)
+const swapPlan = gen('first-time', 4)
+const tripVisited = new Set(swapPlan.days.flatMap((d) => d.committed.map((s) => s.id)))
+
+// A middle non-meal slot to reconsider.
+let sdI = -1
+let sk = -1
+for (let i = 0; i < 4 && sdI < 0; i++) {
+  const d = swapPlan.days[i]
+  for (let k = 1; k < d.committed.length - 1; k++) {
+    if (!d.committed[k].meal) {
+      sdI = i
+      sk = k
+      break
+    }
+  }
+}
+check('swap: found a middle non-meal slot to reconsider', sdI >= 0)
+const sDay = swapPlan.days[sdI]
+const sOpts = { date: dayDate(ARRIVING, sdI), weekday: dayWeekday(ARRIVING, sdI) }
+const altKey = (cs: ReturnType<typeof alternativesAt>) => JSON.stringify(cs.map((c) => `${c.p.id}@${c.arrive}`))
+const alts = alternativesAt(city, sDay, sk, 'balanced', tripVisited, STAY, sOpts)
+check('swap: alternatives exist for the slot', alts.length > 0, `${alts.length}`)
+check('swap: alternatives deterministic', altKey(alts) === altKey(alternativesAt(city, sDay, sk, 'balanced', tripVisited, STAY, sOpts)))
+check('swap: incumbent not re-offered', alts.every((c) => c.p.id !== sDay.committed[sk].id))
+check('swap: nothing already used elsewhere in the trip is offered', alts.every((c) => !tripVisited.has(c.p.id)))
+check('swap: a non-meal slot offers no meal cards', alts.every((c) => (c.p.meal ?? null) === null), alts.map((c) => `${c.p.id}:${c.p.meal}`).join(','))
+
+// Every break-free alternative, applied, leaves a day that passes the suite.
+let cleanSwaps = 0
+for (const c of alts) {
+  const r = replayFrom(city, sDay, sk, c, 'balanced', STAY, sOpts)
+  const r2 = replayFrom(city, sDay, sk, c, 'balanced', STAY, sOpts)
+  check(`swap ${c.p.id}: replay deterministic`, JSON.stringify(r) === JSON.stringify(r2))
+  check(`swap ${c.p.id}: prefix byte-identical`, JSON.stringify(r.day.committed.slice(0, sk)) === JSON.stringify(sDay.committed.slice(0, sk)))
+  check(`swap ${c.p.id}: stop count preserved`, r.day.committed.length === sDay.committed.length, `${r.day.committed.length} vs ${sDay.committed.length}`)
+  if (r.flags.length > 0) continue
+  cleanSwaps++
+  const d = r.day
+  const anchors = d.committed.filter((s) => stopPlace(city, s)?.role === 'anchor').length
+  const timed = d.committed.filter((s) => stopPlace(city, s)?.timed).length
+  const longLegs = d.committed.filter((s, j) => j > 0 && s.travelMode === 'metro' && s.travelMin >= 20).length
+  const late = d.committed.filter((s) => s.timeIn + s.dur > 22 * 60).length
+  const singleMeals = (['coffee', 'lunch', 'dinner'] as const).every((m) => d.committed.filter((s) => s.meal === m).length <= 1)
+  const dayIds = d.committed.map((s) => s.id)
+  check(
+    `swap ${c.p.id}: break-free replay passes the day invariants`,
+    anchors <= 1 && timed <= 2 && longLegs <= 1 && late === 0 && singleMeals && new Set(dayIds).size === dayIds.length,
+    `anchors ${anchors}, timed ${timed}, long ${longLegs}, late ${late}`,
+  )
+}
+check('swap: at least one break-free alternative exercised (impact honesty is live)', cleanSwaps >= 1, `${cleanSwaps} of ${alts.length}`)
+
+// A lunch slot trades only against lunch — where lunch happens, never whether.
+let li = -1
+let lk = -1
+for (let i = 0; i < 4 && li < 0; i++) {
+  const k = swapPlan.days[i].committed.findIndex((s) => s.meal === 'lunch')
+  if (k > 0) {
+    li = i
+    lk = k
+  }
+}
+check('swap: found a lunch slot', li >= 0)
+if (li >= 0) {
+  const lAlts = alternativesAt(city, swapPlan.days[li], lk, 'balanced', tripVisited, STAY, {
+    date: dayDate(ARRIVING, li),
+    weekday: dayWeekday(ARRIVING, li),
+  })
+  check('swap: a lunch slot offers only lunch', lAlts.length > 0 && lAlts.every((c) => c.p.meal === 'lunch'), lAlts.map((c) => `${c.p.id}:${c.p.meal}`).join(','))
+}
+
+// Suffix-aware caps: around a day that already holds its anchor, no slot may
+// grow a second one.
+const adI = swapPlan.days.findIndex((d) => d.committed.some((s) => stopPlace(city, s)?.role === 'anchor'))
+if (adI >= 0) {
+  const aDay = swapPlan.days[adI]
+  const ak = aDay.committed.findIndex((s) => stopPlace(city, s)?.role === 'anchor')
+  const testK = aDay.committed.findIndex((s, k) => k !== ak && !s.meal)
+  if (testK >= 0) {
+    const aAlts = alternativesAt(city, aDay, testK, 'balanced', tripVisited, STAY, {
+      date: dayDate(ARRIVING, adI),
+      weekday: dayWeekday(ARRIVING, adI),
+    })
+    check('swap: no second anchor offered around an anchored day', aAlts.every((c) => c.p.role !== 'anchor'), aAlts.map((c) => c.p.id).join(','))
+  }
+}
+
+// Append is the k = length special case: truncation reproduces the live state.
+const td = truncateDay(city, sDay, sDay.committed.length, 'balanced', STAY)
+check(
+  'truncate: k = length reproduces the live day state',
+  td.clock === sDay.clock && JSON.stringify(td.meals) === JSON.stringify(sDay.meals) && td.committed.length === sDay.committed.length,
+  `clock ${td.clock} vs ${sDay.clock}`,
+)
+
+// ── Remove & insert: the day re-routes and re-times itself ──
+const rm = removeAt(city, sDay, sk, 'balanced', STAY, sOpts)
+check('remove: stop count drops by one', rm.day.committed.length === sDay.committed.length - 1)
+check(
+  'remove: the stop is gone, order preserved',
+  JSON.stringify(rm.day.committed.map((s) => s.id)) === JSON.stringify(sDay.committed.map((s) => s.id).filter((_, j) => j !== sk)),
+)
+check('remove: deterministic', JSON.stringify(rm) === JSON.stringify(removeAt(city, sDay, sk, 'balanced', STAY, sOpts)))
+
+const sugg = insertionSuggestions(city, sDay, 'balanced', tripVisited, STAY, sOpts)
+check('insert: suggestions exist and all break nothing', sugg.length > 0 && sugg.every((s) => s.result.flags.length === 0), `${sugg.length}`)
+check(
+  'insert: each suggestion adds exactly its place',
+  sugg.every((s) => s.result.day.committed.length === sDay.committed.length + 1 && s.result.day.committed.some((c) => c.id === s.p.id)),
+)
+check('insert: nothing already in the trip is suggested', sugg.every((s) => !tripVisited.has(s.p.id)))
+check(
+  'insert: suggestions deterministic',
+  JSON.stringify(sugg.map((s) => `${s.p.id}@${s.k}`)) ===
+    JSON.stringify(insertionSuggestions(city, sDay, 'balanced', tripVisited, STAY, sOpts).map((s) => `${s.p.id}@${s.k}`)),
+)
+check('insert: clean insertions keep the day home by 22:00', sugg.every((s) => s.result.day.committed.every((c) => c.timeIn + c.dur <= 22 * 60)))
+
+// Curated day 1 forks: fully linked, and materializes deterministically into
+// the same sequence, re-scheduled by the engine.
+const curated1 = city.curatedDays[0]
+check('curated: day 1 fully linked to places', curated1.stops.every((s) => s.placeId))
+const matRefs = curated1.stops.map((s) => ({ placeId: s.placeId! }))
+const mat = replaySequence(city, matRefs, 'balanced', STAY, { date: dayDate(ARRIVING, 0), weekday: dayWeekday(ARRIVING, 0) })
+check(
+  'curated: materialization deterministic',
+  JSON.stringify(mat) === JSON.stringify(replaySequence(city, matRefs, 'balanced', STAY, { date: dayDate(ARRIVING, 0), weekday: dayWeekday(ARRIVING, 0) })),
+)
+check('curated: every stop materializes, in order', JSON.stringify(mat.day.committed.map((s) => s.id)) === JSON.stringify(curated1.stops.map((s) => s.placeId)))
+check('curated: materialized day ends by 22:00', mat.day.committed.every((s) => s.timeIn + s.dur <= 22 * 60))
+if (mat.flags.length > 0) console.log(`  (curated day 1 materialization flags: ${mat.flags.map((f) => `#${f.index} ${f.note}`).join(' · ')})`)
 
 process.exit(fail ? 1 : 0)

@@ -15,7 +15,7 @@ import mediaDatesJson from './data/media-dates.json'
  * guarantee; the archive (photos, visits, measured walks) lands per place as
  * the city gets walked. */
 export const ROME: City = {
-  ...(cityJson as Omit<City, 'places' | 'info' | 'entry' | 'nodes' | 'hoods' | 'curatedDays' | 'media' | 'slotFiles' | 'mediaDates'> & { start: StartLoc }),
+  ...(cityJson as unknown as Omit<City, 'places' | 'info' | 'entry' | 'nodes' | 'hoods' | 'curatedDays' | 'media' | 'slotFiles' | 'mediaDates'> & { start: StartLoc }),
   places: placesJson as unknown as Place[],
   info: infoJson as Record<string, PlaceInfo>,
   entry: entryJson as Record<string, PlaceEntry>,

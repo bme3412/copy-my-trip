@@ -4,8 +4,7 @@ import { useCity } from '../state/CityContext'
 
 const STEPS = [
   { num: '01', label: 'Plan', seg: 'compose' },
-  { num: '02', label: 'Build', seg: 'build' },
-  { num: '03', label: 'The days', seg: 'day' },
+  { num: '02', label: 'Itinerary', seg: 'itinerary' },
 ]
 
 /** The poster's section numerals, repurposed as wayfinding through the trip flow. */
@@ -20,7 +19,7 @@ export function FlowStepper() {
       {STEPS.map((s, i) => {
         const reached = i <= current
         const active = i === current
-        const to = s.seg === 'day' ? `/${city.id}/day/1` : `/${city.id}/${s.seg}`
+        const to = s.seg === 'itinerary' ? `/${city.id}/itinerary/1` : `/${city.id}/${s.seg}`
         return (
           <Fragment key={s.seg}>
             {i > 0 && <span aria-hidden style={{ flex: '0 1 44px', height: 1, background: 'var(--color-divider)' }} />}

@@ -111,6 +111,9 @@ interface TripContextValue {
   updateDay: (index: number, day: DayState) => void
   resetDay: (index: number) => void
   setDays: (days: DayState[]) => void
+  /** Merge one day's narration on the LATEST state — concurrent fetches for
+   * different days must never clobber each other's entries. */
+  setDayNarration: (index: number, entry: { key: string; text: string }) => void
   /** Number of trip days derived from the dates, clamped to 1–7. */
   dayCount: number
 }
@@ -157,8 +160,10 @@ export function useTrip(): TripContextValue {
         fallback,
       )
     const setDays = (days: DayState[]) => store.setTrip(city.id, (t) => ({ ...t, days }), fallback)
+    const setDayNarration = (index: number, entry: { key: string; text: string }) =>
+      store.setTrip(city.id, (t) => ({ ...t, dayNarrations: { ...t.dayNarrations, [index]: entry } }), fallback)
     const nights = Math.round((Date.parse(trip.departing) - Date.parse(trip.arriving)) / 86_400_000)
     const dayCount = Number.isFinite(nights) ? Math.min(MAX_DAYS, Math.max(1, nights)) : 4
-    return { trip, update, updateDay, resetDay, setDays, dayCount }
+    return { trip, update, updateDay, resetDay, setDays, setDayNarration, dayCount }
   }, [store, city])
 }

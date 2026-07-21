@@ -133,3 +133,15 @@ export function ImageIcon(props: IconProps) {
     </svg>
   )
 }
+
+/** The fan of three ways — the reconsider affordance on itinerary stops. */
+export function FanIcon(props: IconProps) {
+  return (
+    <svg {...svgProps(props)}>
+      <path d="M4 12c5-.8 9.5-3 14.5-7.5" />
+      <path d="M4 12h16" />
+      <path d="M4 12c5 .8 9.5 3 14.5 7.5" />
+      <circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}

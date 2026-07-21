@@ -134,7 +134,7 @@ export function ComposePage() {
     if (choosing) return
     if (plan.preset.id !== selectedId && !guardHandBuilt()) return
     update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes })
-    const go = () => navigate(`/${city.id}/day/1`, { viewTransition: true })
+    const go = () => navigate(`/${city.id}/itinerary/1`, { viewTransition: true })
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       go()
       return
@@ -357,10 +357,10 @@ export function ComposePage() {
           </div>
           <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, margin: '14px 0 0' }}>
             Or skip the presets and{' '}
-            <button className="linklike" style={{ fontSize: 12.5 }} onClick={() => navigate(`/${city.id}/build`, { viewTransition: true })}>
+            <button className="linklike" style={{ fontSize: 12.5 }} onClick={() => navigate(`/${city.id}/itinerary/1`, { viewTransition: true })}>
               build each day yourself
             </button>{' '}
-            — one next move at a time.
+            — one next move at a time, right on the itinerary.
           </p>
             </div>
           )}

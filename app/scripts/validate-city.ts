@@ -26,6 +26,11 @@ function validateCity(cid: string, city: City) {
   check(`${tag} day window sane`, city.dayStart >= 0 && city.dayStart < city.dayEnd && city.dayEnd <= 1440)
   check(`${tag} start location`, Math.abs(city.start.lat) <= 90 && Math.abs(city.start.lon) <= 180 && city.start.src === null)
   check(`${tag} hoodOrder non-empty and unique`, city.hoodOrder.length > 0 && new Set(city.hoodOrder).size === city.hoodOrder.length)
+  if (city.river)
+    check(
+      `${tag} river is ≥2 valid [lat, lon] points`,
+      city.river.length >= 2 && city.river.every((pt) => Array.isArray(pt) && pt.length === 2 && Math.abs(pt[0]) <= 90 && Math.abs(pt[1]) <= 180),
+    )
 
   // ── Places ──
   const ids = city.places.map((p) => p.id)
@@ -145,11 +150,18 @@ function validateCity(cid: string, city: City) {
     for (const pl of m.plates ?? []) slotIds.add(pl.id)
     if (m.webImage) slotIds.add(m.webImage.id)
   }
+  const placeIds = new Set(ids)
   for (const d of city.curatedDays) {
     const t = `${tag} curated day ${d.index}`
     check(`${t}: title and verifiedLabel`, d.title.length > 0 && d.verifiedLabel.length > 0)
     for (const s of d.stops) {
       check(`${t} stop "${s.name}": kind valid`, ['verified', 'web-pin', 'web-image'].includes(s.kind))
+      // placeId is what lets a curated day fork into an editable built day —
+      // when present it must resolve; when the name matches a place, it must
+      // be present (no silently unlinked stops).
+      if (s.placeId !== undefined) check(`${t} stop "${s.name}": placeId resolves`, placeIds.has(s.placeId), s.placeId)
+      const byName = city.places.find((p) => p.name === s.name)
+      if (byName) check(`${t} stop "${s.name}": linked to its place`, s.placeId === byName.id, `expected ${byName.id}, got ${s.placeId ?? 'none'}`)
       for (const pl of s.plates ?? []) slotIds.add(pl.id)
       if (s.webImage) slotIds.add(s.webImage.id)
     }

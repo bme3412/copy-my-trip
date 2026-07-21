@@ -59,7 +59,7 @@ export function NeighbourhoodsPage() {
                   <span>·</span>
                   <span style={{ display: 'inline-flex', gap: 8 }}>
                     {hood.days.map((d) => (
-                      <Link key={d} to={`/${city.id}/day/${d}`} viewTransition style={{ fontSize: 12 }}>
+                      <Link key={d} to={`/${city.id}/itinerary/${d}`} viewTransition style={{ fontSize: 12 }}>
                         Day {d}
                       </Link>
                     ))}
