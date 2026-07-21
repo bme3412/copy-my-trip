@@ -588,5 +588,103 @@
     "x": 83.1,
     "y": 49.1,
     "v": false
+  },
+  {
+    "name": "Seine sightseeing cruise",
+    "hood": "The Islands (1er–4e)",
+    "x": 58.8,
+    "y": 63.7,
+    "v": false
+  },
+  {
+    "name": "Catacombs of Paris",
+    "hood": "Montparnasse (14e)",
+    "x": 52.8,
+    "y": 95.0,
+    "v": false
+  },
+  {
+    "name": "Montparnasse Tower — the deck",
+    "hood": "Montparnasse (14e)",
+    "x": 45.5,
+    "y": 84.0,
+    "v": false
+  },
+  {
+    "name": "Montparnasse Cemetery",
+    "hood": "Montparnasse (14e)",
+    "x": 49.1,
+    "y": 88.2,
+    "v": false
+  },
+  {
+    "name": "Rue Daguerre",
+    "hood": "Montparnasse (14e)",
+    "x": 48.8,
+    "y": 95.0,
+    "v": false
+  },
+  {
+    "name": "Grand Palais",
+    "hood": "Champs-Élysées (8e)",
+    "x": 39.0,
+    "y": 51.9,
+    "v": false
+  },
+  {
+    "name": "Fondation Louis Vuitton",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "x": 5.0,
+    "y": 37.9,
+    "v": false
+  },
+  {
+    "name": "Fondation Cartier",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 55.4,
+    "y": 55.4,
+    "v": false
+  },
+  {
+    "name": "Parc de la Villette",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 92.6,
+    "y": 14.9,
+    "v": false
+  },
+  {
+    "name": "Musée Jacquemart-André",
+    "hood": "Champs-Élysées (8e)",
+    "x": 37.7,
+    "y": 39.2,
+    "v": false
+  },
+  {
+    "name": "Musée de la Vie Romantique",
+    "hood": "Montmartre (18e)",
+    "x": 52.9,
+    "y": 32.1,
+    "v": false
+  },
+  {
+    "name": "Musée de Montmartre",
+    "hood": "Montmartre (18e)",
+    "x": 58.7,
+    "y": 22.9,
+    "v": false
+  },
+  {
+    "name": "Institut du Monde Arabe",
+    "hood": "Latin Quarter (5e)",
+    "x": 69.6,
+    "y": 74.9,
+    "v": false
+  },
+  {
+    "name": "Moulin Rouge",
+    "hood": "Montmartre (18e)",
+    "x": 52.7,
+    "y": 27.9,
+    "v": false
   }
 ]

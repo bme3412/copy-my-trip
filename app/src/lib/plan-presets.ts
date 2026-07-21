@@ -93,7 +93,10 @@ function dayProfiles(city: City, dayCount: number, interests: string[], avoidIco
     .slice(0, Math.max(dayCount, 4))
 }
 
-/** Deterministic greedy simulation — the same engine the interactive builder runs. */
+/** Deterministic greedy simulation — the same engine the interactive builder runs.
+ * `variant` is the shuffle: the same inputs and variant always regenerate the
+ * same plan, but each variant rotates which of the top candidates each pick
+ * favors — reproducible variety, no RNG. */
 export function generatePlan(
   city: City,
   preset: PlanPreset,
@@ -102,6 +105,7 @@ export function generatePlan(
   stay?: StartLoc,
   arriving?: string,
   interests: string[] = [],
+  variant = 0,
 ): GeneratedPlan {
   const basePace = preset.pace ?? travelerPace
   const profiles = dayProfiles(city, dayCount, interests, preset.avoidIcons)
@@ -162,7 +166,10 @@ export function generatePlan(
           const covered = tripThemes(city, [...days, day])
           const cands = buildCandidates(city, day, pace, visited, { ...opts, covered })
           if (isDayDone(day, pace, cands, profile.maxStops)) break
-          const c = preset.pick(cands)
+          // The shuffle: variant N rotates the candidate list so the preset's
+          // pick sees a different (still high-scoring) option first.
+          const spin = variant % Math.max(cands.length, 1)
+          const c = preset.pick([...cands.slice(spin), ...cands.slice(0, spin)])
           day = { ...day, ...commitCandidate(day, c) }
           visited.add(c.p.id)
         }

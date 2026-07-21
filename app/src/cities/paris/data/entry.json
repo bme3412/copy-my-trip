@@ -52,5 +52,41 @@
     "url": null,
     "needed": false,
     "note": ""
+  },
+  "seinecruise": {
+    "cost": "€16",
+    "url": "https://www.vedettesdupontneuf.com/",
+    "needed": false,
+    "note": "evening slots go first"
+  },
+  "catacombes": {
+    "cost": "€29",
+    "url": "https://www.catacombes.paris.fr/en",
+    "needed": true,
+    "note": "sells out days ahead · 131 steps down"
+  },
+  "flv": {
+    "cost": "€16",
+    "url": "https://www.fondationlouisvuitton.fr/en",
+    "needed": true,
+    "note": ""
+  },
+  "cartier": {
+    "cost": "€11",
+    "url": "https://www.fondationcartier.com/en",
+    "needed": true,
+    "note": "exhibition-dependent"
+  },
+  "moulinrouge": {
+    "cost": "€120+",
+    "url": "https://www.moulinrouge.fr/en/",
+    "needed": true,
+    "note": "show only or dinner seating"
+  },
+  "grandpalais": {
+    "cost": "varies",
+    "url": "https://www.grandpalais.fr/en",
+    "needed": false,
+    "note": "exterior free · exhibitions ticketed"
   }
 }

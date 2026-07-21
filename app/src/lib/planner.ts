@@ -68,17 +68,19 @@ export function dayAnchor(city: City, day: DayState, visited: Set<string>): stri
     const place = city.places.find((p) => p.id === themeStop.id)
     if (place) return place.hood
   }
-  const hasArchive = city.places.some((p) => p.src === 'verified')
   let best = city.hoodOrder[0]
   let bestScore = -1
   for (const h of city.hoodOrder) {
-    const pool = city.places.filter((p) => p.hood === h && !visited.has(p.id) && (!hasArchive || p.src === 'verified'))
+    const pool = city.places.filter((p) => p.hood === h && !visited.has(p.id))
     if (pool.length === 0) continue
+    // Archive places lead; web places half-count — so a hood the curator
+    // hasn't shot yet (a Montmartre stay) can still open its own day.
+    const richness = pool.reduce((a, p) => a + (p.src === 'verified' ? 1 : 0.5), 0)
     const lat = pool.reduce((a, p) => a + p.lat, 0) / pool.length
     const lon = pool.reduce((a, p) => a + p.lon, 0) / pool.length
     // Diminishing returns on richness, steep decay on distance: a decent hood
     // nearby beats the richest hood across town.
-    const score = Math.sqrt(pool.length) / (1 + travelMinutes(day.loc, { lat, lon }) / 10)
+    const score = Math.sqrt(richness) / (1 + travelMinutes(day.loc, { lat, lon }) / 10)
     if (score > bestScore) {
       best = h
       bestScore = score

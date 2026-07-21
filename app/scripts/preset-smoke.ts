@@ -121,17 +121,17 @@ check('hours: same evening visit infeasible on a normal Thursday', !thuCands.som
 
 // Generation-level: an exception on one trip date removes the place that day only.
 // Trip 2026-09-12 (Sat): day 3 is Monday 09-14, where the baseline schedules
-// the Conciergerie — a one-off closure that date must keep it off that day.
+// Holybelly — a one-off closure that date must keep it off that day.
 const exCity: City = {
   ...city,
-  places: city.places.map((p) => (p.id === 'conciergerie' ? { ...p, exceptions: [{ date: '2026-09-14', closed: true as const }] } : p)),
+  places: city.places.map((p) => (p.id === 'holybelly' ? { ...p, exceptions: [{ date: '2026-09-14', closed: true as const }] } : p)),
 }
 const basePlan = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
 const exPlan = generatePlan(exCity, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
 const onDate = (plan: GeneratedPlan, id: string) =>
   plan.days.filter((_, i) => dayDate(ARRIVING, i) === '2026-09-14').some((d) => d.committed.some((c) => c.id === id))
-check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'conciergerie'))
-check('exceptions: baseline actually schedules it that day (test is live)', onDate(basePlan, 'conciergerie'))
+check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'holybelly'))
+check('exceptions: baseline actually schedules it that day (test is live)', onDate(basePlan, 'holybelly'))
 
 // ── Experiences: embedded variants, place-level dedup ──
 check('experiences: the two Louvre records are one place', !placeOf('louvremus') && placeOf('louvre')?.experiences?.length === 2)
@@ -213,6 +213,14 @@ check('timed buffer: at least two timed candidates exercised', timedSeen >= 2, `
 function fmtClock(m: number): string {
   return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`
 }
+
+// ── The shuffle: reproducible variety, no RNG ──
+const v0a = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0)
+const v0b = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0)
+const v1 = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 1)
+const v2 = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 2)
+check('shuffle: same variant regenerates the same plan', seq(v0a) === seq(v0b))
+check('shuffle: variants produce different plans', new Set([seq(v0a), seq(v1), seq(v2)]).size === 3)
 
 // ── Diversity: where you stay and which preset you pick must matter ──
 import { dayAnchor } from '../src/lib/planner'

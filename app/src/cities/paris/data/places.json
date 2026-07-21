@@ -869,7 +869,20 @@
       "historic",
       "monumental"
     ],
-    "durVar": 30
+    "durVar": 30,
+    "experiences": [
+      {
+        "id": "armee",
+        "name": "Musée de l’Armée",
+        "label": "Museum · history"
+      },
+      {
+        "id": "tomb",
+        "name": "Napoléon’s tomb & the Dôme",
+        "label": "The Dôme",
+        "dur": 45
+      }
+    ]
   },
   {
     "id": "ruecler",
@@ -1621,9 +1634,31 @@
     "label": "The square",
     "group": "sight",
     "themes": [
-      "monumental"
+      "monumental",
+      "historic"
     ],
-    "rank": 3
+    "rank": 3,
+    "experiences": [
+      {
+        "id": "square",
+        "name": "Place de la Concorde",
+        "label": "The square"
+      },
+      {
+        "id": "marine",
+        "name": "Hôtel de la Marine",
+        "label": "Historic interior",
+        "dur": 75,
+        "durVar": 15,
+        "open": [
+          10.5,
+          19
+        ],
+        "timed": true,
+        "group": "indoor",
+        "note": "the restored apartments and the loggia over the square — ~75 min route"
+      }
+    ]
   },
   {
     "id": "petitpalais",
@@ -2140,5 +2175,519 @@
       "neighborhood"
     ],
     "rank": 3
+  },
+  {
+    "id": "seinecruise",
+    "name": "Seine sightseeing cruise",
+    "area": "from the Pont Neuf · ~1 hour on the water",
+    "hood": "The Islands (1er–4e)",
+    "lat": 48.8573,
+    "lon": 2.341,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      10.5,
+      22.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Cruise · timed",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "afterdark"
+    ],
+    "timed": true,
+    "best": [
+      17,
+      22
+    ],
+    "rank": 1,
+    "durVar": 15
+  },
+  {
+    "id": "catacombes",
+    "name": "Catacombs of Paris",
+    "area": "131 steps down, 112 up — book well ahead",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.8339,
+    "lon": 2.3324,
+    "dur": 90,
+    "meal": null,
+    "open": [
+      9.75,
+      20.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Underground · anchor",
+    "group": "indoor",
+    "themes": [
+      "historic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "timed": true,
+    "role": "anchor",
+    "durVar": 20
+  },
+  {
+    "id": "montparnassetower",
+    "name": "Montparnasse Tower — the deck",
+    "area": "the skyline with the Eiffel Tower in it",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.8421,
+    "lon": 2.3219,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      9.5,
+      22.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Viewpoint",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "afterdark"
+    ],
+    "best": [
+      16,
+      22
+    ]
+  },
+  {
+    "id": "montparnassecim",
+    "name": "Montparnasse Cemetery",
+    "area": "Sartre, Beauvoir, Baudelaire",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.839,
+    "lon": 2.327,
+    "dur": 40,
+    "meal": null,
+    "open": [
+      8,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Quiet walk",
+    "group": "park",
+    "themes": [
+      "historic"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "daguerre",
+    "name": "Rue Daguerre",
+    "area": "the 14e’s market street",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.8339,
+    "lon": 2.3266,
+    "dur": 40,
+    "meal": "lunch",
+    "open": [
+      8,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · market",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "grandpalais",
+    "name": "Grand Palais",
+    "area": "the restored nave, 8e",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.8661,
+    "lon": 2.3125,
+    "dur": 25,
+    "meal": null,
+    "open": [
+      0,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Architecture",
+    "group": "sight",
+    "themes": [
+      "monumental",
+      "artistic"
+    ],
+    "experiences": [
+      {
+        "id": "exterior",
+        "name": "Grand Palais",
+        "label": "Architecture"
+      },
+      {
+        "id": "exhibition",
+        "name": "Grand Palais exhibition",
+        "label": "Exhibition · timed",
+        "dur": 90,
+        "durVar": 20,
+        "open": [
+          10,
+          19
+        ],
+        "timed": true,
+        "group": "indoor",
+        "note": "programming varies with the event calendar — check before booking"
+      }
+    ]
+  },
+  {
+    "id": "flv",
+    "name": "Fondation Louis Vuitton",
+    "area": "Gehry in the Bois de Boulogne",
+    "hood": "Eiffel & Invalides (7e–16e)",
+    "lat": 48.8766,
+    "lon": 2.2633,
+    "dur": 120,
+    "meal": null,
+    "open": [
+      10,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · anchor",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      2
+    ],
+    "timed": true,
+    "role": "anchor",
+    "durVar": 30
+  },
+  {
+    "id": "cartier",
+    "name": "Fondation Cartier",
+    "area": "Jean Nouvel, opposite the Louvre — new home since 2025",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8635,
+    "lon": 2.3361,
+    "dur": 90,
+    "meal": null,
+    "open": [
+      11,
+      20
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Contemporary art",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "timed": true,
+    "durVar": 15
+  },
+  {
+    "id": "villette",
+    "name": "Parc de la Villette",
+    "area": "the canal’s far end, 19e",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8938,
+    "lon": 2.39,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      7,
+      22
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Park · culture",
+    "group": "park",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "experiences": [
+      {
+        "id": "park",
+        "name": "Parc de la Villette",
+        "label": "The park"
+      },
+      {
+        "id": "sciences",
+        "name": "Cité des Sciences et de l’Industrie",
+        "label": "Science museum",
+        "dur": 120,
+        "durVar": 30,
+        "group": "indoor",
+        "hours": [
+          [
+            10,
+            19
+          ],
+          null,
+          [
+            9.5,
+            18
+          ],
+          [
+            9.5,
+            18
+          ],
+          [
+            9.5,
+            18
+          ],
+          [
+            9.5,
+            18
+          ],
+          [
+            9.5,
+            18
+          ]
+        ],
+        "note": "families and rain days — the Géode programming varies"
+      },
+      {
+        "id": "philharmonie",
+        "name": "Philharmonie & Musée de la Musique",
+        "label": "Music museum",
+        "dur": 75,
+        "durVar": 15,
+        "group": "indoor",
+        "hours": [
+          [
+            10,
+            18
+          ],
+          null,
+          [
+            12,
+            18
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            10,
+            18
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jacquemart",
+    "name": "Musée Jacquemart-André",
+    "area": "the private mansion, 8e",
+    "hood": "Champs-Élysées (8e)",
+    "lat": 48.8756,
+    "lon": 2.3106,
+    "dur": 75,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · mansion",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "vieromantique",
+    "name": "Musée de la Vie Romantique",
+    "area": "below the hill, with a garden café",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8809,
+    "lon": 2.3325,
+    "dur": 45,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · small",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "rank": 3
+  },
+  {
+    "id": "museemontmartre",
+    "name": "Musée de Montmartre",
+    "area": "& the Renoir Gardens, Rue Cortot",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8878,
+    "lon": 2.3409,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      19
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum",
+    "group": "indoor",
+    "themes": [
+      "artistic",
+      "neighborhood"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "ima",
+    "name": "Institut du Monde Arabe",
+    "area": "the moucharabieh façade & the rooftop view",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8489,
+    "lon": 2.3567,
+    "dur": 60,
+    "meal": null,
+    "open": [
+      10,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Museum · rooftop",
+    "group": "indoor",
+    "themes": [
+      "artistic"
+    ],
+    "closedOn": [
+      1
+    ],
+    "rank": 3
+  },
+  {
+    "id": "moulinrouge",
+    "name": "Moulin Rouge",
+    "area": "the evening show — book ahead",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8841,
+    "lon": 2.3322,
+    "dur": 120,
+    "meal": null,
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Cabaret · evening",
+    "group": "indoor",
+    "themes": [
+      "afterdark"
+    ],
+    "timed": true,
+    "best": [
+      19,
+      22
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "giverny",
+    "name": "Giverny — Monet’s garden",
+    "area": "April–October · train from Saint-Lazare",
+    "hood": "Beyond Paris",
+    "lat": 49.0756,
+    "lon": 1.5339,
+    "dur": 360,
+    "meal": null,
+    "open": [
+      9.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Day trip · seasonal",
+    "group": "sight",
+    "themes": [
+      "artistic",
+      "everyday"
+    ],
+    "role": "anchor",
+    "dayTrip": true,
+    "durVar": 60
+  },
+  {
+    "id": "fontainebleau",
+    "name": "Château de Fontainebleau",
+    "area": "the quieter Versailles · year-round",
+    "hood": "Beyond Paris",
+    "lat": 48.4021,
+    "lon": 2.6996,
+    "dur": 420,
+    "meal": null,
+    "open": [
+      9.5,
+      18
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Day trip",
+    "group": "sight",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "role": "anchor",
+    "dayTrip": true,
+    "closedOn": [
+      2
+    ],
+    "durVar": 60
   }
 ]

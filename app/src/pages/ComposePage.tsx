@@ -40,12 +40,13 @@ export function ComposePage() {
 
   // Plans regenerate live as the form changes — same engine as the builder.
   // Real dates matter now: closures (Louvre Tue, Orsay Mon) prune the days.
+  const planSeed = trip.planSeed ?? 0
   const plans = useMemo(
     () =>
       PLAN_PRESETS.map((p) =>
-        generatePlan(city, p, dayCount, trip.pace, stayLoc(city, trip.stayHood), trip.arriving, trip.interests),
+        generatePlan(city, p, dayCount, trip.pace, stayLoc(city, trip.stayHood), trip.arriving, trip.interests, planSeed),
       ),
-    [city, dayCount, trip.pace, trip.stayHood, trip.arriving, trip.interests],
+    [city, dayCount, trip.pace, trip.stayHood, trip.arriving, trip.interests, planSeed],
   )
 
   const month = trip.arriving
@@ -196,6 +197,14 @@ export function ComposePage() {
             <span className="text-muted" style={{ fontSize: 12.5 }}>
               composed from the archive as you type
             </span>
+            <button
+              className="btn btn-secondary"
+              style={{ marginLeft: 'auto', fontSize: 12.5, padding: '5px 14px' }}
+              onClick={() => update({ planSeed: planSeed + 1 })}
+              title="Same dates, different picks — reshuffles which stops each plan favors"
+            >
+              Shuffle the plans
+            </button>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {plans.map((plan, i) => {

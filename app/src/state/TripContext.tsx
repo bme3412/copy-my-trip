@@ -11,6 +11,9 @@ export interface TripState {
   /** Neighbourhood the traveler is staying in — days start and end here. */
   stayHood: string
   planId: string | null
+  /** Shuffle counter for plan generation — the same seed regenerates the same
+   * plans; bumping it rotates the picks. Deterministic variety, no RNG. */
+  planSeed?: number
   days: DayState[]
   /** One-line purpose per day, set when a generated plan is chosen. */
   dayPurposes?: string[]
