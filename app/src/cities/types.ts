@@ -7,6 +7,23 @@ export type Pace = 'gentle' | 'balanced' | 'full'
 /** Coverage themes a first trip should contain. */
 export type Theme = 'monumental' | 'historic' | 'artistic' | 'neighborhood' | 'everyday' | 'afterdark'
 
+/** What kind of food place this is — cafés, brasseries and bouillons are
+ * different experiences, not interchangeable "food". */
+export type VenueType =
+  | 'cafe'
+  | 'bakery'
+  | 'patisserie'
+  | 'tea_room'
+  | 'market'
+  | 'bistro'
+  | 'brasserie'
+  | 'bouillon'
+  | 'wine_bar'
+  | 'modern_bistro'
+  | 'fine_dining'
+  | 'street_food'
+  | 'creperie'
+
 /** A schedulable variant of a place — the Louvre interior vs its courtyard,
  * the Eiffel summit vs the Trocadéro view. Every omitted field inherits the
  * parent place's value; a place with `experiences` is scheduled only through
@@ -18,6 +35,8 @@ export interface Experience {
   label?: string
   dur?: number
   durVar?: number
+  /** Override the parent's meal role — a pâtisserie stop on a lunch street. */
+  meal?: Meal
   open?: [number, number]
   hours?: ([number, number] | null)[]
   timed?: boolean
@@ -89,6 +108,8 @@ export interface Place {
   dayTrip?: boolean
   /** Schedulable variants; see Experience. */
   experiences?: Experience[]
+  /** Food taxonomy — set on group 'food' places (and food-ish sights). */
+  venueType?: VenueType
 }
 
 export interface StartLoc {

@@ -686,5 +686,124 @@
     "x": 52.7,
     "y": 27.9,
     "v": false
+  },
+  {
+    "name": "Le Select",
+    "hood": "Montparnasse (14e)",
+    "x": 49.9,
+    "y": 83.5,
+    "v": false
+  },
+  {
+    "name": "Café de la Paix",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 52.1,
+    "y": 46.1,
+    "v": false
+  },
+  {
+    "name": "La Coupole",
+    "hood": "Montparnasse (14e)",
+    "x": 49.3,
+    "y": 84.0,
+    "v": false
+  },
+  {
+    "name": "Bofinger",
+    "hood": "Le Marais (3e–4e)",
+    "x": 76.9,
+    "y": 68.7,
+    "v": false
+  },
+  {
+    "name": "Le Train Bleu",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 81.8,
+    "y": 81.1,
+    "v": false
+  },
+  {
+    "name": "Bouillon Chartier",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 59.9,
+    "y": 44.2,
+    "v": false
+  },
+  {
+    "name": "Bouillon Racine",
+    "hood": "Latin Quarter (5e)",
+    "x": 58.5,
+    "y": 72.4,
+    "v": false
+  },
+  {
+    "name": "Allard",
+    "hood": "Saint-Germain (6e–7e)",
+    "x": 57.8,
+    "y": 68.9,
+    "v": false
+  },
+  {
+    "name": "Benoit",
+    "hood": "Le Marais (3e–4e)",
+    "x": 64.2,
+    "y": 61.4,
+    "v": false
+  },
+  {
+    "name": "Septime",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 87.0,
+    "y": 68.9,
+    "v": false
+  },
+  {
+    "name": "Frenchie",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "x": 63.2,
+    "y": 50.2,
+    "v": false
+  },
+  {
+    "name": "Le Servan",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 85.7,
+    "y": 55.1,
+    "v": false
+  },
+  {
+    "name": "Clamato",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 86.8,
+    "y": 68.8,
+    "v": false
+  },
+  {
+    "name": "Le Verre Volé",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 73.4,
+    "y": 44.3,
+    "v": false
+  },
+  {
+    "name": "Aux Deux Amis",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "x": 81.8,
+    "y": 52.9,
+    "v": false
+  },
+  {
+    "name": "Mamiche",
+    "hood": "Canal Saint-Martin (10e)",
+    "x": 69.5,
+    "y": 44.9,
+    "v": false
+  },
+  {
+    "name": "La Tour d’Argent",
+    "hood": "Latin Quarter (5e)",
+    "x": 68.2,
+    "y": 73.9,
+    "v": false
   }
 ]

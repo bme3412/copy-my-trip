@@ -19,7 +19,8 @@
     "group": "food",
     "themes": [
       "everyday"
-    ]
+    ],
+    "venueType": "cafe"
   },
   {
     "id": "tenbelles",
@@ -41,7 +42,8 @@
     "group": "food",
     "themes": [
       "everyday"
-    ]
+    ],
+    "venueType": "cafe"
   },
   {
     "id": "vosges",
@@ -114,7 +116,8 @@
     "themes": [
       "everyday",
       "neighborhood"
-    ]
+    ],
+    "venueType": "market"
   },
   {
     "id": "rosiers",
@@ -137,7 +140,8 @@
     "themes": [
       "neighborhood",
       "everyday"
-    ]
+    ],
+    "venueType": "street_food"
   },
   {
     "id": "mouffetard",
@@ -160,7 +164,8 @@
     "themes": [
       "everyday",
       "neighborhood"
-    ]
+    ],
+    "venueType": "market"
   },
   {
     "id": "saintechapelle",
@@ -374,7 +379,8 @@
     "group": "food",
     "themes": [
       "everyday"
-    ]
+    ],
+    "venueType": "market"
   },
   {
     "id": "chezjanou",
@@ -398,7 +404,8 @@
       "afterdark",
       "everyday"
     ],
-    "durVar": 30
+    "durVar": 30,
+    "venueType": "bistro"
   },
   {
     "id": "baronrouge",
@@ -422,7 +429,8 @@
       "afterdark",
       "everyday"
     ],
-    "durVar": 30
+    "durVar": 30,
+    "venueType": "wine_bar"
   },
   {
     "id": "notredame",
@@ -616,6 +624,42 @@
     "themes": [
       "neighborhood",
       "everyday"
+    ],
+    "venueType": "cafe",
+    "experiences": [
+      {
+        "id": "terraces",
+        "name": "Saint-Germain-des-Prés",
+        "label": "Coffee · terraces"
+      },
+      {
+        "id": "flore",
+        "name": "Café de Flore",
+        "label": "Coffee · institution",
+        "dur": 50,
+        "open": [
+          7.5,
+          24
+        ],
+        "src": "web",
+        "visits": 0,
+        "last": "",
+        "note": "literary history and people-watching — you pay for the room"
+      },
+      {
+        "id": "deuxmagots",
+        "name": "Les Deux Magots",
+        "label": "Coffee · institution",
+        "dur": 50,
+        "open": [
+          7.5,
+          24
+        ],
+        "src": "web",
+        "visits": 0,
+        "last": "",
+        "note": "roomier and more meal-minded than the Flore"
+      }
     ]
   },
   {
@@ -1118,7 +1162,8 @@
     "group": "food",
     "themes": [
       "everyday"
-    ]
+    ],
+    "venueType": "creperie"
   },
   {
     "id": "genin",
@@ -1141,7 +1186,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "patisserie"
   },
   {
     "id": "hoteldeville",
@@ -1284,7 +1330,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "tea_room"
   },
   {
     "id": "arenes",
@@ -1352,7 +1399,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "patisserie"
   },
   {
     "id": "poilane",
@@ -1375,7 +1423,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "bakery"
   },
   {
     "id": "delacroix",
@@ -1567,7 +1616,27 @@
     "themes": [
       "everyday",
       "neighborhood"
-    ]
+    ],
+    "experiences": [
+      {
+        "id": "street",
+        "name": "Rue Montorgueil",
+        "label": "Lunch · market"
+      },
+      {
+        "id": "stohrer",
+        "name": "Stohrer",
+        "label": "Pâtisserie · est. 1730",
+        "dur": 20,
+        "meal": null,
+        "open": [
+          7.5,
+          20
+        ],
+        "note": "Paris’s oldest pâtisserie, in its original shopfront since 1730"
+      }
+    ],
+    "venueType": "market"
   },
   {
     "id": "angelina",
@@ -1590,7 +1659,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "tea_room"
   },
   {
     "id": "vendome",
@@ -1754,7 +1824,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "patisserie"
   },
   {
     "id": "palaisdetokyo",
@@ -1952,7 +2023,8 @@
     "themes": [
       "everyday",
       "neighborhood"
-    ]
+    ],
+    "venueType": "market"
   },
   {
     "id": "puces",
@@ -2020,7 +2092,8 @@
     "closedOn": [
       0,
       6
-    ]
+    ],
+    "venueType": "bakery"
   },
   {
     "id": "holybelly",
@@ -2043,7 +2116,8 @@
     "themes": [
       "everyday"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "cafe"
   },
   {
     "id": "buttes",
@@ -2127,7 +2201,8 @@
       ],
       null,
       null
-    ]
+    ],
+    "venueType": "market"
   },
   {
     "id": "atelierlumieres",
@@ -2306,7 +2381,8 @@
       "everyday",
       "neighborhood"
     ],
-    "rank": 3
+    "rank": 3,
+    "venueType": "market"
   },
   {
     "id": "grandpalais",
@@ -2689,5 +2765,497 @@
       2
     ],
     "durVar": 60
+  },
+  {
+    "id": "select",
+    "name": "Le Select",
+    "area": "Boulevard du Montparnasse",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.8425,
+    "lon": 2.3282,
+    "dur": 45,
+    "meal": "coffee",
+    "open": [
+      7.5,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Coffee · institution",
+    "group": "food",
+    "venueType": "cafe",
+    "themes": [
+      "everyday",
+      "historic"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "cafepaix",
+    "name": "Café de la Paix",
+    "area": "beside Palais Garnier",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8705,
+    "lon": 2.3314,
+    "dur": 45,
+    "meal": "coffee",
+    "open": [
+      8,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Coffee · grand",
+    "group": "food",
+    "venueType": "cafe",
+    "themes": [
+      "everyday",
+      "monumental"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "coupole",
+    "name": "La Coupole",
+    "area": "the 1927 Montparnasse room",
+    "hood": "Montparnasse (14e)",
+    "lat": 48.8421,
+    "lon": 2.3273,
+    "dur": 105,
+    "meal": "dinner",
+    "open": [
+      12,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · brasserie",
+    "group": "food",
+    "venueType": "brasserie",
+    "themes": [
+      "historic",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "bofinger",
+    "name": "Bofinger",
+    "area": "by the Bastille — the Alsatian room",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.8536,
+    "lon": 2.3672,
+    "dur": 105,
+    "meal": "dinner",
+    "open": [
+      12,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · brasserie",
+    "group": "food",
+    "venueType": "brasserie",
+    "themes": [
+      "historic",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "trainbleu",
+    "name": "Le Train Bleu",
+    "area": "the Belle Époque rooms in Gare de Lyon",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8443,
+    "lon": 2.3743,
+    "dur": 105,
+    "meal": "lunch",
+    "open": [
+      11.5,
+      22.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · destination",
+    "group": "food",
+    "venueType": "brasserie",
+    "themes": [
+      "historic",
+      "monumental"
+    ],
+    "durVar": 30,
+    "rank": 3
+  },
+  {
+    "id": "chartier",
+    "name": "Bouillon Chartier",
+    "area": "Grands Boulevards — the queue is the show",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8719,
+    "lon": 2.3427,
+    "dur": 75,
+    "meal": "dinner",
+    "open": [
+      11.5,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · bouillon",
+    "group": "food",
+    "venueType": "bouillon",
+    "themes": [
+      "historic",
+      "everyday"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "racine",
+    "name": "Bouillon Racine",
+    "area": "the 1906 Art Nouveau room near Odéon",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8508,
+    "lon": 2.3406,
+    "dur": 75,
+    "meal": "lunch",
+    "open": [
+      11.75,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Lunch · bouillon",
+    "group": "food",
+    "venueType": "bouillon",
+    "themes": [
+      "historic",
+      "everyday"
+    ],
+    "durVar": 15
+  },
+  {
+    "id": "allard",
+    "name": "Allard",
+    "area": "Rue Saint-André-des-Arts",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8534,
+    "lon": 2.3396,
+    "dur": 120,
+    "meal": "dinner",
+    "open": [
+      19,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · classic bistro",
+    "group": "food",
+    "venueType": "bistro",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "benoit",
+    "name": "Benoit",
+    "area": "old-school Paris near Hôtel de Ville",
+    "hood": "Le Marais (3e–4e)",
+    "lat": 48.859,
+    "lon": 2.3489,
+    "dur": 120,
+    "meal": "dinner",
+    "open": [
+      19,
+      22.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · classic bistro",
+    "group": "food",
+    "venueType": "bistro",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "septime",
+    "name": "Septime",
+    "area": "Rue de Charonne · the hardest table in the 11e",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8534,
+    "lon": 2.3819,
+    "dur": 120,
+    "meal": "dinner",
+    "open": [
+      19.5,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · destination",
+    "group": "food",
+    "venueType": "modern_bistro",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "timed": true,
+    "durVar": 30,
+    "closedOn": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "frenchie",
+    "name": "Frenchie",
+    "area": "Rue du Nil",
+    "hood": "Louvre & Opéra (1er–2e)",
+    "lat": 48.8674,
+    "lon": 2.3474,
+    "dur": 120,
+    "meal": "dinner",
+    "open": [
+      18.5,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · modern",
+    "group": "food",
+    "venueType": "modern_bistro",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "timed": true,
+    "durVar": 30,
+    "closedOn": [
+      0,
+      6
+    ],
+    "experiences": [
+      {
+        "id": "restaurant",
+        "name": "Frenchie",
+        "label": "Dinner · modern"
+      },
+      {
+        "id": "barvins",
+        "name": "Frenchie Bar à Vins",
+        "label": "Wine bar · walk-in",
+        "dur": 90,
+        "timed": false,
+        "note": "no reservations — arrive at opening for a seat across the street"
+      }
+    ]
+  },
+  {
+    "id": "servan",
+    "name": "Le Servan",
+    "area": "French–Filipino, Rue Saint-Maur",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8637,
+    "lon": 2.38,
+    "dur": 105,
+    "meal": "dinner",
+    "open": [
+      19.5,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · modern",
+    "group": "food",
+    "venueType": "modern_bistro",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "durVar": 30,
+    "closedOn": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "clamato",
+    "name": "Clamato",
+    "area": "seafood, walk-in, next to Septime",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8535,
+    "lon": 2.3816,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      12,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · seafood",
+    "group": "food",
+    "venueType": "modern_bistro",
+    "themes": [
+      "everyday"
+    ],
+    "durVar": 30
+  },
+  {
+    "id": "verrevole",
+    "name": "Le Verre Volé",
+    "area": "cave à manger on the canal",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8718,
+    "lon": 2.3622,
+    "dur": 90,
+    "meal": "dinner",
+    "open": [
+      12,
+      23
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Dinner · wine bar",
+    "group": "food",
+    "venueType": "wine_bar",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "durVar": 30,
+    "rank": 3
+  },
+  {
+    "id": "deuxamis",
+    "name": "Aux Deux Amis",
+    "area": "Oberkampf apéro",
+    "hood": "Bastille & the East (11e–12e–20e)",
+    "lat": 48.8654,
+    "lon": 2.3743,
+    "dur": 75,
+    "meal": "dinner",
+    "open": [
+      18,
+      24
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Small plates · wine",
+    "group": "food",
+    "venueType": "wine_bar",
+    "themes": [
+      "everyday",
+      "afterdark"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "mamiche",
+    "name": "Mamiche",
+    "area": "Rue du Château d’Eau",
+    "hood": "Canal Saint-Martin (10e)",
+    "lat": 48.8714,
+    "lon": 2.3565,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      7.5,
+      20
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Bakery · modern",
+    "group": "food",
+    "venueType": "bakery",
+    "themes": [
+      "everyday"
+    ],
+    "rank": 3
+  },
+  {
+    "id": "tourargent",
+    "name": "La Tour d’Argent",
+    "area": "over the Seine, facing Notre-Dame",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8497,
+    "lon": 2.3546,
+    "dur": 150,
+    "meal": "dinner",
+    "open": [
+      19,
+      23.5
+    ],
+    "src": "web",
+    "visits": 0,
+    "last": "",
+    "label": "Special occasion · historic",
+    "group": "food",
+    "venueType": "fine_dining",
+    "themes": [
+      "historic",
+      "afterdark"
+    ],
+    "timed": true,
+    "durVar": 30,
+    "closedOn": [
+      0,
+      1
+    ],
+    "experiences": [
+      {
+        "id": "restaurant",
+        "name": "La Tour d’Argent",
+        "label": "Dinner · special occasion"
+      },
+      {
+        "id": "bar",
+        "name": "Bar des Maillets d’Argent",
+        "label": "Bar · apéritif",
+        "dur": 75,
+        "timed": false,
+        "meal": null,
+        "open": [
+          18,
+          24
+        ],
+        "note": "the ground-floor bar — the view without the tasting menu"
+      },
+      {
+        "id": "rooftop",
+        "name": "Le Toit de la Tour",
+        "label": "Rooftop · seasonal",
+        "dur": 75,
+        "timed": false,
+        "meal": null,
+        "open": [
+          18,
+          24
+        ],
+        "note": "seasonal — summer evenings only; check before counting on it"
+      }
+    ]
   }
 ]

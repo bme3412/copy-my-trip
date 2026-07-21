@@ -157,6 +157,18 @@ check('experiences: one variant per place in candidates', new Set(candIds).size 
 const eiffelVariants = placeVariants(placeOf('eiffel')!)
 check('experiences: Eiffel has view + summit variants', eiffelVariants.length === 2 && eiffelVariants.some((v) => v.experienceId === 'summit'))
 
+// The literary cafés: one Saint-Germain café visit per trip, never both —
+// and the curator's terraces stay verified while the institutions are web.
+const sgVariants = placeVariants(placeOf('stgermain')!)
+check('food: Flore and Deux Magots are variants of one place', sgVariants.some((v) => v.experienceId === 'flore') && sgVariants.some((v) => v.experienceId === 'deuxmagots'))
+check('food: the terraces variant keeps its provenance', sgVariants.find((v) => v.experienceId === 'terraces')?.src === 'verified')
+check('food: the institutions are honestly web-tier', sgVariants.find((v) => v.experienceId === 'flore')?.src === 'web')
+
+// Meal override: Stohrer is a pâtisserie stop on a lunch street.
+const moVariants = placeVariants(placeOf('montorgueil')!)
+check('food: Stohrer overrides the street’s lunch role', moVariants.find((v) => v.experienceId === 'stohrer')?.meal === null)
+check('food: the street itself stays a lunch', moVariants.find((v) => v.experienceId === 'street')?.meal === 'lunch')
+
 // ── Structured explanations: every stop can say why ──
 const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage', 'interest_fit', 'editorial_fit'])
 for (const [cid, c] of Object.entries(CITIES))

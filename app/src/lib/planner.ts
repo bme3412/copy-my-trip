@@ -197,6 +197,7 @@ export function placeVariants(p: Place): EffectivePlace[] {
     label: e.label ?? p.label,
     dur: e.dur ?? p.dur,
     durVar: e.durVar ?? p.durVar,
+    meal: e.meal !== undefined ? e.meal : p.meal,
     open: e.open ?? p.open,
     hours: e.hours ?? p.hours,
     timed: e.timed ?? p.timed,

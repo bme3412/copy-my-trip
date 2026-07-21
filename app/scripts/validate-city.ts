@@ -6,6 +6,7 @@ import type { City, Theme } from '../src/cities/types'
 
 const MEALS = ['coffee', 'lunch', 'dinner', null]
 const GROUPS = ['food', 'sight', 'indoor', 'park']
+const VENUE_TYPES = ['cafe', 'bakery', 'patisserie', 'tea_room', 'market', 'bistro', 'brasserie', 'bouillon', 'wine_bar', 'modern_bistro', 'fine_dining', 'street_food', 'creperie']
 const SOURCES = ['verified', 'web']
 const THEMES: Theme[] = ['monumental', 'historic', 'artistic', 'neighborhood', 'everyday', 'afterdark']
 
@@ -39,6 +40,7 @@ function validateCity(cid: string, city: City) {
     check(`${t}: duration positive`, Number.isFinite(p.dur) && p.dur > 0)
     if (p.durVar !== undefined) check(`${t}: durVar non-negative`, Number.isFinite(p.durVar) && p.durVar >= 0)
     if (p.rank !== undefined) check(`${t}: rank ∈ {1,2,3}`, [1, 2, 3].includes(p.rank))
+    if (p.venueType !== undefined) check(`${t}: venueType valid`, VENUE_TYPES.includes(p.venueType), p.venueType)
     check(`${t}: meal valid`, MEALS.includes(p.meal))
     check(`${t}: group valid`, GROUPS.includes(p.group))
     check(`${t}: src valid`, SOURCES.includes(p.src))
@@ -70,6 +72,7 @@ function validateCity(cid: string, city: City) {
           check(`${et}: open at least one weekday`, e.hours.some((h) => h !== null))
         }
         if (e.src !== undefined) check(`${et}: src valid`, SOURCES.includes(e.src))
+        if (e.meal !== undefined) check(`${et}: meal valid`, MEALS.includes(e.meal))
         if (e.role !== undefined) check(`${et}: role is 'anchor'`, e.role === 'anchor')
         if (e.group !== undefined) check(`${et}: group valid`, GROUPS.includes(e.group))
         // Effective provenance must stay honest per variant.

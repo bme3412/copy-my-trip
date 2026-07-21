@@ -88,5 +88,77 @@
     "url": "https://www.grandpalais.fr/en",
     "needed": false,
     "note": "exterior free · exhibitions ticketed"
+  },
+  "septime": {
+    "cost": "€135 menu",
+    "url": "https://septime-charonne.fr/",
+    "needed": true,
+    "note": "books out ~3 weeks ahead — release windows"
+  },
+  "frenchie": {
+    "cost": "€120 menu",
+    "url": "https://www.frenchie-ruedunil.com/",
+    "needed": true,
+    "note": "small room, fills fast · Bar à Vins is walk-in"
+  },
+  "tourargent": {
+    "cost": "€€€€",
+    "url": "https://tourdargent.com/",
+    "needed": true,
+    "note": "jacket expected · bar and rooftop are easier"
+  },
+  "trainbleu": {
+    "cost": "€€€",
+    "url": "https://www.le-train-bleu.com/",
+    "needed": false,
+    "note": "book a day or two ahead"
+  },
+  "coupole": {
+    "cost": "€€€",
+    "url": "https://www.lacoupole-paris.com/",
+    "needed": false,
+    "note": "book for dinner"
+  },
+  "bofinger": {
+    "cost": "€€€",
+    "url": "https://www.bofingerparis.com/",
+    "needed": false,
+    "note": "ask for the dome room"
+  },
+  "chartier": {
+    "cost": "under €20",
+    "url": "https://www.bouillon-chartier.com/",
+    "needed": false,
+    "note": "no bookings — the queue moves fast"
+  },
+  "racine": {
+    "cost": "€€",
+    "url": "https://www.bouillonracine.fr/",
+    "needed": false,
+    "note": ""
+  },
+  "allard": {
+    "cost": "€€€",
+    "url": "https://www.restaurant-allard.fr/",
+    "needed": false,
+    "note": "book ahead"
+  },
+  "benoit": {
+    "cost": "€€€",
+    "url": "https://www.benoit-paris.com/",
+    "needed": false,
+    "note": "book ahead"
+  },
+  "servan": {
+    "cost": "€€",
+    "url": "https://leservan.fr/",
+    "needed": false,
+    "note": "book ahead — popular"
+  },
+  "clamato": {
+    "cost": "€€",
+    "url": "https://clamato-charonne.fr/",
+    "needed": false,
+    "note": "no reservations — go early"
   }
 }
