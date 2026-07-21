@@ -23,6 +23,8 @@ export const ENGINE = {
     coverage: 1.25, // per still-uncovered trip theme a candidate would satisfy (capped ×2)
     anchorMorning: 1.5, // big commitments belong to mornings…
     anchorLate: 2, // …and are nearly wrong after 15:00
+    coffeeMorning: 1.5, // a nearby coffee beats a sight first thing
+    hoodBias: 1.5, // the personality day's soft pull toward its hood
   },
   /** Day-anatomy limits from the first-trip framework. */
   maxTimedPerDay: 2,
@@ -82,6 +84,8 @@ export interface CommittedStop {
   travelMode: 'walk' | 'metro'
   measured: boolean
   meal: Meal
+  /** Why this stop, why now — carried from the candidate that was committed. */
+  reasons?: ScoreReason[]
 }
 
 export interface DayState {
@@ -91,6 +95,14 @@ export interface DayState {
   meals: { lunch: boolean; dinner: boolean; coffee: boolean }
 }
 
+/** One contribution to a candidate's score — term from the canonical scoring
+ * model (build-plan/01-principles.md), note in plain words for the UI. */
+export interface ScoreReason {
+  term: 'provenance_fit' | 'transit_cost' | 'locality_fit' | 'time_of_day_fit' | 'narrative_fit' | 'variety' | 'coverage'
+  value: number
+  note: string
+}
+
 export interface Candidate {
   p: EffectivePlace
   t: { min: number; mode: 'walk' | 'metro'; measured: boolean }
@@ -98,6 +110,8 @@ export interface Candidate {
   arrive: number
   leave: number
   forecast: string
+  /** Top scoring contributions, strongest first — why this, why now. */
+  reasons?: ScoreReason[]
 }
 
 /** Where the trip sleeps: the centroid of the chosen neighbourhood's places,
@@ -308,34 +322,46 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     .filter((e) => e.open)
 
   const lastGroup = day.committed.length ? day.committed[day.committed.length - 1].group : null
-  const score = (e: (typeof en)[number]) => {
-    let v = 0
-    v += e.p.src === 'verified' ? W.verified : 0
-    v -= e.t.min * W.travelPerMin * (firstLeg ? ENGINE.firstLegTravelFactor : 1)
-    if (e.p.group === lastGroup) v -= W.sameGroup
-    if (e.p.hood === anchor) v += W.anchor
-    else if (e.p.hood !== curHood) v -= W.offAnchor
+  /** The scoring model, one reason per contribution — the sum ranks the
+   * candidate, the parts become the stop's "why this, why now". Terms are the
+   * canonical vocabulary from build-plan/01-principles.md. */
+  const scoreParts = (e: (typeof en)[number]): ScoreReason[] => {
+    const parts: ScoreReason[] = []
+    const add = (term: ScoreReason['term'], value: number, note: string) => {
+      if (value !== 0) parts.push({ term, value, note })
+    }
+    if (e.p.src === 'verified') add('provenance_fit', W.verified, `from the archive — ${e.p.visits} visits`)
+    add(
+      'transit_cost',
+      -(e.t.min * W.travelPerMin * (firstLeg ? ENGINE.firstLegTravelFactor : 1)),
+      `${e.t.min} min ${e.t.mode}${firstLeg ? ' to open the day' : ' from the last stop'}`,
+    )
+    if (e.p.group === lastGroup) add('variety', -W.sameGroup, `another ${e.p.group} stop in a row`)
+    if (e.p.hood === anchor) add('locality_fit', W.anchor, `in the day's theme hood`)
+    else if (e.p.hood !== curHood) add('locality_fit', -W.offAnchor, `leaves the current neighbourhood`)
     if (e.p.best) {
       const h = e.arrive / 60
       // Being early to a golden-hour spot is nearly disqualifying, not a nudge.
-      v += h >= e.p.best[0] && h <= e.p.best[1] ? W.bestTime : -W.bestTime * 3
+      if (h >= e.p.best[0] && h <= e.p.best[1]) add('time_of_day_fit', W.bestTime, 'arrives in its best window')
+      else add('time_of_day_fit', -W.bestTime * 3, 'outside its best window')
     }
     // Breakfast bias: a nearby coffee beats a sight first thing in the morning.
-    if (e.p.meal === 'coffee' && !day.meals.coffee && clk < 10.5 * 60) v += 1.5
+    if (e.p.meal === 'coffee' && !day.meals.coffee && clk < 10.5 * 60) add('narrative_fit', W.coffeeMorning, 'the day starts with coffee')
     // Anchors belong to mornings — "reserve the first entry".
     if (e.p.role === 'anchor') {
       const h = e.arrive / 60
-      if (h < 12) v += W.anchorMorning
-      else if (h >= 15) v -= W.anchorLate
+      if (h < 12) add('narrative_fit', W.anchorMorning, 'a big anchor, taken in the morning')
+      else if (h >= 15) add('narrative_fit', -W.anchorLate, 'a big anchor this late in the day')
     }
     // Trip coverage: reward what the trip hasn't seen yet.
     if (opts.covered && e.p.themes) {
-      const fresh = e.p.themes.filter((th) => !opts.covered!.has(th)).length
-      v += Math.min(fresh, 2) * W.coverage
+      const freshThemes = e.p.themes.filter((th) => !opts.covered!.has(th))
+      if (freshThemes.length) add('coverage', Math.min(freshThemes.length, 2) * W.coverage, `first taste of ${freshThemes.join(' & ')} this trip`)
     }
-    if (opts.hoodBias && e.p.hood === opts.hoodBias) v += 1.5
-    return v
+    if (opts.hoodBias && e.p.hood === opts.hoodBias) add('locality_fit', W.hoodBias, `the day leans toward ${opts.hoodBias}`)
+    return parts
   }
+  const score = (e: (typeof en)[number]) => scoreParts(e).reduce((a, r) => a + r.value, 0)
 
   // One schedulable view per place — the best-scoring open variant wins.
   // The place stays the dedup unit, so a trip never gets two Louvres.
@@ -380,7 +406,15 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     if (picks.length >= 3) break
     if (!picks.includes(e)) picks.push(e)
   }
-  return picks.map((e) => ({ ...e, forecast: forecast(e, day, pace, city.dayEnd) }))
+  return picks.map((e) => {
+    // Forced meals rank by distance, not score — say so instead of the math.
+    const mealReason: ScoreReason[] =
+      e.p.meal && e.p.meal === needMeal
+        ? [{ term: 'narrative_fit', value: 0, note: e.p.meal === 'lunch' ? 'the day needs lunch — this is the closest' : 'dinner closes the day' }]
+        : []
+    const ranked = [...scoreParts(e)].sort((a, b) => Math.abs(b.value) - Math.abs(a.value))
+    return { ...e, forecast: forecast(e, day, pace, city.dayEnd), reasons: [...mealReason, ...ranked].slice(0, 3) }
+  })
 }
 
 /** Single source of truth for "this day is complete" — dinner eaten, budget
@@ -397,8 +431,9 @@ export function isDayDone(day: DayState, pace: Pace, candidates: Candidate[], ma
 
 /** Commit a specific place directly (generator seeds: the Louvre morning,
  * Orsay, the Versailles day-trip) — same travel/wait math as candidates.
- * `hours` is the day's resolved window (from effectiveHours); defaults to typical. */
-export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, hours?: [number, number]): DayState {
+ * `hours` is the day's resolved window (from effectiveHours); defaults to typical.
+ * `why` labels the commitment (seeds aren't score-ranked, they're the day's premise). */
+export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, hours?: [number, number], why?: string): DayState {
   const t = travel(day.loc, place)
   const dur = Math.round(place.dur * PACE[pace].f)
   let arrive = day.clock + t.min
@@ -406,7 +441,8 @@ export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, ho
   if (arrive < opensAt) arrive = opensAt
   const depart = arrive + dur
   const leave = depart + ENGINE.linger[pace]
-  return commitCandidate(day, { p: place, t, dur, arrive, leave, forecast: '' })
+  const reasons: ScoreReason[] = [{ term: 'narrative_fit', value: 0, note: why ?? "the day's opening commitment" }]
+  return commitCandidate(day, { p: place, t, dur, arrive, leave, forecast: '', reasons })
 }
 
 export function commitCandidate(day: DayState, c: Candidate): DayState {
@@ -426,6 +462,7 @@ export function commitCandidate(day: DayState, c: Candidate): DayState {
     travelMode: c.t.mode,
     measured: c.t.measured,
     meal: c.p.meal,
+    reasons: c.reasons,
   }
   const meals = { ...day.meals }
   if (c.p.meal === 'lunch') meals.lunch = true

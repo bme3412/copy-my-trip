@@ -247,6 +247,12 @@ function Stop({ stop, isLast }: { stop: DayStop; isLast: boolean }) {
 
         {stop.kind === 'web-image' && stop.webImage && <WebFrame city={city} webImage={stop.webImage} />}
 
+        {stop.why && stop.why.length > 0 && (
+          <div className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.55, marginTop: 12 }}>
+            <span style={{ letterSpacing: 1.2, textTransform: 'uppercase', fontSize: 10.5 }}>Why here · </span>
+            {stop.why.join(' · ')}
+          </div>
+        )}
         {(shotLabel || !verified) && (
           <div className="text-muted" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, marginTop: 12 }}>
             {verified ? (

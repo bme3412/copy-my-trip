@@ -20,6 +20,7 @@ export function builtDayStops(city: City, day: DayState): DayStop[] {
       provenance: verified ? `From ${c.visits} visits · last ${c.last}` : undefined,
       prov: media?.prov,
       transitAfter: next ? { min: next.travelMin, measured: next.measured } : undefined,
+      why: c.reasons?.filter((r) => r.value >= 0).map((r) => r.note),
     }
     return stop
   })

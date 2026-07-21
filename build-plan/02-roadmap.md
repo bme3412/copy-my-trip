@@ -94,7 +94,7 @@ Changes:
 **Done when:** the two Louvre entries are one place with two experiences; all smoke
 invariants pass; the visited set prevents scheduling both variants on one trip.
 
-## Phase 4 — Structured explanations
+## Phase 4 — Structured explanations ✅ (shipped 2026-07-21)
 
 **Goal:** every committed stop can say *why this, why now* — in terms of the
 canonical scoring model in `01-principles.md`, beside the provenance the UI already

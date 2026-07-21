@@ -153,4 +153,18 @@ check('experiences: one variant per place in candidates', new Set(candIds).size 
 const eiffelVariants = placeVariants(placeOf('eiffel')!)
 check('experiences: Eiffel has view + summit variants', eiffelVariants.length === 2 && eiffelVariants.some((v) => v.experienceId === 'summit'))
 
+// ── Structured explanations: every stop can say why ──
+const CANONICAL_TERMS = new Set(['provenance_fit', 'transit_cost', 'locality_fit', 'time_of_day_fit', 'narrative_fit', 'variety', 'coverage'])
+for (const preset of PLAN_PRESETS) {
+  const plan = gen(preset.id, 7)
+  const stops = plan.days.flatMap((d) => d.committed)
+  check(`${preset.id}: every stop has at least one reason`, stops.every((s) => (s.reasons?.length ?? 0) > 0),
+    stops.filter((s) => !s.reasons?.length).map((s) => s.name).join(', '))
+  check(`${preset.id}: reasons use canonical terms only`, stops.every((s) => s.reasons!.every((r) => CANONICAL_TERMS.has(r.term))))
+  check(`${preset.id}: reason notes are prose`, stops.every((s) => s.reasons!.every((r) => r.note.length > 0)))
+}
+const reasonsA = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
+const reasonsB = JSON.stringify(gen('first-time', 7).days.map((d) => d.committed.map((c) => c.reasons)))
+check('reasons: deterministic across runs', reasonsA === reasonsB)
+
 process.exit(fail ? 1 : 0)

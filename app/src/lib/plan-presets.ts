@@ -156,12 +156,12 @@ export function generatePlan(
       const tripPlace = profile.dayTripId ? openToday(profile.dayTripId) : null
       if (tripPlace) {
         // Versailles-style day: one commitment, the whole day.
-        day = commitPlace(day, tripPlace.p, pace, tripPlace.hrs)
+        day = commitPlace(day, tripPlace.p, pace, tripPlace.hrs, 'the whole-day trip this day is for')
         visited.add(tripPlace.p.id)
       } else {
         const seed = profile.seed ? openToday(profile.seed, profile.seedExp) : null
         if (seed) {
-          day = commitPlace(day, seed.p, pace, seed.hrs)
+          day = commitPlace(day, seed.p, pace, seed.hrs, "the day's anchor — booked for the first entry")
           visited.add(seed.p.id)
         }
         let guard = 0

@@ -27,6 +27,8 @@ plan.days.slice(0, dayCount).forEach((day, d) => {
     console.log(
       `  ${fmt(s.timeIn)}–${fmt(s.timeIn + s.dur)}  ${s.name}  [${s.group}${s.meal ? '/' + s.meal : ''}] (${p?.hood ?? '?'})  ← ${s.travelMin}m ${s.travelMode}${flags ? '  · ' + flags : ''}`,
     )
+    if (s.reasons?.length)
+      console.log(`        why: ${s.reasons.map((r) => `${r.note}${r.value ? ` (${r.value > 0 ? '+' : ''}${r.value.toFixed(1)})` : ''}`).join(' · ')}`)
   }
   const travel = day.committed.reduce((a, c) => a + c.travelMin, 0)
   const hoods = day.committed.map((c) => placeOf(c.id)?.hood ?? '?')

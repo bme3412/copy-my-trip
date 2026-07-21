@@ -134,6 +134,14 @@ function CandidateCard({
         <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.5, color: 'var(--color-accent-700)', fontVariantNumeric: 'tabular-nums' }}>
           {cand.forecast}
         </div>
+        {cand.reasons && cand.reasons.length > 0 && (
+          <div className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 11.5, lineHeight: 1.5 }}>
+            {cand.reasons
+              .filter((r) => r.value >= 0)
+              .map((r) => r.note)
+              .join(' · ')}
+          </div>
+        )}
         <button className="btn btn-primary" style={{ width: '100%' }} onClick={onChoose}>
           Choose this
         </button>

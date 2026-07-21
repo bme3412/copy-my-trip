@@ -135,6 +135,8 @@ export interface DayStop {
   /** Extra archive facts for the "How I know this" panel; visits/last are parsed from `provenance`. */
   prov?: { range?: string; archive?: string; walkNote?: string }
   transitAfter?: { min: number; measured: boolean }
+  /** Why this stop, why now — from the engine's scoring reasons (built days only). */
+  why?: string[]
 }
 
 export interface FinishedDay {
