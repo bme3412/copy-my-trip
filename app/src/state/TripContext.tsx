@@ -33,6 +33,12 @@ type TripMap = Record<string, TripState>
 // dates, so they are deliberately not migrated.
 const STORAGE_KEY = 'cmt-trips-v3'
 
+/** No auth yet, so sessions are stateless by design: trip state lives in
+ * memory for the visit (day pages and the builder work across navigation)
+ * and a fresh load starts blank — the app never pretends to remember you.
+ * Flip this on when accounts exist and persistence is honest again. */
+const PERSIST = false
+
 function defaultTrip(city: City): TripState {
   // Fresh trips start blank — the compose page reveals itself as answers land.
   const stay = stayLoc(city, undefined)
@@ -49,6 +55,11 @@ function defaultTrip(city: City): TripState {
 
 function loadTrips(): TripMap {
   try {
+    if (!PERSIST) {
+      // Clean up anything an earlier persisting build left behind.
+      localStorage.removeItem(STORAGE_KEY)
+      return {}
+    }
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) return JSON.parse(raw)
   } catch {
@@ -68,6 +79,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
   const [trips, setTrips] = useState<TripMap>(loadTrips)
 
   useEffect(() => {
+    if (!PERSIST) return
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(trips))
     } catch {
