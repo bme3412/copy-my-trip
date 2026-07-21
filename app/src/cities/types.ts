@@ -7,6 +7,17 @@ export type Pace = 'gentle' | 'balanced' | 'full'
 /** Coverage themes a first trip should contain. */
 export type Theme = 'monumental' | 'historic' | 'artistic' | 'neighborhood' | 'everyday' | 'afterdark'
 
+/** A date-specific override of a place's hours. Exactly one of `closed`/`open`. */
+export interface PlaceException {
+  /** ISO date, e.g. '2026-07-13'. */
+  date: string
+  closed?: true
+  open?: [number, number]
+  note?: string
+  /** Whether the exception was verified at the source; unset reads as unverified. */
+  source?: 'verified' | 'web'
+}
+
 export interface Place {
   id: string
   name: string
@@ -31,8 +42,16 @@ export interface Place {
   themes?: Theme[]
   /** Needs a timed reservation — at most two per day. */
   timed?: boolean
-  /** Weekdays closed (JS getDay(): 0=Sun … 6=Sat). Real dates prune these. */
+  /** Weekdays closed (JS getDay(): 0=Sun … 6=Sat). Real dates prune these.
+   * Absorbed by `hours` — a place declares one or the other, never both. */
   closedOn?: number[]
+  /** Per-weekday hours (JS getDay order: 0=Sun … 6=Sat); null = closed that
+   * day. Overrides `open`/`closedOn` when the trip has real dates; `open`
+   * stays as the typical day used when no weekday is known. */
+  hours?: ([number, number] | null)[]
+  /** Date-specific overrides (one-off closures, seasonal late nights).
+   * Beats `hours` and `open` on the named date. */
+  exceptions?: PlaceException[]
   /** Consumes an entire day (Versailles) — never a normal candidate. */
   dayTrip?: boolean
 }

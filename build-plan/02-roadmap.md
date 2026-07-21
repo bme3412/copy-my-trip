@@ -41,7 +41,7 @@ Changes:
 id-sequences are byte-identical before and after the migration; `validate:cities`
 catches a deliberately broken fixture.
 
-## Phase 2 — Operating rules v2
+## Phase 2 — Operating rules v2 ✅ (shipped 2026-07-21)
 
 **Goal:** represent per-weekday hours and date-specific exceptions — the two things
 the single `open` tuple cannot say (Louvre's late Wednesday; a one-off closure).

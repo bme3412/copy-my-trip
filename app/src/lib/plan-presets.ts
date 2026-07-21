@@ -4,7 +4,9 @@ import {
   buildCandidates,
   commitCandidate,
   commitPlace,
+  dayDate,
   dayWeekday,
+  effectiveHours,
   isDayDone,
   tripThemes,
   type Candidate,
@@ -129,8 +131,10 @@ export function generatePlan(
       purposes.push(profile.purpose)
       const pace = profile.paceOverride ?? basePace
       const weekday = arriving ? dayWeekday(arriving, d) : undefined
+      const date = arriving ? dayDate(arriving, d) : undefined
       const opts: CandidateOpts = {
         weekday,
+        date,
         blockAnchors: profile.noAnchors,
         blockTimed: profile.noTimed,
         hoodBias: profile.hoodBias,
@@ -139,20 +143,20 @@ export function generatePlan(
       const openToday = (id: string) => {
         const p = city.places.find((pl) => pl.id === id)
         if (!p || visited.has(p.id)) return null
-        if (weekday !== undefined && p.closedOn?.includes(weekday)) return null
-        return p
+        const hrs = effectiveHours(p, date, weekday)
+        return hrs ? { p, hrs } : null
       }
 
       const tripPlace = profile.dayTripId ? openToday(profile.dayTripId) : null
       if (tripPlace) {
         // Versailles-style day: one commitment, the whole day.
-        day = commitPlace(day, tripPlace, pace)
-        visited.add(tripPlace.id)
+        day = commitPlace(day, tripPlace.p, pace, tripPlace.hrs)
+        visited.add(tripPlace.p.id)
       } else {
         const seed = profile.seed ? openToday(profile.seed) : null
         if (seed) {
-          day = commitPlace(day, seed, pace)
-          visited.add(seed.id)
+          day = commitPlace(day, seed.p, pace, seed.hrs)
+          visited.add(seed.p.id)
         }
         let guard = 0
         while (guard++ < 20) {

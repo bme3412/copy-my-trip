@@ -119,6 +119,32 @@ export function dayWeekday(arriving: string, dayIndex: number): number | undefin
   return (new Date(t).getDay() + dayIndex) % 7
 }
 
+/** The ISO date of a trip day (arrival + index) — feeds exception lookups. */
+export function dayDate(arriving: string, dayIndex: number): string | undefined {
+  const t = Date.parse(arriving + 'T12:00:00')
+  if (Number.isNaN(t)) return undefined
+  return new Date(t + dayIndex * 86400000).toISOString().slice(0, 10)
+}
+
+/** Effective hours for a place on a trip day: exception → weekday hours →
+ * base `open` (with `closedOn` pruning). null = closed that day. Without a
+ * real date/weekday the typical `open` tuple stands in. */
+export function effectiveHours(p: Place, date?: string, weekday?: number): [number, number] | null {
+  if (date) {
+    const ex = p.exceptions?.find((e) => e.date === date)
+    if (ex) return ex.closed ? null : (ex.open ?? weekdayHours(p, weekday))
+  }
+  return weekdayHours(p, weekday)
+}
+
+function weekdayHours(p: Place, weekday?: number): [number, number] | null {
+  if (weekday !== undefined) {
+    if (p.hours) return p.hours[weekday]
+    if (p.closedOn?.includes(weekday)) return null
+  }
+  return p.open
+}
+
 /** Coverage themes the trip has already satisfied. */
 export function tripThemes(city: City, days: DayState[]): Set<Theme> {
   const covered = new Set<Theme>()
@@ -182,6 +208,8 @@ function forecast(e: Omit<Candidate, 'forecast'>, day: DayState, pace: Pace, day
 export interface CandidateOpts {
   /** Real weekday of this trip day (JS getDay) — prunes closed places. */
   weekday?: number
+  /** Real ISO date of this trip day — activates date-specific exceptions. */
+  date?: string
   /** Trip-level themes already covered — uncovered ones score up. */
   covered?: ReadonlySet<Theme>
   /** Forbid anchors entirely (the day-7 buffer day). */
@@ -210,23 +238,24 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   const en = city.places
     .filter((p) => !visited.has(p.id))
     .filter((p) => !p.dayTrip)
-    .filter((p) => opts.weekday === undefined || !p.closedOn?.includes(opts.weekday))
+    .filter((p) => effectiveHours(p, opts.date, opts.weekday) !== null)
     .filter((p) => !(anchorTaken && p.role === 'anchor'))
     .filter((p) => !(p.timed && (opts.blockTimed || timedTaken >= ENGINE.maxTimedPerDay)))
     .filter((p) => !budgetReached || p.meal === 'dinner')
     .map((p) => {
+      const hrs = effectiveHours(p, opts.date, opts.weekday)!
       const t = travel(day.loc, p)
       const dur = Math.round(p.dur * pf)
       let arrive = clk + t.min
       // A short wait for opening is human — you don't skip dinner because you're early.
-      const opensAt = p.open[0] * 60
+      const opensAt = hrs[0] * 60
       const waitCap = p.meal === 'dinner' ? ENGINE.maxWaitDinner : ENGINE.maxWait
       if (arrive < opensAt && opensAt - arrive <= waitCap) arrive = opensAt
       const depart = arrive + dur
       // `leave` is when you're truly free for the next move — dwell plus
       // unscheduled drift (wandering, sitting longer than planned).
       const leave = depart + ENGINE.linger[pace]
-      const open = arrive >= opensAt && arrive <= p.open[1] * 60 - Math.min(dur, 30)
+      const open = arrive >= opensAt && arrive <= hrs[1] * 60 - Math.min(dur, 30)
       // Home by 22:00 is a real constraint: only dinner may run to dayEnd.
       const curfew = depart <= (p.meal === 'dinner' ? city.dayEnd : ENGINE.lastLeave)
       // More than 30 min outside a place's best window is a hard skip —
@@ -312,18 +341,19 @@ export function isDayDone(day: DayState, pace: Pace, candidates: Candidate[], ma
   const budgetReached = day.committed.filter((c) => c.meal !== 'dinner').length >= (maxStops ?? ENGINE.stopBudget[pace])
   // Past budget only dinner extends the day — none on offer means done.
   if (budgetReached && !candidates.some((c) => c.p.meal === 'dinner')) return true
-  if (day.committed.length > 0 && candidates.length === 0) return true
+  if (candidates.length === 0) return true
   if (day.clock >= ENGINE.eveningWindDown && !candidates.some((c) => c.p.meal === 'dinner')) return true
   return false
 }
 
 /** Commit a specific place directly (generator seeds: the Louvre morning,
- * Orsay, the Versailles day-trip) — same travel/wait math as candidates. */
-export function commitPlace(day: DayState, place: Place, pace: Pace): DayState {
+ * Orsay, the Versailles day-trip) — same travel/wait math as candidates.
+ * `hours` is the day's resolved window (from effectiveHours); defaults to typical. */
+export function commitPlace(day: DayState, place: Place, pace: Pace, hours?: [number, number]): DayState {
   const t = travel(day.loc, place)
   const dur = Math.round(place.dur * PACE[pace].f)
   let arrive = day.clock + t.min
-  const opensAt = place.open[0] * 60
+  const opensAt = (hours ?? place.open)[0] * 60
   if (arrive < opensAt) arrive = opensAt
   const depart = arrive + dur
   const leave = depart + ENGINE.linger[pace]

@@ -7,7 +7,7 @@ import { CheckIcon, ClockIcon, MenuIcon, TicketIcon, WalkIcon } from '../compone
 import type { Pace } from '../cities/types'
 import { CoverageStrip } from '../components/CoverageStrip'
 import { placeLatestLabel } from '../lib/media'
-import { buildCandidates, commitCandidate, dayAnchor, dayWeekday, fmt, isDayDone, stayLoc, tripThemes, type Candidate } from '../lib/planner'
+import { buildCandidates, commitCandidate, dayAnchor, dayDate, dayWeekday, fmt, isDayDone, stayLoc, tripThemes, type Candidate } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
 
@@ -159,9 +159,10 @@ export function BuildPage() {
   }, [trip.days])
   const covered = useMemo(() => tripThemes(city, trip.days), [city, trip.days])
   const weekday = dayWeekday(trip.arriving, dayIdx)
+  const date = dayDate(trip.arriving, dayIdx)
   const candidates = useMemo(
-    () => buildCandidates(city, day, pace, visited, { weekday, covered }),
-    [city, day, pace, visited, weekday, covered],
+    () => buildCandidates(city, day, pace, visited, { weekday, date, covered }),
+    [city, day, pace, visited, weekday, date, covered],
   )
   const done = isDayDone(day, pace, candidates)
   const anchor = dayAnchor(city, day, visited)

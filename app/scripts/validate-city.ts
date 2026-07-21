@@ -44,6 +44,23 @@ function validateCity(cid: string, city: City) {
     if (p.best !== undefined) check(`${t}: best is an hour tuple`, isHourTuple(p.best), JSON.stringify(p.best))
     if (p.closedOn !== undefined)
       check(`${t}: closedOn ⊆ 0..6`, p.closedOn.every((d) => Number.isInteger(d) && d >= 0 && d <= 6), JSON.stringify(p.closedOn))
+    // Operating rules v2: `hours` absorbs `closedOn` — declaring both is a data bug.
+    check(`${t}: hours and closedOn never mix`, !(p.hours !== undefined && p.closedOn !== undefined))
+    if (p.hours !== undefined) {
+      check(`${t}: hours has 7 weekday entries`, p.hours.length === 7)
+      check(`${t}: hours entries are null or hour tuples`, p.hours.every((h) => h === null || isHourTuple(h)), JSON.stringify(p.hours))
+      check(`${t}: open at least one weekday`, p.hours.some((h) => h !== null))
+    }
+    if (p.exceptions !== undefined) {
+      const dates = p.exceptions.map((e) => e.date)
+      check(`${t}: exception dates unique`, new Set(dates).size === dates.length)
+      for (const e of p.exceptions) {
+        check(`${t}: exception ${e.date} is an ISO date`, /^20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(e.date))
+        check(`${t}: exception ${e.date} has exactly one of closed/open`, (e.closed === true) !== (e.open !== undefined))
+        if (e.open !== undefined) check(`${t}: exception ${e.date} open tuple`, isHourTuple(e.open), JSON.stringify(e.open))
+        if (e.source !== undefined) check(`${t}: exception ${e.date} source valid`, SOURCES.includes(e.source))
+      }
+    }
     if (p.themes !== undefined) check(`${t}: themes valid`, p.themes.every((th) => THEMES.includes(th)), JSON.stringify(p.themes))
     if (p.role !== undefined) check(`${t}: role is 'anchor'`, p.role === 'anchor')
     check(`${t}: visits a non-negative integer`, Number.isInteger(p.visits) && p.visits >= 0)
