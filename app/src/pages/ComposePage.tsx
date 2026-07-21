@@ -28,6 +28,7 @@ export function ComposePage() {
   const [choosing, setChoosing] = useState<string | null>(null)
   const [editing, setEditing] = useState<1 | 2 | null>(null)
   const [briefDraft, setBriefDraft] = useState(trip.brief ?? '')
+  const [briefOpen, setBriefOpen] = useState(false)
   const [extracting, setExtracting] = useState(false)
   const [extractError, setExtractError] = useState<string | null>(null)
   const selectedId = trip.planId
@@ -46,6 +47,7 @@ export function ComposePage() {
         interests: extracted.interests,
         ...(extracted.pace ? { pace: extracted.pace } : {}),
       })
+      setBriefOpen(false)
     } catch (err) {
       setExtractError(err instanceof Error ? err.message : 'Extraction failed')
     } finally {
@@ -100,13 +102,26 @@ export function ComposePage() {
   const stage1Open = !datesSet || editing === 1
   const stage2Open = datesSet && (!staySet || editing === 2)
 
+  // Only hand-built days need protecting — switching between presets is free.
+  const guardHandBuilt = () => {
+    const builtStops = trip.days.reduce((a, d) => a + d.committed.length, 0)
+    if (trip.planId === null && builtStops > 0) {
+      return window.confirm('This replaces the days you built yourself. Continue?')
+    }
+    return true
+  }
+
+  /** Clicking a card makes it the active plan — no navigation. */
+  const select = (plan: GeneratedPlan) => {
+    if (choosing || plan.preset.id === selectedId) return
+    if (!guardHandBuilt()) return
+    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes })
+  }
+
+  /** The card's button applies the plan and goes to day 1. */
   const choose = (plan: GeneratedPlan) => {
     if (choosing) return
-    const builtStops = trip.days.reduce((a, d) => a + d.committed.length, 0)
-    if (trip.planId !== plan.preset.id && builtStops > 0) {
-      const ok = window.confirm('This replaces the days currently on your trip (including any you built yourself). Continue?')
-      if (!ok) return
-    }
+    if (plan.preset.id !== selectedId && !guardHandBuilt()) return
     update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes })
     const go = () => navigate(`/${city.id}/day/1`, { viewTransition: true })
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -218,8 +233,18 @@ export function ComposePage() {
           )}
 
           {/* Stage 2½ — the brief (optional): free text in, engine inputs out.
-              The LLM interprets; the deterministic planner still schedules. */}
-          {staySet && (
+              The LLM interprets; the deterministic planner still schedules.
+              Folds to a one-line summary like the other stages. */}
+          {staySet && !briefOpen && (
+            <button type="button" className="wiz-summary deal-in" onClick={() => setBriefOpen(true)}>
+              <span className="wiz-label">Brief</span>
+              <span className={trip.extracted ? undefined : 'text-muted'} style={{ fontStyle: trip.extracted ? 'italic' : undefined }}>
+                {trip.extracted ? trip.extracted.summary : 'in your own words — optional'}
+              </span>
+              <span className="wiz-edit">{trip.extracted ? 'edit' : 'add'}</span>
+            </button>
+          )}
+          {staySet && briefOpen && (
             <div className="deal-in" style={{ margin: '18px 0 4px' }}>
               <div className="field">
                 <label>In your own words — what kind of trip? (optional)</label>
@@ -254,6 +279,9 @@ export function ComposePage() {
                     clear
                   </button>
                 )}
+                <button className="linklike" style={{ fontSize: 12 }} onClick={() => setBriefOpen(false)}>
+                  minimize
+                </button>
                 {extractError && (
                   <span className="text-muted" style={{ fontSize: 12, color: 'var(--color-accent-800)' }}>
                     {extractError}
@@ -282,21 +310,7 @@ export function ComposePage() {
 
           {/* Stage 3 — the plans, once the trip has a home base. */}
           {staySet && (
-            <div className="deal-in">
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, margin: '20px 0 10px', flexWrap: 'wrap' }}>
-            <h2 style={{ fontSize: 22, fontWeight: 400, margin: 0 }}>Choose a plan</h2>
-            <span className="text-muted" style={{ fontSize: 12.5 }}>
-              composed from the archive as you type
-            </span>
-            <button
-              className="btn btn-secondary"
-              style={{ marginLeft: 'auto', fontSize: 12.5, padding: '5px 14px' }}
-              onClick={() => update({ planSeed: planSeed + 1 })}
-              title="Same dates, different picks — reshuffles which stops each plan favors"
-            >
-              Shuffle the plans
-            </button>
-          </div>
+            <div className="deal-in" style={{ marginTop: 20 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {plans.map((plan, i) => {
               const selected = plan.preset.id === selectedId
@@ -304,6 +318,7 @@ export function ComposePage() {
                 <div
                   key={plan.preset.id}
                   className={`deal-in ${selected ? 'card elev-sm' : 'card'}`}
+                  onClick={() => select(plan)}
                   style={{
                     padding: '10px 16px',
                     display: 'grid',
@@ -311,6 +326,7 @@ export function ComposePage() {
                     gap: 14,
                     alignItems: 'center',
                     animationDelay: `${i * 60}ms`,
+                    cursor: selected ? 'default' : 'pointer',
                     ...(selected || choosing === plan.preset.id ? { borderColor: 'var(--color-accent)', borderWidth: 1.5 } : {}),
                   }}
                 >
@@ -323,7 +339,14 @@ export function ComposePage() {
                       {plan.preset.title}
                     </div>
                   </div>
-                  <button className={selected ? 'btn btn-primary' : 'btn btn-secondary'} style={{ fontSize: 12 }} onClick={() => choose(plan)}>
+                  <button
+                    className={selected ? 'btn btn-primary' : 'btn btn-secondary'}
+                    style={{ fontSize: 12 }}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      choose(plan)
+                    }}
+                  >
                     {choosing === plan.preset.id ? 'Laying out…' : `View ${dayCount} day trip`}
                   </button>
                 </div>

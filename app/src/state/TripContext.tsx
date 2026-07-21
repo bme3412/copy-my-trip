@@ -49,6 +49,10 @@ function defaultTrip(city: City): TripState {
     interests: [],
     stayHood: '',
     planId: null,
+    // The shuffle is part of the session, not a button: each visit gets its
+    // own seed, fixed at trip creation — so plans vary between visits but
+    // every regeneration within the session is reproducible.
+    planSeed: Date.now() % 1009,
     days: Array.from({ length: MAX_DAYS }, () => blankDay(city, stay)),
   }
 }
