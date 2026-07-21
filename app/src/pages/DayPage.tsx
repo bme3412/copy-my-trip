@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { DayTimeline } from '../components/DayTimeline'
-import { FlowStepper } from '../components/FlowStepper'
 import { Page } from '../components/Layout'
 import { DayMap } from '../components/DayMap'
-import { builtDayStops } from '../lib/built-day'
+import { builtDayStops, builtDayTitle } from '../lib/built-day'
 import { stayLoc, stopPlace } from '../lib/planner'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
@@ -38,7 +37,7 @@ export function DayPage() {
   const curated = city.curatedDays[num - 1] as (typeof city.curatedDays)[number] | undefined
 
   const stops = isBuilt ? builtDayStops(city, built) : (curated?.stops ?? [])
-  const title = isBuilt ? `Day ${num} — your path` : (curated?.title ?? `Day ${num}`)
+  const title = isBuilt ? builtDayTitle(city, built) : (curated?.title ?? `Day ${num}`)
   const purpose = isBuilt ? trip.dayPurposes?.[num - 1] : undefined
   const timedNames = isBuilt
     ? built.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => c.name)
@@ -50,8 +49,7 @@ export function DayPage() {
 
   return (
     <Page
-      topBar={<FlowStepper />}
-      kicker={`Day ${num} of ${dayCount}`}
+      kicker={isBuilt ? `Day ${num} · built by you` : `Day ${num}`}
       title={title}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15 }}>
@@ -72,23 +70,21 @@ export function DayPage() {
         ))}
       </div>
 
-      {isBuilt && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 18, flexWrap: 'wrap' }}>
-          <span className="tag tag-accent">Built by you in the day builder</span>
-          <Link to={`/${city.id}/build`} viewTransition style={{ fontSize: 13, fontFamily: 'var(--font-body)' }}>
-            Keep editing
-          </Link>
-          {timedNames.length > 0 && (
-            <span className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12.5 }}>
-              · Book ahead: {timedNames.join(' · ')}
-            </span>
-          )}
-        </div>
-      )}
       {purpose && (
-        <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, fontStyle: 'italic', margin: '14px 0 0' }}>
+        <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, fontStyle: 'italic', margin: '18px 0 0', maxWidth: 560, lineHeight: 1.6 }}>
           {purpose}
         </p>
+      )}
+      {isBuilt && (
+        <div
+          className="text-muted"
+          style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10, flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: 12.5 }}
+        >
+          <Link to={`/${city.id}/build`} viewTransition style={{ fontSize: 12.5 }}>
+            Keep editing
+          </Link>
+          {timedNames.length > 0 && <span>· Book ahead: {timedNames.join(' · ')}</span>}
+        </div>
       )}
 
       {isBuilt && MAPBOX_TOKEN && (

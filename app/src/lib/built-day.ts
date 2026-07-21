@@ -1,5 +1,36 @@
 import type { City, DayStop } from '../cities/types'
-import { fmt, type DayState } from './planner'
+import { fmt, stopPlace, type DayState } from './planner'
+
+/** "The Islands" reads as "the Islands" mid-phrase; French articles stay. */
+const midPhrase = (hood: string) => (hood === 'Latin Quarter' ? 'the Latin Quarter' : hood.replace(/^The /, 'the '))
+const shortHood = (hood: string) => hood.replace(/\s*\(.*\)$/, '')
+const shortName = (name: string) => name.split(',')[0].split(' — ')[0]
+/** "X & Y" — unless either side already carries an '&', then "X, then Y". */
+const join = (a: string, b: string) => (a.includes('&') || b.includes('&') ? `${a}, then ${b}` : `${a} & ${b}`)
+
+/** A curated-style title from what the day actually holds — "The Louvre &
+ * the Islands", "A day at Versailles" — deterministic, no placeholder. */
+export function builtDayTitle(city: City, day: DayState): string {
+  const stops = day.committed
+  if (stops.length === 0) return 'An open day'
+  const places = stops.map((s) => stopPlace(city, s)).filter((p) => p !== undefined)
+
+  const dayTrip = places.find((p) => p.dayTrip)
+  if (dayTrip) return `A day at ${shortName(dayTrip.name)}`
+
+  const hoodCounts = new Map<string, number>()
+  for (const p of places) hoodCounts.set(p.hood, (hoodCounts.get(p.hood) ?? 0) + 1)
+  const hoods = [...hoodCounts.entries()].sort((a, b) => b[1] - a[1]).map(([h]) => shortHood(h))
+
+  const anchor = places.find((p) => p.role === 'anchor')
+  if (anchor) {
+    const a = shortName(anchor.name)
+    const other = hoods.find((h) => h !== shortHood(anchor.hood))
+    return other ? join(a, midPhrase(other)) : `${a}, at ease`
+  }
+  if (hoods.length === 1) return `A day in ${midPhrase(hoods[0])}`
+  return join(hoods[0], midPhrase(hoods[1]))
+}
 
 /** Render a day committed in the builder in the same shape as a curated day page. */
 export function builtDayStops(city: City, day: DayState): DayStop[] {
