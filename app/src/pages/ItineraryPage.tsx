@@ -118,6 +118,24 @@ export function ItineraryPage() {
   const materializable = !!curated && curated.stops.length > 0 && curated.stops.every((s) => s.placeId && city.places.some((p) => p.id === s.placeId))
   const editing = isBuilt || scratch || !curated
 
+  // A composed trip never falls back to the curator's stock day: an empty day
+  // materializes the curated sequence through the engine — re-timed for this
+  // trip's dates and pace — so what renders is always the traveler's own day.
+  useEffect(() => {
+    if (!trip.arriving || isBuilt || scratch || !curated || !materializable) return
+    const r = replaySequence(
+      city,
+      curated.stops.map((s) => ({ placeId: s.placeId! })),
+      pace,
+      stay,
+      { date, weekday },
+    )
+    if (r.day.committed.length === 0) return
+    update({ days: trip.days.map((x, i) => (i === dayIdx ? r.day : x)) })
+    setFlags(r.flags)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trip.arriving, isBuilt, scratch, curated, materializable, dayIdx])
+
   // Trip-wide engine context — the same the standalone builder computed.
   const visited = useMemo(() => {
     const set = new Set<string>()
@@ -250,7 +268,7 @@ export function ItineraryPage() {
             }
           }
           const note = [dateLine, entry.note || undefined].filter(Boolean).join('. ') || undefined
-          extra.booking = { cost: entry.cost, url: entry.url ?? undefined, needed: entry.needed, note, site }
+          extra.booking = { cost: entry.cost, url: entry.url ?? undefined, needed: entry.needed, note, site, rates: entry.rates, offerings: entry.offerings, asOf: entry.asOf }
         }
       }
       if (Object.keys(extra).length > 0) out = { ...out, ...extra }
@@ -299,7 +317,7 @@ export function ItineraryPage() {
         const dDate = dayDate(trip.arriving, i)
         const dWd = dayWeekday(trip.arriving, i)
         if (!dDate || dWd === undefined) continue
-        const text = await ensureNarration(key, buildDayFacts(city, d, dDate, dWd, builtDayTitle(city, d), trip.dayPurposes?.[i]))
+        const text = await ensureNarration(key, buildDayFacts(city, d, dDate, dWd, builtDayTitle(city, d), i + 1, trip.dayPurposes?.[i]))
         if (text) {
           setDayNarration(i, { key, text })
         } else {
@@ -328,7 +346,12 @@ export function ItineraryPage() {
     !narrationUnavailable() &&
     !failedRef.current.has(dayContentKey(day))
 
-  const timedNames = editing ? day.committed.filter((c) => stopPlace(city, c)?.timed).map((c) => `${c.name} (${fmt(c.timeIn)})`) : []
+  const timedStops = editing
+    ? day.committed
+        .map((c) => ({ c, v: stopPlace(city, c) }))
+        .filter(({ v }) => v?.timed)
+        .map(({ c, v }) => ({ name: c.name, time: fmt(c.timeIn), url: (v && city.entry[v.id]?.url) || undefined }))
+    : []
   const currentPlace = day.committed.length ? day.committed[day.committed.length - 1].name : `your place in ${stayName}`
 
   const setLeafDir = (target: number) => {
@@ -429,29 +452,48 @@ export function ItineraryPage() {
       }
     >
       {narrated || draft ? (
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: 14.5, margin: '14px 0 0', maxWidth: 620, lineHeight: 1.75, color: 'color-mix(in srgb, var(--color-text) 82%, transparent)' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, margin: '14px 0 0', lineHeight: 1.75, textAlign: 'justify', color: 'color-mix(in srgb, var(--color-text) 82%, transparent)' }}>
           {em(narrated ?? draft)}
         </p>
       ) : narrationPending ? (
-        <div className="ghost-para" role="status" aria-label="Writing the day" style={{ margin: '18px 0 2px', maxWidth: 620 }}>
+        <div className="ghost-para" role="status" aria-label="Writing the day" style={{ margin: '18px 0 2px' }}>
           <span className="ghost-line" style={{ width: '96%' }} />
           <span className="ghost-line" style={{ width: '88%' }} />
           <span className="ghost-line" style={{ width: '58%' }} />
         </div>
       ) : null}
 
-      {editing && isBuilt && (timedNames.length > 0 || !curated) && (
+      {editing && isBuilt && (timedStops.length > 0 || !curated) && (
         <div
           className="text-muted"
           style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 14, flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: 12.5 }}
         >
-          {timedNames.length > 0 && (
+          {timedStops.length > 0 && (
             <span
               className="cmt-chip"
               style={{ color: 'var(--color-accent-700)', borderColor: 'var(--color-accent-200)', background: 'var(--color-accent-100)' }}
             >
               <TicketIcon size={12} />
-              Book ahead · {timedNames.join(' · ')}
+              <span>
+                Book ahead ·{' '}
+                {timedStops.map((t, i) => (
+                  <span key={`${t.name}-${i}`}>
+                    {i > 0 && ' · '}
+                    {t.url ? (
+                      <a
+                        href={t.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}
+                      >
+                        {t.name} ({t.time})
+                      </a>
+                    ) : (
+                      `${t.name} (${t.time})`
+                    )}
+                  </span>
+                ))}
+              </span>
             </span>
           )}
           {!curated && (

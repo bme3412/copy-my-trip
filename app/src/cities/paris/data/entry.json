@@ -163,8 +163,26 @@
  },
  "orsay": {
   "cost": "€16",
-  "url": "https://www.musee-orsay.fr",
+  "url": "https://billetterie.musee-orsay.fr/index-css5-museeorsay-pg1.html",
   "needed": true,
-  "note": ""
+  "note": "admission includes the temporary exhibitions, subject to availability",
+  "rates": [
+   { "label": "Full rate", "price": "€16" },
+   { "label": "Thursdays from 18:00 (late opening)", "price": "€12" },
+   { "label": "Enfant & Cie — adult with a child under 18 (EEA)", "price": "€13" },
+   { "label": "Under 18 · EU residents 18–25", "price": "free" },
+   { "label": "First Sunday of the month (reservation required)", "price": "free" },
+   { "label": "Combined ticket with the Musée Rodin (3 months, one entry each)", "price": "€25" },
+   { "label": "Audio guide", "price": "€6 · children €3.50" }
+  ],
+  "offerings": [
+   "A Statue for Liberty — immersive VR experience (Bartholdi's Statue of Liberty, Paris to New York)",
+   "Guided tours & workshops for adults (not suited to children under 13)",
+   "Children's & family tours and workshops (French only)",
+   "Orsay on Stage & Encounters — concerts, shows and talks, 2026–27 season",
+   "Carte Blanche membership — unlimited access to Orsay and the Orangerie, 1 or 2 years",
+   "Groups of 7+ book via the dedicated group platform"
+  ],
+  "asOf": "July 2026"
  }
 }

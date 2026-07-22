@@ -132,6 +132,12 @@ export interface PlaceEntry {
   url: string | null
   needed: boolean
   note: string
+  /** The venue's published rate card (from its official ticketing site) —
+   * label + price per offering, with `asOf` recording when it was read. */
+  rates?: { label: string; price: string }[]
+  /** Other bookables on the venue's ticketing site (tours, memberships, events). */
+  offerings?: string[]
+  asOf?: string
 }
 
 export interface GraphNode {
@@ -176,7 +182,16 @@ export interface DayStop {
   /** A chip beside the name — "Anchor · the day's one museum". */
   tag?: string
   /** Timed-entry booking facts (from entry.json): the "book before you go" callout. */
-  booking?: { cost: string; url?: string; needed?: boolean; note?: string; site?: string }
+  booking?: {
+    cost: string
+    url?: string
+    needed?: boolean
+    note?: string
+    site?: string
+    rates?: { label: string; price: string }[]
+    offerings?: string[]
+    asOf?: string
+  }
 }
 
 export interface FinishedDay {

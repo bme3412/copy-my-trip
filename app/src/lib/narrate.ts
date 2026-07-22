@@ -10,9 +10,12 @@ import { euTzOffsetMin, sunTimes } from './sun'
 let unavailable = false
 export const narrationUnavailable = () => unavailable
 
-/** Cache key: the narration belongs to exactly this sequence at these times. */
+/** Cache key: the narration belongs to exactly this sequence at these times.
+ * The version prefix retires narrations written under an older prompt or a
+ * truncating token cap — bump it and every stored day rewrites itself. */
+const NARRATION_VERSION = 'v3'
 export function dayContentKey(day: DayState): string {
-  return day.committed.map((c) => `${c.id}@${c.timeIn}`).join(',')
+  return `${NARRATION_VERSION}:` + day.committed.map((c) => `${c.id}@${c.timeIn}`).join(',')
 }
 
 const shortName = (name: string) => name.split(',')[0].split(' — ')[0]
@@ -34,35 +37,54 @@ function notableClosures(city: City, day: DayState, date: string, weekday: numbe
   return [...new Set(names)].slice(0, 2)
 }
 
+/** Clock → the arc of the day. The narrator never sees exact stop times, so
+ * it can't quote "9:19" — it says "in the morning". */
+function daypart(m: number): string {
+  if (m < 10 * 60) return 'early morning'
+  if (m < 12 * 60) return 'late morning'
+  if (m < 14 * 60) return 'midday'
+  if (m < 16 * 60) return 'early afternoon'
+  if (m < 18 * 60) return 'late afternoon'
+  if (m < 20 * 60) return 'early evening'
+  return 'evening'
+}
+
 /** Everything the narrator may say, and nothing it may not. */
-export function buildDayFacts(city: City, day: DayState, date: string, weekday: number, title: string, purpose?: string) {
+export function buildDayFacts(city: City, day: DayState, date: string, weekday: number, title: string, dayNumber: number, purpose?: string) {
   const sun = sunTimes(city.start.lat, city.start.lon, date, euTzOffsetMin(date))
   const last = day.committed[day.committed.length - 1]
   return {
     city: city.name,
     date,
+    dayNumber,
     title,
     purpose,
     facts: {
-      stops: day.committed.map((c) => ({
-        name: c.name,
-        time: fmt(c.timeIn),
-        minutes: c.dur,
-        meal: c.meal,
-        hood: stopPlace(city, c)?.hood,
-        area: c.area,
-        kind: stopPlace(city, c)?.label,
-        fromArchive: c.src === 'verified',
-        // Archive curator notes AND authored web-tier editorial copy — the
-        // narration may only compress what's here, never add to it.
-        curatorNote: city.media[c.id]?.desc,
-      })),
+      stops: day.committed.map((c) => {
+        const parent = city.places.find((p) => p.id === c.id)
+        return {
+          name: c.name,
+          // An experience of a larger landmark carries the landmark's name.
+          partOf: c.experienceId && parent && parent.name !== c.name ? parent.name : undefined,
+          when: daypart(c.timeIn),
+          minutes: c.dur,
+          meal: c.meal,
+          hood: stopPlace(city, c)?.hood,
+          area: c.area,
+          kind: stopPlace(city, c)?.label,
+          fromArchive: c.src === 'verified',
+          // Archive curator notes AND authored web-tier editorial copy — the
+          // narration may only compress what's here, never add to it.
+          curatorNote: city.media[c.id]?.desc,
+        }
+      }),
       notableClosures: notableClosures(city, day, date, weekday),
       sunset: fmt(sun.sunset),
       goldenHourFrom: fmt(sun.sunset - 60),
       walkingMinutes: day.committed.filter((c) => c.travelMode === 'walk').reduce((a, c) => a + c.travelMin, 0),
       metroHops: day.committed.filter((c) => c.travelMode === 'metro').length,
-      endsAround: last ? fmt(last.timeIn + last.dur) : undefined,
+      // Rounded to the quarter-hour — the close of a day is a mood, not a minute.
+      endsAround: last ? fmt(Math.round((last.timeIn + last.dur) / 15) * 15) : undefined,
     },
   }
 }

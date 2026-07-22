@@ -281,6 +281,44 @@ function Stop({
                 {stop.booking.site ? ` · ${stop.booking.site}` : ''}
                 {stop.booking.note ? ` — ${stop.booking.note}` : ''}
               </div>
+              {stop.booking.rates && stop.booking.rates.length > 0 && (
+                <div style={{ margin: '0 0 10px' }}>
+                  {stop.booking.rates.map((r) => (
+                    <div
+                      key={r.label}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        gap: 18,
+                        fontFamily: 'var(--font-body)',
+                        fontSize: 12,
+                        lineHeight: 1.7,
+                        color: 'var(--color-accent-800)',
+                      }}
+                    >
+                      <span>{r.label}</span>
+                      <span style={{ fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>{r.price}</span>
+                    </div>
+                  ))}
+                  {stop.booking.asOf && (
+                    <div className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 11, marginTop: 4 }}>
+                      rates as posted on the official ticketing site, {stop.booking.asOf}
+                    </div>
+                  )}
+                </div>
+              )}
+              {stop.booking.offerings && stop.booking.offerings.length > 0 && (
+                <div style={{ margin: '0 0 10px' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 12, fontWeight: 600, color: 'var(--color-accent-800)', marginBottom: 2 }}>
+                    Also bookable there
+                  </div>
+                  {stop.booking.offerings.map((o) => (
+                    <div key={o} style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.7, color: 'var(--color-accent-800)' }}>
+                      · {o}
+                    </div>
+                  ))}
+                </div>
+              )}
               {stop.booking.url && (
                 <a className="btn btn-secondary" style={{ fontSize: 12 }} href={stop.booking.url} target="_blank" rel="noopener">
                   {stop.booking.needed ? 'Book tickets' : 'Reserve a slot'}
