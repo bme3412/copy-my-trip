@@ -136,6 +136,9 @@ export interface Candidate {
   forecast: string
   /** Top scoring contributions, strongest first — why this, why now. */
   reasons?: ScoreReason[]
+  /** A forced meal/coffee pick — offered because the day needs it, not by score.
+   * Consumers that reorder candidates must keep forced picks first. */
+  forced?: boolean
 }
 
 /** Where the trip sleeps: the centroid of the chosen neighbourhood's places,
@@ -159,11 +162,15 @@ export function dayWeekday(arriving: string, dayIndex: number): number | undefin
   return (new Date(t).getDay() + dayIndex) % 7
 }
 
-/** The ISO date of a trip day (arrival + index) — feeds exception lookups. */
+/** The ISO date of a trip day (arrival + index) — feeds exception lookups.
+ * Formatted from LOCAL date parts, so it always names the same day that
+ * dayWeekday's local getDay sees (toISOString would drift in UTC+13/14). */
 export function dayDate(arriving: string, dayIndex: number): string | undefined {
   const t = Date.parse(arriving + 'T12:00:00')
   if (Number.isNaN(t)) return undefined
-  return new Date(t + dayIndex * 86400000).toISOString().slice(0, 10)
+  const d = new Date(t + dayIndex * 86400000)
+  const pad = (x: number) => String(x).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
 }
 
 /** Effective hours for a place on a trip day: exception → weekday hours →
@@ -268,13 +275,15 @@ function travel(a: Place | StartLoc, b: Place) {
 
 function forecast(e: Omit<Candidate, 'forecast'>, day: DayState, pace: Pace, dayEnd: number): string {
   const newClock = e.leave
-  const dinnerAfter = day.meals.dinner || e.p.meal === 'dinner'
   if (e.p.meal === 'dinner') return 'Dinner wraps ≈' + fmt(newClock) + ' · short walk home from here'
   if (e.p.meal === 'lunch') return 'Fed by ' + fmt(newClock) + ' · the afternoon stays open'
-  const endBudget = dinnerAfter ? dayEnd : 21 * 60
+  // Dinner still pending extends the runway to dayEnd — it will fill the evening.
+  const endBudget = day.meals.dinner ? 21 * 60 : dayEnd
   const timeSlots = Math.max(0, Math.floor((endBudget - newClock) / PACE[pace].slot))
-  const budgetLeft = Math.max(0, ENGINE.stopBudget[pace] - day.committed.length - 1)
-  const more = Math.min(timeSlots, budgetLeft)
+  // Dinner rides free of the budget; count it as room only while it's pending.
+  const nonDinner = day.committed.filter((c) => c.meal !== 'dinner').length
+  const budgetLeft = Math.max(0, ENGINE.stopBudget[pace] - nonDinner - 1)
+  const more = Math.min(timeSlots, budgetLeft + (day.meals.dinner ? 0 : 1))
   if (more === 0) return 'Runs to ' + fmt(newClock) + ' · likely your last stop of the day'
   if (newClock >= 20 * 60) return 'Runs to ' + fmt(newClock) + ' · likely your last stop of the day'
   const mealNote = day.meals.lunch ? '' : newClock < 15 * 60 ? ' incl. lunch' : ''
@@ -310,6 +319,8 @@ export interface CandidateOpts {
   pins?: ReadonlyArray<{ id: string; notBefore?: number }>
   /** How many candidates to return (default ENGINE.candidatePool). */
   limit?: number
+  /** Day-template stop cap (buffer day) — overrides ENGINE.stopBudget. */
+  maxStops?: number
   /** Reconsidering a mid-day slot: the stops after it. Day-anatomy caps
    * (anchor, timed, budget, transfers, group saturation) count these too,
    * so a swap can't sneak a second anchor past a later one. */
@@ -330,14 +341,18 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   // Reconsidering mid-day: the rest of the day still counts against the caps.
   const suffix = opts.suffix ?? []
   // Once the day's budget is spent, only dinner is still on the table.
+  const stopBudget = opts.maxStops ?? ENGINE.stopBudget[pace]
   const budgetReached =
-    day.committed.filter((c) => c.meal !== 'dinner').length + suffix.filter((c) => c.meal !== 'dinner').length >= ENGINE.stopBudget[pace]
+    day.committed.filter((c) => c.meal !== 'dinner').length + suffix.filter((c) => c.meal !== 'dinner').length >= stopBudget
   // Day-anatomy state: one anchor, ≤2 timed bookings, ≤1 cross-city transfer.
   // Committed stops resolve through their scheduled variant (stopPlace) —
   // an anchor may live on an experience rather than its parent place.
   const anchorTaken = opts.blockAnchors || [...day.committed, ...suffix].some((c) => stopPlace(city, c)?.role === 'anchor')
   const timedTaken = [...day.committed, ...suffix].filter((c) => stopPlace(city, c)?.timed).length
   // Suffix legs are never the day's opening commute, so they all count.
+  // Known staleness: a swap re-routes the suffix, but these are the STORED
+  // legs — tolerated because any transfer the swap actually creates is
+  // honestly flagged at replay (scheduleNext).
   const longTransfers =
     day.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length +
     suffix.filter((c) => c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
@@ -348,13 +363,14 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   const en = city.places
     .filter((p) => !visited.has(p.id))
     .filter((p) => !opts.exclude?.has(p.id))
-    .filter((p) => !p.dayTrip)
+    .filter((p) => pinnedIds.has(p.id) || !p.dayTrip)
     .flatMap(placeVariants)
     // A meal slot only trades against its own kind; a sight slot never
     // grows a meal. `undefined` (append) leaves the pool whole.
     .filter((p) => opts.slotMeal === undefined || (p.meal ?? null) === opts.slotMeal)
     .filter((p) => effectiveHours(p, opts.date, opts.weekday) !== null)
-    .filter((p) => !(anchorTaken && p.role === 'anchor'))
+    // Pins bypass the anchor cap too — a pinned second anchor is deliberate.
+    .filter((p) => pinnedIds.has(p.id) || !(anchorTaken && p.role === 'anchor'))
     .filter((p) => pinnedIds.has(p.id) || !(p.timed && (opts.blockTimed || timedTaken >= ENGINE.maxTimedPerDay)))
     .filter((p) => pinnedIds.has(p.id) || !budgetReached || p.meal === 'dinner')
     .map((p) => {
@@ -373,10 +389,10 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       // `leave` is when you're truly free for the next move — dwell plus
       // unscheduled drift (wandering, sitting longer than planned).
       const leave = depart + ENGINE.linger[pace]
-      const open = arrive >= opensAt && arrive <= hrs[1] * 60 - Math.min(dur, 30)
+      // The typical visit must fit before close (short stops still need 30 min inside).
+      const open = arrive >= opensAt && arrive <= hrs[1] * 60 - Math.max(dur, 30)
       // Home by 22:00 is a real constraint even when the visit runs long.
-      // An overrun can't outlast the venue: closing time caps the worst case
-      // (and the typical plan is the floor — close reads as last entry).
+      // An overrun can't outlast the venue: closing time caps the worst case.
       const worstDepart = Math.max(depart, Math.min(arrive + durMax, hrs[1] * 60))
       const curfew = worstDepart <= (p.meal === 'dinner' ? city.dayEnd : ENGINE.lastLeave)
       // More than 30 min outside a place's best window is a hard skip —
@@ -385,9 +401,13 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       // A pinned-for-later place waits for its asked-for time of day.
       const pin = opts.pins?.find((x) => x.id === p.id)
       const pinReady = !pin?.notBefore || arrive >= pin.notBefore - 45
-      // The day's second long metro leg is off the table (opening commute exempt).
+      // The day's second long metro leg is off the table — except the opening
+      // commute, and the ride to dinner: dinner is the day's closing commute,
+      // worth a métro even after the long transfer is spent (still priced).
       const transferOk =
-        firstLeg || !(t.mode === 'metro' && t.min >= ENGINE.longTransferMin && longTransfers >= ENGINE.maxLongTransfers)
+        firstLeg ||
+        p.meal === 'dinner' ||
+        !(t.mode === 'metro' && t.min >= ENGINE.longTransferMin && longTransfers >= ENGINE.maxLongTransfers)
       return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk && pinReady }
     })
     .filter((e) => e.open)
@@ -467,12 +487,16 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   }
   const score = (e: (typeof en)[number]) => scoreParts(e).reduce((a, r) => a + r.value, 0)
 
-  // One schedulable view per place — the best-scoring open variant wins.
+  // One schedulable view per place — the best-fitting open variant wins.
   // The place stays the dedup unit, so a trip never gets two Louvres.
+  // Provenance is excluded from THIS comparison: it decides between places,
+  // not which experience of one place fits the moment — a verified courtyard
+  // must not permanently eclipse the web-tier interior it fronts for.
+  const dedupScore = (e: (typeof en)[number]) => score(e) - (e.p.src === 'verified' ? W.verified : 0)
   const bestVariant = new Map<string, (typeof en)[number]>()
   for (const e of en) {
     const cur = bestVariant.get(e.p.id)
-    if (!cur || score(e) > score(cur)) bestVariant.set(e.p.id, e)
+    if (!cur || dedupScore(e) > dedupScore(cur)) bestVariant.set(e.p.id, e)
   }
   const pool = [...bestVariant.values()]
 
@@ -489,6 +513,8 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       .sort((a, b) => a.t.min - b.t.min)[0]
     if (coffee) picks.unshift(coffee)
   }
+  // Everything in picks so far is forced — the day needs it regardless of score.
+  const forcedPicks = new Set(picks)
   const rest = pool
     .filter((e) => !picks.includes(e))
     .filter((e) => {
@@ -518,7 +544,12 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
         ? [{ term: 'narrative_fit', value: 0, note: e.p.meal === 'lunch' ? 'the day needs lunch — this is the closest' : 'dinner closes the day' }]
         : []
     const ranked = [...scoreParts(e)].sort((a, b) => Math.abs(b.value) - Math.abs(a.value))
-    return { ...e, forecast: forecast(e, day, pace, city.dayEnd), reasons: [...mealReason, ...ranked].slice(0, 3) }
+    return {
+      ...e,
+      forecast: forecast(e, day, pace, city.dayEnd),
+      reasons: [...mealReason, ...ranked].slice(0, 3),
+      forced: forcedPicks.has(e) || undefined,
+    }
   })
 }
 
@@ -587,6 +618,8 @@ function dayPrefix(city: City, day: DayState, k: number, pace: Pace, stay: Start
   const prev = committed[committed.length - 1]
   // Stored times are the source of truth: clock = free-again after stop k−1.
   const clock = prev ? prev.timeIn + prev.dur + ENGINE.linger[pace] : city.dayStart
+  // The stay fallback only fires on a stale id (place gone from city data) —
+  // the replay loops flag that case as 'not in the city data' downstream.
   const loc = prev ? (city.places.find((p) => p.id === prev.id) ?? stay) : stay
   const meals = { lunch: false, dinner: false, coffee: false }
   for (const c of committed) if (c.meal) meals[c.meal] = true
@@ -635,7 +668,8 @@ export function alternativesAt(
 
 /** One named constraint a replayed stop now violates. */
 export interface StopFlag {
-  /** Index into the rebuilt day's committed array. */
+  /** Index into the rebuilt day's committed array (a stop dropped as
+   * unresolvable flags the position it would have held). */
   index: number
   /** The violated constraint, in plain words. */
   note: string
@@ -673,7 +707,7 @@ function scheduleNext(
       if (opensAt - arrive > waitCap) notes.push(`a ${Math.round(opensAt - arrive)} min wait for the ${fmt(opensAt)} opening`)
       arrive = opensAt
     }
-    if (arrive > hrs[1] * 60 - Math.min(dur, 30)) notes.push(`arrives against the ${fmt(hrs[1] * 60)} close`)
+    if (arrive > hrs[1] * 60 - Math.max(dur, 30)) notes.push(`would run past the ${fmt(hrs[1] * 60)} close`)
   }
   const depart = arrive + dur
   const close = hrs ? hrs[1] * 60 : Infinity
@@ -684,11 +718,22 @@ function scheduleNext(
   if (v.best && (arrive < (v.best[0] - 0.5) * 60 || arrive > (v.best[1] + 0.5) * 60))
     notes.push(`misses its best window (${v.best[0]}:00–${v.best[1]}:00)`)
   if (v.meal === 'lunch' && (arrive < 11 * 60 || arrive > 14.5 * 60)) notes.push(`lunch lands at ${fmt(arrive)}`)
-  // A long métro leg mid-day: only one cross-city transfer per day.
-  if (state.committed.length > 0 && t.mode === 'metro' && t.min >= ENGINE.longTransferMin) {
+  // A long métro leg mid-day: only one cross-city transfer per day
+  // (the ride to dinner rides free, as in the candidate filter).
+  if (state.committed.length > 0 && v.meal !== 'dinner' && t.mode === 'metro' && t.min >= ENGINE.longTransferMin) {
     const longSoFar = state.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
     if (longSoFar >= ENGINE.maxLongTransfers) notes.push('a second long métro transfer')
   }
+  // Day-anatomy caps — the same limits buildCandidates enforces as hard
+  // filters (one anchor, ≤2 timed, the stop budget), named here instead:
+  // replay flags, never drops.
+  if (v.role === 'anchor' && state.committed.some((c) => stopPlace(city, c)?.role === 'anchor')) notes.push('a second anchor in one day')
+  if (v.timed && state.committed.filter((c) => stopPlace(city, c)?.timed).length >= ENGINE.maxTimedPerDay)
+    notes.push('a third timed booking')
+  if (v.meal !== 'dinner' && state.committed.filter((c) => c.meal !== 'dinner').length >= ENGINE.stopBudget[pace])
+    notes.push(`past the day's ${ENGINE.stopBudget[pace]}-stop budget`)
+  // Coffee is a morning ritual — parity with the lunch-window note above.
+  if (v.meal === 'coffee' && arrive >= 12 * 60) notes.push(`coffee lands at ${fmt(arrive)} — past the morning`)
   const meals = { ...state.meals }
   if (v.meal) {
     if (meals[v.meal]) notes.push(`a second ${v.meal}`)
@@ -730,14 +775,16 @@ export function replayFrom(
   const flags: StopFlag[] = []
   // The candidate was built against exactly this prefix state — commit as-is.
   let state = commitCandidate(dayPrefix(city, day, k, pace, stay), chosen)
-  day.committed.slice(k + 1).forEach((old, j) => {
+  // Flag indices are REBUILT-array positions (state.committed.length as each
+  // stop lands) — a skipped stop must not shift later flags onto wrong stops.
+  day.committed.slice(k + 1).forEach((old) => {
     const v = stopPlace(city, old)
     if (!v) {
-      flags.push({ index: k + 1 + j, note: 'not in the city data' })
+      flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
     const r = scheduleNext(city, state, v, pace, opts, old.reasons)
-    for (const note of r.notes) flags.push({ index: k + 1 + j, note })
+    for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
   })
   return { day: state, flags }
@@ -755,14 +802,14 @@ export function removeAt(
 ): ReplayResult {
   const flags: StopFlag[] = []
   let state = dayPrefix(city, day, k, pace, stay)
-  day.committed.slice(k + 1).forEach((old, j) => {
+  day.committed.slice(k + 1).forEach((old) => {
     const v = stopPlace(city, old)
     if (!v) {
-      flags.push({ index: k + j, note: 'not in the city data' })
+      flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
     const r = scheduleNext(city, state, v, pace, opts, old.reasons)
-    for (const note of r.notes) flags.push({ index: k + j, note })
+    for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
   })
   return { day: state, flags }
@@ -787,14 +834,14 @@ export function insertAt(
   const first = scheduleNext(city, state, v, pace, opts, [{ term: 'narrative_fit', value: 0, note: 'added by you' }])
   for (const note of first.notes) flags.push({ index: k, note })
   state = first.next
-  day.committed.slice(k).forEach((old, j) => {
+  day.committed.slice(k).forEach((old) => {
     const ov = stopPlace(city, old)
     if (!ov) {
-      flags.push({ index: k + 1 + j, note: 'not in the city data' })
+      flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
     const r = scheduleNext(city, state, ov, pace, opts, old.reasons)
-    for (const note of r.notes) flags.push({ index: k + 1 + j, note })
+    for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
   })
   return { day: state, flags }
@@ -879,14 +926,14 @@ export function replaySequence(
 ): ReplayResult {
   const flags: StopFlag[] = []
   let state = blankDay(city, stay)
-  stops.forEach((s, i) => {
+  stops.forEach((s) => {
     const v = stopPlace(city, { id: s.placeId, experienceId: s.experienceId })
     if (!v) {
-      flags.push({ index: i, note: 'not in the city data' })
+      flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
     const r = scheduleNext(city, state, v, pace, opts, [{ term: 'narrative_fit', value: 0, note: 'from the curated day' }])
-    for (const note of r.notes) flags.push({ index: i, note })
+    for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
   })
   return { day: state, flags }

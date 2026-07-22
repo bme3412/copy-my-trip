@@ -15,6 +15,7 @@ function requestDay(r: ExtractedRequest, dayCount: number): number | undefined {
   return undefined
 }
 import {
+  bestInsertion,
   blankDay,
   buildCandidates,
   commitCandidate,
@@ -55,6 +56,8 @@ export interface GeneratedPlan {
   pct: number
   sampleNames: string[]
   perDay: string
+  /** Asks from the brief that fit nowhere — surfaced, never silently dropped. */
+  unplaced: { placeId: string; reason: string }[]
 }
 
 export const PLAN_PRESETS: PlanPreset[] = [
@@ -137,10 +140,8 @@ export function generatePlan(
 
   for (let d = 0; d < 7; d++) {
     let day = blankDay(city, stay)
-    const profile = profiles[d]
-    if (d < dayCount && profile) {
-      purposes.push(profile.purpose)
-      const pace = profile.paceOverride ?? basePace
+    const template = profiles[d]
+    if (d < dayCount && template) {
       const weekday = arriving ? dayWeekday(arriving, d) : undefined
       const date = arriving ? dayDate(arriving, d) : undefined
       // Hoods that already anchored an earlier day — later days spread out.
@@ -157,6 +158,29 @@ export function generatePlan(
         if (pinDay === undefined || pinDay === d) pins.push({ id: r.placeId, notBefore: r.slot ? SLOT_START[r.slot] : undefined })
         else exclude.add(r.placeId) // held for its own day
       }
+
+      const openToday = (id: string, expId?: string) => {
+        const p = city.places.find((pl) => pl.id === id)
+        // Seeds and day-trips honor the brief's avoids like everything else.
+        if (!p || visited.has(p.id) || exclude.has(p.id)) return null
+        const variants = placeVariants(p)
+        const v = expId ? variants.find((x) => x.experienceId === expId) : variants[0]
+        if (!v) return null
+        const hrs = effectiveHours(v, date, weekday)
+        return hrs ? { p: v, hrs } : null
+      }
+
+      // Resolve the template against the real day BEFORE declaring its purpose:
+      // a closed or avoided day-trip/seed hands the day to its alt (the alt's
+      // shape and purpose), so "A full day at Versailles" never heads a Monday.
+      const resolve = (t: DayTemplate): DayTemplate => {
+        if (t.dayTripId && !openToday(t.dayTripId)) return t.alt ? resolve(t.alt) : { ...t, dayTripId: undefined }
+        if (t.seed && !openToday(t.seed, t.seedExp)) return t.alt ? resolve(t.alt) : { ...t, seed: undefined }
+        return t
+      }
+      const profile = resolve(template)
+      purposes.push(profile.purpose)
+      const pace = profile.paceOverride ?? basePace
       const opts: CandidateOpts = {
         weekday,
         date,
@@ -170,16 +194,7 @@ export function generatePlan(
         exclude,
         pins,
         limit: ENGINE.candidatePoolGenerate,
-      }
-
-      const openToday = (id: string, expId?: string) => {
-        const p = city.places.find((pl) => pl.id === id)
-        if (!p || visited.has(p.id)) return null
-        const variants = placeVariants(p)
-        const v = expId ? variants.find((x) => x.experienceId === expId) : variants[0]
-        if (!v) return null
-        const hrs = effectiveHours(v, date, weekday)
-        return hrs ? { p: v, hrs } : null
+        maxStops: profile.maxStops,
       }
 
       const tripPlace = profile.dayTripId ? openToday(profile.dayTripId) : null
@@ -207,35 +222,98 @@ export function generatePlan(
               continue
             }
             // No pin on offer *yet* — an evening ask on an afternoon clock.
-            // Wait it out: free time until the asked-for window opens.
-            const pending = pins.find((x) => !visited.has(x.id))
-            if (pending) {
-              const place = city.places.find((p) => p.id === pending.id)
-              const windowStart = pending.notBefore ?? (place?.best ? place.best[0] * 60 : undefined)
-              const target = windowStart !== undefined ? windowStart - 30 : undefined
-              if (target !== undefined && target > day.clock) {
-                day = { ...day, clock: target }
-                continue
-              }
+            // Wait it out: free time until the earliest thing worth waiting
+            // for — an asked-for window, or 18:00 so the day gets its dinner.
+            const targets = pins
+              .filter((x) => !visited.has(x.id))
+              .map((x) => {
+                const place = city.places.find((p) => p.id === x.id)
+                const windowStart = x.notBefore ?? (place?.best ? place.best[0] * 60 : undefined)
+                return windowStart !== undefined ? windowStart - 30 : undefined
+              })
+              .filter((t): t is number => t !== undefined)
+            if (!day.meals.dinner && day.committed.length > 0) targets.push(18 * 60)
+            const ahead = targets.filter((t) => t > day.clock)
+            if (ahead.length) {
+              day = { ...day, clock: Math.min(...ahead) }
+              continue
             }
             break
           }
           // The shuffle: variant N rotates the candidate list so the preset's
-          // pick sees a different (still high-scoring) option first. An
-          // asked-for stop that's feasible right now outranks everything —
-          // including the forced dinner that would otherwise close the day.
-          const spin = variant % Math.max(cands.length, 1)
-          const c = pinCand ?? preset.pick([...cands.slice(spin), ...cands.slice(0, spin)])
+          // pick sees a different (still high-scoring) option first — but only
+          // within its segment: forced meal picks stay ahead of sights, so a
+          // variant changes WHICH lunch, never WHETHER lunch. An asked-for
+          // stop that's feasible right now outranks everything — including
+          // the forced dinner that would otherwise close the day.
+          const rot = (a: Candidate[]) => {
+            const s = variant % Math.max(a.length, 1)
+            return [...a.slice(s), ...a.slice(0, s)]
+          }
+          const head = cands.filter((c) => c.forced)
+          const tail = cands.filter((c) => !c.forced)
+          let c = pinCand ?? preset.pick(head.length ? rot(head) : rot(tail))
+          if (!pinCand) {
+            // One long stop can leap the clock past the 14:30 lunch window —
+            // trade it for lunch now rather than a lunch-less afternoon.
+            if (!c.p.meal && !day.meals.lunch && day.clock < ENGINE.lunchForceFrom && c.leave > 14.5 * 60) {
+              const lunch = cands.find((x) => x.p.meal === 'lunch')
+              if (lunch) c = lunch
+            }
+            // The dinner-side cliff: a stop that runs deep into the evening
+            // (a 19:00 show ends past every last seating) swallows the owed
+            // dinner — take an earlier-ending stop, or hold for 18:00.
+            if (!c.p.meal && !day.meals.dinner && c.leave > ENGINE.eveningWindDown) {
+              const safer = rot(tail).find((x) => !x.p.meal && x.leave <= ENGINE.eveningWindDown)
+              if (safer) c = safer
+              else if (day.clock < 18 * 60 && day.committed.length > 0) {
+                day = { ...day, clock: 18 * 60 }
+                continue
+              }
+            }
+          }
           day = { ...day, ...commitCandidate(day, c) }
           visited.add(c.p.id)
         }
       }
-    } else if (d < 7 && !profile && d < dayCount) {
+    } else if (d < 7 && !template && d < dayCount) {
       purposes.push('')
     }
     days.push(day)
   }
   while (purposes.length < 7) purposes.push('')
+
+  // Best effort for asks that never landed (pinned onto a day-trip day, an
+  // anchored day, a closing day): the asked-for day first, then any day with
+  // a clean slot. Truly unplaceable asks are surfaced, never silently dropped.
+  // Known limit: the fallback ignores the ask's time-of-day preference —
+  // placed at all beats placed at the asked hour.
+  const unplaced: { placeId: string; reason: string }[] = []
+  for (const r of includes) {
+    if (visited.has(r.placeId)) continue
+    const pinDay = requestDay(r, dayCount)
+    const order = [
+      ...(pinDay !== undefined ? [pinDay] : []),
+      ...Array.from({ length: dayCount }, (_, i) => i).filter((i) => i !== pinDay),
+    ]
+    let placed = false
+    for (const i of order) {
+      const target = days[i]
+      // Never wedge into a whole-day trip.
+      if (!target || target.committed.some((c) => city.places.find((pl) => pl.id === c.id)?.dayTrip)) continue
+      const best = bestInsertion(city, target, r.placeId, profiles[i]?.paceOverride ?? basePace, stay ?? city.start, {
+        date: arriving ? dayDate(arriving, i) : undefined,
+        weekday: arriving ? dayWeekday(arriving, i) : undefined,
+      })
+      if (best && best.result.flags.length === 0) {
+        days[i] = best.result.day
+        visited.add(r.placeId)
+        placed = true
+        break
+      }
+    }
+    if (!placed) unplaced.push({ placeId: r.placeId, reason: 'no clean slot on any trip day' })
+  }
 
   const active = days.slice(0, dayCount)
   const stops = active.reduce((a, d) => a + d.committed.length, 0)
@@ -257,5 +335,6 @@ export function generatePlan(
     pct: stops ? Math.round((verified / stops) * 100) : 0,
     sampleNames,
     perDay: `${dayCount} ${dayCount === 1 ? 'day' : 'days'} · ${lo === hi ? lo : `${lo}–${hi}`} stops each`,
+    unplaced,
   }
 }

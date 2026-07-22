@@ -340,6 +340,16 @@ export function ComposePage() {
                     <div className="card-title" style={{ fontSize: 16, margin: '1px 0 0' }}>
                       {plan.preset.title}
                     </div>
+                    {plan.unplaced.length > 0 && (
+                      <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, margin: '3px 0 0' }}>
+                        Couldn't fit{' '}
+                        {plan.unplaced
+                          .map((u) => city.places.find((p) => p.id === u.placeId)?.name)
+                          .filter(Boolean)
+                          .join(' or ')}{' '}
+                        — {plan.unplaced[0].reason}.
+                      </p>
+                    )}
                   </div>
                   <button
                     className={selected ? 'btn btn-primary' : 'btn btn-secondary'}

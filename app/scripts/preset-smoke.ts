@@ -9,6 +9,7 @@ import {
   dayWeekday,
   effectiveHours,
   ENGINE,
+  insertAt,
   insertionSuggestions,
   PACE,
   placeVariants,
@@ -56,7 +57,8 @@ function checkDays(c: City, tag: string, plan: GeneratedPlan, dayCount: number) 
     const timed = d.committed.filter((s) => stopPlace(c, s)?.timed).length
     check(`${day}: ≤2 timed`, timed <= 2, `${timed}`)
 
-    const longLegs = d.committed.filter((s, j) => j > 0 && s.travelMode === 'metro' && s.travelMin >= 20).length
+    // The dinner leg is the day's closing commute — exempt, like the opening one.
+    const longLegs = d.committed.filter((s, j) => j > 0 && s.meal !== 'dinner' && s.travelMode === 'metro' && s.travelMin >= 20).length
     check(`${day}: ≤1 long transfer`, longLegs <= 1, `${longLegs}`)
 
     const date = dayDate(ARRIVING, i)
@@ -416,7 +418,7 @@ for (const c of alts) {
   const d = r.day
   const anchors = d.committed.filter((s) => stopPlace(city, s)?.role === 'anchor').length
   const timed = d.committed.filter((s) => stopPlace(city, s)?.timed).length
-  const longLegs = d.committed.filter((s, j) => j > 0 && s.travelMode === 'metro' && s.travelMin >= 20).length
+  const longLegs = d.committed.filter((s, j) => j > 0 && s.meal !== 'dinner' && s.travelMode === 'metro' && s.travelMin >= 20).length
   const late = d.committed.filter((s) => s.timeIn + s.dur > 22 * 60).length
   const singleMeals = (['coffee', 'lunch', 'dinner'] as const).every((m) => d.committed.filter((s) => s.meal === m).length <= 1)
   const dayIds = d.committed.map((s) => s.id)
@@ -480,17 +482,19 @@ check(
 )
 check('remove: deterministic', JSON.stringify(rm) === JSON.stringify(removeAt(city, sDay, sk, 'balanced', STAY, sOpts)))
 
-const sugg = insertionSuggestions(city, sDay, 'balanced', tripVisited, STAY, sOpts)
+// Suggestions need a day with budget room — a full day now honestly offers none.
+const sBase = rm.day
+const sugg = insertionSuggestions(city, sBase, 'balanced', tripVisited, STAY, sOpts)
 check('insert: suggestions exist and all break nothing', sugg.length > 0 && sugg.every((s) => s.result.flags.length === 0), `${sugg.length}`)
 check(
   'insert: each suggestion adds exactly its place',
-  sugg.every((s) => s.result.day.committed.length === sDay.committed.length + 1 && s.result.day.committed.some((c) => c.id === s.p.id)),
+  sugg.every((s) => s.result.day.committed.length === sBase.committed.length + 1 && s.result.day.committed.some((c) => c.id === s.p.id)),
 )
 check('insert: nothing already in the trip is suggested', sugg.every((s) => !tripVisited.has(s.p.id)))
 check(
   'insert: suggestions deterministic',
   JSON.stringify(sugg.map((s) => `${s.p.id}@${s.k}`)) ===
-    JSON.stringify(insertionSuggestions(city, sDay, 'balanced', tripVisited, STAY, sOpts).map((s) => `${s.p.id}@${s.k}`)),
+    JSON.stringify(insertionSuggestions(city, sBase, 'balanced', tripVisited, STAY, sOpts).map((s) => `${s.p.id}@${s.k}`)),
 )
 check('insert: clean insertions keep the day home by 22:00', sugg.every((s) => s.result.day.committed.every((c) => c.timeIn + c.dur <= 22 * 60)))
 
@@ -507,5 +511,161 @@ check(
 check('curated: every stop materializes, in order', JSON.stringify(mat.day.committed.map((s) => s.id)) === JSON.stringify(curated1.stops.map((s) => s.placeId)))
 check('curated: materialized day ends by 22:00', mat.day.committed.every((s) => s.timeIn + s.dur <= 22 * 60))
 if (mat.flags.length > 0) console.log(`  (curated day 1 materialization flags: ${mat.flags.map((f) => `#${f.index} ${f.note}`).join(' · ')})`)
+
+// ── Audit guards: meals happen, closings hold, asks are honored or surfaced ──
+// Meal assertions run only where the city's inventory leaves slack — Rome's
+// four lunch/dinner venues cannot feed a seven-day trip; that's a data gap,
+// not an engine regression.
+for (const [cid, c] of Object.entries(CITIES)) {
+  const cStay = stayLoc(c, c.hoodOrder[0])
+  const lunchInv = c.places.filter((p) => p.meal === 'lunch').length
+  const dinnerInv = c.places.filter((p) => p.meal === 'dinner').length
+  for (const preset of PLAN_PRESETS) {
+    const mealMisses: string[] = []
+    const closeBusts: string[] = []
+    const bufferBusts: string[] = []
+    for (const dayCount of [4, 7] as const) {
+      for (const variant of [0, 1, 2, 5, 9]) {
+        const plan = generatePlan(c, preset, dayCount, 'balanced', cStay, ARRIVING, [], variant)
+        plan.days.slice(0, dayCount).forEach((d, i) => {
+          const date = dayDate(ARRIVING, i)
+          const wd = dayWeekday(ARRIVING, i)
+          for (const s of d.committed) {
+            const p = stopPlace(c, s)
+            const hrs = p && effectiveHours(p, date, wd)
+            if (hrs && s.timeIn + s.dur > hrs[1] * 60) closeBusts.push(`v${variant}/${dayCount}d day ${i + 1} ${s.id}`)
+          }
+          if (i === 6) {
+            const nonDinner = d.committed.filter((s) => s.meal !== 'dinner').length
+            if (nonDinner > 3) bufferBusts.push(`v${variant} day 7: ${nonDinner} non-dinner stops`)
+          }
+          const isTrip = d.committed.some((s) => stopPlace(c, s)?.dayTrip)
+          if (isTrip || d.committed.length < 3) return
+          if (lunchInv > dayCount && !d.meals.lunch) mealMisses.push(`v${variant}/${dayCount}d day ${i + 1}: lunch`)
+          if (dinnerInv >= dayCount && !d.meals.dinner) mealMisses.push(`v${variant}/${dayCount}d day ${i + 1}: dinner`)
+        })
+      }
+    }
+    check(`${cid}/${preset.id}: every full day eats (5 variants × 4d/7d)`, mealMisses.length === 0, mealMisses.join('; '))
+    check(`${cid}/${preset.id}: no stop outlasts its venue's closing`, closeBusts.length === 0, closeBusts.join('; '))
+    check(`${cid}/${preset.id}: buffer day keeps its 3-stop cap`, bufferBusts.length === 0, bufferBusts.join('; '))
+  }
+}
+
+// Avoids bind everywhere — including seeds and the day-trip day.
+const REQ = (kind: 'include' | 'avoid', placeId: string, day?: number) => ({ kind, placeId, ...(day !== undefined ? { day } : {}) })
+const noLouvre = generatePlan(city, PLAN_PRESETS[0], 7, 'balanced', STAY, ARRIVING, [], 0, undefined, [REQ('avoid', 'louvre')])
+check('avoids: an avoided seed appears nowhere', noLouvre.days.every((d) => d.committed.every((s) => s.id !== 'louvre')))
+check('avoids: the seed day gets its alt purpose', noLouvre.purposes[1] !== seven.purposes[1] && noLouvre.purposes[1].length > 0, noLouvre.purposes[1])
+const noVers = generatePlan(city, PLAN_PRESETS[0], 7, 'balanced', STAY, ARRIVING, [], 0, undefined, [REQ('avoid', 'versailles')])
+check('avoids: the avoided day-trip appears nowhere', noVers.days.every((d) => d.committed.every((s) => s.id !== 'versailles')))
+check('avoids: the day-trip day hands over to its alt', noVers.purposes[5] !== seven.purposes[5] && noVers.days[5].committed.length >= 3, noVers.purposes[5])
+
+// A closed day-trip resolves to the alt day — purpose and shape together.
+// Arriving Wed 2026-08-26 puts day 6 on Monday, when Versailles is closed.
+const monSeven = generatePlan(city, PLAN_PRESETS[0], 7, 'balanced', STAY, '2026-08-26', [])
+check(
+  'closed seed: the Monday Versailles day becomes the alt day',
+  monSeven.days[5].committed.every((s) => s.id !== 'versailles') && monSeven.purposes[5] !== seven.purposes[5] && monSeven.days[5].committed.length >= 3,
+  monSeven.purposes[5],
+)
+
+// Pins: held for their day, honored best-effort, surfaced when impossible.
+const pinDay6 = () => generatePlan(city, PLAN_PRESETS[0], 7, 'balanced', STAY, ARRIVING, [], 0, undefined, [REQ('include', 'saintechapelle', 6)])
+const pinnedPlan = pinDay6()
+const pinnedDay = pinnedPlan.days.findIndex((d) => d.committed.some((s) => s.id === 'saintechapelle'))
+check(
+  'pins: an ask pinned onto the day-trip day still lands (or is surfaced)',
+  pinnedDay >= 0 || pinnedPlan.unplaced.some((u) => u.placeId === 'saintechapelle'),
+  `day ${pinnedDay + 1}`,
+)
+check('pins: a placed ask is not reported unplaced', !(pinnedDay >= 0 && pinnedPlan.unplaced.some((u) => u.placeId === 'saintechapelle')))
+check('pins: placement deterministic', JSON.stringify(pinnedPlan.days) === JSON.stringify(pinDay6().days))
+// A pinned anchor on the seeded anchor day is deliberate — it lands.
+const orsayPin = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [], 0, undefined, [REQ('include', 'orsay', 2)])
+check('pins: a pinned second anchor lands on its asked day', orsayPin.days[1].committed.some((s) => s.id === 'orsay'))
+// An impossible ask (Versailles on a one-day Monday trip) is surfaced, not dropped.
+const upl = generatePlan(city, PLAN_PRESETS[0], 1, 'balanced', STAY, '2026-08-31', [], 0, undefined, [REQ('include', 'versailles')])
+check('pins: an impossible ask is surfaced with a reason', upl.unplaced.some((u) => u.placeId === 'versailles' && u.reason.length > 0), JSON.stringify(upl.unplaced))
+check('pins: surfaced asks appear nowhere in the plan', upl.days.every((d) => d.committed.every((s) => s.id !== 'versailles')))
+
+// Variant dedup judges fit, not provenance: a morning offers the Louvre's
+// interior; late afternoon hands the slot back to the courtyard.
+const morningCands = buildCandidates(city, blankDay(city, STAY), 'balanced', allButLouvre, { weekday: 3, date: '2026-09-16' })
+check(
+  'dedup: a morning offers the Louvre interior',
+  morningCands.some((c) => c.p.id === 'louvre' && c.p.experienceId === 'interior'),
+  morningCands.map((c) => `${c.p.id}:${c.p.experienceId}`).join(','),
+)
+const lateCands = buildCandidates(city, { ...blankDay(city, STAY), clock: 15.5 * 60 }, 'balanced', allButLouvre, { weekday: 3, date: '2026-09-16' })
+check(
+  'dedup: late afternoon falls back to the courtyard',
+  lateCands.some((c) => c.p.id === 'louvre' && c.p.experienceId !== 'interior'),
+  lateCands.map((c) => `${c.p.id}:${c.p.experienceId}`).join(','),
+)
+
+// ── Edit paths name the day-anatomy caps: flags, never silent breaks ──
+const wedOpts = { date: '2026-09-16', weekday: 3 }
+const twoTimed = replaySequence(city, [{ placeId: 'saintechapelle' }, { placeId: 'orangerie' }], 'balanced', STAY, wedOpts).day
+const thirdTimed = insertAt(city, twoTimed, 2, { placeId: 'louvre', experienceId: 'interior' }, 'balanced', STAY, wedOpts)
+check('edit caps: a third timed booking is flagged', thirdTimed.flags.some((f) => f.note === 'a third timed booking'), thirdTimed.flags.map((f) => f.note).join('; '))
+check(
+  'edit caps: insertAt deterministic',
+  JSON.stringify(thirdTimed) === JSON.stringify(insertAt(city, twoTimed, 2, { placeId: 'louvre', experienceId: 'interior' }, 'balanced', STAY, wedOpts)),
+)
+const oneAnchor = replaySequence(city, [{ placeId: 'orsay' }], 'balanced', STAY, wedOpts).day
+const secondAnchor = insertAt(city, oneAnchor, 1, { placeId: 'catacombes' }, 'balanced', STAY, wedOpts)
+check('edit caps: a second anchor is flagged', secondAnchor.flags.some((f) => f.note === 'a second anchor in one day'), secondAnchor.flags.map((f) => f.note).join('; '))
+
+const fdi = seven.days.findIndex((d, i) => i < 5 && d.committed.filter((s) => s.meal !== 'dinner').length >= ENGINE.stopBudget.balanced)
+check('edit caps: found a generated day at budget (test is live)', fdi >= 0)
+if (fdi >= 0) {
+  const fdOpts = { date: dayDate(ARRIVING, fdi), weekday: dayWeekday(ARRIVING, fdi) }
+  const tripIds = new Set(seven.days.flatMap((d) => d.committed.map((s) => s.id)))
+  const spareSight = city.places.find((p) => p.meal === null && !p.dayTrip && !p.timed && p.role !== 'anchor' && !tripIds.has(p.id))!
+  const overBudget = insertAt(city, seven.days[fdi], 1, { placeId: spareSight.id }, 'balanced', STAY, fdOpts)
+  check('edit caps: an over-budget insertion is flagged', overBudget.flags.some((f) => f.note.includes('-stop budget')), overBudget.flags.map((f) => f.note).join('; '))
+  const spareCoffee = city.places.find((p) => p.meal === 'coffee' && !tripIds.has(p.id))!
+  const lateCoffee = insertAt(city, seven.days[fdi], seven.days[fdi].committed.length - 1, { placeId: spareCoffee.id }, 'balanced', STAY, fdOpts)
+  check('edit caps: an afternoon coffee is flagged', lateCoffee.flags.some((f) => f.note.startsWith('coffee lands at')), lateCoffee.flags.map((f) => f.note).join('; '))
+}
+
+// Replaying a generated day unchanged raises no cap flags (no false positives).
+const CAP_NOTES = ['a second anchor in one day', 'a third timed booking', '-stop budget']
+for (const [i, d] of seven.days.entries()) {
+  if (!d.committed.length) continue
+  const r = replaySequence(
+    city,
+    d.committed.map((s) => ({ placeId: s.id, experienceId: s.experienceId })),
+    i === 6 ? 'gentle' : 'balanced',
+    STAY,
+    { date: dayDate(ARRIVING, i), weekday: dayWeekday(ARRIVING, i) },
+  )
+  const caps = r.flags.filter((f) => CAP_NOTES.some((n) => f.note.includes(n)))
+  check(`edit caps: replaying generated day ${i + 1} unchanged raises no cap flags`, caps.length === 0, caps.map((f) => f.note).join('; '))
+}
+
+// A stale id mid-sequence must not shift later flags onto the wrong stop:
+// indices are rebuilt-array positions, so berthillon's own flag names berthillon.
+const staleR = replaySequence(
+  city,
+  [{ placeId: 'notredame' }, { placeId: 'GONE' }, { placeId: 'berthillon' }, { placeId: 'saintechapelle' }],
+  'balanced',
+  STAY,
+  wedOpts,
+)
+check('edit flags: a dropped stop does not misalign later flags', staleR.day.committed.length === 3 && staleR.flags.every((f) => f.index <= staleR.day.committed.length) && staleR.flags.filter((f) => f.note.includes('best window')).every((f) => staleR.day.committed[f.index]?.id === 'berthillon'), staleR.flags.map((f) => `#${f.index} ${f.note}`).join('; '))
+
+// Suggestions honor the caps end to end.
+check(
+  'insert: suggestions never break the day-anatomy caps',
+  sugg.every((s) => {
+    const d = s.result.day
+    const anchors = d.committed.filter((x) => stopPlace(city, x)?.role === 'anchor').length
+    const timed = d.committed.filter((x) => stopPlace(city, x)?.timed).length
+    const nonDinner = d.committed.filter((x) => x.meal !== 'dinner').length
+    return anchors <= 1 && timed <= 2 && nonDinner <= ENGINE.stopBudget.balanced
+  }),
+)
 
 process.exit(fail ? 1 : 0)

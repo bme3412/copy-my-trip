@@ -93,7 +93,10 @@ export function ItineraryPage() {
   const isBuilt = day.committed.length > 0
   // Days beyond the curated four exist only once generated or built.
   const curated = city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined
-  const pace = trip.pace
+  // Edit with the pace the day was GENERATED at: the buffer day's template
+  // overrides to gentle, and reconstructing its clock at trip pace would put
+  // the reconsider deck 15 minutes out of step with the timeline.
+  const pace = city.dayTemplates[dayIdx]?.paceOverride ?? trip.pace
   const stay = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const stayName = trip.stayHood || city.hoodOrder[0]
   const date = trip.arriving ? dayDate(trip.arriving, dayIdx) : undefined
