@@ -26,6 +26,7 @@ import {
   ENGINE,
   isDayDone,
   placeVariants,
+  returnFromDayTrip,
   tripThemes,
   type Candidate,
   type CandidateOpts,
@@ -277,6 +278,26 @@ export function generatePlan(
         // Versailles-style day: one commitment, the whole day.
         day = commitPlace(day, tripPlace.p, pace, tripPlace.hrs, 'the whole-day trip this day is for')
         visited.add(tripPlace.p.id)
+        // One commitment is not a reason to skip dinner. You ride back into
+        // the city and eat there — and on a 6-day trip the day trip falls
+        // LAST, so this is the trip's closing night, not a spare evening.
+        // No wind-down gate here: getting back at 19:35 means a 19:40 table,
+        // which is a normal hour to eat. Whether a dinner is still reachable
+        // is the curfew's judgement, and it already makes it.
+        const home = returnFromDayTrip(city, day, stay ?? city.start)
+        if (!home.meals.dinner) {
+          const evening = { ...home, clock: Math.max(home.clock, ENGINE.dinnerFrom) }
+          const dinners = buildCandidates(city, evening, pace, visited, {
+            ...opts,
+            slotMeal: 'dinner',
+            covered: tripThemes(city, [...days, evening]),
+          })
+          if (dinners.length) {
+            const c = preset.pick(dinners)
+            day = { ...evening, ...commitCandidate(evening, c) }
+            visited.add(c.p.id)
+          }
+        }
       } else {
         const seed = profile.seed ? openToday(profile.seed, profile.seedExp) : null
         if (seed) {

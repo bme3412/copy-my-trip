@@ -732,4 +732,62 @@ check(
   }
 }
 
+// ── Dinner is a time of day, not a leftover slot ──
+// The 18:00 rule used to live in a clock jump the generator made and nothing
+// stored, so replays slid dinner into the afternoon (18:10 → 15:11, unflagged)
+// while the reconsider deck for the same slot came back empty. Both symptoms,
+// one cause: the rule now lives in the schedule, so both directions are held.
+{
+  let retimed = 0
+  let emptyDecks = 0
+  let dinnerSlots = 0
+  let fabricatedHome = 0
+  for (const presetId of ['first-time', 'broader', 'gentler']) {
+    const preset = PLAN_PRESETS.find((p) => p.id === presetId)!
+    const plan = generatePlan(city, preset, 7, 'balanced', STAY, ARRIVING, [])
+    for (let i = 0; i < 7; i++) {
+      const day = plan.days[i]
+      const di = day.committed.findIndex((c) => c.meal === 'dinner')
+      if (di < 1) continue
+      const pace = plan.paces[i]
+      const o = { date: dayDate(ARRIVING, i), weekday: dayWeekday(ARRIVING, i) }
+      // Pull the day earlier: dinner must hold its hour or say that it didn't.
+      const r = removeAt(city, day, di - 1, pace, STAY, o)
+      const moved = r.day.committed.find((c) => c.meal === 'dinner')
+      if (moved && moved.timeIn < ENGINE.dinnerFrom && r.flags.length === 0) retimed++
+      // The dinner slot is reconsiderable from any prefix clock.
+      dinnerSlots++
+      const visited = new Set(plan.days.flatMap((d) => d.committed.map((c) => c.id)))
+      const ctx = dayPlanContext(city, i, { dayCount: 7, preset, travelerPace: 'balanced', stay: STAY, arriving: ARRIVING })
+      const alts = alternativesAt(city, day, di, pace, visited, STAY, ctx.opts)
+      if (alts.length === 0) emptyDecks++
+      // No dinner card promises a walk home it never measured.
+      for (const a of alts) {
+        if (a.p.meal !== 'dinner') continue
+        const km = Math.hypot((a.p.lat - STAY.lat) * 111, (a.p.lon - STAY.lon) * 73)
+        if (a.forecast.includes('walk home') && km > 1.2) fabricatedHome++
+      }
+    }
+  }
+  // A whole-day trip is the day's one commitment, not a fast: the traveler
+  // rides back and eats. On a 6-day trip the day trip falls LAST, so this is
+  // the trip's closing night. Asserted only where the city still has an
+  // unused dinner venue — Rome's four run out by day 4, which is a data gap.
+  for (const [cid, c] of Object.entries(CITIES)) {
+    for (const p of PLAN_PRESETS) {
+      const plan = generatePlan(c, p, 6, 'balanced', stayLoc(c, c.hoodOrder[0]), ARRIVING, [])
+      plan.days.slice(0, 6).forEach((d, i) => {
+        if (!d.committed.some((s) => stopPlace(c, s)?.dayTrip)) return
+        const used = new Set(plan.days.flatMap((x) => x.committed.map((s) => s.id)))
+        const spare = c.places.some((pl) => !used.has(pl.id) && placeVariants(pl).some((v) => v.meal === 'dinner'))
+        if (!spare) return // city inventory exhausted — a data gap, not the engine
+        check(`${cid}/${p.id}: the day-trip day still gets its dinner`, d.committed.some((s) => s.meal === 'dinner'), `day ${i + 1}`)
+      })
+    }
+  }
+  check('dinner: a replay never slides dinner before 18:00 unflagged', retimed === 0, `${retimed} days`)
+  check('dinner: every dinner slot is reconsiderable', emptyDecks === 0, `${emptyDecks} of ${dinnerSlots} decks empty`)
+  check('dinner: no card claims a walk home that is a métro ride', fabricatedHome === 0, `${fabricatedHome} cards`)
+}
+
 process.exit(fail ? 1 : 0)

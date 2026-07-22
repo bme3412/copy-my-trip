@@ -46,6 +46,11 @@ export const ENGINE = {
   firstLegTravelFactor: 0.5,
   /** Lunch is allowed from 11:00 but only *forced* from here. */
   lunchForceFrom: 11.75 * 60,
+  /** Nobody eats dinner at 16:00. The city doesn't serve it and the day
+   * doesn't want it — so an early clock IDLES to here rather than booking a
+   * mid-afternoon dinner. Generation always did this by jumping the clock;
+   * holding it in the schedule instead is what lets a replay reproduce it. */
+  dinnerFrom: 18 * 60,
   /** Arriving early is fine if the doors open within this — you wait. Dinner
    * tolerates more (18:10 in the Marais means an apéro until the 19:00 seating). */
   maxWait: 45,
@@ -273,9 +278,17 @@ function travel(a: Place | StartLoc, b: Place) {
   return { min, mode, measured }
 }
 
-function forecast(e: Omit<Candidate, 'forecast'>, day: DayState, pace: Pace, dayEnd: number): string {
+function forecast(e: Omit<Candidate, 'forecast'>, day: DayState, pace: Pace, dayEnd: number, home?: { lat: number; lon: number }): string {
   const newClock = e.leave
-  if (e.p.meal === 'dinner') return 'Dinner wraps ≈' + fmt(newClock) + ' · short walk home from here'
+  if (e.p.meal === 'dinner') {
+    // The way home is measured, not assumed — most dinner venues are nowhere
+    // near the stay, and "short walk home" was a fabricated claim on 11 of the
+    // 16 Paris ones. With no known stay, the clause is simply omitted.
+    if (!home) return 'Dinner wraps ≈' + fmt(newClock)
+    const d = dist(e.p, home)
+    const back = d <= 1.2 ? `${travelMinutes(e.p, home)} min walk home` : `≈${travelMinutes(e.p, home)} min métro home`
+    return 'Dinner wraps ≈' + fmt(newClock) + ' · ' + back
+  }
   if (e.p.meal === 'lunch') return 'Fed by ' + fmt(newClock) + ' · the afternoon stays open'
   // Dinner still pending extends the runway to dayEnd — it will fill the evening.
   const endBudget = day.meals.dinner ? 21 * 60 : dayEnd
@@ -353,9 +366,12 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
   // Known staleness: a swap re-routes the suffix, but these are the STORED
   // legs — tolerated because any transfer the swap actually creates is
   // honestly flagged at replay (scheduleNext).
+  // The ride to dinner is the day's closing commute: exempt from the cap
+  // below, so it must not SPEND the budget either — counting it hid legal
+  // mid-day swaps on every day whose only long leg was the one to dinner.
   const longTransfers =
-    day.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length +
-    suffix.filter((c) => c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
+    day.committed.filter((c, i) => i > 0 && c.meal !== 'dinner' && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length +
+    suffix.filter((c) => c.meal !== 'dinner' && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
 
   // A concrete traveler ask outranks the day-anatomy caps: pinned places
   // ignore the stop budget and timed cap — the traveler asked for this one.
@@ -379,8 +395,12 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       const dur = Math.round(p.dur * pf)
       // The worst realistic case — feasibility is judged here, not at typical.
       const durMax = Math.round((p.dur + (p.durVar ?? 0)) * pf)
+      // Dinner never starts before the city serves it: an early clock idles to
+      // 18:00 instead of pulling dinner into the afternoon. Once the clock is
+      // already past it this is a no-op, so generation is unchanged.
+      const from = p.meal === 'dinner' ? Math.max(clk, ENGINE.dinnerFrom) : clk
       // A timed slot is booked a buffer after expected arrival, absorbing delays.
-      let arrive = clk + t.min + (p.timed ? ENGINE.timedEntryBuffer : 0)
+      let arrive = from + t.min + (p.timed ? ENGINE.timedEntryBuffer : 0)
       // A short wait for opening is human — you don't skip dinner because you're early.
       const opensAt = hrs[0] * 60
       const waitCap = p.meal === 'dinner' ? ENGINE.maxWaitDinner : ENGINE.maxWait
@@ -502,7 +522,7 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
 
   let needMeal: 'lunch' | 'dinner' | null = null
   if (!day.meals.lunch && clk >= ENGINE.lunchForceFrom && clk <= 14.5 * 60) needMeal = 'lunch'
-  if (!day.meals.dinner && clk >= 18 * 60) needMeal = 'dinner'
+  if (!day.meals.dinner && clk >= ENGINE.dinnerFrom) needMeal = 'dinner'
   const mealEls = needMeal ? pool.filter((e) => e.p.meal === needMeal).sort((a, b) => a.t.min - b.t.min) : []
   const picks: typeof pool = []
   mealEls.slice(0, 2).forEach((e) => picks.push(e))
@@ -523,7 +543,14 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       if (!e.p.meal) return true
       if (e.p.meal === 'coffee') return e.arrive < 12 * 60 && !day.meals.coffee
       if (e.p.meal === 'lunch') return !day.meals.lunch && e.arrive >= 11 * 60 && e.arrive <= 14.5 * 60
-      if (e.p.meal === 'dinner') return needMeal === 'dinner'
+      // Reconsidering the dinner slot judges the *arrival* like every other
+      // meal window: the prefix clock is whenever the afternoon happened to
+      // end, and gating on it left the dinner deck empty on any day that
+      // wrapped early — "a swap changes WHERE dinner happens, never whether".
+      // Elsewhere dinner still waits to be forced, so the generator, the
+      // append deck and the day's shape are untouched.
+      if (e.p.meal === 'dinner')
+        return opts.slotMeal === 'dinner' ? !day.meals.dinner && e.arrive >= ENGINE.dinnerFrom : needMeal === 'dinner'
       return true
     })
   const limit = opts.limit ?? ENGINE.candidatePool
@@ -546,7 +573,7 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     const ranked = [...scoreParts(e)].sort((a, b) => Math.abs(b.value) - Math.abs(a.value))
     return {
       ...e,
-      forecast: forecast(e, day, pace, city.dayEnd),
+      forecast: forecast(e, day, pace, city.dayEnd, opts.home),
       reasons: [...mealReason, ...ranked].slice(0, 3),
       forced: forcedPicks.has(e) || undefined,
     }
@@ -611,6 +638,18 @@ export function commitCandidate(day: DayState, c: Candidate): DayState {
 // (build-plan/03-itinerary.md). Alternatives for slot k are the ordinary
 // candidate machinery run on the day truncated to stops 0..k−1; a swap is a
 // replay of the rest of the day through the same commit math.
+
+/** Coming back from a whole-day trip. The return leg is real time on the
+ * clock and it puts you in your own neighbourhood, not at the château gate —
+ * so the evening that follows is planned from home. Without this the day
+ * ended at Versailles and the traveler simply never ate. */
+export function returnFromDayTrip(city: City, day: DayState, stay: StartLoc): DayState {
+  const last = day.committed[day.committed.length - 1]
+  if (!last) return day
+  const from = stopPlace(city, last)
+  if (!from) return day
+  return { ...day, clock: day.clock + travelMinutes(from, stay), loc: stay }
+}
 
 /** The prefix state 0..k−1 with its literal meals — replay starts here. */
 function dayPrefix(city: City, day: DayState, k: number, pace: Pace, stay: StartLoc): DayState {
@@ -697,7 +736,11 @@ function scheduleNext(
   const t = travel(state.loc, v)
   const dur = Math.round(v.dur * pf)
   const durMax = Math.round((v.dur + (v.durVar ?? 0)) * pf)
-  let arrive = state.clock + t.min + (v.timed ? ENGINE.timedEntryBuffer : 0)
+  // The same idle the generator performs by jumping its clock — held here so
+  // a replayed day reproduces it. Without this, removing an afternoon stop
+  // slid dinner back to 15:11 and reported no violation at all.
+  const from = v.meal === 'dinner' ? Math.max(state.clock, ENGINE.dinnerFrom) : state.clock
+  let arrive = from + t.min + (v.timed ? ENGINE.timedEntryBuffer : 0)
   const hrs = effectiveHours(v, opts.date, opts.weekday)
   if (!hrs) notes.push('closed this day')
   else {
@@ -718,10 +761,15 @@ function scheduleNext(
   if (v.best && (arrive < (v.best[0] - 0.5) * 60 || arrive > (v.best[1] + 0.5) * 60))
     notes.push(`misses its best window (${v.best[0]}:00–${v.best[1]}:00)`)
   if (v.meal === 'lunch' && (arrive < 11 * 60 || arrive > 14.5 * 60)) notes.push(`lunch lands at ${fmt(arrive)}`)
+  // Parity with the lunch window: if a venue's own hours drag dinner back
+  // before the city serves it, say so rather than shipping a 16:00 dinner.
+  if (v.meal === 'dinner' && arrive < ENGINE.dinnerFrom) notes.push(`dinner lands at ${fmt(arrive)}`)
   // A long métro leg mid-day: only one cross-city transfer per day
   // (the ride to dinner rides free, as in the candidate filter).
   if (state.committed.length > 0 && v.meal !== 'dinner' && t.mode === 'metro' && t.min >= ENGINE.longTransferMin) {
-    const longSoFar = state.committed.filter((c, i) => i > 0 && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin).length
+    const longSoFar = state.committed.filter(
+      (c, i) => i > 0 && c.meal !== 'dinner' && c.travelMode === 'metro' && c.travelMin >= ENGINE.longTransferMin,
+    ).length
     if (longSoFar >= ENGINE.maxLongTransfers) notes.push('a second long métro transfer')
   }
   // Day-anatomy caps — the same limits buildCandidates enforces as hard
