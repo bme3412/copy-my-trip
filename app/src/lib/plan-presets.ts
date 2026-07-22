@@ -51,6 +51,10 @@ export interface GeneratedPlan {
   days: DayState[]
   /** One-line purpose per day, from the first-trip framework. */
   purposes: string[]
+  /** The pace each day was actually BUILT at (template override, else the
+   * preset's, else the traveler's). Stored with the trip so later edits
+   * re-time the day at the pace it was generated at, not today's slider. */
+  paces: Pace[]
   stops: number
   verified: number
   pct: number
@@ -99,7 +103,7 @@ export const PLAN_PRESETS: PlanPreset[] = [
 /** The framework's day templates come from city data (City.dayTemplates) —
  * this resolves each day's variant: the alt when the preset dodges icons,
  * and for day-trip days, the alt when interests don't justify the trip. */
-function dayProfiles(city: City, dayCount: number, interests: string[], avoidIcons = false): DayTemplate[] {
+export function dayProfiles(city: City, dayCount: number, interests: string[], avoidIcons = false): DayTemplate[] {
   return city.dayTemplates
     .map((t) => {
       if (t.dayTripId) {
@@ -109,6 +113,103 @@ function dayProfiles(city: City, dayCount: number, interests: string[], avoidIco
       return avoidIcons && t.alt ? t.alt : t
     })
     .slice(0, Math.max(dayCount, 4))
+}
+
+/** Everything one day's picks are judged against. Derived in ONE place so the
+ * generator and every edit surface (append, reconsider, insert) ask the engine
+ * the same question: the same brief avoids and pins, the same interest and
+ * theme weights, and the same day-template caps. Callers add only what is
+ * genuinely theirs — `covered`, `limit`, and the slot-specific fields. */
+export interface DayPlanContext {
+  /** The template as actually resolved: alt substitutions applied. */
+  profile: DayTemplate
+  purpose: string
+  /** The pace this day is built at — the template's override, else the plan's. */
+  pace: Pace
+  opts: CandidateOpts
+}
+
+export interface DayContextInput {
+  dayCount: number
+  /** The adopted plan preset, if any — carries pace and theme bias. */
+  preset?: PlanPreset | null
+  travelerPace: Pace
+  stay?: StartLoc
+  arriving?: string
+  interests?: string[]
+  interestWeights?: Partial<Record<Theme, number>>
+  requests?: ExtractedRequest[]
+  /** Places committed on OTHER trip days: a template seed already spent
+   * elsewhere resolves to the day's alt, exactly as during generation. */
+  visitedElsewhere?: ReadonlySet<string>
+  /** Hoods that anchored other days — repeat visits score down. */
+  usedHoods?: ReadonlySet<string>
+  limit?: number
+}
+
+export function dayPlanContext(city: City, dayIndex: number, input: DayContextInput): DayPlanContext {
+  const {
+    dayCount, preset, travelerPace, stay, arriving,
+    interests = [], interestWeights, requests = [], visitedElsewhere, usedHoods, limit,
+  } = input
+  const basePace = preset?.pace ?? travelerPace
+  const template = dayProfiles(city, dayCount, interests, preset?.avoidIcons)[dayIndex]
+  const weekday = arriving ? dayWeekday(arriving, dayIndex) : undefined
+  const date = arriving ? dayDate(arriving, dayIndex) : undefined
+
+  // The brief's concrete asks: avoids never appear; day-pinned includes are
+  // held OFF every other day so they're guaranteed available for theirs.
+  const avoids = new Set(requests.filter((r) => r.kind === 'avoid').map((r) => r.placeId))
+  const includes = requests.filter((r) => r.kind === 'include' && !avoids.has(r.placeId))
+  const exclude = new Set(avoids)
+  const pins: { id: string; notBefore?: number }[] = []
+  for (const r of includes) {
+    const pinDay = requestDay(r, dayCount)
+    if (pinDay === undefined || pinDay === dayIndex) pins.push({ id: r.placeId, notBefore: r.slot ? SLOT_START[r.slot] : undefined })
+    else exclude.add(r.placeId) // held for its own day
+  }
+
+  const openToday = (id: string, expId?: string) => {
+    const p = city.places.find((pl) => pl.id === id)
+    // Seeds and day-trips honor the brief's avoids like everything else.
+    if (!p || visitedElsewhere?.has(p.id) || exclude.has(p.id)) return null
+    const variants = placeVariants(p)
+    const v = expId ? variants.find((x) => x.experienceId === expId) : variants[0]
+    if (!v) return null
+    const hrs = effectiveHours(v, date, weekday)
+    return hrs ? { p: v, hrs } : null
+  }
+
+  // Resolve the template against the real day BEFORE declaring its purpose:
+  // a closed or avoided day-trip/seed hands the day to its alt (the alt's
+  // shape and purpose), so "A full day at Versailles" never heads a Monday.
+  const resolve = (t: DayTemplate): DayTemplate => {
+    if (t.dayTripId && !openToday(t.dayTripId)) return t.alt ? resolve(t.alt) : { ...t, dayTripId: undefined }
+    if (t.seed && !openToday(t.seed, t.seedExp)) return t.alt ? resolve(t.alt) : { ...t, seed: undefined }
+    return t
+  }
+  const profile = template ? resolve(template) : undefined
+
+  return {
+    profile: profile ?? ({ purpose: '' } as DayTemplate),
+    purpose: profile?.purpose ?? '',
+    pace: profile?.paceOverride ?? basePace,
+    opts: {
+      weekday,
+      date,
+      blockAnchors: profile?.noAnchors,
+      blockTimed: profile?.noTimed,
+      hoodBias: profile?.hoodBias,
+      usedHoods,
+      home: stay ?? city.start,
+      themeBias: preset?.themeBias,
+      interestWeights,
+      exclude,
+      pins,
+      limit,
+      maxStops: profile?.maxStops,
+    },
+  }
 }
 
 /** Deterministic greedy simulation — the same engine the interactive builder runs.
@@ -129,21 +230,19 @@ export function generatePlan(
 ): GeneratedPlan {
   const basePace = preset.pace ?? travelerPace
   const profiles = dayProfiles(city, dayCount, interests, preset.avoidIcons)
+  // Asks that must land somewhere — the per-day split is dayPlanContext's job.
+  const avoided = new Set(requests.filter((r) => r.kind === 'avoid').map((r) => r.placeId))
+  const includes = requests.filter((r) => r.kind === 'include' && !avoided.has(r.placeId))
 
-  // The brief's concrete asks: avoids never appear; day-pinned includes are
-  // held OFF every other day so they're guaranteed available for theirs.
-  const avoids = new Set(requests.filter((r) => r.kind === 'avoid').map((r) => r.placeId))
-  const includes = requests.filter((r) => r.kind === 'include' && !avoids.has(r.placeId))
   const days: DayState[] = []
   const purposes: string[] = []
+  const paces: Pace[] = []
   const visited = new Set<string>()
 
   for (let d = 0; d < 7; d++) {
     let day = blankDay(city, stay)
     const template = profiles[d]
     if (d < dayCount && template) {
-      const weekday = arriving ? dayWeekday(arriving, d) : undefined
-      const date = arriving ? dayDate(arriving, d) : undefined
       // Hoods that already anchored an earlier day — later days spread out.
       const usedHoods = new Set<string>()
       for (const prev of days) {
@@ -151,50 +250,26 @@ export function generatePlan(
         const p = theme && city.places.find((pl) => pl.id === theme.id)
         if (p) usedHoods.add(p.hood)
       }
-      const exclude = new Set(avoids)
-      const pins: { id: string; notBefore?: number }[] = []
-      for (const r of includes) {
-        const pinDay = requestDay(r, dayCount)
-        if (pinDay === undefined || pinDay === d) pins.push({ id: r.placeId, notBefore: r.slot ? SLOT_START[r.slot] : undefined })
-        else exclude.add(r.placeId) // held for its own day
-      }
+      // The one derivation — shared with every edit surface in the app.
+      const ctx = dayPlanContext(city, d, {
+        dayCount, preset, travelerPace, stay, arriving, interests, interestWeights, requests,
+        visitedElsewhere: visited,
+        usedHoods,
+        limit: ENGINE.candidatePoolGenerate,
+      })
+      const { profile, pace, opts } = ctx
+      const pins = opts.pins ?? []
+      purposes.push(ctx.purpose)
+      paces.push(pace)
 
       const openToday = (id: string, expId?: string) => {
         const p = city.places.find((pl) => pl.id === id)
-        // Seeds and day-trips honor the brief's avoids like everything else.
-        if (!p || visited.has(p.id) || exclude.has(p.id)) return null
+        if (!p || visited.has(p.id) || opts.exclude?.has(p.id)) return null
         const variants = placeVariants(p)
         const v = expId ? variants.find((x) => x.experienceId === expId) : variants[0]
         if (!v) return null
-        const hrs = effectiveHours(v, date, weekday)
+        const hrs = effectiveHours(v, opts.date, opts.weekday)
         return hrs ? { p: v, hrs } : null
-      }
-
-      // Resolve the template against the real day BEFORE declaring its purpose:
-      // a closed or avoided day-trip/seed hands the day to its alt (the alt's
-      // shape and purpose), so "A full day at Versailles" never heads a Monday.
-      const resolve = (t: DayTemplate): DayTemplate => {
-        if (t.dayTripId && !openToday(t.dayTripId)) return t.alt ? resolve(t.alt) : { ...t, dayTripId: undefined }
-        if (t.seed && !openToday(t.seed, t.seedExp)) return t.alt ? resolve(t.alt) : { ...t, seed: undefined }
-        return t
-      }
-      const profile = resolve(template)
-      purposes.push(profile.purpose)
-      const pace = profile.paceOverride ?? basePace
-      const opts: CandidateOpts = {
-        weekday,
-        date,
-        blockAnchors: profile.noAnchors,
-        blockTimed: profile.noTimed,
-        hoodBias: profile.hoodBias,
-        usedHoods,
-        home: stay ?? city.start,
-        themeBias: preset.themeBias,
-        interestWeights,
-        exclude,
-        pins,
-        limit: ENGINE.candidatePoolGenerate,
-        maxStops: profile.maxStops,
       }
 
       const tripPlace = profile.dayTripId ? openToday(profile.dayTripId) : null
@@ -278,10 +353,12 @@ export function generatePlan(
       }
     } else if (d < 7 && !template && d < dayCount) {
       purposes.push('')
+      paces.push(basePace)
     }
     days.push(day)
   }
   while (purposes.length < 7) purposes.push('')
+  while (paces.length < 7) paces.push(basePace)
 
   // Best effort for asks that never landed (pinned onto a day-trip day, an
   // anchored day, a closing day): the asked-for day first, then any day with
@@ -301,7 +378,7 @@ export function generatePlan(
       const target = days[i]
       // Never wedge into a whole-day trip.
       if (!target || target.committed.some((c) => city.places.find((pl) => pl.id === c.id)?.dayTrip)) continue
-      const best = bestInsertion(city, target, r.placeId, profiles[i]?.paceOverride ?? basePace, stay ?? city.start, {
+      const best = bestInsertion(city, target, r.placeId, paces[i] ?? basePace, stay ?? city.start, {
         date: arriving ? dayDate(arriving, i) : undefined,
         weekday: arriving ? dayWeekday(arriving, i) : undefined,
       })
@@ -330,6 +407,7 @@ export function generatePlan(
     preset,
     days,
     purposes,
+    paces,
     stops,
     verified,
     pct: stops ? Math.round((verified / stops) * 100) : 0,

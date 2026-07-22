@@ -22,6 +22,10 @@ export interface TripState {
   days: DayState[]
   /** One-line purpose per day, set when a generated plan is chosen. */
   dayPurposes?: string[]
+  /** The pace each day was BUILT at, set when a generated plan is chosen.
+   * Edits re-time a day at this pace, never at today's `pace` slider — a
+   * plan the traveler never asked to re-pace must not silently drift. */
+  dayPaces?: Pace[]
   /** LLM narration per day index, keyed by the day's content so edits
    * invalidate — fetched once, then served from state. */
   dayNarrations?: Record<number, { key: string; text: string }>

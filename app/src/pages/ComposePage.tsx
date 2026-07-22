@@ -126,14 +126,14 @@ export function ComposePage() {
   const select = (plan: GeneratedPlan) => {
     if (choosing || plan.preset.id === selectedId) return
     if (!guardHandBuilt()) return
-    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes })
+    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces })
   }
 
   /** The card's button applies the plan and goes to day 1. */
   const choose = (plan: GeneratedPlan) => {
     if (choosing) return
     if (plan.preset.id !== selectedId && !guardHandBuilt()) return
-    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes })
+    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces })
     const go = () => navigate(`/${city.id}/itinerary/1`, { viewTransition: true })
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       go()

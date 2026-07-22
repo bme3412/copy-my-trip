@@ -9,6 +9,7 @@ import { ReconsiderDeck } from '../components/ReconsiderDeck'
 import { RouteMap } from '../components/RouteMap'
 import { TripMap } from '../components/TripMap'
 import { builtDayStops, builtDayTitle } from '../lib/built-day'
+import { dayPlanContext, PLAN_PRESETS } from '../lib/plan-presets'
 import { buildDayFacts, dayContentKey, ensureNarration, narrationResult, narrationUnavailable, onNarrationChunk } from '../lib/narrate'
 import { em } from '../lib/text'
 import {
@@ -93,10 +94,6 @@ export function ItineraryPage() {
   const isBuilt = day.committed.length > 0
   // Days beyond the curated four exist only once generated or built.
   const curated = city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined
-  // Edit with the pace the day was GENERATED at: the buffer day's template
-  // overrides to gentle, and reconstructing its clock at trip pace would put
-  // the reconsider deck 15 minutes out of step with the timeline.
-  const pace = city.dayTemplates[dayIdx]?.paceOverride ?? trip.pace
   const stay = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const stayName = trip.stayHood || city.hoodOrder[0]
   const date = trip.arriving ? dayDate(trip.arriving, dayIdx) : undefined
@@ -118,24 +115,6 @@ export function ItineraryPage() {
   const materializable = !!curated && curated.stops.length > 0 && curated.stops.every((s) => s.placeId && city.places.some((p) => p.id === s.placeId))
   const editing = isBuilt || scratch || !curated
 
-  // A composed trip never falls back to the curator's stock day: an empty day
-  // materializes the curated sequence through the engine — re-timed for this
-  // trip's dates and pace — so what renders is always the traveler's own day.
-  useEffect(() => {
-    if (!trip.arriving || isBuilt || scratch || !curated || !materializable) return
-    const r = replaySequence(
-      city,
-      curated.stops.map((s) => ({ placeId: s.placeId! })),
-      pace,
-      stay,
-      { date, weekday },
-    )
-    if (r.day.committed.length === 0) return
-    update({ days: trip.days.map((x, i) => (i === dayIdx ? r.day : x)) })
-    setFlags(r.flags)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trip.arriving, isBuilt, scratch, curated, materializable, dayIdx])
-
   // Trip-wide engine context — the same the standalone builder computed.
   const visited = useMemo(() => {
     const set = new Set<string>()
@@ -152,6 +131,66 @@ export function ItineraryPage() {
     })
     return set
   }, [city, trip.days, dayIdx])
+  // Places committed on OTHER days: a template seed already spent elsewhere
+  // resolves this day to its alt, exactly as it did during generation.
+  const visitedElsewhere = useMemo(() => {
+    const set = new Set<string>()
+    trip.days.forEach((d, i) => {
+      if (i === dayIdx) return
+      d.committed.forEach((c) => set.add(c.id))
+    })
+    return set
+  }, [trip.days, dayIdx])
+
+  // ── The one derivation ──
+  // Every edit surface below asks the engine the SAME question generation
+  // asked: the brief's avoids and pins, the interest and theme weights, and
+  // this day's template caps. Rebuilding these by hand is how the decks
+  // drifted into re-offering what the generator forbade.
+  const ctx = useMemo(
+    () =>
+      dayPlanContext(city, dayIdx, {
+        dayCount,
+        preset: PLAN_PRESETS.find((p) => p.id === trip.planId) ?? null,
+        travelerPace: trip.pace,
+        stay,
+        arriving: trip.arriving || undefined,
+        interests: trip.interests,
+        interestWeights: trip.extracted?.themeWeights,
+        requests: trip.extracted?.requests,
+        visitedElsewhere,
+        usedHoods,
+      }),
+    [city, dayIdx, dayCount, trip.planId, trip.pace, stay, trip.arriving, trip.interests, trip.extracted, visitedElsewhere, usedHoods],
+  )
+  // Edit at the pace the day was BUILT at — the stored plan pace, else the
+  // resolved template's. Re-timing a day at today's slider rewrites durations
+  // the traveler never asked to change.
+  const pace = trip.dayPaces?.[dayIdx] ?? ctx.pace
+  const engineOpts = ctx.opts
+  const maxStops = ctx.profile.maxStops
+
+  // A composed trip never falls back to the curator's stock day: an empty day
+  // materializes the curated sequence through the engine — re-timed for this
+  // trip's dates and at the day's own pace — so what renders is always the
+  // traveler's own day. The pace it materialized at is recorded with the trip,
+  // so later edits re-time against it rather than the current slider.
+  useEffect(() => {
+    if (!trip.arriving || isBuilt || scratch || !curated || !materializable) return
+    const r = replaySequence(
+      city,
+      curated.stops.map((s) => ({ placeId: s.placeId! })),
+      pace,
+      stay,
+      { date, weekday },
+    )
+    if (r.day.committed.length === 0) return
+    const dayPaces = [...(trip.dayPaces ?? [])]
+    dayPaces[dayIdx] = pace
+    update({ days: trip.days.map((x, i) => (i === dayIdx ? r.day : x)), dayPaces })
+    setFlags(r.flags)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trip.arriving, isBuilt, scratch, curated, materializable, dayIdx, pace])
 
   // Editing a day makes the plan yours — compose then guards it like any
   // hand-built work instead of silently replacing it with a preset.
@@ -163,9 +202,9 @@ export function ItineraryPage() {
   const appendCands = useMemo(() => {
     if (!editing) return []
     const covered = tripThemes(city, trip.days)
-    return buildCandidates(city, day, pace, visited, { weekday, date, covered, usedHoods, home: stay })
-  }, [editing, city, trip.days, day, pace, visited, weekday, date, usedHoods, stay])
-  const done = editing && isBuilt && isDayDone(day, pace, appendCands)
+    return buildCandidates(city, day, pace, visited, { ...engineOpts, covered })
+  }, [editing, city, trip.days, day, pace, visited, engineOpts])
+  const done = editing && isBuilt && isDayDone(day, pace, appendCands, maxStops)
 
   // The open deck: candidates for the slot, plus a pre-flighted replay per
   // alternative so every card can say what it does to the rest of the day.
@@ -178,10 +217,10 @@ export function ItineraryPage() {
       city,
       trip.days.map((d, i) => (i === dayIdx ? { ...d, committed: d.committed.filter((_, j) => j !== openSlot) } : d)),
     )
-    const cands = alternativesAt(city, day, openSlot, pace, visited, stay, { weekday, date, covered, usedHoods, home: stay })
+    const cands = alternativesAt(city, day, openSlot, pace, visited, stay, { ...engineOpts, covered })
     const replays = cands.map((c) => replayFrom(city, day, openSlot, c, pace, stay, { date, weekday }))
     return { cands, replays, prefix: truncateDay(city, day, openSlot, pace, stay), incumbent }
-  }, [openSlot, editing, appendCands, city, trip.days, dayIdx, day, pace, visited, stay, weekday, date, usedHoods])
+  }, [openSlot, editing, appendCands, city, trip.days, dayIdx, day, pace, visited, stay, weekday, date, engineOpts])
 
   const choose = (c: Candidate) => {
     if (openSlot === null || !deck) return
@@ -279,8 +318,17 @@ export function ItineraryPage() {
 
   // "Something missing?" — clean insertions nearby, best position pre-solved.
   const suggestions = useMemo(
-    () => (editing && isBuilt ? insertionSuggestions(city, day, pace, visited, stay, { date, weekday }) : []),
-    [editing, isBuilt, city, day, pace, visited, stay, date, weekday],
+    () =>
+      editing && isBuilt
+        ? insertionSuggestions(city, day, pace, visited, stay, {
+            date,
+            weekday,
+            exclude: engineOpts.exclude,
+            blockAnchors: engineOpts.blockAnchors,
+            blockTimed: engineOpts.blockTimed,
+          })
+        : [],
+    [editing, isBuilt, city, day, pace, visited, stay, date, weekday, engineOpts],
   )
   const title = editing ? builtDayTitle(city, day) : (curated?.title ?? `Day ${num}`)
 

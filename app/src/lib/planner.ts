@@ -892,7 +892,11 @@ export function insertionSuggestions(
   pace: Pace,
   visited: Set<string>,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  // `exclude`, `blockAnchors` and `blockTimed` come straight from the day's
+  // plan context: a place the traveler asked to skip, and an anchor or timed
+  // booking on a day whose template forbids them, are never *suggested*
+  // either — the append deck and this pool answer to the same constraints.
+  opts: { date?: string; weekday?: number; exclude?: ReadonlySet<string>; blockAnchors?: boolean; blockTimed?: boolean } = {},
   limit = 4,
 ): InsertionSuggestion[] {
   if (day.committed.length === 0) return []
@@ -901,6 +905,9 @@ export function insertionSuggestions(
   const nearMin = (p: Place) => Math.min(...stops.map((s) => travelMinutes(s, p)))
   const pool = city.places
     .filter((p) => !visited.has(p.id) && !p.dayTrip && p.meal === null && effectiveHours(p, opts.date, opts.weekday) !== null)
+    .filter((p) => !opts.exclude?.has(p.id))
+    .filter((p) => !(opts.blockAnchors && p.role === 'anchor'))
+    .filter((p) => !(opts.blockTimed && placeVariants(p).some((v) => v.timed)))
     .map((p) => ({ p, key: nearMin(p) - (p.src === 'verified' ? 3 : 0) - (p.rank === 1 ? 3 : 0) }))
     .sort((a, b) => a.key - b.key)
     .slice(0, 24) // bound the insertion trials — the far tail never qualifies

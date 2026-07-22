@@ -1,6 +1,6 @@
 /** Engine quality invariants — regression guards for the recommendation engine. */
 import { CITIES } from '../src/cities'
-import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../src/lib/plan-presets'
+import { dayPlanContext, generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../src/lib/plan-presets'
 import {
   alternativesAt,
   blankDay,
@@ -21,6 +21,7 @@ import {
   truncateDay,
 } from '../src/lib/planner'
 import type { City } from '../src/cities/types'
+import type { ExtractedRequest } from '../src/lib/extract'
 
 const city = CITIES.paris
 const ARRIVING = '2026-09-12' // Sat → days fall Sat, Sun, Mon (Orsay closed), Tue (Louvre closed)…
@@ -667,5 +668,68 @@ check(
     return anchors <= 1 && timed <= 2 && nonDinner <= ENGINE.stopBudget.balanced
   }),
 )
+
+// ── The generation/edit parity invariant ──
+// The engine used to be asked two different questions: generatePlan passed the
+// brief's avoids and pins, the interest and theme weights and the day
+// template's caps, while every edit surface rebuilt a weaker options object by
+// hand — so a place the traveler asked to skip, or an anchor on the buffer
+// day, was re-offered by the decks one tap from being committed. Both paths now
+// derive from dayPlanContext; these assertions hold them there.
+{
+  const REQUESTS: ExtractedRequest[] = [
+    { kind: 'avoid', placeId: 'louvre' },
+    { kind: 'avoid', placeId: 'eiffel' },
+    { kind: 'include', placeId: 'berthillon', day: 'last' },
+  ]
+  for (const presetId of ['first-time', 'broader', 'gentler']) {
+    const preset = PLAN_PRESETS.find((p) => p.id === presetId)!
+    const dayCount = 7
+    const plan = generatePlan(city, preset, dayCount, 'balanced', STAY, ARRIVING, [], 0, undefined, REQUESTS)
+    let leaks = 0
+    let capBreaks = 0
+    let paceMismatch = 0
+    for (let i = 0; i < dayCount; i++) {
+      const day = plan.days[i]
+      if (day.committed.length === 0) continue
+      // Exactly what ItineraryPage derives for this day.
+      const visitedElsewhere = new Set<string>()
+      const usedHoods = new Set<string>()
+      plan.days.forEach((d, j) => {
+        if (j === i) return
+        d.committed.forEach((c) => visitedElsewhere.add(c.id))
+        const theme = d.committed.find((c) => c.meal !== 'coffee')
+        const p = theme && city.places.find((pl) => pl.id === theme.id)
+        if (p) usedHoods.add(p.hood)
+      })
+      const ctx = dayPlanContext(city, i, {
+        dayCount, preset, travelerPace: 'balanced', stay: STAY, arriving: ARRIVING,
+        interests: [], requests: REQUESTS, visitedElsewhere, usedHoods,
+      })
+      // The page edits at the pace the plan was generated at.
+      if (ctx.pace !== plan.paces[i]) paceMismatch++
+      const visited = new Set(plan.days.flatMap((d) => d.committed.map((c) => c.id)))
+      const pace = plan.paces[i]
+      const offered = [
+        ...buildCandidates(city, day, pace, visited, ctx.opts),
+        ...day.committed.flatMap((_, k) => alternativesAt(city, day, k, pace, visited, STAY, ctx.opts)),
+      ].map((c) => c.p)
+      const suggested = insertionSuggestions(city, day, pace, visited, STAY, {
+        date: ctx.opts.date, weekday: ctx.opts.weekday,
+        exclude: ctx.opts.exclude, blockAnchors: ctx.opts.blockAnchors, blockTimed: ctx.opts.blockTimed,
+      }).map((s) => s.p)
+
+      leaks += [...offered, ...suggested].filter((p) => ctx.opts.exclude?.has(p.id)).length
+      if (ctx.profile.noAnchors) capBreaks += [...offered, ...suggested].filter((p) => p.role === 'anchor').length
+      if (ctx.profile.noTimed) {
+        capBreaks += offered.filter((p) => p.timed).length
+        capBreaks += suggested.filter((p) => placeVariants(p).some((v) => v.timed)).length
+      }
+    }
+    check(`edit parity (${presetId}): no avoided place is ever offered by an edit surface`, leaks === 0, `${leaks} leaks`)
+    check(`edit parity (${presetId}): a noAnchors/noTimed day offers neither on edit`, capBreaks === 0, `${capBreaks} breaks`)
+    check(`edit parity (${presetId}): the page edits at the pace the plan was built at`, paceMismatch === 0, `${paceMismatch} days`)
+  }
+}
 
 process.exit(fail ? 1 : 0)
