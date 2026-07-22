@@ -19,8 +19,10 @@ import {
   stayLoc,
   stopPlace,
   truncateDay,
+  type CandidateOpts,
+  type DayState,
 } from '../src/lib/planner'
-import type { City } from '../src/cities/types'
+import type { City, Pace } from '../src/cities/types'
 import type { ExtractedRequest } from '../src/lib/extract'
 
 const city = CITIES.paris
@@ -34,8 +36,12 @@ const check = (name: string, ok: boolean, detail = '') => {
   if (!ok) fail++
 }
 
-const genFor = (c: City, presetId: string, dayCount: number) =>
-  generatePlan(c, PLAN_PRESETS.find((p) => p.id === presetId)!, dayCount, 'balanced', stayLoc(c, c.hoodOrder[0]), ARRIVING, [])
+/** Pace is a shipped control with three settings; the suite used to exercise one.
+ * Every generic invariant runs across all three. */
+const PACES = ['gentle', 'balanced', 'full'] as const
+
+const genFor = (c: City, presetId: string, dayCount: number, pace: Pace = 'balanced') =>
+  generatePlan(c, PLAN_PRESETS.find((p) => p.id === presetId)!, dayCount, pace, stayLoc(c, c.hoodOrder[0]), ARRIVING, [])
 const gen = (presetId: string, dayCount: number) => genFor(city, presetId, dayCount)
 
 function checkDays(c: City, tag: string, plan: GeneratedPlan, dayCount: number) {
@@ -45,12 +51,22 @@ function checkDays(c: City, tag: string, plan: GeneratedPlan, dayCount: number) 
   plan.days.slice(0, dayCount).forEach((d, i) => {
     const day = `${tag} day ${i + 1}`
     const wd = dayWeekday(ARRIVING, i)!
-    const isDayTrip = d.committed.some((s) => stopPlace(c, s)?.dayTrip)
-    const minStops = isDayTrip ? 1 : i === 6 ? 2 : 3
-    check(`${day}: populated (${minStops}–8 stops)`, d.committed.length >= minStops && d.committed.length <= 8, `${d.committed.length}`)
+    // Populatedness is asserted by the multi-variant sweep below, which covers
+    // every preset × dayCount × variant × pace and can prove an empty pool —
+    // this weaker copy would just double-report a catalogue limit as a bug.
+    check(`${day}: no more than 8 stops`, d.committed.length <= 8, `${d.committed.length}`)
 
-    const late = d.committed.filter((s) => s.timeIn + s.dur > 22 * 60)
-    check(`${day}: home by 22:00`, late.length === 0, late.map((s) => s.name).join(', '))
+    // Two curfews, both from the engine: dinner may run to the city's declared
+    // day end, everything else must be done by lastLeave (21:45).
+    const late = d.committed.filter((s) => s.timeIn + s.dur > (s.meal === 'dinner' ? c.dayEnd : ENGINE.lastLeave))
+    check(`${day}: within its curfew`, late.length === 0, late.map((s) => s.name).join(', '))
+
+    const beforeOpen = d.committed.filter((s) => {
+      const p = stopPlace(c, s)
+      const hrs = p && effectiveHours(p, dayDate(ARRIVING, i), wd)
+      return hrs && s.timeIn < hrs[0] * 60
+    })
+    check(`${day}: every stop starts after its doors open`, beforeOpen.length === 0, beforeOpen.map((s) => s.name).join(', '))
 
     const anchors = d.committed.filter((s) => stopPlace(c, s)?.role === 'anchor').length
     check(`${day}: ≤1 anchor`, anchors <= 1, `${anchors}`)
@@ -86,14 +102,17 @@ function checkDays(c: City, tag: string, plan: GeneratedPlan, dayCount: number) 
 // drop, and this is where its data meets the engine.
 const seq = (x: GeneratedPlan) => x.days.flatMap((d) => d.committed.map((s) => s.id)).join(',')
 for (const [cid, c] of Object.entries(CITIES)) {
-  for (const p of PLAN_PRESETS) {
-    const a = genFor(c, p.id, 4)
-    const b = genFor(c, p.id, 4)
-    check(`${cid}/${p.id}: deterministic`, seq(a) === seq(b))
-    checkDays(c, `${cid}/${p.id}`, a, 4)
+  for (const pace of PACES) {
+    for (const p of PLAN_PRESETS) {
+      const a = genFor(c, p.id, 4, pace)
+      const b = genFor(c, p.id, 4, pace)
+      check(`${cid}/${p.id}/${pace}: deterministic`, seq(a) === seq(b))
+      checkDays(c, `${cid}/${p.id}/${pace}`, a, 4)
+    }
+    check(`${cid}/${pace}: three presets produce distinct itineraries`, new Set(PLAN_PRESETS.map((p) => seq(genFor(c, p.id, 4, pace)))).size === 3)
+    // Every preset at 7 days, not just first-time.
+    for (const p of PLAN_PRESETS) checkDays(c, `${cid}/${p.id} 7d/${pace}`, genFor(c, p.id, 7, pace), 7)
   }
-  check(`${cid}: three presets produce distinct itineraries`, new Set(PLAN_PRESETS.map((p) => seq(genFor(c, p.id, 4)))).size === 3)
-  checkDays(c, `${cid}/first-time 7d`, genFor(c, 'first-time', 7), 7)
 }
 
 // The 7-day trip: Orsay day, Versailles day-trip, buffer day.
@@ -452,16 +471,22 @@ if (li >= 0) {
 
 // Suffix-aware caps: around a day that already holds its anchor, no slot may
 // grow a second one.
+// A guarded block that finds nothing asserts nothing — and `.every()` on an
+// empty list is vacuously true — so the search itself is checked. Otherwise a
+// scoring change can silently delete the test while the run still prints PASS.
 const adI = swapPlan.days.findIndex((d) => d.committed.some((s) => stopPlace(city, s)?.role === 'anchor'))
+check('swap: found an anchored day to probe (test is live)', adI >= 0)
 if (adI >= 0) {
   const aDay = swapPlan.days[adI]
   const ak = aDay.committed.findIndex((s) => stopPlace(city, s)?.role === 'anchor')
   const testK = aDay.committed.findIndex((s, k) => k !== ak && !s.meal)
+  check('swap: found a non-anchor non-meal slot on it (test is live)', testK >= 0)
   if (testK >= 0) {
     const aAlts = alternativesAt(city, aDay, testK, 'balanced', tripVisited, STAY, {
       date: dayDate(ARRIVING, adI),
       weekday: dayWeekday(ARRIVING, adI),
     })
+    check('swap: the anchored-day slot offers alternatives (test is live)', aAlts.length > 0)
     check('swap: no second anchor offered around an anchored day', aAlts.every((c) => c.p.role !== 'anchor'), aAlts.map((c) => c.p.id).join(','))
   }
 }
@@ -517,39 +542,113 @@ if (mat.flags.length > 0) console.log(`  (curated day 1 materialization flags: $
 // Meal assertions run only where the city's inventory leaves slack — Rome's
 // four lunch/dinner venues cannot feed a seven-day trip; that's a data gap,
 // not an engine regression.
+// A city can run out of catalogue — Rome is 42 places against Paris's 121, and
+// `broader` spends 38 of them in six days. When that happens the honest test is
+// not to skip the day but to PROVE the pool was empty, using the engine's own
+// feasibility rather than a hand-rolled approximation of it. Both helpers below
+// ask buildCandidates, so "nothing was available" means what the engine means.
+
+/** Could the engine have put a meal on this day? Rebuilds the day as it stood
+ * when the meal window opened and asks for that meal specifically. */
+function couldHaveEaten(
+  c: City,
+  day: DayState,
+  meal: 'lunch' | 'dinner',
+  pace: Pace,
+  spent: ReadonlySet<string>,
+  opts: CandidateOpts,
+): boolean {
+  const from = meal === 'lunch' ? ENGINE.lunchForceFrom : ENGINE.dinnerFrom
+  // The prefix as of the moment the window opened.
+  const k = day.committed.findIndex((s) => s.timeIn + s.dur >= from)
+  const cut = k < 0 ? day.committed.length : k
+  const prefix = truncateDay(c, day, cut, pace, stayLoc(c, c.hoodOrder[0]))
+  const pool = new Set(spent)
+  day.committed.slice(0, cut).forEach((s) => pool.add(s.id))
+  return buildCandidates(c, { ...prefix, clock: Math.max(prefix.clock, from) }, pace, pool, { ...opts, slotMeal: meal }).length > 0
+}
+
+/** Could the engine have put ANY stop on this day? */
+function couldHaveFilled(c: City, day: DayState, pace: Pace, spent: ReadonlySet<string>, opts: CandidateOpts): boolean {
+  const pool = new Set(spent)
+  day.committed.forEach((s) => pool.add(s.id))
+  const empty = { ...blankDay(c, stayLoc(c, c.hoodOrder[0])), clock: day.committed.length ? day.committed[day.committed.length - 1].timeIn : c.dayStart }
+  return buildCandidates(c, empty, pace, pool, opts).length > 0
+}
+
 for (const [cid, c] of Object.entries(CITIES)) {
   const cStay = stayLoc(c, c.hoodOrder[0])
-  const lunchInv = c.places.filter((p) => p.meal === 'lunch').length
-  const dinnerInv = c.places.filter((p) => p.meal === 'dinner').length
   for (const preset of PLAN_PRESETS) {
-    const mealMisses: string[] = []
-    const closeBusts: string[] = []
-    const bufferBusts: string[] = []
-    for (const dayCount of [4, 7] as const) {
-      for (const variant of [0, 1, 2, 5, 9]) {
-        const plan = generatePlan(c, preset, dayCount, 'balanced', cStay, ARRIVING, [], variant)
-        plan.days.slice(0, dayCount).forEach((d, i) => {
-          const date = dayDate(ARRIVING, i)
-          const wd = dayWeekday(ARRIVING, i)
-          for (const s of d.committed) {
-            const p = stopPlace(c, s)
-            const hrs = p && effectiveHours(p, date, wd)
-            if (hrs && s.timeIn + s.dur > hrs[1] * 60) closeBusts.push(`v${variant}/${dayCount}d day ${i + 1} ${s.id}`)
-          }
-          if (i === 6) {
+    for (const pace of PACES) {
+      const mealMisses: string[] = []
+      const closeBusts: string[] = []
+      const bufferBusts: string[] = []
+      const thin: string[] = []
+      const budgetBusts: string[] = []
+      const curfewBusts: string[] = []
+      const earlyBusts: string[] = []
+      for (const dayCount of [4, 7] as const) {
+        for (const variant of [0, 1, 2, 5, 9]) {
+          const plan = generatePlan(c, preset, dayCount, pace, cStay, ARRIVING, [], variant)
+          const where = `${pace} v${variant}/${dayCount}d`
+          const spent = new Set<string>()
+          plan.days.slice(0, dayCount).forEach((d, i) => {
+            const date = dayDate(ARRIVING, i)
+            const wd = dayWeekday(ARRIVING, i)
+            const effPace = plan.paces[i] ?? pace
+            for (const s of d.committed) {
+              const p = stopPlace(c, s)
+              const hrs = p && effectiveHours(p, date, wd)
+              // A stop on a day its venue is SHUT is the loudest failure there
+              // is — testing `hrs && …` skipped exactly that case.
+              if (p && !hrs) closeBusts.push(`${where} day ${i + 1} ${s.id} CLOSED that day`)
+              else if (hrs && s.timeIn + s.dur > hrs[1] * 60) closeBusts.push(`${where} day ${i + 1} ${s.id} outlasts its close`)
+              // …and one that starts before the doors open. commitPlace clamps
+              // to opening without a wait cap, so a data change could open a
+              // day with a silent multi-hour dead wait and stay green.
+              else if (hrs && s.timeIn < hrs[0] * 60) earlyBusts.push(`${where} day ${i + 1} ${s.id} starts before opening`)
+              // The engine's curfew is two-tier; 22:00 is neither tier.
+              const curfew = s.meal === 'dinner' ? c.dayEnd : ENGINE.lastLeave
+              if (s.timeIn + s.dur > curfew) curfewBusts.push(`${where} day ${i + 1} ${s.id}`)
+            }
             const nonDinner = d.committed.filter((s) => s.meal !== 'dinner').length
-            if (nonDinner > 3) bufferBusts.push(`v${variant} day 7: ${nonDinner} non-dinner stops`)
-          }
-          const isTrip = d.committed.some((s) => stopPlace(c, s)?.dayTrip)
-          if (isTrip || d.committed.length < 3) return
-          if (lunchInv > dayCount && !d.meals.lunch) mealMisses.push(`v${variant}/${dayCount}d day ${i + 1}: lunch`)
-          if (dinnerInv >= dayCount && !d.meals.dinner) mealMisses.push(`v${variant}/${dayCount}d day ${i + 1}: dinner`)
-        })
+            if (i === 6 && nonDinner > 3) bufferBusts.push(`${where} day 7: ${nonDinner} non-dinner stops`)
+            // The day budget itself — previously only the ceiling of 8 was checked.
+            const cap = i === 6 ? 3 : ENGINE.stopBudget[effPace]
+            if (nonDinner > cap) budgetBusts.push(`${where} day ${i + 1}: ${nonDinner} > ${cap}`)
+
+            const isTrip = d.committed.some((s) => stopPlace(c, s)?.dayTrip)
+            const ctx = dayPlanContext(c, i, { dayCount, preset, travelerPace: pace, stay: cStay, arriving: ARRIVING })
+            // Populatedness, asserted for EVERY preset × dayCount × variant ×
+            // pace — it used to run for two of six combinations at variant 0,
+            // which is how an empty final day shipped unnoticed. A thin day is
+            // forgiven only when the engine can PROVE nothing else fit.
+            const minStops = isTrip ? 1 : i === 6 ? 2 : 3
+            if (d.committed.length < minStops && couldHaveFilled(c, d, plan.paces[i] ?? pace, spent, ctx.opts))
+              thin.push(`${where} day ${i + 1}: ${d.committed.length} stops with candidates still available`)
+
+            if (!isTrip && d.committed.length >= 3) {
+              // Symmetric guards — the old pair used `>` for lunch and `>=` for
+              // dinner, which silently disabled Rome's lunch check at exactly
+              // four days. Both now ask the engine whether the meal was reachable.
+              if (!d.meals.lunch && couldHaveEaten(c, d, 'lunch', plan.paces[i] ?? pace, spent, ctx.opts))
+                mealMisses.push(`${where} day ${i + 1}: lunch`)
+              if (!d.meals.dinner && couldHaveEaten(c, d, 'dinner', plan.paces[i] ?? pace, spent, ctx.opts))
+                mealMisses.push(`${where} day ${i + 1}: dinner`)
+            }
+            d.committed.forEach((s) => spent.add(s.id))
+          })
+        }
       }
+      const tag = `${cid}/${preset.id}/${pace}`
+      check(`${tag}: every day is populated`, thin.length === 0, thin.join('; '))
+      check(`${tag}: every full day eats while venues remain`, mealMisses.length === 0, mealMisses.join('; '))
+      check(`${tag}: no stop is scheduled on a closing day, and none outlasts its close`, closeBusts.length === 0, closeBusts.join('; '))
+      check(`${tag}: no stop starts before its doors open`, earlyBusts.length === 0, earlyBusts.join('; '))
+      check(`${tag}: every stop is within its curfew`, curfewBusts.length === 0, curfewBusts.join('; '))
+      check(`${tag}: within the day's stop budget`, budgetBusts.length === 0, budgetBusts.join('; '))
+      check(`${tag}: buffer day keeps its 3-stop cap`, bufferBusts.length === 0, bufferBusts.join('; '))
     }
-    check(`${cid}/${preset.id}: every full day eats (5 variants × 4d/7d)`, mealMisses.length === 0, mealMisses.join('; '))
-    check(`${cid}/${preset.id}: no stop outlasts its venue's closing`, closeBusts.length === 0, closeBusts.join('; '))
-    check(`${cid}/${preset.id}: buffer day keeps its 3-stop cap`, bufferBusts.length === 0, bufferBusts.join('; '))
   }
 }
 
@@ -788,6 +887,71 @@ check(
   check('dinner: a replay never slides dinner before 18:00 unflagged', retimed === 0, `${retimed} days`)
   check('dinner: every dinner slot is reconsiderable', emptyDecks === 0, `${emptyDecks} of ${dinnerSlots} decks empty`)
   check('dinner: no card claims a walk home that is a métro ride', fabricatedHome === 0, `${fabricatedHome} cards`)
+}
+
+// The closed-day detector, proven against a day that really does contain a
+// closed stop. This state is reachable in the app — replaySequence flags
+// rather than drops, so materializing a curated day onto a Monday produces it
+// — and the previous form of the sweep's check (`if (hrs && …)`) scored it
+// clean, because a closed venue's hours are null and the test short-circuited.
+{
+  const mon = { date: '2026-09-14', weekday: 1 } // Orsay is closed Mondays
+  const closedDay = replaySequence(city, [{ placeId: 'orsay' }], 'balanced', STAY, mon)
+  const detected = closedDay.day.committed.filter((s) => {
+    const p = stopPlace(city, s)
+    return p && effectiveHours(p, mon.date, mon.weekday) === null
+  })
+  check('closed-day detection: a stop scheduled on a closed day is detected', detected.length === 1, `${detected.length} of ${closedDay.day.committed.length}`)
+  check('closed-day detection: and the replay flags it', closedDay.flags.some((f) => f.note === 'closed this day'), closedDay.flags.map((f) => f.note).join('; '))
+}
+
+// ── Determinism on the axis that can actually break it ──
+// Every other determinism assertion compares two calls in one process, one
+// clock, one zone. The engine has no RNG and no Date.now; the only
+// environment-sensitive code is dayWeekday/dayDate, which read LOCAL date
+// parts — and planner.ts records that a toISOString version already drifted
+// once. That regression would pass the whole suite for anyone west of UTC.
+{
+  const stamp = (arriving: string) =>
+    Object.entries(CITIES)
+      .flatMap(([cid, c]) =>
+        PLAN_PRESETS.map((p) => {
+          const plan = generatePlan(c, p, 7, 'balanced', stayLoc(c, c.hoodOrder[0]), arriving, [])
+          return `${cid}/${p.id}:` + plan.days.flatMap((d) => d.committed.map((s) => `${s.id}@${s.timeIn}+${s.dur}`)).join(',')
+        }),
+      )
+      .join('|')
+  // The date functions are asserted DIRECTLY as well as through a plan hash:
+  // `date` reaches the engine only via exception lookups, so a one-day slip is
+  // invisible on dates where no city has an exception — a plan hash alone
+  // would not have caught the toISOString regression this guards against.
+  const dateStamp = () =>
+    Array.from({ length: 400 }, (_, i) => `${dayDate('2026-01-01', i)}/${dayWeekday('2026-01-01', i)}`).join(',')
+  const TZS = ['UTC', 'Pacific/Kiritimati', 'Pacific/Midway', 'Australia/Lord_Howe', 'America/Santiago', 'Europe/Paris']
+  const original = process.env.TZ
+  {
+    const stamps = TZS.map((tz) => {
+      process.env.TZ = tz
+      return dateStamp()
+    })
+    const bad = TZS.filter((_, i) => stamps[i] !== stamps[0])
+    check(`determinism: dayDate/dayWeekday agree across ${TZS.length} timezones (400 days)`, bad.length === 0, bad.join(', '))
+  }
+  // 2026-10-25 is the EU DST flip; 2026-04-05 is the southern-hemisphere one.
+  for (const arriving of [ARRIVING, '2026-10-25', '2026-04-05']) {
+    const stamps = TZS.map((tz) => {
+      process.env.TZ = tz
+      return stamp(arriving)
+    })
+    const distinct = new Set(stamps).size
+    check(
+      `determinism: arriving ${arriving} plans identically across ${TZS.length} timezones`,
+      distinct === 1,
+      distinct === 1 ? '' : `${distinct} distinct plan sets — ${TZS.filter((_, i) => stamps[i] !== stamps[0]).join(', ')} differ from UTC`,
+    )
+  }
+  if (original === undefined) delete process.env.TZ
+  else process.env.TZ = original
 }
 
 process.exit(fail ? 1 : 0)

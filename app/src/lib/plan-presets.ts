@@ -350,21 +350,48 @@ export function generatePlan(
           const tail = cands.filter((c) => !c.forced)
           let c = pinCand ?? preset.pick(head.length ? rot(head) : rot(tail))
           if (!pinCand) {
-            // One long stop can leap the clock past the 14:30 lunch window —
-            // trade it for lunch now rather than a lunch-less afternoon.
-            if (!c.p.meal && !day.meals.lunch && day.clock < ENGINE.lunchForceFrom && c.leave > 14.5 * 60) {
-              const lunch = cands.find((x) => x.p.meal === 'lunch')
-              if (lunch) c = lunch
+            // A long stop can swallow the whole lunch window. Rather than guess
+            // from a fixed hour, ask the question directly: after this stop, is
+            // any lunch still feasible? A 2-hour Forum visit starting at 11:35
+            // ends inside the window and still starves the day, because the
+            // last open market shuts at 14:00.
+            if (!c.p.meal && !day.meals.lunch && day.clock <= 14.5 * 60) {
+              const lunchOpts = { ...opts, covered, slotMeal: 'lunch' as const }
+              const after = { ...day, ...commitCandidate(day, c) }
+              if (buildCandidates(city, after, pace, visited, lunchOpts).length === 0) {
+                // Ask for lunch directly rather than looking in the top-N list:
+                // a feasible lunch often ranks below the sights around it.
+                const now = buildCandidates(city, day, pace, visited, lunchOpts)
+                if (now.length) c = now[0]
+                else if (
+                  day.clock < ENGINE.lunchForceFrom &&
+                  buildCandidates(city, { ...day, clock: ENGINE.lunchForceFrom }, pace, visited, lunchOpts).length > 0
+                ) {
+                  // The kitchens simply aren't open yet at 10:23 — wait for
+                  // them instead of starting a 3½-hour museum that ends after
+                  // every lunch service in the city.
+                  day = { ...day, clock: ENGINE.lunchForceFrom }
+                  continue
+                }
+              }
             }
-            // The dinner-side cliff: a stop that runs deep into the evening
-            // (a 19:00 show ends past every last seating) swallows the owed
-            // dinner — take an earlier-ending stop, or hold for 18:00.
-            if (!c.p.meal && !day.meals.dinner && c.leave > ENGINE.eveningWindDown) {
-              const safer = rot(tail).find((x) => !x.p.meal && x.leave <= ENGINE.eveningWindDown)
-              if (safer) c = safer
-              else if (day.clock < 18 * 60 && day.committed.length > 0) {
-                day = { ...day, clock: 18 * 60 }
-                continue
+            // The dinner-side cliff, asked the same way: after this stop, is any
+            // dinner still feasible? A stop ending at 19:25 looks harmless
+            // against a fixed 19:30 wind-down and still leaves the day unfed.
+            if (!c.p.meal && !day.meals.dinner) {
+              const dinnerOpts = { ...opts, covered, slotMeal: 'dinner' as const }
+              const stillFed = (d2: DayState) => buildCandidates(city, d2, pace, visited, dinnerOpts).length > 0
+              if (!stillFed({ ...day, ...commitCandidate(day, c) })) {
+                const safer = rot(tail).find((x) => !x.p.meal && stillFed({ ...day, ...commitCandidate(day, x) }))
+                if (safer) c = safer
+                // Idle to the dinner hour only when idling actually buys a
+                // dinner. Rome spends its four dinner venues by day 4, and
+                // waiting for one that no longer exists stranded a nine-hour
+                // hole in the middle of the day.
+                else if (day.clock < ENGINE.dinnerFrom && day.committed.length > 0 && stillFed({ ...day, clock: ENGINE.dinnerFrom })) {
+                  day = { ...day, clock: ENGINE.dinnerFrom }
+                  continue
+                }
               }
             }
           }

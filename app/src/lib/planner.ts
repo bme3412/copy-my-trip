@@ -598,10 +598,14 @@ export function isDayDone(day: DayState, pace: Pace, candidates: Candidate[], ma
  * `why` labels the commitment (seeds aren't score-ranked, they're the day's premise). */
 export function commitPlace(day: DayState, place: EffectivePlace, pace: Pace, hours?: [number, number], why?: string): DayState {
   const t = travel(day.loc, place)
-  const dur = Math.round(place.dur * PACE[pace].f)
   let arrive = day.clock + t.min + (place.timed ? ENGINE.timedEntryBuffer : 0)
-  const opensAt = (hours ?? place.open)[0] * 60
+  const win = hours ?? place.open
+  const opensAt = win[0] * 60
   if (arrive < opensAt) arrive = opensAt
+  // A seeded stop leaves when the venue shuts, not when the pace says it's
+  // done: Versailles' 420 minutes become 546 at gentle, which ran the day
+  // trip hours past a palace that had closed.
+  const dur = Math.min(Math.round(place.dur * PACE[pace].f), Math.max(30, win[1] * 60 - arrive))
   const depart = arrive + dur
   const leave = depart + ENGINE.linger[pace]
   const reasons: ScoreReason[] = [{ term: 'narrative_fit', value: 0, note: why ?? "the day's opening commitment" }]
