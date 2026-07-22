@@ -661,9 +661,13 @@ function dayPrefix(city: City, day: DayState, k: number, pace: Pace, stay: Start
   const prev = committed[committed.length - 1]
   // Stored times are the source of truth: clock = free-again after stop k−1.
   const clock = prev ? prev.timeIn + prev.dur + ENGINE.linger[pace] : city.dayStart
-  // The stay fallback only fires on a stale id (place gone from city data) —
-  // the replay loops flag that case as 'not in the city data' downstream.
-  const loc = prev ? (city.places.find((p) => p.id === prev.id) ?? stay) : stay
+  // Resolve through the COMMITTED VARIANT, not the parent place: an experience
+  // may downgrade its parent's provenance ("The Louvre, inside" is web under a
+  // verified parent), and taking the parent handed the next leg a verified
+  // origin it never had — stamping `measured` on a walk leaving a room the
+  // curator has never been in. The stay fallback only fires on a stale id
+  // (place gone from city data), which the replay loops flag downstream.
+  const loc = prev ? (stopPlace(city, prev) ?? stay) : stay
   const meals = { lunch: false, dinner: false, coffee: false }
   for (const c of committed) if (c.meal) meals[c.meal] = true
   return { clock, loc, committed, meals }

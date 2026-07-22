@@ -1,4 +1,4 @@
-import type { City, DayStop } from '../cities/types'
+import type { City, DayStop, FinishedDay } from '../cities/types'
 import { fmt, stopPlace, type DayState } from './planner'
 
 /** "The Islands" reads as "the Islands" mid-phrase; French articles stay. */
@@ -66,4 +66,12 @@ export function builtDayStops(city: City, day: DayState): DayStop[] {
 export function builtDayVerifiedLabel(day: DayState): string {
   const v = day.committed.filter((c) => c.src === 'verified').length
   return `${v} of ${day.committed.length} stops personally verified`
+}
+
+/** The same label for a curated day, counted from its stops rather than typed
+ * by hand — the hand-typed version had the wrong numbers on three of Paris's
+ * four days, which is a false provenance claim waiting to reach the page. */
+export function curatedVerifiedLabel(day: FinishedDay): string {
+  const v = day.stops.filter((s) => s.kind === 'verified').length
+  return `${v} of ${day.stops.length} stops personally verified`
 }

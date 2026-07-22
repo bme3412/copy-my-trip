@@ -1,1 +1,128 @@
-{}
+{
+ "pantheon": {
+  "desc": "Still a working building after nineteen centuries, and free to enter. Stand under the oculus rather than around the edges — the whole room is built to send your eye up through that hole in the roof."
+ },
+ "navona": {
+  "desc": "Baroque theatre on the footprint of a Roman stadium, which is why it is long and rounded at one end. The cafés on the square charge for the view; the streets one block off do not."
+ },
+ "santeustachio": {
+  "desc": "A standing-room coffee bar behind the Pantheon, famous enough to have a queue and quick enough that it never matters. Order at the till first, then hand the receipt across the counter."
+ },
+ "campodefiori": {
+  "desc": "A morning market square that turns into a drinking square after dark. Come while the stalls are still up — produce, cheese and *porchetta* — and eat standing."
+ },
+ "armando": {
+  "desc": "A small family-run Roman kitchen beside the Pantheon, doing the four classic pastas without reinventing them. Book: the room is tiny and turns over slowly."
+ },
+ "sanluigi": {
+  "desc": "The French national church, and three Caravaggios in a side chapel that most visitors walk straight past. Bring coins for the light box, or wait for someone else to feed it."
+ },
+ "colosseo": {
+  "desc": "The one that needs a booked slot and a decision about how deep to go — arena floor and underground are separate tickets. Early or late spares you both the queue and the sun."
+ },
+ "forum": {
+  "desc": "Not a building but a whole flattened city centre, and it reads as rubble until you pick a route through it. The Palatine above is quieter and gives you the Forum from overhead."
+ },
+ "capitoline": {
+  "desc": "The oldest public museum collection in the world, on the hill Michelangelo laid out. The bronze she-wolf and the colossal marble hand are here, and the terrace looks straight down the Forum."
+ },
+ "campidoglio": {
+  "desc": "The balcony behind the Capitoline palaces, looking over the Forum with no ticket and no queue. Best at dusk, when the ruins light up and the day crowd has gone."
+ },
+ "taverna": {
+  "desc": "A neighbourhood osteria on the Monti side of the Fori, doing Roman standards at Roman prices. Small, so an early sitting or a reservation."
+ },
+ "trevi": {
+  "desc": "Far larger in person than photographs suggest, and wedged into a square too small for it. Go very early or very late; the middle of the day is shoulder to shoulder."
+ },
+ "spanishsteps": {
+  "desc": "A staircase that works as a grandstand — sitting on the steps is no longer allowed, so treat it as a passage rather than a rest. The view back down Via Condotti is the point."
+ },
+ "pincio": {
+  "desc": "The terrace above Piazza del Popolo, looking west across the rooftops to St Peter's dome. It is the standard Rome sunset, and it earns the reputation."
+ },
+ "vaticanmus": {
+  "desc": "Hours of collection funnelling toward one ceiling, and the route is one-way. Book a slot, go at opening or late, and decide in advance what you are willing to walk past."
+ },
+ "stpeters": {
+  "desc": "Free to enter, with a security queue that shapes the visit — go early. The dome climb is a separate ticket and the last stretch is a narrow, leaning staircase."
+ },
+ "santangelo": {
+  "desc": "Hadrian's tomb, later a fortress and papal bolt-hole, with a spiral ramp climbing through the middle of it. The bridge in front is the best-dressed in the city."
+ },
+ "smtrastevere": {
+  "desc": "One of the oldest churches in Rome, and the golden mosaics across the apse are what people come for. The square outside is the neighbourhood's living room."
+ },
+ "trasteverewalk": {
+  "desc": "The point of Trastevere is not a monument but the grid — narrow, ivy-covered, washing overhead. Head east of Viale Trastevere for the quieter half."
+ },
+ "sancalisto": {
+  "desc": "An unreconstructed neighbourhood bar on its own square: cheap coffee, cheaper beer, plastic chairs, all ages. Nothing is designed, which is the appeal."
+ },
+ "trapizzino": {
+  "desc": "A pocket of pizza bianca filled with Roman stews — *pollo alla cacciatora*, oxtail — invented for exactly this kind of standing lunch. Two is a meal."
+ },
+ "daenzo": {
+  "desc": "A tiny Trastevere trattoria with a long-standing reputation and a queue to match. No reservations for most sittings; go at opening or expect to wait."
+ },
+ "gianicolo": {
+  "desc": "The hill above Trastevere, and the widest view in Rome — the whole centre laid out flat. A cannon is fired here at noon."
+ },
+ "monti": {
+  "desc": "The village-in-the-city between the Forum and Termini: workshops, wine bars and a small square everyone sits in. Via Urbana and Via del Boschetto are the spine."
+ },
+ "vincoli": {
+  "desc": "A plain church holding Michelangelo's *Moses*, carved for a papal tomb that was never finished at the scale intended. Ten minutes, and worth the climb up from the Colosseum."
+ },
+ "maggiore": {
+  "desc": "One of the four great papal basilicas, with fifth-century mosaics running the length of the nave. Dress code applies, as at all of them."
+ },
+ "panella": {
+  "desc": "A bakery and coffee counter on Via Merulana with a long display of Roman baking. Good for a pastry standing at the bar, or a sit-down breakfast outside."
+ },
+ "mercatocentrale": {
+  "desc": "A food hall built into Termini station — a spread of small counters under one roof. Useful precisely because it is fast, open late and next to the trains."
+ },
+ "orangegarden": {
+  "desc": "A walled orange grove on the Aventine with a terrace over the river and the dome. The keyhole in the priory gate next door frames St Peter's exactly; there is usually a short queue for it."
+ },
+ "testacciomkt": {
+  "desc": "A modern covered market in a working neighbourhood, built for eating rather than sightseeing. Sandwich and pasta counters at the back; it winds down in the early afternoon."
+ },
+ "bocca": {
+  "desc": "A drain cover carved as a face, in the portico of a church, with a queue for a photograph of a hand in its mouth. Five minutes — but the church behind it is genuinely old and quiet."
+ },
+ "borghese": {
+  "desc": "A small, dense collection — Bernini's sculpture above all — in a villa that limits everyone to a strict two-hour slot. Must be booked ahead; entry is refused without one."
+ },
+ "borghesepark": {
+  "desc": "The city's big central park, above the Spanish Steps: umbrella pines, a boating lake and long gravel avenues. Easiest as the way to or from the Galleria."
+ },
+ "ostia": {
+  "desc": "Rome's harbour town, abandoned rather than destroyed, so streets, baths and apartment blocks still stand. A half-hour train from Porta San Paolo and a whole day once you are there."
+ },
+ "popolo": {
+  "desc": "The old northern gate of the city, with twin churches framing the road in and two Caravaggios in Santa Maria del Popolo. The Pincio steps go up from the corner."
+ },
+ "arapacis": {
+  "desc": "Augustus's altar of peace, sealed inside a modern glass box that is itself part of the argument. Small and quick, and the carved processional frieze repays standing close."
+ },
+ "ghetto": {
+  "desc": "One of the oldest Jewish quarters in Europe, layered straight onto Roman ruins at the Portico d'Ottavia. Bakeries and *carciofi alla giudia*; read the brass stones underfoot."
+ },
+ "isola": {
+  "desc": "A boat-shaped island mid-river, with a hospital, a church and the oldest bridge in Rome still in use. A short crossing rather than a destination — best at dusk."
+ },
+ "caracalla": {
+  "desc": "Imperial baths on a scale that is hard to believe until you are inside the walls, and almost always empty compared to the Forum. Vaults gone, footprint intact."
+ },
+ "giolitti": {
+  "desc": "A long-running gelateria near the Pantheon with a marble-counter routine: pay first, then order. Ask for panna and they will add it without charging."
+ },
+ "stignazio": {
+  "desc": "A Jesuit church whose dome is painted flat on the ceiling — stand on the marker in the nave and it lifts. Free, small, and over in fifteen minutes."
+ },
+ "trattoriamonti": {
+  "desc": "A family kitchen in Monti cooking from the Marche rather than Rome — the tortello with egg yolk is what it is known for. Book ahead; it is small and busy."
+ }
+}

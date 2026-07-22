@@ -197,7 +197,9 @@ export interface DayStop {
 export interface FinishedDay {
   index: number
   title: string
-  verifiedLabel: string
+  /** No `verifiedLabel` here on purpose: it was hand-typed and three of the
+   * four Paris days disagreed with their own stops. Derive it from `stops`
+   * with `curatedVerifiedLabel` (lib/built-day.ts) instead. */
   stops: DayStop[]
 }
 

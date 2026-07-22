@@ -115,6 +115,43 @@ function validateCity(cid: string, city: City) {
   for (const key of Object.keys(city.entry)) check(`${tag} entry key is a place id`, idSet.has(key), key)
   for (const key of Object.keys(city.media)) check(`${tag} media key is a place id`, idSet.has(key), key)
 
+  // ── Renderability ──
+  // These checks used to pass vacuously by iterating an empty map: Rome shipped
+  // live with `media.json` as `{}`, so every stop rendered as a bare name and
+  // the narrator was handed nothing but names and hoods. A city is renderable
+  // when every schedulable place can say what it is; the archive tier owes
+  // photographs on top of that.
+  const has = (id: string) => (city.media[id]?.desc ?? '').trim().length > 0
+  const schedulable = city.places.filter((p) => !p.dayTrip)
+
+  // The archive tier owes both prose and photographs — it is the tier that
+  // leads, and a verified stop with nothing to show is a claim with no
+  // evidence behind it.
+  const archive = schedulable.filter((p) => p.src === 'verified')
+  const undescribed = archive.filter((p) => !has(p.id))
+  check(`${tag}: every verified place has a description`, undescribed.length === 0, undescribed.map((p) => p.id).join(', '))
+  const plateless = archive.filter((p) => !(city.media[p.id]?.plates ?? []).length)
+  check(`${tag}: every verified place carries archive plates`, plateless.length === 0, plateless.map((p) => p.id).join(', '))
+
+  // The web tier owes prose. Without it a stop renders as a bare name and the
+  // narrator is handed nothing but a name and a hood — which is how Rome
+  // shipped live with an entirely empty media.json, every check above passing
+  // vacuously over zero entries.
+  const web = schedulable.filter((p) => p.src !== 'verified')
+  const webDescribed = web.filter((p) => has(p.id))
+  check(`${tag}: the web tier is not entirely undescribed`, web.length === 0 || webDescribed.length > 0, `0 of ${web.length}`)
+
+  // …and a ratchet over the rest, because this is real content debt, not a
+  // bug: Paris still owes copy for most of its web tier. The floor stops it
+  // getting worse while that is written; raise it as coverage lands.
+  const FLOOR: Record<string, number> = { paris: 5, rome: 41 }
+  const floor = FLOOR[tag.replace(/[[\]]/g, '')] ?? 0
+  check(
+    `${tag}: web-tier descriptions ≥ ${floor} (have ${webDescribed.length}/${web.length})`,
+    webDescribed.length >= floor,
+    `coverage fell to ${webDescribed.length}`,
+  )
+
   for (const n of city.nodes) {
     check(`${tag} node "${n.name}" is a place`, nameSet.has(n.name))
     const p = byName.get(n.name)
@@ -153,15 +190,40 @@ function validateCity(cid: string, city: City) {
   const placeIds = new Set(ids)
   for (const d of city.curatedDays) {
     const t = `${tag} curated day ${d.index}`
-    check(`${t}: title and verifiedLabel`, d.title.length > 0 && d.verifiedLabel.length > 0)
+    check(`${t}: has a title`, d.title.length > 0)
     for (const s of d.stops) {
       check(`${t} stop "${s.name}": kind valid`, ['verified', 'web-pin', 'web-image'].includes(s.kind))
-      // placeId is what lets a curated day fork into an editable built day —
-      // when present it must resolve; when the name matches a place, it must
-      // be present (no silently unlinked stops).
+      // A witnessed claim must name the place that backs it. The old
+      // name-matching fallback could not see a stop whose name matched no
+      // place, which is how several stops claiming "personally verified"
+      // escaped every check below. Web-tier stops may stay unlinked — they
+      // are editorial, and there is nothing to back.
+      if (s.kind === 'verified' || s.provenance || s.plates?.length)
+        check(`${t} stop "${s.name}": a witnessed stop names its place`, s.placeId !== undefined)
       if (s.placeId !== undefined) check(`${t} stop "${s.name}": placeId resolves`, placeIds.has(s.placeId), s.placeId)
       const byName = city.places.find((p) => p.name === s.name)
       if (byName) check(`${t} stop "${s.name}": linked to its place`, s.placeId === byName.id, `expected ${byName.id}, got ${s.placeId ?? 'none'}`)
+      // ── The provenance gate ──
+      // A stop may not claim to be witnessed unless its place record says so.
+      // Two claims for one stop is the one thing this product must never do:
+      // the curated page renders the accent dot, archive plates and a visit
+      // count, while the same stop materialized through the engine renders as
+      // a web pin — same trip, same stop, contradictory provenance.
+      const place = s.placeId !== undefined ? city.places.find((p) => p.id === s.placeId) : undefined
+      if (place) {
+        check(
+          `${t} stop "${s.name}": kind matches the place's provenance`,
+          (s.kind === 'verified') === (place.src === 'verified'),
+          `kind=${s.kind} but places.json says src=${place.src}`,
+        )
+        check(
+          `${t} stop "${s.name}": provenance only where the archive backs it`,
+          !s.provenance || (place.src === 'verified' && place.visits > 0),
+          `provenance "${s.provenance}" but src=${place.src}, visits=${place.visits}`,
+        )
+        if (s.plates?.length)
+          check(`${t} stop "${s.name}": archive plates only on verified places`, place.src === 'verified', `${s.plates.length} plates on a ${place.src} place`)
+      }
       for (const pl of s.plates ?? []) slotIds.add(pl.id)
       if (s.webImage) slotIds.add(s.webImage.id)
     }

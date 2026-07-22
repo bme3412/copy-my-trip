@@ -2,7 +2,6 @@
  {
   "index": 1,
   "title": "Marais & the two islands",
-  "verifiedLabel": "6 of 8 stops personally verified",
   "stops": [
    {
     "time": "9:15",
@@ -197,7 +196,6 @@
  {
   "index": 2,
   "title": "Latin Quarter & the gardens",
-  "verifiedLabel": "5 of 7 stops personally verified",
   "stops": [
    {
     "time": "8:45",
@@ -205,25 +203,14 @@
     "name": "Café de la Mairie",
     "sub": "Place Saint-Sulpice, 6e",
     "desc": "Terrace coffee facing the fountain — sit on the square side, not the street side, and let the morning fill in.",
-    "kind": "verified",
-    "plates": [
-     {
-      "id": "d2-cafe-1",
-      "w": 250,
-      "h": 168,
-      "caption": "Terrace"
-     },
-     {
-      "id": "d2-cafe-2",
-      "w": 170,
-      "h": 168,
-      "caption": "Fountain"
-     }
-    ],
-    "provenance": "From 4 visits · last Sep ’23",
+    "kind": "web-image",
     "transitAfter": {
      "min": 4,
      "measured": false
+    },
+    "webImage": {
+     "id": "d2-cafe-1",
+     "caption": "Terrace"
     }
    },
    {
@@ -239,7 +226,8 @@
     "transitAfter": {
      "min": 7,
      "measured": true
-    }
+    },
+    "placeId": "stsulpice"
    },
    {
     "time": "10:30",
@@ -340,7 +328,8 @@
     "transitAfter": {
      "min": 4,
      "measured": true
-    }
+    },
+    "placeId": "shakespeare"
    },
    {
     "time": "18:30",
@@ -348,30 +337,17 @@
     "name": "Quai de Montebello",
     "sub": "the bouquinistes, facing Notre-Dame",
     "desc": "Walk the green book-boxes as the light drops — Notre-Dame across the water is the reason to end the day on this bank.",
-    "kind": "verified",
-    "plates": [
-     {
-      "id": "d2-quai-1",
-      "w": 340,
-      "h": 190,
-      "caption": "Booksellers & river"
-     },
-     {
-      "id": "d2-quai-2",
-      "w": 150,
-      "h": 190,
-      "caption": "Notre-Dame",
-      "video": "0:11"
-     }
-    ],
-    "provenance": "From 4 visits · last Sep ’23"
+    "kind": "web-image",
+    "webImage": {
+     "id": "d2-quai-1",
+     "caption": "Booksellers & river"
+    }
    }
   ]
  },
  {
   "index": 3,
   "title": "Canal Saint-Martin & Montmartre",
-  "verifiedLabel": "4 of 7 stops personally verified",
   "stops": [
    {
     "time": "9:15",
@@ -441,25 +417,14 @@
     "name": "Rue des Martyrs",
     "sub": "the climb toward Montmartre",
     "desc": "The best-fed street in Paris — take the slow uphill and let the food shops set the pace toward the hill.",
-    "kind": "verified",
-    "plates": [
-     {
-      "id": "d3-martyrs-1",
-      "w": 250,
-      "h": 172,
-      "caption": "Shopfronts"
-     },
-     {
-      "id": "d3-martyrs-2",
-      "w": 180,
-      "h": 172,
-      "caption": "Up the hill"
-     }
-    ],
-    "provenance": "From 3 visits · last Apr ’22",
+    "kind": "web-image",
     "transitAfter": {
      "min": 5,
      "measured": false
+    },
+    "webImage": {
+     "id": "d3-martyrs-1",
+     "caption": "Shopfronts"
     }
    },
    {
@@ -484,25 +449,14 @@
     "name": "Sacré-Cœur",
     "sub": "the steps, not the summit crowd",
     "desc": "Sit on the steps below the basilica facing out — the view down over the city is better than the one from the very top.",
-    "kind": "verified",
-    "plates": [
-     {
-      "id": "d3-sacre-1",
-      "w": 250,
-      "h": 172,
-      "caption": "From the steps"
-     },
-     {
-      "id": "d3-sacre-2",
-      "w": 180,
-      "h": 172,
-      "caption": "The dome"
-     }
-    ],
-    "provenance": "From 2 visits · last Apr ’19",
+    "kind": "web-image",
     "transitAfter": {
      "min": 4,
      "measured": false
+    },
+    "webImage": {
+     "id": "d3-sacre-1",
+     "caption": "From the steps"
     }
    },
    {
@@ -512,14 +466,14 @@
     "sub": "Montmartre backstreets",
     "desc": "A gap in my archive — added from web notes. Skip the painters' square itself and use it as a doorway into the quieter lanes behind.",
     "kind": "web-pin",
-    "pin": "Place du Tertre, 18e"
+    "pin": "Place du Tertre, 18e",
+    "placeId": "placetertre"
    }
   ]
  },
  {
   "index": 4,
   "title": "The east side & a last river light",
-  "verifiedLabel": "5 of 6 stops personally verified",
   "stops": [
    {
     "time": "9:30",
@@ -546,7 +500,8 @@
     "transitAfter": {
      "min": 9,
      "measured": true
-    }
+    },
+    "placeId": "aligre"
    },
    {
     "time": "11:00",
@@ -604,25 +559,15 @@
     "name": "Coulée verte René-Dumont",
     "sub": "the planted railway viaduct",
     "desc": "Walk the old rail line above the street — start at Bastille and let it carry you east through the rose arches, well above the traffic.",
-    "kind": "verified",
-    "plates": [
-     {
-      "id": "d4-coulee-1",
-      "w": 250,
-      "h": 172,
-      "caption": "The promenade"
-     },
-     {
-      "id": "d4-coulee-2",
-      "w": 180,
-      "h": 172,
-      "caption": "Rose arches"
-     }
-    ],
-    "provenance": "From 2 visits · last Jun ’22",
+    "kind": "web-image",
     "transitAfter": {
      "min": 12,
      "measured": true
+    },
+    "placeId": "couleeverte",
+    "webImage": {
+     "id": "d4-coulee-1",
+     "caption": "The promenade"
     }
    },
    {
