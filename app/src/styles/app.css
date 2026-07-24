@@ -100,6 +100,17 @@
 }
 @media (prefers-reduced-motion: reduce) { .plate-lead-media { animation: none; } }
 
+/* ── The style rotor: three plan cards visible; wheel or chevrons turn it. ── */
+.rotor-btn {
+  font-family: var(--font-heading); font-size: 15px; line-height: 1;
+  width: 24px; height: 24px; padding: 0 0 2px;
+  border: 1px solid var(--color-divider); border-radius: 2px;
+  background: var(--color-bg); color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.rotor-btn:hover { color: var(--color-accent-700); border-color: var(--color-accent-300); }
+
 /* Stop names are quiet entities — underline only on hover, linking into the archive. */
 .stop-name-link { text-decoration: none; }
 .stop-name-link:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--color-accent); }
@@ -280,6 +291,28 @@
   height: 100%;
   object-fit: cover;
   overflow: hidden;
+}
+/* Home ⇄ Compose: the plate takes one full horizontal turn in flight — a
+   card flip around its vertical axis. Both snapshots turn in lockstep so
+   they read as a single card, and the crossfade is held to the last quarter,
+   masked by the second edge-on moment: the new photo is the face the plate
+   lands on. Motion-averse users keep the plain morph-and-fade above. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes cmt-vt-spin-out {
+    0% { transform: perspective(1200px) rotateY(0turn); opacity: 1; }
+    65% { opacity: 1; }
+    85% { opacity: 0; }
+    100% { transform: perspective(1200px) rotateY(1turn); opacity: 0; }
+  }
+  @keyframes cmt-vt-spin-in {
+    0% { transform: perspective(1200px) rotateY(0turn); opacity: 0; }
+    65% { opacity: 0; }
+    85% { opacity: 1; }
+    100% { transform: perspective(1200px) rotateY(1turn); opacity: 1; }
+  }
+  ::view-transition-group(hero-photo) { animation-duration: 750ms; }
+  ::view-transition-old(hero-photo) { animation-name: cmt-vt-spin-out; animation-duration: 750ms; }
+  ::view-transition-new(hero-photo) { animation-name: cmt-vt-spin-in; animation-duration: 750ms; }
 }
 @keyframes cmt-leaf-out-left { to { opacity: 0; transform: translateX(-32px); } }
 @keyframes cmt-leaf-in-right { from { opacity: 0; transform: translateX(32px); } }

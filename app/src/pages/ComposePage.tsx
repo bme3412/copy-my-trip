@@ -8,6 +8,7 @@ import type { Pace } from '../cities/types'
 import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../lib/plan-presets'
 import { extractPreferences } from '../lib/extract'
 import { stayLoc } from '../lib/planner'
+import type { City } from '../cities/types'
 import { useCity } from '../state/CityContext'
 import { useTrip } from '../state/TripContext'
 
@@ -20,6 +21,27 @@ const PACES: { key: Pace; label: string }[] = [
 const pretty = (v: string) =>
   v ? new Date(v + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) : ''
 
+/** The stops this plan is really about — judged by the preset's own idea of
+ * what belongs in its shop window, so "Food & markets" leads with the tables,
+ * not the same anchors every other plan visits. Deduped, coffee left out. */
+function planHighlights(city: City, plan: GeneratedPlan) {
+  const byId = new Map(city.places.map((p) => [p.id, p]))
+  const stops = plan.days.flatMap((d) => d.committed).filter((c) => c.meal !== 'coffee')
+  const uniq = [...new Map(stops.map((s) => [s.id, s])).values()]
+  const tier = (s: (typeof uniq)[number]) => {
+    const p = byId.get(s.id)
+    if (p && plan.preset.highlight?.(p)) return 0
+    if (p?.role === 'anchor' || p?.dayTrip) return 1
+    if (p?.rank === 1) return 2
+    return s.src === 'verified' ? 3 : 4
+  }
+  return uniq
+    .map((s, i) => ({ s, i }))
+    .sort((a, b) => tier(a.s) - tier(b.s) || a.i - b.i)
+    .slice(0, 8)
+    .map(({ s }) => ({ id: s.id, name: s.name, verified: s.src === 'verified' }))
+}
+
 
 export function ComposePage() {
   const city = useCity()
@@ -27,6 +49,10 @@ export function ComposePage() {
   const navigate = useNavigate()
   const [choosing, setChoosing] = useState<string | null>(null)
   const [editing, setEditing] = useState<1 | 2 | null>(null)
+  // The style rotor: three cards visible, the rest a wheel-turn away.
+  const [rotorAt, setRotorAt] = useState(0)
+  const rotorRef = useRef<HTMLDivElement | null>(null)
+  const lastTurn = useRef(0)
   const [briefDraft, setBriefDraft] = useState(trip.brief ?? '')
   const [briefOpen, setBriefOpen] = useState(false)
   const [extracting, setExtracting] = useState(false)
@@ -89,6 +115,24 @@ export function ComposePage() {
       ),
     [city, dayCount, trip.pace, trip.stayHood, trip.arriving, trip.interests, planSeed, trip.extracted],
   )
+
+  const turn = (d: number) => setRotorAt((o) => (o + d + PLAN_PRESETS.length) % PLAN_PRESETS.length)
+
+  // Wheel over the stack turns the rotor instead of scrolling the page —
+  // registered natively because React's onWheel can't preventDefault.
+  useEffect(() => {
+    const el = rotorRef.current
+    if (!el) return
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault()
+      const now = performance.now()
+      if (now - lastTurn.current < 350 || Math.abs(e.deltaY) < 8) return
+      lastTurn.current = now
+      setRotorAt((o) => (o + (e.deltaY > 0 ? 1 : -1) + PLAN_PRESETS.length) % PLAN_PRESETS.length)
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  })
 
   const month = trip.arriving
     ? new Date(trip.arriving + 'T12:00:00').toLocaleDateString('en-US', { month: 'long' })
@@ -313,9 +357,26 @@ export function ComposePage() {
           {/* Stage 3 — the plans, once the trip has a home base. */}
           {staySet && (
             <div className="deal-in" style={{ marginTop: 20 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {plans.map((plan, i) => {
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, margin: '0 0 8px' }}>
+            <span className="text-muted" style={{ fontFamily: 'var(--font-heading)', fontSize: 11, letterSpacing: '.14em', textTransform: 'uppercase' }}>
+              Trip styles
+            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 11.5, fontVariantNumeric: 'tabular-nums' }}>
+                {plans.length} styles · scroll to turn
+              </span>
+              <button type="button" className="rotor-btn" aria-label="Previous styles" onClick={() => turn(-1)}>
+                ‹
+              </button>
+              <button type="button" className="rotor-btn" aria-label="More styles" onClick={() => turn(1)}>
+                ›
+              </button>
+            </div>
+          </div>
+          <div ref={rotorRef} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {Array.from({ length: Math.min(3, plans.length) }, (_, k) => plans[(rotorAt + k) % plans.length]).map((plan, i) => {
               const selected = plan.preset.id === selectedId
+              const detail = selected ? planHighlights(city, plan) : []
               return (
                 <div
                   key={plan.preset.id}
@@ -323,44 +384,76 @@ export function ComposePage() {
                   onClick={() => select(plan)}
                   style={{
                     padding: '10px 16px',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr auto',
-                    gap: 14,
-                    alignItems: 'center',
                     animationDelay: `${i * 60}ms`,
                     cursor: selected ? 'default' : 'pointer',
                     ...(selected || choosing === plan.preset.id ? { borderColor: 'var(--color-accent)', borderWidth: 1.5 } : {}),
                   }}
                 >
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                      <span className="card-kicker">{plan.preset.kicker}</span>
-                      {selected && <CheckIcon size={11} strokeWidth={2.6} stroke="var(--color-accent)" />}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 14, alignItems: 'center' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                        <span className="card-kicker">{plan.preset.kicker}</span>
+                        {selected && <CheckIcon size={11} strokeWidth={2.6} stroke="var(--color-accent)" />}
+                      </div>
+                      <div className="card-title" style={{ fontSize: 16, margin: '1px 0 0' }}>
+                        {plan.preset.title}
+                      </div>
+                      {plan.unplaced.length > 0 && (
+                        <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, margin: '3px 0 0' }}>
+                          Couldn't fit{' '}
+                          {plan.unplaced
+                            .map((u) => city.places.find((p) => p.id === u.placeId)?.name)
+                            .filter(Boolean)
+                            .join(' or ')}{' '}
+                          — {plan.unplaced[0].reason}.
+                        </p>
+                      )}
                     </div>
-                    <div className="card-title" style={{ fontSize: 16, margin: '1px 0 0' }}>
-                      {plan.preset.title}
-                    </div>
-                    {plan.unplaced.length > 0 && (
-                      <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, margin: '3px 0 0' }}>
-                        Couldn't fit{' '}
-                        {plan.unplaced
-                          .map((u) => city.places.find((p) => p.id === u.placeId)?.name)
-                          .filter(Boolean)
-                          .join(' or ')}{' '}
-                        — {plan.unplaced[0].reason}.
-                      </p>
-                    )}
+                    <button
+                      className={selected ? 'btn btn-primary' : 'btn btn-secondary'}
+                      style={{ fontSize: 12 }}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        choose(plan)
+                      }}
+                    >
+                      {choosing === plan.preset.id ? 'Laying out…' : `View ${dayCount} day trip`}
+                    </button>
                   </div>
-                  <button
-                    className={selected ? 'btn btn-primary' : 'btn btn-secondary'}
-                    style={{ fontSize: 12 }}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      choose(plan)
-                    }}
-                  >
-                    {choosing === plan.preset.id ? 'Laying out…' : `View ${dayCount} day trip`}
-                  </button>
+
+                  {/* The chosen card opens a line further: what these days focus on. */}
+                  <div className={`fold ${selected ? '' : 'fold-closed'}`}>
+                    <div className="fold-inner">
+                      {selected && (
+                        <div
+                          style={{
+                            padding: '10px 0 4px',
+                            maxWidth: 560,
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '5px 24px',
+                          }}
+                        >
+                          {detail.map((h) => (
+                            <div key={h.id} style={{ display: 'flex', alignItems: 'baseline', gap: 8, fontFamily: 'var(--font-body)', fontSize: 13.5, lineHeight: 1.45 }}>
+                              <span
+                                style={{
+                                  flex: 'none',
+                                  width: 8,
+                                  height: 8,
+                                  borderRadius: '50%',
+                                  ...(h.verified
+                                    ? { background: 'var(--color-accent)' }
+                                    : { background: 'var(--color-bg)', border: '1.5px solid var(--color-neutral-400)' }),
+                                }}
+                              />
+                              {h.name}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )
             })}

@@ -44,6 +44,15 @@ export interface PlanPreset {
   avoidIcons?: boolean
   /** The preset's scoring lean — a coarse interest profile, applied every pick. */
   themeBias?: { themes: Theme[]; weight: number }
+  /** The lean's other edge: themes this plan actively routes around. */
+  themeAvoid?: { themes: Theme[]; weight: number }
+  /** Invert the editorial rank — rank-3 finds up, rank-1 icons down. */
+  deepCuts?: boolean
+  /** How loudly rank speaks for this plan (multiplies the engine's W.rank). */
+  rankWeight?: number
+  /** What belongs in this plan's focus list — the stops that ARE the theme.
+   * Judged against the place record; falls back to the icon tiering. */
+  highlight?: (p: { themes?: readonly Theme[]; group?: string; rank?: number; role?: string }) => boolean
   pick: (cands: Candidate[]) => Candidate
 }
 
@@ -72,6 +81,11 @@ export const PLAN_PRESETS: PlanPreset[] = [
     title: 'First Time in Paris',
     body: 'The confident first visit — the essentials, but only the ones I keep coming back to, at your pace with short hops between them.',
     pace: null,
+    // The essentials lean: the first trip goes where the postcards are, which
+    // leaves the everyday archive to the plans built around it.
+    themeBias: { themes: ['monumental'], weight: 0.5 },
+    rankWeight: 3,
+    highlight: (p) => p.role === 'anchor' || p.rank === 1,
     pick: (c) => c[0],
   },
   {
@@ -82,6 +96,10 @@ export const PLAN_PRESETS: PlanPreset[] = [
     pace: 'balanced',
     avoidIcons: true,
     themeBias: { themes: ['neighborhood', 'everyday'], weight: 0.75 },
+    themeAvoid: { themes: ['monumental'], weight: 1.5 },
+    deepCuts: true,
+    rankWeight: 3,
+    highlight: (p) => !(p.themes ?? []).includes('monumental') && p.role !== 'anchor' && p.rank !== 1,
     // Dodge the monumental set and the big-ticket anchors when possible.
     pick: (c) =>
       c.find((x) => x.p.src === 'verified' && x.p.role !== 'anchor' && !(x.p.themes ?? []).includes('monumental')) ??
@@ -95,9 +113,36 @@ export const PLAN_PRESETS: PlanPreset[] = [
     body: 'The Louvre, Orsay and the smaller collections — padded with cafés to recover in.',
     pace: 'balanced',
     themeBias: { themes: ['artistic'], weight: 1 },
-    // Chase the artistic thread; fall back to any indoor collection.
+    highlight: (p) => (p.themes ?? []).includes('artistic') || p.group === 'indoor',
+    // Prefer the artistic thread — but only near the top of the pool, so the
+    // engine's variety and saturation terms still weave gardens, bookshops
+    // and cafés between the collections instead of a wall of museums.
+    pick: (c) => c.slice(0, 3).find((x) => (x.p.themes ?? []).includes('artistic')) ?? c[0],
+  },
+  {
+    id: 'food-first',
+    kicker: 'Eat everything',
+    title: 'Food & markets',
+    body: 'Built around meals worth planning a day for — markets in the morning, long lunches, a sweet stop most afternoons.',
+    pace: 'balanced',
+    themeBias: { themes: ['everyday'], weight: 0.75 },
+    highlight: (p) => p.group === 'food',
+    // No food on offer this slot → the runner-up, not first-time's exact pick:
+    // in a thin pool (Rome) the fallback IS the preset's identity.
+    pick: (c) => c.find((x) => x.p.group === 'food' && x.p.src === 'verified') ?? c.find((x) => x.p.group === 'food') ?? c[1] ?? c[0],
+  },
+  {
+    id: 'historic',
+    kicker: 'Centuries deep',
+    title: 'The historic core',
+    body: 'The oldest layers first — medieval streets, royal squares and the buildings the city grew around.',
+    pace: 'balanced',
+    themeBias: { themes: ['historic'], weight: 0.75 },
+    highlight: (p) => (p.themes ?? []).includes('historic'),
     pick: (c) =>
-      c.find((x) => (x.p.themes ?? []).includes('artistic')) ?? c.find((x) => x.p.group === 'indoor') ?? c[0],
+      c.find((x) => (x.p.themes ?? []).includes('historic') && x.p.src === 'verified') ??
+      c.find((x) => (x.p.themes ?? []).includes('historic')) ??
+      c[0],
   },
 ]
 
@@ -204,6 +249,9 @@ export function dayPlanContext(city: City, dayIndex: number, input: DayContextIn
       usedHoods,
       home: stay ?? city.start,
       themeBias: preset?.themeBias,
+      themeAvoid: preset?.themeAvoid,
+      deepCuts: preset?.deepCuts,
+      rankWeight: preset?.rankWeight,
       interestWeights,
       exclude,
       pins,

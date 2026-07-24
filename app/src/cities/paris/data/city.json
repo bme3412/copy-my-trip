@@ -90,11 +90,12 @@
       }
     },
     {
-      "purpose": "A gentler middle day — gardens, bookshops, the river."
-    },
-    {
       "purpose": "The icons at golden hour — and the climb toward Montmartre.",
       "hoodBias": "Montmartre (18e)"
+    },
+    {
+      "purpose": "A gentler middle day — gardens, bookshops, the river.",
+      "hoodBias": "Latin Quarter (5e)"
     },
     {
       "purpose": "Orsay in the morning, then the slow Left Bank.",

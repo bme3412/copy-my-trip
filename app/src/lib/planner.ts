@@ -331,6 +331,15 @@ export interface CandidateOpts {
   home?: { lat: number; lon: number }
   /** The plan's flavor (from the preset): themes it leans toward, and how hard. */
   themeBias?: { themes: readonly Theme[]; weight: number }
+  /** The flavor's other edge: themes the plan steers AROUND, scored down. */
+  themeAvoid?: { themes: readonly Theme[]; weight: number }
+  /** Deep-cuts plans invert the editorial rank: the icon everyone has is the
+   * liability, the rank-3 find is the point. */
+  deepCuts?: boolean
+  /** How loudly editorial rank speaks for this plan (multiplies W.rank).
+   * Fame is a preset trait: an essentials plan turns it up, a deep-cuts plan
+   * turns it up inverted, everyone else keeps the gentle default. */
+  rankWeight?: number
   /** The traveler's own lean, extracted from their free-text brief (−1..1 per
    * theme). Negative weights are real dislikes, not absence of interest. */
   interestWeights?: Partial<Record<Theme, number>>
@@ -431,11 +440,12 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       const pin = opts.pins?.find((x) => x.id === p.id)
       const pinReady = !pin?.notBefore || arrive >= pin.notBefore - 45
       // The day's second long metro leg is off the table — except the opening
-      // commute, and the ride to dinner: dinner is the day's closing commute,
-      // worth a métro even after the long transfer is spent (still priced).
+      // commute, the ride to dinner (the day's closing commute), and a pinned
+      // ask: the traveler already decided this one is worth the ride.
       const transferOk =
         firstLeg ||
         p.meal === 'dinner' ||
+        pinnedIds.has(p.id) ||
         !(t.mode === 'metro' && t.min >= ENGINE.longTransferMin && longTransfers >= ENGINE.maxLongTransfers)
       return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk && pinReady }
     })
@@ -454,8 +464,13 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     // on the page is worse than not counting out loud.
     if (e.p.src === 'verified')
       add('provenance_fit', W.verified, e.p.visits ? `from the archive — ${e.p.visits} visit${e.p.visits === 1 ? '' : 's'}` : 'from the archive')
-    if (e.p.rank === 1) add('editorial_fit', W.rank, 'a first-visit icon')
-    else if (e.p.rank === 3) add('editorial_fit', -W.rank, 'a deeper cut — earns its slot on fit, not fame')
+    const rankW = W.rank * (opts.rankWeight ?? 1)
+    if (opts.deepCuts) {
+      // The plan is here for what the guidebooks skip — fame scores against.
+      if (e.p.rank === 1) add('editorial_fit', -rankW, 'the icon every first trip already has')
+      else if (e.p.rank === 3) add('editorial_fit', rankW, 'a deeper cut — the whole point of this plan')
+    } else if (e.p.rank === 1) add('editorial_fit', rankW, 'a first-visit icon')
+    else if (e.p.rank === 3) add('editorial_fit', -rankW, 'a deeper cut — earns its slot on fit, not fame')
     add(
       'transit_cost',
       -(e.t.min * W.travelPerMin * (firstLeg ? ENGINE.firstLegTravelFactor : 1)),
@@ -495,10 +510,17 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
       if (freshThemes.length) add('coverage', Math.min(freshThemes.length, 2) * W.coverage, `first taste of ${freshThemes.join(' & ')} this trip`)
     }
     if (opts.hoodBias && e.p.hood === opts.hoodBias) add('locality_fit', W.hoodBias, `the day leans toward ${opts.hoodBias}`)
-    // The plan's flavor: presets are coarse interest profiles.
+    // The plan's flavor: presets are coarse interest profiles — with two
+    // edges. What it leans toward scores up; what it steers around scores
+    // down, so a "fewer crowds" plan doesn't merely deprioritize the icons,
+    // it actively routes away from them.
     if (opts.themeBias && e.p.themes) {
       const hits = e.p.themes.filter((th) => opts.themeBias!.themes.includes(th))
       if (hits.length) add('interest_fit', hits.length * opts.themeBias.weight, `fits the plan's ${hits.join(' & ')} lean`)
+    }
+    if (opts.themeAvoid && e.p.themes) {
+      const hits = e.p.themes.filter((th) => opts.themeAvoid!.themes.includes(th))
+      if (hits.length) add('interest_fit', -hits.length * opts.themeAvoid.weight, `${hits.join(' & ')} — what this plan steps around`)
     }
     // A concrete ask from the brief — this place, this day.
     if (opts.pins?.some((x) => x.id === e.p.id)) add('interest_fit', W.pin, 'you asked for this — saved for today')
@@ -583,6 +605,11 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
         ? [{ term: 'narrative_fit', value: 0, note: e.p.meal === 'lunch' ? 'the day needs lunch — this is the closest' : 'dinner closes the day' }]
         : []
     const ranked = [...scoreParts(e)].sort((a, b) => Math.abs(b.value) - Math.abs(a.value))
+    // The traveler's own brief always keeps its seat in the top three —
+    // "matches your brief" is the one reason they literally wrote themselves,
+    // and it must not be crowded out by larger engine terms.
+    const briefIdx = ranked.findIndex((r) => r.term === 'interest_fit' && r.note.includes('brief'))
+    if (briefIdx >= 2) ranked.splice(2, 0, ...ranked.splice(briefIdx, 1))
     return {
       ...e,
       forecast: forecast(e, day, pace, city.dayEnd, opts.home),

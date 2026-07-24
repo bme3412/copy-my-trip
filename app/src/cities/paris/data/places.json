@@ -1852,7 +1852,7 @@
     "themes": [
       "neighborhood"
     ],
-    "rank": 3
+    "rank": 2
   },
   {
     "id": "placetertre",
@@ -1873,7 +1873,7 @@
     "themes": [
       "neighborhood"
     ],
-    "rank": 3
+    "rank": 1
   },
   {
     "id": "moulins",
@@ -2509,7 +2509,8 @@
       "artistic",
       "neighborhood"
     ],
-    "durVar": 15
+    "durVar": 15,
+    "rank": 3
   },
   {
     "id": "ima",
@@ -3329,6 +3330,7 @@
     "themes": [
       "neighborhood",
       "everyday"
-    ]
+    ],
+    "rank": 3
   }
 ]

@@ -109,7 +109,10 @@ for (const [cid, c] of Object.entries(CITIES)) {
       check(`${cid}/${p.id}/${pace}: deterministic`, seq(a) === seq(b))
       checkDays(c, `${cid}/${p.id}/${pace}`, a, 4)
     }
-    check(`${cid}/${pace}: three presets produce distinct itineraries`, new Set(PLAN_PRESETS.map((p) => seq(genFor(c, p.id, 4, pace)))).size === 3)
+    check(
+      `${cid}/${pace}: all ${PLAN_PRESETS.length} presets produce distinct itineraries`,
+      new Set(PLAN_PRESETS.map((p) => seq(genFor(c, p.id, 4, pace)))).size === PLAN_PRESETS.length,
+    )
     // Every preset at 7 days, not just first-time.
     for (const p of PLAN_PRESETS) checkDays(c, `${cid}/${p.id} 7d/${pace}`, genFor(c, p.id, 7, pace), 7)
   }
@@ -159,14 +162,16 @@ const thuCands = buildCandidates(interiorOnly, wedEvening, 'balanced', allButLou
 check('hours: same evening visit infeasible on a normal Thursday', !thuCands.some((c) => c.p.id === 'louvre'))
 
 // Generation-level: an exception on one trip date removes the place that day only.
-// Trip 2026-09-12 (Sat): day 3 is Monday 09-14, where the baseline schedules
-// Holybelly — a one-off closure that date must keep it off that day.
+// Trip 2026-09-12 (Sat): day 3 is Monday 09-14, where the food-first baseline
+// schedules Holybelly — a one-off closure that date must keep it off that day.
+// (Food-first, not first-time: the essentials plan no longer brunches there.)
+const exPreset = PLAN_PRESETS.find((p) => p.id === 'food-first')!
 const exCity: City = {
   ...city,
   places: city.places.map((p) => (p.id === 'holybelly' ? { ...p, exceptions: [{ date: '2026-09-14', closed: true as const }] } : p)),
 }
-const basePlan = generatePlan(city, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
-const exPlan = generatePlan(exCity, PLAN_PRESETS[0], 4, 'balanced', STAY, ARRIVING, [])
+const basePlan = generatePlan(city, exPreset, 4, 'balanced', STAY, ARRIVING, [])
+const exPlan = generatePlan(exCity, exPreset, 4, 'balanced', STAY, ARRIVING, [])
 const onDate = (plan: GeneratedPlan, id: string) =>
   plan.days.filter((_, i) => dayDate(ARRIVING, i) === '2026-09-14').some((d) => d.committed.some((c) => c.id === id))
 check('exceptions: excepted place never scheduled on its closed date', !onDate(exPlan, 'holybelly'))
@@ -387,12 +392,20 @@ for (const [cid, c] of Object.entries(CITIES)) {
     }
 
   // Presets are more than reorderings: bounded overlap between plan flavors.
+  // The flagship pair carries a harder bound — "First time" and "Off the
+  // beaten path" are the two plans a traveler compares first, and their
+  // remaining overlap should be the shared stay-hood spine and the verified
+  // core, not the sights. Rome's thin pool earns a looser bound, not a pass.
+  const FLAGSHIP_MAX: Record<string, number> = { paris: 0.45, rome: 0.65 }
   const sets = PLAN_PRESETS.map((p) => new Set(genFor(c, p.id, 4).days.flatMap((d) => d.committed.map((s) => s.id))))
   for (let i = 0; i < sets.length; i++)
     for (let j = i + 1; j < sets.length; j++) {
       const inter = [...sets[i]].filter((x) => sets[j].has(x)).length
       const jac = inter / new Set([...sets[i], ...sets[j]]).size
-      check(`${cid}: presets ${PLAN_PRESETS[i].id}/${PLAN_PRESETS[j].id} overlap ≤ 0.8`, jac <= 0.8, jac.toFixed(2))
+      const a = PLAN_PRESETS[i].id
+      const b = PLAN_PRESETS[j].id
+      const cap = a === 'first-time' && b === 'broader' ? (FLAGSHIP_MAX[cid] ?? 0.75) : 0.75
+      check(`${cid}: presets ${a}/${b} overlap ≤ ${cap}`, jac <= cap, jac.toFixed(2))
     }
 }
 
