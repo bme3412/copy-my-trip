@@ -82,9 +82,13 @@ function validateCity(cid: string, city: City) {
         if (e.group !== undefined) check(`${et}: group valid`, GROUPS.includes(e.group))
         // Effective provenance must stay honest per variant.
         const src = e.src ?? p.src
-        const visits = e.visits ?? p.visits
-        const last = e.last ?? p.last
-        if (src === 'verified') check(`${et}: verified ⇒ visits ≥ 1 and a last-visit date`, visits >= 1 && last.length > 0)
+        // Mirrors placeVariants(): evidence does not cross a change of tier,
+        // so a web variant under a verified parent inherits no count.
+        const inherits = src === p.src
+        const visits = src === 'verified' ? (inherits ? (e.visits ?? p.visits) : e.visits) : undefined
+        const last = src === 'verified' ? (inherits ? (e.last ?? p.last) : e.last) : undefined
+        if (src !== 'verified') check(`${et}: a web variant states no visit count`, e.visits === undefined)
+        if (visits !== undefined) check(`${et}: a stated visit count comes with a last-visit date`, !!last && last.length > 0)
       }
     }
     if (p.exceptions !== undefined) {
@@ -99,9 +103,12 @@ function validateCity(cid: string, city: City) {
     }
     if (p.themes !== undefined) check(`${t}: themes valid`, p.themes.every((th) => THEMES.includes(th)), JSON.stringify(p.themes))
     if (p.role !== undefined) check(`${t}: role is 'anchor'`, p.role === 'anchor')
-    check(`${t}: visits a non-negative integer`, Number.isInteger(p.visits) && p.visits >= 0)
-    // Provenance sanity: a verified place carries its evidence.
-    if (p.src === 'verified') check(`${t}: verified ⇒ visits ≥ 1 and a last-visit date`, p.visits >= 1 && p.last.length > 0)
+    if (p.visits !== undefined) check(`${t}: visits a positive integer when stated`, Number.isInteger(p.visits) && p.visits >= 1)
+    // Provenance sanity: a verified place carries its evidence. The evidence
+    // is the dated archive plates (checked below, per city), not a typed
+    // count — a number nobody renders was never proof of anything. A place
+    // that states a count must also state when it was last seen.
+    if (p.visits !== undefined) check(`${t}: a stated visit count comes with a last-visit date`, !!p.last && p.last.length > 0)
     // Day-trips live outside the hood rotation (e.g. Versailles); everything else must anchor to a real hood.
     if (!p.dayTrip) check(`${t}: hood in hoodOrder`, city.hoodOrder.includes(p.hood), p.hood)
   }
@@ -144,7 +151,11 @@ function validateCity(cid: string, city: City) {
   // …and a ratchet over the rest, because this is real content debt, not a
   // bug: Paris still owes copy for most of its web tier. The floor stops it
   // getting worse while that is written; raise it as coverage lands.
-  const FLOOR: Record<string, number> = { paris: 5, rome: 41 }
+  // paris 5 → 4: `sacre` was promoted to the archive tier and took its
+  // description with it, so the web tier lost a described place without any
+  // prose being deleted. Re-baselined, not relaxed — a promotion moves copy
+  // between tiers, which this count cannot see. Raise it as coverage lands.
+  const FLOOR: Record<string, number> = { paris: 4, rome: 41 }
   const floor = FLOOR[tag.replace(/[[\]]/g, '')] ?? 0
   check(
     `${tag}: web-tier descriptions ≥ ${floor} (have ${webDescribed.length}/${web.length})`,
@@ -198,7 +209,7 @@ function validateCity(cid: string, city: City) {
       // place, which is how several stops claiming "personally verified"
       // escaped every check below. Web-tier stops may stay unlinked — they
       // are editorial, and there is nothing to back.
-      if (s.kind === 'verified' || s.provenance || s.plates?.length)
+      if (s.kind === 'verified' || s.plates?.length)
         check(`${t} stop "${s.name}": a witnessed stop names its place`, s.placeId !== undefined)
       if (s.placeId !== undefined) check(`${t} stop "${s.name}": placeId resolves`, placeIds.has(s.placeId), s.placeId)
       const byName = city.places.find((p) => p.name === s.name)
@@ -206,20 +217,15 @@ function validateCity(cid: string, city: City) {
       // ── The provenance gate ──
       // A stop may not claim to be witnessed unless its place record says so.
       // Two claims for one stop is the one thing this product must never do:
-      // the curated page renders the accent dot, archive plates and a visit
-      // count, while the same stop materialized through the engine renders as
-      // a web pin — same trip, same stop, contradictory provenance.
+      // the curated page renders the accent dot and archive plates, while the
+      // same stop materialized through the engine renders as a web pin — same
+      // trip, same stop, contradictory provenance.
       const place = s.placeId !== undefined ? city.places.find((p) => p.id === s.placeId) : undefined
       if (place) {
         check(
           `${t} stop "${s.name}": kind matches the place's provenance`,
           (s.kind === 'verified') === (place.src === 'verified'),
           `kind=${s.kind} but places.json says src=${place.src}`,
-        )
-        check(
-          `${t} stop "${s.name}": provenance only where the archive backs it`,
-          !s.provenance || (place.src === 'verified' && place.visits > 0),
-          `provenance "${s.provenance}" but src=${place.src}, visits=${place.visits}`,
         )
         if (s.plates?.length)
           check(`${t} stop "${s.name}": archive plates only on verified places`, place.src === 'verified', `${s.plates.length} plates on a ${place.src} place`)

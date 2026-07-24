@@ -13,8 +13,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Monument",
     "group": "sight",
     "themes": [
@@ -38,8 +36,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Piazza",
     "group": "sight",
     "themes": [
@@ -61,8 +57,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Coffee",
     "group": "food",
     "themes": [
@@ -83,8 +77,6 @@
       14
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -106,8 +98,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · Roman",
     "group": "food",
     "themes": [
@@ -130,8 +120,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church · art",
     "group": "indoor",
     "themes": [
@@ -153,8 +141,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Monument · anchor",
     "group": "sight",
     "themes": [
@@ -180,8 +166,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Ruins · long walk",
     "group": "sight",
     "themes": [
@@ -204,8 +188,6 @@
       19.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -228,8 +210,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Viewpoint",
     "group": "sight",
     "themes": [
@@ -255,8 +235,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · osteria",
     "group": "food",
     "themes": [
@@ -279,8 +257,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Fountain",
     "group": "sight",
     "themes": [
@@ -303,8 +279,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Piazza",
     "group": "sight",
     "themes": [
@@ -326,8 +300,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Viewpoint",
     "group": "park",
     "themes": [
@@ -353,8 +325,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · anchor",
     "group": "indoor",
     "themes": [
@@ -383,8 +353,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Basilica",
     "group": "indoor",
     "themes": [
@@ -427,8 +395,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Riverside",
     "group": "sight",
     "themes": [
@@ -454,8 +420,6 @@
       21
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church",
     "group": "indoor",
     "themes": [
@@ -477,8 +441,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Long walk",
     "group": "sight",
     "themes": [
@@ -500,8 +462,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Coffee",
     "group": "food",
     "themes": [
@@ -523,8 +483,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · street",
     "group": "food",
     "themes": [
@@ -545,8 +503,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · trattoria",
     "group": "food",
     "themes": [
@@ -569,8 +525,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Viewpoint",
     "group": "park",
     "themes": [
@@ -596,8 +550,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The lanes",
     "group": "sight",
     "themes": [
@@ -619,8 +571,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church · art",
     "group": "indoor",
     "themes": [
@@ -642,8 +592,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Basilica",
     "group": "indoor",
     "themes": [
@@ -665,8 +613,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Coffee · pastry",
     "group": "food",
     "themes": [
@@ -687,8 +633,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · food hall",
     "group": "food",
     "themes": [
@@ -709,8 +653,6 @@
       20
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Garden",
     "group": "park",
     "themes": [
@@ -736,8 +678,6 @@
       15.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -759,8 +699,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Curiosity",
     "group": "sight",
     "themes": [
@@ -781,8 +719,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · anchor",
     "group": "indoor",
     "themes": [
@@ -810,8 +746,6 @@
       21
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Garden",
     "group": "park",
     "themes": [
@@ -832,8 +766,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Day trip",
     "group": "sight",
     "themes": [
@@ -861,8 +793,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Piazza · church",
     "group": "sight",
     "themes": [
@@ -884,8 +814,6 @@
       19.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · small",
     "group": "indoor",
     "themes": [
@@ -908,8 +836,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The lanes",
     "group": "sight",
     "themes": [
@@ -931,8 +857,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Riverside",
     "group": "sight",
     "themes": [
@@ -958,8 +882,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Ruins · quiet",
     "group": "sight",
     "themes": [
@@ -981,8 +903,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Sweet stop",
     "group": "sight",
     "themes": [
@@ -1007,8 +927,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church · art",
     "group": "indoor",
     "themes": [
@@ -1030,8 +948,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · Marche",
     "group": "food",
     "themes": [

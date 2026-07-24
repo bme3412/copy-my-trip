@@ -19,7 +19,10 @@ get_ym() { # -> YYYY-MM or empty
       echo "$d" | sed -nE 's/^([0-9]{4})-([0-9]{2}).*/\1-\2/p'
       ;;
     *)
-      d=$(strings "$f" | grep -E "^20[0-9]{2}:[0-9]{2}:[0-9]{2} " | head -1)
+      # sips reads EXIF the strings scan misses (e.g. files whose date tags
+      # aren't stored as plain "YYYY:MM:DD HH" text); fall back to strings.
+      d=$(sips -g creation "$f" 2>/dev/null | awk '/creation:/{print $2}')
+      [ -z "$d" ] && d=$(strings "$f" | grep -E "^20[0-9]{2}:[0-9]{2}:[0-9]{2} " | head -1)
       echo "$d" | sed -nE 's/^([0-9]{4}):([0-9]{2}).*/\1-\2/p'
       ;;
   esac
@@ -32,10 +35,22 @@ gen_source() {
     _gen-maison-rose*) echo "paris-montmartre-maison-rose.mov" ;;
     _gen-notre-dame-pano*) echo "paris-notre-dame-pano-empty.mov" ;;
     _gen-vert-galant-pano*) echo "paris-vert-gallant-pano.mov" ;;
+    _gen-seine-boat-pano*) echo "paris-bridge-seine-boat-pano.mov" ;;
+    _gen-pont-neuf-dec26*) echo "paris-pont-neuf-dec26.mov" ;;
+    _gen-saint-germain-bonaparte*) echo "paris-saint-germain-bonaparte.mov" ;;
+    _gen-chez-janou*) echo "paris-marais-chez-janou.mov" ;;
+    _gen-pont-des-arts-stevie*) echo "paris-pont-des-arts-stevie-wonder.mov" ;;
     _gen-pont-des-arts*) echo "paris-pont-des-arts-pano.mov" ;;
     _gen-pompidou*) echo "paris-centre-pompidou.mov" ;;
     _gen-st-germain-christmas*) echo "paris-saint-germain-christmas.mov" ;;
     _gen-arc-pano*) echo "paris-arc-triomphe-pano.mov" ;;
+    _gen-sacre-pano*) echo "paris-steps-sacre-coeur-pano-summer.mov" ;;
+    _gen-sacre-steps-music*) echo "paris-sacre-coeur-steps-music.mov" ;;
+    _gen-sacre-rhcp*) echo "paris-sacre-coeur-redhotchilipeppers.mov" ;;
+    _gen-sacre-sunny*) echo "sacre-coeur-steps-sunny.mov" ;;
+    _gen-tournelle-golden*) echo "paris-tournelle-golden.mov" ;;
+    _gen-buci-fete*) echo "paris-buci-fete-musique.mov" ;;
+    _gen-bateau-mouche*) echo "paris-bateau-mouche.mov" ;;
     *) echo "" ;;
   esac
 }

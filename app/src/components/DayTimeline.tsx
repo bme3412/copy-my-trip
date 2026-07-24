@@ -1,4 +1,4 @@
-import { Fragment, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ImageSlot } from './ImageSlot'
 import { VideoBadge } from './VideoBadge'
@@ -9,10 +9,11 @@ import { slotDatesLabel, slotHasVideo, slotSrc, slotVideoSrc } from '../lib/medi
 import { slug } from '../lib/slug'
 import { em } from '../lib/text'
 import { useReveal } from '../lib/useReveal'
+import { claimVideo, directVideo } from '../lib/video-director'
 import { useCity } from '../state/CityContext'
 
-/** Plates render at 2× the design-doc sizes — the photos carry the page. */
-const PLATE_SCALE = 2
+/** The lead plate's height; its width follows the plate's own aspect. */
+const LEAD_H = 520
 
 function TransitChip({ min, measured, hidden }: { min: number; measured: boolean; hidden: boolean }) {
   return (
@@ -44,16 +45,25 @@ function TransitChip({ min, measured, hidden }: { min: number; measured: boolean
   )
 }
 
-/** A plate's media: slots with real footage play it (looping, muted) and fall
- * back to the photo, which falls back to the placeholder. */
-function PlateMedia({ city, plate, eager = false }: { city: ReturnType<typeof useCity>; plate: Plate; eager?: boolean }) {
+/** A plate's media: slots with real footage render it muted and looping, but
+ * playback is granted by the video director — one plate plays at a time,
+ * document-wide. Falls back to the photo, then to the placeholder. */
+function PlateMedia({ city, plate, eager = false, claim = false }: { city: ReturnType<typeof useCity>; plate: Plate; eager?: boolean; claim?: boolean }) {
   const [videoFailed, setVideoFailed] = useState(false)
+  const ref = useRef<HTMLVideoElement | null>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const release = directVideo(el)
+    if (claim) claimVideo(el)
+    return release
+  }, [claim, videoFailed])
   if (plate.video && !videoFailed) {
     return (
       <video
+        ref={ref}
         src={slotVideoSrc(city, plate.id)}
         poster={slotSrc(city, plate.id)}
-        autoPlay
         muted
         loop
         playsInline
@@ -66,44 +76,59 @@ function PlateMedia({ city, plate, eager = false }: { city: ReturnType<typeof us
   return <ImageSlot src={slotSrc(city, plate.id)} placeholder={plate.caption} eager={eager} />
 }
 
-/** How much a clicked plate grows — same framing, just larger. */
+/** How much a clicked frame grows — same framing, just larger. */
 const EXPAND_FACTOR = 1.35
 
-/** One plate: click and it pops out smoothly to 1.35× — same crop, same
- * aspect, just bigger, with a whisper of elevation. Click again to settle
- * back. Only plates with real media respond — placeholders stay inert.
- * Filled plates carry an archival caption: what it is · when it was shot. */
-function PlateFrame({ city, plate, delayIndex, eager = false }: { city: ReturnType<typeof useCity>; plate: Plate; delayIndex: number; eager?: boolean }) {
-  const [expanded, setExpanded] = useState(false)
-  const entry = city.slotFiles?.[plate.id]
-  const expandable = !!(entry?.img || entry?.video)
-  const badge = plate.video && slotHasVideo(city, plate.id)
-  const scale = PLATE_SCALE * (expanded ? EXPAND_FACTOR : 1)
-  const date = slotDatesLabel(city, [plate.id])
+/** A stop's archive, structured: one lead plate carrying the caption line
+ * ("what it is · when it was shot"), and a strip of uniform thumbnails to
+ * leaf through the rest. Selecting a thumb settles it into the lead — and a
+ * selected video takes the playback stage. Plates whose shot is still pending
+ * appear as placeholder thumbs; the claim stays visible, unfilled. */
+function PlateGallery({ city, plates, eager = false }: { city: ReturnType<typeof useCity>; plates: Plate[]; eager?: boolean }) {
+  const hasMedia = (p: Plate) => {
+    const entry = city.slotFiles?.[p.id]
+    return !!(entry?.img || entry?.video)
+  }
+  const firstFilled = Math.max(0, plates.findIndex(hasMedia))
+  const [sel, setSel] = useState(firstFilled)
+  const [picked, setPicked] = useState(false)
+  const lead = plates[sel] ?? plates[0]
+  const date = slotDatesLabel(city, [lead.id])
+  // A pending shot is a visible claim, not a hero — it holds a modest frame.
+  const leadH = hasMedia(lead) ? LEAD_H : 240
+  const leadW = Math.round((lead.w / lead.h) * leadH)
   return (
-    <figure className="plate-fig" style={{ margin: 0, flex: 'none', ['--stagger' as string]: `${delayIndex * 50}ms` }}>
-      <div
-        className="plate plate-item"
-        onClick={expandable ? () => setExpanded((e) => !e) : undefined}
-        role={expandable ? 'button' : undefined}
-        style={{
-          position: 'relative',
-          width: plate.w * scale,
-          height: plate.h * scale,
-          cursor: expandable ? 'pointer' : undefined,
-          boxShadow: expanded ? 'var(--shadow-md)' : undefined,
-        }}
-      >
-        <div className="cmt-slot">
-          <PlateMedia city={city} plate={plate} eager={eager} />
+    <figure className="plate-fig" style={{ margin: 0 }}>
+      <div className="plate" style={{ position: 'relative', width: leadW, maxWidth: '100%', aspectRatio: `${lead.w} / ${lead.h}` }}>
+        <div key={lead.id} className="cmt-slot plate-lead-media">
+          <PlateMedia city={city} plate={lead} eager={eager} claim={picked} />
         </div>
-        {badge && <VideoBadge time={plate.video!} />}
+        {lead.video && slotHasVideo(city, lead.id) && <VideoBadge time={lead.video} />}
       </div>
-      {expandable && (
-        <figcaption className="plate-cap">
-          {plate.caption}
-          {date && <span className="cap-date"> · {date}</span>}
-        </figcaption>
+      <figcaption className="plate-cap" style={{ maxWidth: leadW }}>
+        {hasMedia(lead) ? lead.caption : `${lead.caption} — shot pending`}
+        {date && <span className="cap-date"> · {date}</span>}
+      </figcaption>
+      {plates.length > 1 && (
+        <div className="plate-thumbs">
+          {plates.map((p, i) => (
+            <button
+              key={p.id}
+              type="button"
+              className={`plate-thumb ${i === sel ? 'is-active' : ''}`}
+              aria-label={p.caption}
+              aria-pressed={i === sel}
+              title={p.caption}
+              onClick={() => {
+                setSel(i)
+                setPicked(true)
+              }}
+            >
+              <ImageSlot src={slotSrc(city, p.id)} placeholder="" />
+              {p.video && slotHasVideo(city, p.id) && <span className="thumb-time">{p.video}</span>}
+            </button>
+          ))}
+        </div>
       )}
     </figure>
   )
@@ -122,8 +147,8 @@ function WebFrame({ city, webImage }: { city: ReturnType<typeof useCity>; webIma
         onClick={expandable ? () => setExpanded((e) => !e) : undefined}
         role={expandable ? 'button' : undefined}
         style={{
-          width: 640 * f,
-          height: 375 * f,
+          width: 760 * f,
+          height: 445 * f,
           border: '1px solid var(--color-divider)',
           borderRadius: 4,
           overflow: 'hidden',
@@ -328,13 +353,7 @@ function Stop({
           </div>
         )}
 
-        {stop.kind === 'verified' && stop.plates && (
-          <div className="plate-row" style={{ display: 'flex', gap: 12 }}>
-            {stop.plates.map((pl, i) => (
-              <PlateFrame key={pl.id} city={city} plate={pl} delayIndex={i} eager={eager} />
-            ))}
-          </div>
-        )}
+        {stop.kind === 'verified' && stop.plates && stop.plates.length > 0 && <PlateGallery city={city} plates={stop.plates} eager={eager} />}
 
         {stop.kind === 'web-pin' && (
           <div
@@ -361,12 +380,6 @@ function Stop({
 
         {stop.kind === 'web-image' && stop.webImage && <WebFrame city={city} webImage={stop.webImage} />}
 
-        {stop.why && stop.why.length > 0 && (
-          <div className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.55, marginTop: 12 }}>
-            <span style={{ letterSpacing: 1.2, textTransform: 'uppercase', fontSize: 10.5 }}>Why here · </span>
-            {stop.why.join(' · ')}
-          </div>
-        )}
         {stop.flagNote && (
           <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, lineHeight: 1.55, marginTop: 10, color: 'var(--color-accent-2-700)' }}>
             <span style={{ letterSpacing: 1.2, textTransform: 'uppercase', fontSize: 10.5 }}>Needs a look · </span>

@@ -54,7 +54,6 @@ export function builtDayStops(city: City, day: DayState): DayStop[] {
       plates: verified ? media?.plates : undefined,
       webImage: !verified ? media?.webImage : undefined,
       pin: !verified ? (media?.pin ?? c.area) : undefined,
-      provenance: verified ? `From ${c.visits} visits · last ${c.last}` : undefined,
       prov: media?.prov,
       transitAfter: next ? { min: next.travelMin, measured: next.measured } : undefined,
       why: c.reasons?.filter((r) => r.value >= 0).map((r) => r.note),

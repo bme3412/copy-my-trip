@@ -59,7 +59,7 @@
     ],
     "src": "verified",
     "visits": 7,
-    "last": "May ’24",
+    "last": "Jun ’26",
     "hood": "Le Marais (3e–4e)",
     "label": "Square",
     "group": "sight",
@@ -81,8 +81,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "hood": "Le Marais (3e–4e)",
     "label": "Museum",
     "group": "indoor",
@@ -180,8 +178,6 @@
       17
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "hood": "The Islands (1er–4e)",
     "label": "Monument",
     "group": "indoor",
@@ -324,9 +320,7 @@
       6,
       22
     ],
-    "src": "web",
-    "visits": 0,
-    "last": "",
+    "src": "verified",
     "hood": "Montmartre (18e)",
     "label": "Viewpoint",
     "group": "sight",
@@ -334,7 +328,9 @@
       "monumental",
       "neighborhood"
     ],
-    "rank": 1
+    "rank": 1,
+    "visits": 6,
+    "last": "Jun ’25"
   },
   {
     "id": "pere",
@@ -420,8 +416,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "hood": "Bastille & the East (11e–12e–20e)",
     "label": "Dinner · wine bar",
     "group": "food",
@@ -569,8 +563,6 @@
         "role": "anchor",
         "group": "indoor",
         "src": "web",
-        "visits": 0,
-        "last": "",
         "note": "book the first entry",
         "durVar": 60
       }
@@ -642,8 +634,6 @@
           24
         ],
         "src": "web",
-        "visits": 0,
-        "last": "",
         "note": "literary history and people-watching — you pay for the room"
       },
       {
@@ -656,8 +646,6 @@
           24
         ],
         "src": "web",
-        "visits": 0,
-        "last": "",
         "note": "roomier and more meal-minded than the Flore"
       }
     ]
@@ -702,8 +690,8 @@
       22
     ],
     "src": "verified",
-    "visits": 2,
-    "last": "Jun ’24",
+    "visits": 3,
+    "last": "Jun ’26",
     "hood": "Champs-Élysées (8e)",
     "label": "Viewpoint",
     "group": "sight",
@@ -728,7 +716,7 @@
     ],
     "src": "verified",
     "visits": 6,
-    "last": "Dec ’24",
+    "last": "Jun ’25",
     "hood": "Eiffel & Invalides (7e–16e)",
     "label": "The tower",
     "group": "sight",
@@ -757,8 +745,6 @@
         ],
         "timed": true,
         "src": "web",
-        "visits": 0,
-        "last": "",
         "note": "elevator slots release ~60 days out",
         "durVar": 30
       }
@@ -779,8 +765,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · anchor",
     "group": "indoor",
     "role": "anchor",
@@ -832,8 +816,6 @@
       21
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Garden",
     "group": "park",
     "themes": [
@@ -855,8 +837,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Courtyards",
     "group": "sight",
     "themes": [
@@ -878,8 +858,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · small",
     "group": "indoor",
     "themes": [
@@ -905,8 +883,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · history",
     "group": "indoor",
     "themes": [
@@ -942,8 +918,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -964,8 +938,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · small",
     "group": "indoor",
     "themes": [
@@ -991,8 +963,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The slopes",
     "group": "sight",
     "themes": [
@@ -1014,8 +984,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Day trip",
     "group": "sight",
     "role": "anchor",
@@ -1060,8 +1028,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Monument · history",
     "group": "indoor",
     "themes": [
@@ -1083,8 +1049,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Flower market",
     "group": "sight",
     "themes": [
@@ -1106,8 +1070,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The lane",
     "group": "sight",
     "themes": [
@@ -1130,8 +1092,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -1156,8 +1116,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · crêpes",
     "group": "food",
     "themes": [
@@ -1179,8 +1137,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Sweet stop",
     "group": "food",
     "themes": [
@@ -1203,8 +1159,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Monument",
     "group": "sight",
     "themes": [
@@ -1225,15 +1179,15 @@
       11,
       19
     ],
-    "src": "web",
-    "visits": 0,
-    "last": "",
+    "src": "verified",
     "label": "Courtyards",
     "group": "sight",
     "themes": [
       "neighborhood"
     ],
-    "rank": 3
+    "rank": 3,
+    "visits": 1,
+    "last": "Jul ’24"
   },
   {
     "id": "merci",
@@ -1249,8 +1203,6 @@
       19.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Concept store",
     "group": "indoor",
     "themes": [
@@ -1272,8 +1224,6 @@
       18.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Monument",
     "group": "indoor",
     "themes": [
@@ -1296,8 +1246,6 @@
       18.25
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -1323,8 +1271,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Tea room",
     "group": "food",
     "themes": [
@@ -1347,8 +1293,6 @@
       20.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Ruins · quiet",
     "group": "park",
     "themes": [
@@ -1370,8 +1314,6 @@
       20
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Garden",
     "group": "park",
     "themes": [
@@ -1392,8 +1334,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Sweet stop",
     "group": "food",
     "themes": [
@@ -1416,8 +1356,6 @@
       19.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Bakery",
     "group": "food",
     "themes": [
@@ -1440,8 +1378,6 @@
       17.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · small",
     "group": "indoor",
     "themes": [
@@ -1466,8 +1402,6 @@
       19.75
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Department store",
     "group": "indoor",
     "themes": [
@@ -1489,8 +1423,6 @@
       19.75
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church",
     "group": "indoor",
     "themes": [
@@ -1512,8 +1444,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The passage",
     "group": "sight",
     "themes": [
@@ -1536,8 +1466,6 @@
       17
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Opera house",
     "group": "indoor",
     "themes": [
@@ -1560,8 +1488,6 @@
       20.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Covered passage",
     "group": "sight",
     "themes": [
@@ -1583,8 +1509,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -1609,8 +1533,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -1652,8 +1574,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Hot chocolate",
     "group": "food",
     "themes": [
@@ -1676,8 +1596,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The square",
     "group": "sight",
     "themes": [
@@ -1699,8 +1617,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The square",
     "group": "sight",
     "themes": [
@@ -1744,8 +1660,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · free",
     "group": "indoor",
     "themes": [
@@ -1770,8 +1684,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Church",
     "group": "indoor",
     "themes": [
@@ -1794,8 +1706,6 @@
       21
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Garden",
     "group": "park",
     "themes": [
@@ -1817,8 +1727,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Sweet stop",
     "group": "food",
     "themes": [
@@ -1841,8 +1749,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · contemporary",
     "group": "indoor",
     "themes": [
@@ -1867,8 +1773,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -1893,8 +1797,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -1920,8 +1822,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lawns",
     "group": "park",
     "themes": [
@@ -1947,8 +1847,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The corner",
     "group": "sight",
     "themes": [
@@ -1970,8 +1868,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The square",
     "group": "sight",
     "themes": [
@@ -1993,8 +1889,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The climb",
     "group": "sight",
     "themes": [
@@ -2016,8 +1910,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · food street",
     "group": "food",
     "themes": [
@@ -2040,8 +1932,6 @@
       17.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Flea market",
     "group": "sight",
     "themes": [
@@ -2082,8 +1972,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Bakery",
     "group": "food",
     "themes": [
@@ -2109,8 +1997,6 @@
       17
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Brunch",
     "group": "food",
     "themes": [
@@ -2133,8 +2019,6 @@
       21
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Park · wild",
     "group": "park",
     "themes": [
@@ -2156,8 +2040,6 @@
       20.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Elevated walk",
     "group": "park",
     "themes": [
@@ -2179,8 +2061,6 @@
       14.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -2218,8 +2098,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Digital art",
     "group": "indoor",
     "themes": [
@@ -2242,8 +2120,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "The climb",
     "group": "sight",
     "themes": [
@@ -2264,9 +2140,7 @@
       10.5,
       22.5
     ],
-    "src": "web",
-    "visits": 0,
-    "last": "",
+    "src": "verified",
     "label": "Cruise · timed",
     "group": "sight",
     "themes": [
@@ -2279,7 +2153,9 @@
       22
     ],
     "rank": 1,
-    "durVar": 15
+    "durVar": 15,
+    "visits": 1,
+    "last": "Jun ’26"
   },
   {
     "id": "catacombes",
@@ -2295,8 +2171,6 @@
       20.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Underground · anchor",
     "group": "indoor",
     "themes": [
@@ -2323,8 +2197,6 @@
       22.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Viewpoint",
     "group": "sight",
     "themes": [
@@ -2350,8 +2222,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Quiet walk",
     "group": "park",
     "themes": [
@@ -2373,8 +2243,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · market",
     "group": "food",
     "themes": [
@@ -2398,8 +2266,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Architecture",
     "group": "sight",
     "themes": [
@@ -2442,8 +2308,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · anchor",
     "group": "indoor",
     "themes": [
@@ -2470,8 +2334,6 @@
       20
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Contemporary art",
     "group": "indoor",
     "themes": [
@@ -2497,8 +2359,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Park · culture",
     "group": "park",
     "themes": [
@@ -2598,8 +2458,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · mansion",
     "group": "indoor",
     "themes": [
@@ -2621,8 +2479,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · small",
     "group": "indoor",
     "themes": [
@@ -2647,8 +2503,6 @@
       19
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum",
     "group": "indoor",
     "themes": [
@@ -2671,8 +2525,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Museum · rooftop",
     "group": "indoor",
     "themes": [
@@ -2697,8 +2549,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Cabaret · evening",
     "group": "indoor",
     "themes": [
@@ -2725,8 +2575,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Day trip · seasonal",
     "group": "sight",
     "themes": [
@@ -2751,8 +2599,6 @@
       18
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Day trip",
     "group": "sight",
     "themes": [
@@ -2780,8 +2626,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Coffee · institution",
     "group": "food",
     "venueType": "cafe",
@@ -2805,8 +2649,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Coffee · grand",
     "group": "food",
     "venueType": "cafe",
@@ -2830,8 +2672,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · brasserie",
     "group": "food",
     "venueType": "brasserie",
@@ -2855,8 +2695,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · brasserie",
     "group": "food",
     "venueType": "brasserie",
@@ -2880,8 +2718,6 @@
       22.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · destination",
     "group": "food",
     "venueType": "brasserie",
@@ -2906,8 +2742,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · bouillon",
     "group": "food",
     "venueType": "bouillon",
@@ -2931,8 +2765,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · bouillon",
     "group": "food",
     "venueType": "bouillon",
@@ -2956,8 +2788,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · classic bistro",
     "group": "food",
     "venueType": "bistro",
@@ -2981,8 +2811,6 @@
       22.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · classic bistro",
     "group": "food",
     "venueType": "bistro",
@@ -3006,8 +2834,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · destination",
     "group": "food",
     "venueType": "modern_bistro",
@@ -3036,8 +2862,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · modern",
     "group": "food",
     "venueType": "modern_bistro",
@@ -3081,8 +2905,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · modern",
     "group": "food",
     "venueType": "modern_bistro",
@@ -3110,8 +2932,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · seafood",
     "group": "food",
     "venueType": "modern_bistro",
@@ -3134,8 +2954,6 @@
       23
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · wine bar",
     "group": "food",
     "venueType": "wine_bar",
@@ -3160,8 +2978,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Small plates · wine",
     "group": "food",
     "venueType": "wine_bar",
@@ -3185,8 +3001,6 @@
       20
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Bakery · modern",
     "group": "food",
     "venueType": "bakery",
@@ -3209,8 +3023,6 @@
       23.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Special occasion · historic",
     "group": "food",
     "venueType": "fine_dining",
@@ -3272,8 +3084,6 @@
       24
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · Maghrebi",
     "group": "food",
     "venueType": "restaurant",
@@ -3297,8 +3107,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · Japanese",
     "group": "food",
     "venueType": "restaurant",
@@ -3321,8 +3129,6 @@
       22.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · Levantine",
     "group": "food",
     "venueType": "street_food",
@@ -3347,8 +3153,6 @@
       23.5
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Dinner · West African",
     "group": "food",
     "venueType": "restaurant",
@@ -3372,8 +3176,6 @@
       22
     ],
     "src": "web",
-    "visits": 0,
-    "last": "",
     "label": "Lunch · Chinese",
     "group": "food",
     "venueType": "restaurant",
@@ -3382,5 +3184,151 @@
       "neighborhood"
     ],
     "rank": 3
+  },
+  {
+    "id": "hibou",
+    "name": "Le Hibou",
+    "area": "Carrefour de l’Odéon, 6e",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8521,
+    "lon": 2.3387,
+    "dur": 30,
+    "meal": "coffee",
+    "open": [
+      8,
+      23
+    ],
+    "src": "verified",
+    "visits": 1,
+    "last": "Oct ’16",
+    "label": "Coffee",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood"
+    ],
+    "venueType": "cafe"
+  },
+  {
+    "id": "buci",
+    "name": "Rue de Buci",
+    "area": "the café crossroads, 6e",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8536,
+    "lon": 2.337,
+    "dur": 30,
+    "meal": null,
+    "open": [
+      8,
+      24
+    ],
+    "src": "verified",
+    "visits": 2,
+    "last": "Jun ’26",
+    "label": "Café street",
+    "group": "food",
+    "themes": [
+      "everyday",
+      "neighborhood",
+      "afterdark"
+    ]
+  },
+  {
+    "id": "preauxclercs",
+    "name": "Le Pré aux Clercs",
+    "area": "Rue Bonaparte × Rue Jacob, 6e",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8563,
+    "lon": 2.3333,
+    "dur": 75,
+    "durVar": 15,
+    "meal": "lunch",
+    "open": [
+      8,
+      23
+    ],
+    "src": "verified",
+    "visits": 1,
+    "last": "Jul ’22",
+    "label": "Lunch · brasserie",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "venueType": "brasserie"
+  },
+  {
+    "id": "debauve",
+    "name": "Debauve & Gallais",
+    "area": "30 Rue des Saints-Pères, 7e",
+    "hood": "Saint-Germain (6e–7e)",
+    "lat": 48.8557,
+    "lon": 2.3299,
+    "dur": 20,
+    "meal": null,
+    "open": [
+      10.5,
+      19
+    ],
+    "closedOn": [
+      0
+    ],
+    "src": "verified",
+    "visits": 1,
+    "last": "Oct ’16",
+    "label": "Chocolatier",
+    "group": "food",
+    "themes": [
+      "historic",
+      "everyday"
+    ],
+    "venueType": "patisserie"
+  },
+  {
+    "id": "atlas",
+    "name": "L’Atlas",
+    "area": "12 Bd Saint-Germain, 5e",
+    "hood": "Latin Quarter (5e)",
+    "lat": 48.8497,
+    "lon": 2.3547,
+    "dur": 75,
+    "durVar": 15,
+    "meal": "lunch",
+    "open": [
+      12,
+      22.5
+    ],
+    "src": "verified",
+    "visits": 1,
+    "last": "Jul ’22",
+    "label": "Lunch · brasserie",
+    "group": "food",
+    "themes": [
+      "everyday"
+    ],
+    "venueType": "brasserie"
+  },
+  {
+    "id": "amelie",
+    "name": "Au Marché de la Butte",
+    "area": "Amélie’s épicerie · Rue des Trois Frères, 18e",
+    "hood": "Montmartre (18e)",
+    "lat": 48.8849,
+    "lon": 2.3395,
+    "dur": 15,
+    "meal": null,
+    "open": [
+      8,
+      20
+    ],
+    "src": "verified",
+    "visits": 1,
+    "last": "Oct ’16",
+    "label": "Film corner",
+    "group": "sight",
+    "themes": [
+      "neighborhood",
+      "everyday"
+    ]
   }
 ]

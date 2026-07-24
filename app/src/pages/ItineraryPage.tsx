@@ -93,7 +93,12 @@ export function ItineraryPage() {
   const day = trip.days[dayIdx]
   const isBuilt = day.committed.length > 0
   // Days beyond the curated four exist only once generated or built.
-  const curated = city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined
+  //
+  // And before a trip exists at all, none of them do: the curator's days are
+  // the raw material generation reads, not a plan anyone was handed. Serving
+  // one on a cold load is the app claiming to have composed something for a
+  // traveler it knows nothing about. No dates, no itinerary — compose first.
+  const curated = trip.arriving ? (city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined) : undefined
   const stay = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const stayName = trip.stayHood || city.hoodOrder[0]
   const date = trip.arriving ? dayDate(trip.arriving, dayIdx) : undefined
@@ -454,6 +459,9 @@ export function ItineraryPage() {
   return (
     <Page
       topBar={
+        // No trip, no days to tab between — the count would be the 4-day
+        // default standing in for dates nobody has given yet.
+        !trip.arriving ? undefined : (
         <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15, padding: '4px 0 18px' }}>
           {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
             <Link
@@ -471,6 +479,7 @@ export function ItineraryPage() {
             </Link>
           ))}
         </div>
+        )
       }
       title={title}
       aside={
@@ -676,13 +685,17 @@ export function ItineraryPage() {
           alignDeck(deckNode)
         ) : (
           <div style={{ border: '1px dashed var(--color-divider)', borderRadius: 6, padding: 36, textAlign: 'center', maxWidth: 560 }}>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, marginBottom: 8 }}>Day {num} isn't composed yet</div>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: 20, marginBottom: 8 }}>
+              {trip.arriving ? `Day ${num} isn't composed yet` : 'No trip yet'}
+            </div>
             <p className="text-muted" style={{ fontSize: 13.5, lineHeight: 1.6, margin: '0 0 18px' }}>
-              Days beyond the four-day core come from a plan or your own building.
+              {trip.arriving
+                ? 'Days beyond the four-day core come from a plan or your own building.'
+                : 'Give me your dates, pace and interests and the days get composed out of the archive.'}
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
               <Link to={`/${city.id}/compose`} viewTransition className="btn btn-primary">
-                Choose a plan
+                {trip.arriving ? 'Choose a plan' : 'Plan a visit'}
               </Link>
               <button className="btn btn-secondary" onClick={() => setOpenSlot('append')}>
                 Build it here

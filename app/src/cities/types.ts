@@ -79,8 +79,13 @@ export interface Place {
   meal: Meal
   open: [number, number]
   src: Source
-  visits: number
-  last: string
+  /** How many separate visits the archive records, when that is actually
+   * known. A verified place proves itself with dated archive plates, not with
+   * this number — EXIF says when the shutter fired, it cannot say how many
+   * trips those frames belong to. Omit rather than guess: the page never
+   * renders the count, only the capture dates behind it. */
+  visits?: number
+  last?: string
   label: string
   group: PlaceGroup
   /** Preferred arrival window (hours) — e.g. golden-hour spots, no morning gelato. */
@@ -171,8 +176,7 @@ export interface DayStop {
   plates?: Plate[]
   pin?: string
   webImage?: { id: string; caption: string }
-  provenance?: string
-  /** Extra archive facts for the "How I know this" panel; visits/last are parsed from `provenance`. */
+  /** Extra archive facts a place carries beyond its plates. */
   prov?: { range?: string; archive?: string; walkNote?: string }
   transitAfter?: { min: number; measured: boolean }
   /** Why this stop, why now — from the engine's scoring reasons (built days only). */

@@ -105,8 +105,9 @@ export interface CommittedStop {
   group: Place['group']
   label: string
   src: Place['src']
-  visits: number
-  last: string
+  /** Carried through only where the archive states it — see Place.visits. */
+  visits?: number
+  last?: string
   timeIn: number
   dur: number
   travelMin: number
@@ -219,8 +220,16 @@ export function placeVariants(p: Place): EffectivePlace[] {
     role: e.role ?? p.role,
     group: e.group ?? p.group,
     src: e.src ?? p.src,
-    visits: e.visits ?? p.visits,
-    last: e.last ?? p.last,
+    // Evidence does not inherit across a change of provenance. "The Louvre,
+    // inside" is web-tier under a verified parent — letting it fall back to
+    // the courtyard's visit count lends it years in the archive that belong
+    // to a place the curator only ever stood outside of. Same bleed the
+    // dayPrefix fix closed for `measured`, one field over.
+    ...(() => {
+      const src = e.src ?? p.src
+      const own = src === p.src ? { visits: e.visits ?? p.visits, last: e.last ?? p.last } : { visits: e.visits, last: e.last }
+      return src === 'verified' ? own : { visits: undefined, last: undefined }
+    })(),
     experienceId: e.id,
   }))
 }
@@ -441,7 +450,10 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
     const add = (term: ScoreReason['term'], value: number, note: string) => {
       if (value !== 0) parts.push({ term, value, note })
     }
-    if (e.p.src === 'verified') add('provenance_fit', W.verified, `from the archive — ${e.p.visits} visits`)
+    // The count is stated only where it is actually known — "undefined visits"
+    // on the page is worse than not counting out loud.
+    if (e.p.src === 'verified')
+      add('provenance_fit', W.verified, e.p.visits ? `from the archive — ${e.p.visits} visit${e.p.visits === 1 ? '' : 's'}` : 'from the archive')
     if (e.p.rank === 1) add('editorial_fit', W.rank, 'a first-visit icon')
     else if (e.p.rank === 3) add('editorial_fit', -W.rank, 'a deeper cut — earns its slot on fit, not fame')
     add(
