@@ -18,10 +18,22 @@ personally verified".
 
 This principle does real architectural work. Curation replaces most of the reference
 docs' scoring machinery: there is no `first_timer_value` or `paris_uniqueness` score
-term here because **membership in the 37-place archive already is that filter**. The
+term here because **membership in the archive already is that filter**. The
 curator decided what's worth a first-timer's time by going back themselves. It also
 sets the growth rule for new cities: a city ships when its archive is deep enough to
 anchor plans, not when a scraper has filled a table. **[now]**
+
+**The archive is the arbiter, and it can overrule the curator.** A witnessed fact is
+not whatever the data file says — it is what the photographs support. Capture
+metadata carries the moment, and from 2024 the coordinates, so `visits`, `last`,
+`best` and a place's own `lat`/`lon` are checkable rather than merely asserted.
+`npm run archive:evidence` performs that check; on its first run it found a verified
+place claiming a shot "from five different years" with one midday frame behind it,
+and three plates filed under places their coordinates disprove. The corollary is the
+discipline: the tooling reports and never writes. Metadata is evidence, not proof —
+a phone clock can be wrong, and one shot in the rain is not a preferred window —
+so turning evidence into a claim spoken in the curator's voice stays the curator's
+decision. See `06-archive-evidence.md`. **[now]**
 
 ## 2. Surviving principles
 
@@ -81,7 +93,7 @@ editable block (`ENGINE` in `planner.ts`) — that rule survives from the origin
 | `provenance_fit` | — (from principle 1) | `verified: 2` | **[now]** |
 | `transit_cost` | geographic_fit (distance half); transit_cost | `travelPerMin: 1/6`, first leg × `firstLegTravelFactor: 0.5` | **[now]** |
 | `locality_fit` | geographic_fit (clustering half) | `anchor: 2` / `offAnchor: 1` (+ hoodBias hardcode) | **[now]** |
-| `time_of_day_fit` | evening_or_scenic_value; scenic_value; date_specific_value (time half) | `bestTime: 1` (−3× outside window) | **[now]** |
+| `time_of_day_fit` | evening_or_scenic_value; scenic_value; date_specific_value (time half) | `bestTime: 1` (−3× outside window) | **[now]** — window becomes sun-relative at phase 8 |
 | `narrative_fit` | narrative_value; anchor-placement heuristics | `anchorMorning: 1.5` / `anchorLate: 2` (+ coffee hardcode) | **[now]** (hardcodes folded in at phase 4) |
 | `variety` | duplication_cost (within-day) | `sameGroup: 0.75` | **[now]** |
 | `coverage` | category_coverage; duplication nonlinearity ("the fourth museum") | `coverage: 1.25`, capped ×2 | **[now]** — soft by design |

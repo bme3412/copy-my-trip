@@ -11,6 +11,11 @@ third (rides the fresh schema), explanations fourth (so they can explain experie
 choices too), robustness fifth, second city sixth (needs the de-Paris-ification the
 earlier phases motivate), backend last and conditional.
 
+Phase 8 breaks that numbering: it was opened after Phase 7's first triggers had
+already tripped, by evidence the archive tooling surfaced (`06-archive-evidence.md`).
+Numbers are chronological here, not a priority order — Phase 8 is active work and
+Phase 7 remains deferred.
+
 ---
 
 ## Phase 1 — Cities become data ✅ (shipped 2026-07-21)
@@ -182,6 +187,44 @@ Until then, one rule from the reference docs is restated as binding today: **no 
 ever writes city JSON**. Extraction may propose; the validator and the curator
 approve. The validator (Phase 1) is the gate.
 
+## Phase 8 — Light, not clock time
+
+**Goal:** let `best` be expressed relative to the sun, because the clock cannot
+say "golden hour" in a city where sunset moves five hours across the year.
+
+Opened by `06-archive-evidence.md`, which measured the problem rather than
+arguing it. Paris sunset runs 17:00 in late December and 21:58 in June. Pont des
+Arts's December frames sit 26 and 21 minutes before sunset — 16:34 and 16:39 by
+the clock — and the identical moment in June falls near 22:00. Its declared
+`[17, 22]` therefore means "after dark" for half the year: in December the
+engine may seat a traveler on that bridge at 21:30, four and a half hours after
+the light the description promises. Because `best` is also a **hard filter**
+(>30 min outside disqualifies), the error runs both ways — a place is offered at
+the wrong hour, or refused at the right one.
+
+Changes:
+
+- `app/src/cities/types.ts`: `best` accepts a sun-relative form alongside the
+  clock tuple — e.g. `{ from: { sun: 'sunset', min: -60 }, to: { sun: 'sunset', min: 30 } }`
+  — with the tuple retained for places whose window really is clock-bound
+  (opening hours, a market that packs up at two).
+- `app/src/lib/planner.ts`: resolve `best` to a concrete window per date through
+  `sun.ts` before `timely` and the `bestTime` score. `CandidateOpts.date` and
+  the city's coordinates are already in scope; `euTzOffsetMin` already handles
+  both shipped cities. Resolution must stay deterministic — same date in, same
+  window out — since determinism is the version.
+- `app/scripts/validate-city.ts`: a declared window may not contradict the
+  place's own archive. `archive:evidence` already computes the comparison;
+  this promotes it from report to gate, so the Pont des Arts bug cannot recur.
+- Data: the places whose light is the reason to go — `pontdesarts`,
+  `tournelle` (if its evening claim is restored), `alexiii`, and the Eiffel's
+  dusk experience once it is split from the parent.
+
+**Done when:** Pont des Arts admits a 16:30 arrival in December and refuses it
+in June; `archive:evidence` section 1 reports no contradicted windows for
+Paris; `validate:cities` fails on a deliberately contradicted fixture; smoke
+determinism holds across the existing timezone sweep.
+
 ---
 
 ## Backlog, not yet phased
@@ -190,4 +233,21 @@ approve. The validator (Phase 1) is the gate.
   (needs interests → theme/tag mapping).
 - `monetary_cost` scoring — needs a budget input in compose; entry-cost data
   already exists (`entry.json` after Phase 1).
+- **Split the Eiffel into dusk and daytime experiences** — the archive shows two
+  distinct visits under one record (`06-archive-evidence.md`). Phase 3's
+  `experiences` already supports it; the widened `[11, 24]` window is a holding
+  fix.
+- **Re-file the three disproven plates**, and decide whether Marché des Enfants
+  Rouges keeps a verified claim with no photograph behind it.
+- **Prune or subordinate the web tier.** 90 of 127 Paris places have no
+  description and render as bare names; verified has fallen from 62% to 26% of
+  the catalog. Either is a strategy decision, not a task.
+- **Portability** — the plan cannot leave the device it was built on. Trip state
+  persists in localStorage and nowhere else: no calendar, map or offline export,
+  no print stylesheet, nothing to hand a travelling companion. Highest
+  utility-per-hour on this list, and it needs no backend.
+- **Media weight** — 535 MB for one city. It sits in `public/`, so it is transfer
+  weight rather than bundle weight and Phase 7 trigger 4 does not strictly cover
+  it; a CDN or on-demand derivative pipeline is the likely answer, and city three
+  forces the question either way.
 - Everything in `01-principles.md` §5 (appendix layers), each waiting on its trigger.

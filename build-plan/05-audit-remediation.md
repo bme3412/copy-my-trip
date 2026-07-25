@@ -272,5 +272,5 @@ Behavior-changing items needing a deliberate rebaseline, not a silent one: bug 5
 - The three claims rejected during audit verification (listed in `04-engine-audit.md`).
 - Promoting the demoted curated stops — decided against; they are web-sourced.
 - Gating Rome behind a shippable flag — decided against in favour of an honest empty state.
-- `00-current-state.md` §"Known gaps" is stale (all six entries were closed by phases
-  1–5). Refresh it when Stage 5 lands.
+- ~~`00-current-state.md` §"Known gaps" is stale (all six entries were closed by
+  phases 1–5).~~ Refreshed 2026-07-24 with the eight that stand now.

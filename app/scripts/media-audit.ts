@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 import { CITIES } from '../src/cities'
+import { fileCoords, genSource, isPhoto, isVideo } from './archive-files'
 
 const cityId = process.argv[2] ?? 'paris'
 const city = CITIES[cityId]
@@ -27,55 +28,13 @@ if (!city) {
 
 const mediaDir = path.join(process.cwd(), 'public', 'media', cityId)
 const srcDir = path.join(process.cwd(), 'src')
-const files = fs.readdirSync(mediaDir).filter((f) => !f.endsWith('.md'))
-const isVideo = (f: string) => /\.(mov|mp4)$/i.test(f)
-
-/** Derived files inherit their source video's metadata. Kept in step with the
- * identical table in scripts/extract-dates.sh — if you add a conversion,
- * add it in both places. */
-const GEN_SOURCE: [RegExp, string][] = [
-  [/^_gen-vosges-/, 'paris-place-des-vosges.mov'],
-  [/^_gen-maison-rose/, 'paris-montmartre-maison-rose.mov'],
-  [/^_gen-notre-dame-pano/, 'paris-notre-dame-pano-empty.mov'],
-  [/^_gen-vert-galant-pano/, 'paris-vert-gallant-pano.mov'],
-  [/^_gen-seine-boat-pano/, 'paris-bridge-seine-boat-pano.mov'],
-  [/^_gen-pont-neuf-dec26/, 'paris-pont-neuf-dec26.mov'],
-  [/^_gen-saint-germain-bonaparte/, 'paris-saint-germain-bonaparte.mov'],
-  [/^_gen-chez-janou/, 'paris-marais-chez-janou.mov'],
-  [/^_gen-pont-des-arts-stevie/, 'paris-pont-des-arts-stevie-wonder.mov'],
-  [/^_gen-pont-des-arts/, 'paris-pont-des-arts-pano.mov'],
-  [/^_gen-pompidou/, 'paris-centre-pompidou.mov'],
-  [/^_gen-st-germain-christmas/, 'paris-saint-germain-christmas.mov'],
-  [/^_gen-arc-pano/, 'paris-arc-triomphe-pano.mov'],
-  [/^_gen-sacre-pano/, 'paris-steps-sacre-coeur-pano-summer.mov'],
-  [/^_gen-sacre-steps-music/, 'paris-sacre-coeur-steps-music.mov'],
-  [/^_gen-sacre-rhcp/, 'paris-sacre-coeur-redhotchilipeppers.mov'],
-  [/^_gen-sacre-sunny/, 'sacre-coeur-steps-sunny.mov'],
-  [/^_gen-tournelle-golden/, 'paris-tournelle-golden.mov'],
-  [/^_gen-buci-fete/, 'paris-buci-fete-musique.mov'],
-  [/^_gen-bateau-mouche/, 'paris-bateau-mouche.mov'],
-]
-const genSource = (f: string) => GEN_SOURCE.find(([re]) => re.test(f))?.[1]
+const files = fs.readdirSync(mediaDir).filter((f) => isVideo(f) || isPhoto(f))
 
 // ── evidence: where and when each file was taken ──────────────────────────
 
-/** Videos keep their QuickTime location tag; ffmpeg drops it, so `_gen-*`
- * conversions inherit from the master exactly as their dates do. */
-function gps(file: string): { lat: number; lon: number } | null {
-  const source = genSource(file) ?? file
-  if (!isVideo(source)) return null
-  try {
-    const out = execFileSync(
-      'ffprobe',
-      ['-v', 'error', '-show_entries', 'format_tags=com.apple.quicktime.location.ISO6709', '-of', 'csv=p=0', path.join(mediaDir, source)],
-      { encoding: 'utf8' },
-    ).trim()
-    const m = out.match(/([+-]\d+\.\d+)([+-]\d+\.\d+)/)
-    return m ? { lat: Number(m[1]), lon: Number(m[2]) } : null
-  } catch {
-    return null // no ffprobe, or no tag — the filename still carries a guess
-  }
-}
+/** QuickTime location tags for video, EXIF for photographs; `_gen-*`
+ * conversions inherit from their master, since ffmpeg drops the tag. */
+const coords = fileCoords(mediaDir, files)
 
 const rad = Math.PI / 180
 /** Metres between two coordinates — the planner's haversine, in metres. */
@@ -243,10 +202,10 @@ findings += unconverted.length
 
 // 6. What GPS says, where GPS exists.
 console.log(H('6 · GPS PROPOSALS'))
-console.log(dim('   Video carries coordinates. "agree" = GPS and filename pick the same place.'))
+console.log(dim('   Where the file says it was taken. "agree" = GPS and filename pick the same place.'))
 const rows: string[] = []
-for (const f of files.filter(isVideo).sort()) {
-  const g = gps(f)
+for (const f of files.sort()) {
+  const g = coords.get(f)
   if (!g) continue
   const near = city.places
     .map((p) => ({ p, d: metres(g.lat, g.lon, p.lat, p.lon) }))

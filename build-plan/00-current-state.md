@@ -2,7 +2,7 @@
 
 What exists today, described in the vocabulary the rest of the plan uses. The point
 of this document: `02-roadmap.md` is written as *deltas against this*, not as a
-greenfield build. Counts and line references are accurate as of 2026-07-21; treat
+greenfield build. Counts and line references are accurate as of 2026-07-24; treat
 them as "at time of writing".
 
 ## The product in one paragraph
@@ -39,7 +39,7 @@ Pages (`app/src/pages/`, routed in `app/src/App.tsx`):
 
 ## The engine
 
-`app/src/lib/planner.ts` (356 lines) — a deterministic greedy day builder. The same
+`app/src/lib/planner.ts` (1042 lines) — a deterministic greedy day builder. The same
 engine drives both the interactive builder and preset generation.
 
 - **`ENGINE`** — one constants block holding stop budgets per pace, linger (drift)
@@ -63,18 +63,36 @@ middle, golden-hour icons, Orsay/Left Bank, Versailles-or-east, buffer day).
 
 ## The data
 
-Contracts in `app/src/cities/types.ts`; Paris data in `app/src/cities/paris/`
-(compiled TS modules — moving this to JSON is roadmap Phase 1).
+Contracts in `app/src/cities/types.ts`; each city's data is static JSON under
+`app/src/cities/<id>/data/`, loaded through a registry and gated by
+`validate:cities` (Phase 1).
 
-`Place` already carries: coordinates, neighbourhood (`hood`), duration, a daily
-`open: [h, h]` tuple, weekday closures (`closedOn`), preferred arrival window
+`Place` carries: coordinates, neighbourhood (`hood`), duration and its variance
+(`durVar`), a daily `open: [h, h]` tuple with optional per-weekday `hours` and dated
+`exceptions` (Phase 2), weekday closures (`closedOn`), preferred arrival window
 (`best`), meal role, category `group`, trip `themes`, `role: 'anchor'`, `timed`
-(reservation required), `dayTrip`, and provenance (`src: 'verified' | 'web'`,
-`visits`, `last`).
+(reservation required), `dayTrip`, `experiences` variants (Phase 3), and provenance
+(`src: 'verified' | 'web'`, `visits`, `last`).
 
-At time of writing: **37 places (23 verified, 14 web)**, 10 hoods, 4 curated days
-(`days.ts`), 3 presets, 6 themes. Media records and EXIF capture dates are generated
-into TS modules by `app/scripts/extract-dates.sh`.
+At time of writing:
+
+| | Paris | Rome |
+|---|---|---|
+| Places | 127 | 42 |
+| — verified | 33 | 0 |
+| — with a description | 37 | 42 |
+| — with photo plates | 33 | 0 |
+| Hoods | 11 | 8 |
+| Curated days | 4 | 0 |
+
+Plus 3 presets and 6 themes, shared. Media records and capture dates are generated
+into `media-dates.json` by `app/scripts/extract-dates.sh`.
+
+Two ratios drive the roadmap more than the totals do. **Verified is 26% of Paris and
+none of Rome** — the catalog was 37 places at 62% verified before it grew, so almost
+all growth has been web-tier. And **90 of 127 Paris places have no description**, so
+they render as bare names. Depth, not breadth, is the constraint
+(`06-archive-evidence.md`).
 
 ## The quality harness
 
@@ -83,6 +101,33 @@ into TS modules by `app/scripts/extract-dates.sh`.
   populated, home by 22:00, ≤1 anchor, ≤2 timed, ≤1 long transfer, nothing scheduled
   on its closing weekday, no lunch before 11:00, best-window respected.
 - `app/scripts/diag.ts` (`npm run diag`) — replays generation for eyeballing.
+- `app/scripts/validate-city.ts` (`npm run validate:cities`) — the schema and
+  cross-reference gate; proves a city's data agrees with **itself**.
+- `app/scripts/media-audit.ts` (`npm run media:audit`) — proves the files on
+  disk agree with the data about **where**: filename and GPS proposals, bare
+  provenance claims, orphan slots, unconverted masters.
+- `app/scripts/archive-evidence.ts` (`npm run archive:evidence`) — proves the
+  data agrees with the archive about **when**, and about where the camera
+  actually stood. Reports `best` windows contradicted by the shots, places
+  whose light is sun-relative rather than clock-fixed, `visits`/`last` counted
+  against distinct capture days, month-by-month season coverage, same-day
+  transitions between places, and coordinates against each place's declared
+  `lat`/`lon`.
+- `app/scripts/archive-files.ts` — the metadata reader behind both. Capture
+  moment and coordinates per file, derived `_gen-*` files resolved to their
+  master: QuickTime tags via `ffprobe` for video, and a small EXIF/TIFF
+  reader for photographs, because `sips` reports a date but will not surrender
+  GPS and no dependency is worth two IFD lookups. Full **local** time is kept
+  deliberately — `extract-dates.sh` truncates to `YYYY-MM`, and the hour is
+  the part the engine needs.
+
+  Paris coverage at time of writing: 114 of 114 files dated, 86 carrying
+  coordinates. Location services split cleanly by era — every file from 2024
+  on has GPS, nothing from 2022 or earlier does — so pre-2024 places can only
+  be placed by hand.
+
+  Both audits are **report-only by design**: capture metadata is evidence, and
+  promoting it to a provenance claim is the curator's call, never a script's.
 - All scripts use the `esbuild → node_modules/.tmp → node` pattern in
   `app/package.json`; new scripts should follow it.
 
@@ -93,9 +138,9 @@ under different names. This table is the bridge; caveats matter.
 
 | Plan vocabulary (reference docs) | Existing implementation | Caveat |
 |---|---|---|
-| Operating rules (recurring hours) | `Place.open` single daily tuple + `closedOn` weekday array, pruned in `buildCandidates` | One tuple for all days — no per-weekday hours (Louvre's late Wednesday is unrepresentable), no date exceptions. That is the Phase 2 delta. |
-| Start windows on visit opportunities | `Place.best?: [h, h]` arrival window | Not soft-only: it's a soft score (`W.bestTime`, early = −3×) **and** a hard filter — >30 min outside the window disqualifies (`timely`, planner.ts:234). |
-| Provenance / source hierarchy | `src: 'verified' \| 'web'`, plus `measured` travel legs, plus `visits`/`last`/EXIF dates as evidence | A deliberate 2-level collapse of the reference 7-level hierarchy. `measured` is narrower than "EXIF-measured": only verified↔verified *walking* legs < 1.6 km (planner.ts:163); metro legs are always estimated. |
+| Operating rules (recurring hours) | `Place.open` daily tuple + optional per-weekday `hours` + dated `exceptions` + `closedOn`, pruned in `buildCandidates` | Shipped in Phase 2; the Louvre's late Wednesday is now representable. Only 3 Paris places actually declare `hours`, so most still run on one tuple. |
+| Start windows on visit opportunities | `Place.best?: [h, h]` arrival window | Not soft-only: it's a soft score (`W.bestTime`, early = −3×) **and** a hard filter — >30 min outside the window disqualifies. Clock-fixed, so it cannot express golden hour in a city where sunset moves four hours a year; that is the Phase 8 delta. |
+| Provenance / source hierarchy | `src: 'verified' \| 'web'`, plus `measured` travel legs, plus `visits`/`last` and capture metadata as evidence | A deliberate 2-level collapse of the reference 7-level hierarchy. `measured` is narrower than "EXIF-measured": only verified↔verified *walking* legs < 1.6 km; metro legs are always estimated, and no leg has yet been timed against the archive (`06-archive-evidence.md`). |
 | Candidate scoring model | `ENGINE.weights` (9 named weights) applied in `score()` | Two contributions are hardcoded outside the weights block: morning-coffee bias +1.5 (planner.ts:280) and `hoodBias` +1.5 (planner.ts:292). Folding them in is a Phase 4 cleanup. |
 | Fatigue / daily budgets | `stopBudget` per pace + `linger` drift + `PACE.f` duration dilation + curfews (`lastLeave`, `eveningWindDown`) + caps | The reference budget dict (`major_anchors_max: 1`, `timed_reservations_max: 2`, `cross_city_transfers_max: 1`) is *literally shipped* as the ≤1-anchor filter, `maxTimedPerDay` and `maxLongTransfers`. |
 | Trip-level coverage | `Theme` + `tripThemes()` + `W.coverage` (capped ×2) | Soft-scored here; the reference makes coverage a hard requirement. Soft is canonical (see `01-principles.md`). |
@@ -108,15 +153,25 @@ under different names. This table is the bridge; caveats matter.
 
 ## Known gaps (honest list)
 
-1. **Interests are nearly inert.** The compose screen collects them, but they only
-   gate the Versailles-vs-east day in `dayProfiles`. No interest-based scoring exists.
-2. **One `open` tuple per place.** Late openings (Louvre Wednesday, Orsay Thursday)
-   and date exceptions cannot be represented.
-3. **Paris-isms in the generator.** `dayProfiles` hardcodes place ids and hood names;
-   a second city is *not* a pure data drop until that moves into city data.
-4. **Data is compiled into the bundle.** Adding or editing a city means editing TS
-   source; there is no schema validation beyond the type checker.
-5. **No per-stop explanations.** The engine knows why it picked a stop; the UI can't
-   say so.
-6. **Fixed durations.** A single `dur` per place; no ranges, no arrival buffers for
-   timed entries beyond `maxWait`.
+The original six were all closed by phases 1–5 (`05-audit-remediation.md`). This is
+the list as it stands now.
+
+1. **The archive covers a quarter of the catalog.** 25 of 127 Paris places have any
+   temporal evidence, 33 have plates, 37 have a description. The rest are web-tier
+   names — the tier whose growth makes this resemble the planners it argues against.
+2. **Rome ships zero verified places and zero plates.** Honest empty state, but the
+   premise does not yet apply to half the shipped cities.
+3. **`best` is clock-fixed.** A single tuple cannot mean "an hour before sunset", so
+   it is wrong in one season by construction. Phase 8.
+4. **`measured` is inferred, not walked.** Haversine over verified↔verified pairs, not
+   a timed route. The archive can bound legs from above but cannot confirm them, since
+   every photo-to-photo gap includes lingering (`04-engine-audit.md` improvement 6).
+5. **Pre-2024 media carries no coordinates.** Location services were off; those places
+   can only be placed by hand, permanently.
+6. **Three plates are filed where their GPS disproves.** Awaiting curator
+   identification (`06-archive-evidence.md`).
+7. **`durVar` is sparse.** 49 of 127 Paris places declare it, so most duration ranges
+   fall back to a default spread.
+8. **The plan cannot leave the device.** Trip state persists in localStorage and
+   nowhere else — no accounts, no calendar or offline export, no print stylesheet.
+   A traveler cannot carry, share or reopen elsewhere the itinerary they built.
