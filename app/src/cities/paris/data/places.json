@@ -202,7 +202,7 @@
     ],
     "src": "verified",
     "visits": 8,
-    "last": "May ’24",
+    "last": "Jun ’26",
     "hood": "The Islands (1er–4e)",
     "label": "Sweet stop",
     "group": "sight",
@@ -232,10 +232,6 @@
     "hood": "The Islands (1er–4e)",
     "label": "Riverside",
     "group": "sight",
-    "best": [
-      17,
-      22
-    ],
     "themes": [
       "afterdark"
     ]
@@ -312,7 +308,7 @@
     "id": "sacre",
     "name": "Sacré-Cœur",
     "area": "Montmartre, 18e",
-    "lat": 48.8867,
+    "lat": 48.8859,
     "lon": 2.3431,
     "dur": 40,
     "meal": null,
@@ -329,7 +325,7 @@
       "neighborhood"
     ],
     "rank": 1,
-    "visits": 6,
+    "visits": 7,
     "last": "Jun ’25"
   },
   {
@@ -392,7 +388,7 @@
     ],
     "src": "verified",
     "visits": 3,
-    "last": "May ’24",
+    "last": "Jun ’26",
     "hood": "Le Marais (3e–4e)",
     "label": "Dinner · Provençal",
     "group": "food",
@@ -454,8 +450,8 @@
     "id": "vertgalant",
     "name": "Square du Vert-Galant",
     "area": "Pont Neuf, 1er",
-    "lat": 48.8573,
-    "lon": 2.341,
+    "lat": 48.8574,
+    "lon": 2.3398,
     "dur": 30,
     "meal": null,
     "open": [
@@ -464,7 +460,7 @@
     ],
     "src": "verified",
     "visits": 4,
-    "last": "Dec ’24",
+    "last": "Jun ’26",
     "hood": "The Islands (1er–4e)",
     "label": "Riverside",
     "group": "park",
@@ -487,10 +483,14 @@
     ],
     "src": "verified",
     "visits": 3,
-    "last": "Dec ’24",
+    "last": "Jun ’25",
     "hood": "Saint-Germain (6e–7e)",
     "label": "Bridge",
     "group": "sight",
+    "best": [
+      17,
+      22
+    ],
     "themes": [
       "afterdark"
     ]
@@ -574,7 +574,7 @@
     "name": "Centre Pompidou",
     "area": "Beaubourg, 4e",
     "lat": 48.8607,
-    "lon": 2.3522,
+    "lon": 2.3514,
     "dur": 75,
     "meal": null,
     "open": [
@@ -583,7 +583,7 @@
     ],
     "src": "verified",
     "visits": 2,
-    "last": "Jun ’24",
+    "last": "Jun ’26",
     "hood": "Le Marais (3e–4e)",
     "label": "Museum",
     "group": "indoor",
@@ -609,7 +609,7 @@
     ],
     "src": "verified",
     "visits": 4,
-    "last": "Jul ’24",
+    "last": "Jun ’26",
     "hood": "Saint-Germain (6e–7e)",
     "label": "Coffee · terraces",
     "group": "food",
@@ -721,7 +721,7 @@
     "label": "The tower",
     "group": "sight",
     "best": [
-      16,
+      11,
       24
     ],
     "themes": [
@@ -1846,13 +1846,15 @@
       0,
       24
     ],
-    "src": "web",
+    "src": "verified",
     "label": "The corner",
     "group": "sight",
     "themes": [
       "neighborhood"
     ],
-    "rank": 2
+    "rank": 2,
+    "visits": 1,
+    "last": "Jun ’26"
   },
   {
     "id": "placetertre",
