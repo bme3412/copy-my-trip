@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { CITIES } from '../cities'
+import { Link } from 'react-router-dom'
+import { CitySelector } from '../components/CitySelector'
 import { HeroPhoto } from '../components/HeroPhoto'
 import { ImageSlot } from '../components/ImageSlot'
 import { fileDateLabel, mediaUrl } from '../lib/media'
@@ -14,7 +14,6 @@ const PARIS_HIGHLIGHTS = [
 
 export function Home() {
   const city = useCity()
-  const navigate = useNavigate()
   const base = `/${city.id}`
   const isParis = city.id === 'paris'
   const highlights = isParis
@@ -28,12 +27,9 @@ export function Home() {
     <main className="editorial-home page-enter" id="main-content" tabIndex={-1}>
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-hero-copy">
+          <CitySelector key={city.id} />
           <h1 id="home-title">
-            <span className="home-city-picker">
-              <select aria-label="Choose city" value={city.id} onChange={event => navigate(`/${event.target.value}`)}>
-                {Object.values(CITIES).map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-              </select><span aria-hidden="true">⌄</span>
-            </span><br />
+            <span className="visually-hidden">{city.name}, </span>
             {isParis ? 'from someone who’s been there.' : 'a new city, thoughtfully planned.'}
           </h1>
           <p className="home-lede">{isParis
