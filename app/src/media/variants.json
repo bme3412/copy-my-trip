@@ -1,0 +1,1486 @@
+{
+  "paris/_gen-bateau-mouche.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-bateau-mouche.8c4110a1b422-320.webp",
+        "bytes": 17662
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-bateau-mouche.8c4110a1b422-720.webp",
+        "bytes": 66944
+      }
+    ]
+  },
+  "paris/_gen-buci-fete.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-buci-fete.f33902d9d7e6-320.webp",
+        "bytes": 33892
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-buci-fete.f33902d9d7e6-720.webp",
+        "bytes": 131844
+      }
+    ]
+  },
+  "paris/_gen-chez-janou.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-chez-janou.d2eb75216fa0-320.webp",
+        "bytes": 29854
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-chez-janou.d2eb75216fa0-720.webp",
+        "bytes": 101778
+      }
+    ]
+  },
+  "paris/_gen-maison-rose.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-maison-rose.fec10f1d907f-320.webp",
+        "bytes": 46658
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-maison-rose.fec10f1d907f-720.webp",
+        "bytes": 203328
+      }
+    ]
+  },
+  "paris/_gen-pompidou.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-pompidou.7bc408ff3be5-320.webp",
+        "bytes": 37080
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-pompidou.7bc408ff3be5-720.webp",
+        "bytes": 128058
+      }
+    ]
+  },
+  "paris/_gen-pont-des-arts-stevie.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-pont-des-arts-stevie.c4365d1073c8-320.webp",
+        "bytes": 17956
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-pont-des-arts-stevie.c4365d1073c8-720.webp",
+        "bytes": 73182
+      }
+    ]
+  },
+  "paris/_gen-pont-des-arts.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-pont-des-arts.17276af036d3-320.webp",
+        "bytes": 23080
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-pont-des-arts.17276af036d3-720.webp",
+        "bytes": 93188
+      }
+    ]
+  },
+  "paris/_gen-sacre-rhcp.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-sacre-rhcp.baa98f1b62cb-320.webp",
+        "bytes": 31982
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-sacre-rhcp.baa98f1b62cb-720.webp",
+        "bytes": 99304
+      }
+    ]
+  },
+  "paris/_gen-sacre-sunny.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-sacre-sunny.3af4c9c6fda8-320.webp",
+        "bytes": 24090
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-sacre-sunny.3af4c9c6fda8-720.webp",
+        "bytes": 87928
+      }
+    ]
+  },
+  "paris/_gen-seine-boat-pano.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-seine-boat-pano.653e609e27e4-320.webp",
+        "bytes": 31192
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-seine-boat-pano.653e609e27e4-720.webp",
+        "bytes": 119486
+      }
+    ]
+  },
+  "paris/_gen-st-germain-christmas.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-st-germain-christmas.007d59324112-320.webp",
+        "bytes": 36474
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-st-germain-christmas.007d59324112-720.webp",
+        "bytes": 143848
+      }
+    ]
+  },
+  "paris/_gen-tournelle-golden.jpg": {
+    "width": 720,
+    "height": 720,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-tournelle-golden.e8e0205cc184-320.webp",
+        "bytes": 15476
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-tournelle-golden.e8e0205cc184-720.webp",
+        "bytes": 49648
+      }
+    ]
+  },
+  "paris/_gen-vosges-fountain.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-vosges-fountain.4810c5a965cd-320.webp",
+        "bytes": 33186
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-vosges-fountain.4810c5a965cd-720.webp",
+        "bytes": 145072
+      }
+    ]
+  },
+  "paris/_gen-vosges-garden.jpg": {
+    "width": 720,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/_gen-vosges-garden.23b196ca644a-320.webp",
+        "bytes": 30792
+      },
+      {
+        "width": 720,
+        "path": "/media/optimized/paris/_gen-vosges-garden.23b196ca644a-720.webp",
+        "bytes": 142084
+      }
+    ]
+  },
+  "paris/chez-janou-entrance.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/chez-janou-entrance.c467c0df256b-320.webp",
+        "bytes": 34700
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/chez-janou-entrance.c467c0df256b-800.webp",
+        "bytes": 172298
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/chez-janou-entrance.c467c0df256b-1440.webp",
+        "bytes": 433930
+      }
+    ]
+  },
+  "paris/chez-janou-interior.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/chez-janou-interior.473dcb8cd6c3-320.webp",
+        "bytes": 29348
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/chez-janou-interior.473dcb8cd6c3-800.webp",
+        "bytes": 143546
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/chez-janou-interior.473dcb8cd6c3-1440.webp",
+        "bytes": 354258
+      }
+    ]
+  },
+  "paris/chez-janou.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/chez-janou.1ef79d1512a8-320.webp",
+        "bytes": 30418
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/chez-janou.1ef79d1512a8-800.webp",
+        "bytes": 153030
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/chez-janou.1ef79d1512a8-1440.webp",
+        "bytes": 398728
+      }
+    ]
+  },
+  "paris/marais-paul-patisserie.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/marais-paul-patisserie.dc62e2c0efb5-320.webp",
+        "bytes": 25524
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/marais-paul-patisserie.dc62e2c0efb5-800.webp",
+        "bytes": 116186
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/marais-paul-patisserie.dc62e2c0efb5-1440.webp",
+        "bytes": 283978
+      }
+    ]
+  },
+  "paris/pais-vert-gallant.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/pais-vert-gallant.9041a0c45508-320.webp",
+        "bytes": 22690
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/pais-vert-gallant.9041a0c45508-800.webp",
+        "bytes": 128430
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/pais-vert-gallant.9041a0c45508-1440.webp",
+        "bytes": 323202
+      }
+    ]
+  },
+  "paris/paris-arc-triomphe-eiffel.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-arc-triomphe-eiffel.2639ca2df82a-320.webp",
+        "bytes": 20082
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-arc-triomphe-eiffel.2639ca2df82a-800.webp",
+        "bytes": 116392
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-arc-triomphe-eiffel.2639ca2df82a-1440.webp",
+        "bytes": 333642
+      }
+    ]
+  },
+  "paris/paris-arctriomphe-street-view.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-arctriomphe-street-view.bef2a8fe2b4d-320.webp",
+        "bytes": 12022
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-arctriomphe-street-view.bef2a8fe2b4d-800.webp",
+        "bytes": 57302
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-arctriomphe-street-view.bef2a8fe2b4d-1440.webp",
+        "bytes": 164806
+      }
+    ]
+  },
+  "paris/paris-bridge-palais.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-bridge-palais.2e15af8548cb-320.webp",
+        "bytes": 15848
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-bridge-palais.2e15af8548cb-800.webp",
+        "bytes": 82890
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-bridge-palais.2e15af8548cb-1440.webp",
+        "bytes": 210720
+      }
+    ]
+  },
+  "paris/paris-bridge-tables.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-bridge-tables.4c3963481240-320.webp",
+        "bytes": 24392
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-bridge-tables.4c3963481240-800.webp",
+        "bytes": 120752
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-bridge-tables.4c3963481240-1440.webp",
+        "bytes": 336328
+      }
+    ]
+  },
+  "paris/paris-bridge-vert-gallant.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-bridge-vert-gallant.6d59d94546b9-320.webp",
+        "bytes": 14940
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-bridge-vert-gallant.6d59d94546b9-800.webp",
+        "bytes": 92224
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-bridge-vert-gallant.6d59d94546b9-1440.webp",
+        "bytes": 268240
+      }
+    ]
+  },
+  "paris/paris-cafe-coffee.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-cafe-coffee.24a172178cad-320.webp",
+        "bytes": 6624
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-cafe-coffee.24a172178cad-800.webp",
+        "bytes": 24888
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-cafe-coffee.24a172178cad-1440.webp",
+        "bytes": 64634
+      }
+    ]
+  },
+  "paris/paris-centre-pompidou.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-centre-pompidou.d27e05e3a7c3-320.webp",
+        "bytes": 38634
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-centre-pompidou.d27e05e3a7c3-800.webp",
+        "bytes": 201958
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-centre-pompidou.d27e05e3a7c3-1440.webp",
+        "bytes": 564370
+      }
+    ]
+  },
+  "paris/paris-champs-elysee.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-champs-elysee.48589043b460-320.webp",
+        "bytes": 18932
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-champs-elysee.48589043b460-800.webp",
+        "bytes": 85382
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-champs-elysee.48589043b460-1440.webp",
+        "bytes": 164410
+      }
+    ]
+  },
+  "paris/paris-chocolate.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-chocolate.5a09a6302de9-320.webp",
+        "bytes": 21046
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-chocolate.5a09a6302de9-800.webp",
+        "bytes": 96122
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-chocolate.5a09a6302de9-1440.webp",
+        "bytes": 233766
+      }
+    ]
+  },
+  "paris/paris-defense.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-defense.175d6a534662-320.webp",
+        "bytes": 26098
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-defense.175d6a534662-800.webp",
+        "bytes": 144294
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-defense.175d6a534662-1440.webp",
+        "bytes": 388964
+      }
+    ]
+  },
+  "paris/paris-desserts.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-desserts.188a2c96d5a4-320.webp",
+        "bytes": 25762
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-desserts.188a2c96d5a4-800.webp",
+        "bytes": 116490
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-desserts.188a2c96d5a4-1440.webp",
+        "bytes": 307322
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-bottom-lights.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-bottom-lights.18fc340446c3-320.webp",
+        "bytes": 17704
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-bottom-lights.18fc340446c3-800.webp",
+        "bytes": 98164
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-bottom-lights.18fc340446c3-1440.webp",
+        "bytes": 272120
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-night.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-night.f411a98e9015-320.webp",
+        "bytes": 14486
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-night.f411a98e9015-800.webp",
+        "bytes": 68016
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-night.f411a98e9015-1440.webp",
+        "bytes": 166588
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-quai.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-quai.6d7c401b4d97-320.webp",
+        "bytes": 17470
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-quai.6d7c401b4d97-800.webp",
+        "bytes": 97102
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-quai.6d7c401b4d97-1440.webp",
+        "bytes": 279116
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-rings-2.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings-2.3abf32231a5b-320.webp",
+        "bytes": 22460
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings-2.3abf32231a5b-800.webp",
+        "bytes": 108778
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings-2.3abf32231a5b-1440.webp",
+        "bytes": 284838
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-rings.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings.528642cf4f1d-320.webp",
+        "bytes": 24970
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings.528642cf4f1d-800.webp",
+        "bytes": 120246
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-rings.528642cf4f1d-1440.webp",
+        "bytes": 315654
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-street.jpeg": {
+    "width": 2448,
+    "height": 3264,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-street.6f35b8dd1eea-320.webp",
+        "bytes": 15644
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-street.6f35b8dd1eea-800.webp",
+        "bytes": 70424
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-street.6f35b8dd1eea-1440.webp",
+        "bytes": 196700
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-sunset-seine.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset-seine.45a606c44929-320.webp",
+        "bytes": 11362
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset-seine.45a606c44929-800.webp",
+        "bytes": 59878
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset-seine.45a606c44929-1440.webp",
+        "bytes": 139230
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-sunset.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset.7da027f73ca0-320.webp",
+        "bytes": 10728
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset.7da027f73ca0-800.webp",
+        "bytes": 60542
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-sunset.7da027f73ca0-1440.webp",
+        "bytes": 164210
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-trocadero-lights.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-trocadero-lights.e7a67f1a33df-320.webp",
+        "bytes": 11392
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-trocadero-lights.e7a67f1a33df-800.webp",
+        "bytes": 55576
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-trocadero-lights.e7a67f1a33df-1440.webp",
+        "bytes": 129324
+      }
+    ]
+  },
+  "paris/paris-eiffel-tower-under.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-eiffel-tower-under.1a97f5253937-320.webp",
+        "bytes": 13366
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-eiffel-tower-under.1a97f5253937-800.webp",
+        "bytes": 68526
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-eiffel-tower-under.1a97f5253937-1440.webp",
+        "bytes": 189662
+      }
+    ]
+  },
+  "paris/paris-ile-st-louis-berthillon.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-ile-st-louis-berthillon.614d8d3482d6-320.webp",
+        "bytes": 31772
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-ile-st-louis-berthillon.614d8d3482d6-800.webp",
+        "bytes": 157492
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-ile-st-louis-berthillon.614d8d3482d6-1440.webp",
+        "bytes": 452388
+      }
+    ]
+  },
+  "paris/paris-ile-st-louis-restaurant-red.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-ile-st-louis-restaurant-red.762f5d33f68a-320.webp",
+        "bytes": 35322
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-ile-st-louis-restaurant-red.762f5d33f68a-800.webp",
+        "bytes": 180888
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-ile-st-louis-restaurant-red.762f5d33f68a-1440.webp",
+        "bytes": 453976
+      }
+    ]
+  },
+  "paris/paris-ile-st-louis-sign.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-ile-st-louis-sign.537c390a9d57-320.webp",
+        "bytes": 9890
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-ile-st-louis-sign.537c390a9d57-800.webp",
+        "bytes": 38250
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-ile-st-louis-sign.537c390a9d57-1440.webp",
+        "bytes": 81862
+      }
+    ]
+  },
+  "paris/paris-jardin-luxembourg-boats.jpeg": {
+    "width": 4032,
+    "height": 3024,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-jardin-luxembourg-boats.3dcad520d90e-320.webp",
+        "bytes": 11720
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-jardin-luxembourg-boats.3dcad520d90e-800.webp",
+        "bytes": 62010
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-jardin-luxembourg-boats.3dcad520d90e-1440.webp",
+        "bytes": 181044
+      }
+    ]
+  },
+  "paris/paris-louvre-pyramid-courtyard.jpeg": {
+    "width": 4032,
+    "height": 3024,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-louvre-pyramid-courtyard.d1f88cbd7011-320.webp",
+        "bytes": 7302
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-louvre-pyramid-courtyard.d1f88cbd7011-800.webp",
+        "bytes": 35846
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-louvre-pyramid-courtyard.d1f88cbd7011-1440.webp",
+        "bytes": 108046
+      }
+    ]
+  },
+  "paris/paris-louvre-pyramid.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-louvre-pyramid.a43bd052d993-320.webp",
+        "bytes": 20634
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-louvre-pyramid.a43bd052d993-800.webp",
+        "bytes": 98388
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-louvre-pyramid.a43bd052d993-1440.webp",
+        "bytes": 257398
+      }
+    ]
+  },
+  "paris/paris-montmartre-ameile.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-montmartre-ameile.60376d2e72b3-320.webp",
+        "bytes": 14478
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-montmartre-ameile.60376d2e72b3-800.webp",
+        "bytes": 73530
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-montmartre-ameile.60376d2e72b3-1440.webp",
+        "bytes": 202498
+      }
+    ]
+  },
+  "paris/paris-moules-frites.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-moules-frites.5eb8f4c5a112-320.webp",
+        "bytes": 23374
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-moules-frites.5eb8f4c5a112-800.webp",
+        "bytes": 86662
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-moules-frites.5eb8f4c5a112-1440.webp",
+        "bytes": 196682
+      }
+    ]
+  },
+  "paris/paris-notre-dame-empty.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-empty.e1d8659f9ee8-320.webp",
+        "bytes": 12820
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-empty.e1d8659f9ee8-800.webp",
+        "bytes": 65340
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-empty.e1d8659f9ee8-1440.webp",
+        "bytes": 169074
+      }
+    ]
+  },
+  "paris/paris-notre-dame-interior-2.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-2.0d03fafec0ed-320.webp",
+        "bytes": 29616
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-2.0d03fafec0ed-800.webp",
+        "bytes": 157714
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-2.0d03fafec0ed-1440.webp",
+        "bytes": 411096
+      }
+    ]
+  },
+  "paris/paris-notre-dame-interior-3.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-3.12aa056a918c-320.webp",
+        "bytes": 25540
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-3.12aa056a918c-800.webp",
+        "bytes": 133938
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-interior-3.12aa056a918c-1440.webp",
+        "bytes": 348004
+      }
+    ]
+  },
+  "paris/paris-notre-dame-interior.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-interior.2b00540dd941-320.webp",
+        "bytes": 28414
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-interior.2b00540dd941-800.webp",
+        "bytes": 153748
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-interior.2b00540dd941-1440.webp",
+        "bytes": 403108
+      }
+    ]
+  },
+  "paris/paris-notre-dame-january.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-january.a4fd06cf2f16-320.webp",
+        "bytes": 13528
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-january.a4fd06cf2f16-800.webp",
+        "bytes": 71654
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-january.a4fd06cf2f16-1440.webp",
+        "bytes": 186296
+      }
+    ]
+  },
+  "paris/paris-notre-dame-seine.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame-seine.e642cdd9b769-320.webp",
+        "bytes": 26036
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame-seine.e642cdd9b769-800.webp",
+        "bytes": 139636
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame-seine.e642cdd9b769-1440.webp",
+        "bytes": 311258
+      }
+    ]
+  },
+  "paris/paris-notre-dame.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-notre-dame.2df5ffea2b64-320.webp",
+        "bytes": 25314
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-notre-dame.2df5ffea2b64-800.webp",
+        "bytes": 151302
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-notre-dame.2df5ffea2b64-1440.webp",
+        "bytes": 450294
+      }
+    ]
+  },
+  "paris/paris-pastries.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-pastries.c0f1e05c5553-320.webp",
+        "bytes": 33764
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-pastries.c0f1e05c5553-800.webp",
+        "bytes": 171166
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-pastries.c0f1e05c5553-1440.webp",
+        "bytes": 413264
+      }
+    ]
+  },
+  "paris/paris-patisseries.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-patisseries.f808f6eb036d-320.webp",
+        "bytes": 27668
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-patisseries.f808f6eb036d-800.webp",
+        "bytes": 120226
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-patisseries.f808f6eb036d-1440.webp",
+        "bytes": 282988
+      }
+    ]
+  },
+  "paris/paris-places-des-vosges.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-places-des-vosges.690e373a44f8-320.webp",
+        "bytes": 15850
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-places-des-vosges.690e373a44f8-800.webp",
+        "bytes": 91840
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-places-des-vosges.690e373a44f8-1440.webp",
+        "bytes": 282182
+      }
+    ]
+  },
+  "paris/paris-pont-neuf-dec26.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-pont-neuf-dec26.de5bac351a29-320.webp",
+        "bytes": 14660
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-pont-neuf-dec26.de5bac351a29-800.webp",
+        "bytes": 89006
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-pont-neuf-dec26.de5bac351a29-1440.webp",
+        "bytes": 257816
+      }
+    ]
+  },
+  "paris/paris-pre-aux-clercs.jpeg": {
+    "width": 4032,
+    "height": 3024,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-pre-aux-clercs.0cbf5e603748-320.webp",
+        "bytes": 16626
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-pre-aux-clercs.0cbf5e603748-800.webp",
+        "bytes": 79194
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-pre-aux-clercs.0cbf5e603748-1440.webp",
+        "bytes": 224426
+      }
+    ]
+  },
+  "paris/paris-rue-buci-waiter.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-rue-buci-waiter.a52577f91cb4-320.webp",
+        "bytes": 37054
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-rue-buci-waiter.a52577f91cb4-800.webp",
+        "bytes": 182884
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-rue-buci-waiter.a52577f91cb4-1440.webp",
+        "bytes": 463418
+      }
+    ]
+  },
+  "paris/paris-sacre-coeur-mid.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-sacre-coeur-mid.9004910966fc-320.webp",
+        "bytes": 21642
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-sacre-coeur-mid.9004910966fc-800.webp",
+        "bytes": 107766
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-sacre-coeur-mid.9004910966fc-1440.webp",
+        "bytes": 230932
+      }
+    ]
+  },
+  "paris/paris-sacre-coeur-steps-dusk.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-dusk.f1422fb18605-320.webp",
+        "bytes": 16452
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-dusk.f1422fb18605-800.webp",
+        "bytes": 83456
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-dusk.f1422fb18605-1440.webp",
+        "bytes": 234796
+      }
+    ]
+  },
+  "paris/paris-sacre-coeur-steps-golden.jpeg": {
+    "width": 3264,
+    "height": 2448,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-golden.3e5724fb665a-320.webp",
+        "bytes": 5304
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-golden.3e5724fb665a-800.webp",
+        "bytes": 28620
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-golden.3e5724fb665a-1440.webp",
+        "bytes": 83386
+      }
+    ]
+  },
+  "paris/paris-sacre-coeur-steps-music.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-music.6e3402e962d9-320.webp",
+        "bytes": 30172
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-music.6e3402e962d9-800.webp",
+        "bytes": 145064
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-sacre-coeur-steps-music.6e3402e962d9-1440.webp",
+        "bytes": 408436
+      }
+    ]
+  },
+  "paris/paris-saint-germain-deux-magots.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-saint-germain-deux-magots.6b3579459462-320.webp",
+        "bytes": 41052
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-saint-germain-deux-magots.6b3579459462-800.webp",
+        "bytes": 222086
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-saint-germain-deux-magots.6b3579459462-1440.webp",
+        "bytes": 644294
+      }
+    ]
+  },
+  "paris/paris-saint-german-bonaparte.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-saint-german-bonaparte.2d78b47a424f-320.webp",
+        "bytes": 37598
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-saint-german-bonaparte.2d78b47a424f-800.webp",
+        "bytes": 184678
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-saint-german-bonaparte.2d78b47a424f-1440.webp",
+        "bytes": 467342
+      }
+    ]
+  },
+  "paris/paris-tarte-framboise.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-tarte-framboise.00e01fc86389-320.webp",
+        "bytes": 11620
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-tarte-framboise.00e01fc86389-800.webp",
+        "bytes": 55114
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-tarte-framboise.00e01fc86389-1440.webp",
+        "bytes": 145894
+      }
+    ]
+  },
+  "paris/paris-vert-gallant.jpeg": {
+    "width": 4284,
+    "height": 5712,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/paris-vert-gallant.ff4d8cff9ce2-320.webp",
+        "bytes": 14836
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/paris-vert-gallant.ff4d8cff9ce2-800.webp",
+        "bytes": 72166
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/paris-vert-gallant.ff4d8cff9ce2-1440.webp",
+        "bytes": 173206
+      }
+    ]
+  },
+  "paris/sacre-coeur-out-window.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/sacre-coeur-out-window.b80561cbacf3-320.webp",
+        "bytes": 23310
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/sacre-coeur-out-window.b80561cbacf3-800.webp",
+        "bytes": 110646
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/sacre-coeur-out-window.b80561cbacf3-1440.webp",
+        "bytes": 280400
+      }
+    ]
+  },
+  "paris/sacre-coeur-steps-olympics.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/sacre-coeur-steps-olympics.6801305bc435-320.webp",
+        "bytes": 21558
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/sacre-coeur-steps-olympics.6801305bc435-800.webp",
+        "bytes": 114350
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/sacre-coeur-steps-olympics.6801305bc435-1440.webp",
+        "bytes": 319944
+      }
+    ]
+  },
+  "paris/sacre-coeur-steps-view.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/sacre-coeur-steps-view.6c269fc56aed-320.webp",
+        "bytes": 20694
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/sacre-coeur-steps-view.6c269fc56aed-800.webp",
+        "bytes": 111434
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/sacre-coeur-steps-view.6c269fc56aed-1440.webp",
+        "bytes": 299076
+      }
+    ]
+  },
+  "paris/sacre-coeur-steps.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/sacre-coeur-steps.ab5bf192864d-320.webp",
+        "bytes": 22852
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/sacre-coeur-steps.ab5bf192864d-800.webp",
+        "bytes": 121178
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/sacre-coeur-steps.ab5bf192864d-1440.webp",
+        "bytes": 331292
+      }
+    ]
+  },
+  "paris/sacre-coueur-bottom-hill.jpeg": {
+    "width": 3024,
+    "height": 4032,
+    "variants": [
+      {
+        "width": 320,
+        "path": "/media/optimized/paris/sacre-coueur-bottom-hill.13af5d733ea0-320.webp",
+        "bytes": 26202
+      },
+      {
+        "width": 800,
+        "path": "/media/optimized/paris/sacre-coueur-bottom-hill.13af5d733ea0-800.webp",
+        "bytes": 141990
+      },
+      {
+        "width": 1440,
+        "path": "/media/optimized/paris/sacre-coueur-bottom-hill.13af5d733ea0-1440.webp",
+        "bytes": 413990
+      }
+    ]
+  }
+}

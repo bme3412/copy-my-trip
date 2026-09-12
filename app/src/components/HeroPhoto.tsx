@@ -1,3 +1,4 @@
+import { ImageSlot } from './ImageSlot'
 import { fileDateLabel, mediaUrl } from '../lib/media'
 import { useCity } from '../state/CityContext'
 
@@ -21,9 +22,11 @@ export function HeroPhoto({
     <figure style={{ margin: 0 }}>
       <div className="plate hero-photo" style={{ position: 'relative', height, viewTransitionName: 'hero-photo' }}>
         <div style={{ position: 'absolute', inset: 0 }}>
-          <img
+          <ImageSlot
             src={mediaUrl(city.id, src)}
-            alt={caption ?? ''}
+            placeholder={caption ?? ''}
+            eager
+            sizes="(max-width: 760px) calc(100vw - 70px), (max-width: 1200px) 40vw, 480px"
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block' }}
           />
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState, type CSSProperties } from 'react'
+import { responsiveImage } from '../lib/responsive-media'
 import { ImageIcon } from './icons'
 
 /**
@@ -6,19 +7,26 @@ import { ImageIcon } from './icons'
  * renders the photo (developing in like a print); if the file is missing or
  * fails to load, the warm-paper placeholder shows instead.
  */
-export function ImageSlot({ placeholder, src, style, eager = false, unavailableLabel }: { placeholder: string; src?: string; style?: CSSProperties; eager?: boolean; unavailableLabel?: string }) {
+export function ImageSlot({ placeholder, src, style, eager = false, unavailableLabel, sizes = '(max-width: 760px) calc(100vw - 60px), 600px' }: { placeholder: string; src?: string; style?: CSSProperties; eager?: boolean; unavailableLabel?: string; sizes?: string }) {
   const [failed, setFailed] = useState(false)
-  useEffect(() => setFailed(false), [src])
+  const [originalOnly, setOriginalOnly] = useState(false)
+  const responsive = originalOnly ? null : responsiveImage(src)
+  useEffect(() => { setFailed(false); setOriginalOnly(false) }, [src])
 
   if (src && !failed) {
     return (
       <img
-        src={src}
+        src={responsive?.src ?? src}
+        srcSet={responsive?.srcSet}
+        sizes={responsive ? sizes : undefined}
+        width={responsive?.width}
+        height={responsive?.height}
+        fetchPriority={eager ? 'high' : 'auto'}
         alt={placeholder}
         className="develop"
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
-        onError={() => setFailed(true)}
+        onError={() => { if (responsive) setOriginalOnly(true); else setFailed(true) }}
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...style }}
       />
     )

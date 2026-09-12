@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Page } from '../components/Layout';
-import { downloadFile } from '../components/LocalSaveStatus';
+import { downloadFile, LocalSaveStatus } from '../components/LocalSaveStatus';
 import { useCity } from '../state/CityContext';
 import { useLocalTrips, useTrip } from '../state/TripContext';
 import { addDate, dateInZone, PLANNER_VERSION } from '../lib/trips/schema';
@@ -52,5 +52,6 @@ export function SavedTripPage() {
     </section>}
     {versions.length > 0 && <details className="companion-panel"><summary>Accepted version history ({versions.length})</summary><ul>{[...versions].reverse().map(s => <li key={s.id}><Link to={`/${city.id}/saved/${s.id}`}>{s.days[0].date} · accepted {new Date(s.acceptedAt).toLocaleString()} · {s.id.slice(-8)}</Link></li>)}</ul></details>}
     <CloudSavePanel snapshot={snapshot} />
+    <LocalSaveStatus />
   </Page>;
 }

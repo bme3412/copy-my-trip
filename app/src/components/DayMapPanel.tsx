@@ -18,7 +18,7 @@ export function DayMapPanel({ city, day, home, number, date, token, candidates, 
       <h2>{day.committed.length ? `${day.committed[0].name} → ${day.committed.at(-1)!.name}` : 'A day waiting to be explored'}</h2>
       <div className="route-accent-rule" />
       <dl><div><dt>Walking · est.</dt><dd>{walk} <small>min</small></dd></div><div><dt>Métro legs · est.</dt><dd>{metro}</dd></div><div><dt>Planned finish</dt><dd>{day.committed.length ? fmt(day.clock) : '—'}</dd></div></dl>
-      <p>{token ? 'Connections are schematic; follow live directions when traveling.' : 'Schematic map · connections are not street-level directions.'}</p>
+      <p>{token ? 'Walking paths by Mapbox · métro links are schematic. Times are planner estimates.' : 'Schematic map · connections are not street-level directions.'}</p>
       <a className="mobile-map-jump" href="#itinerary-top">Back to itinerary ↑</a>
     </div>
   </aside>;

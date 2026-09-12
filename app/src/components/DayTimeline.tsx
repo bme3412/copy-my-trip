@@ -4,6 +4,7 @@ import { ImageSlot } from './ImageSlot'
 import { VideoBadge } from './VideoBadge'
 import { CameraIcon, CloseIcon, FanIcon, InfoIcon, MapPinIcon, TicketIcon, WalkIcon } from './icons'
 import type { DayStop, Plate } from '../cities/types'
+import { responsiveImage } from '../lib/responsive-media'
 import { slotDatesLabel, slotHasVideo, slotSrc, slotVideoSrc } from '../lib/media'
 // (captions use slotDatesLabel per-plate for the "· Jul 2024" suffix)
 import { slug } from '../lib/slug'
@@ -51,29 +52,38 @@ function TransitChip({ min, measured, hidden }: { min: number; measured: boolean
 function PlateMedia({ city, plate, eager = false, claim = false }: { city: ReturnType<typeof useCity>; plate: Plate; eager?: boolean; claim?: boolean }) {
   const [videoFailed, setVideoFailed] = useState(false)
   const ref = useRef<HTMLVideoElement | null>(null)
+  const [near, setNear] = useState(eager || claim)
+  useEffect(() => {
+    if (near || !ref.current) return
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { setNear(true); observer.disconnect() }
+    }, { rootMargin: '200px' })
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [near])
   useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || !(near || claim)) return
     const release = directVideo(el)
     if (claim) claimVideo(el)
     return release
-  }, [claim, videoFailed])
-  if (plate.video && !videoFailed) {
+  }, [claim, videoFailed, near])
+  if (plate.video && slotHasVideo(city, plate.id) && !videoFailed) {
     return (
       <video
         ref={ref}
-        src={slotVideoSrc(city, plate.id)}
-        poster={slotSrc(city, plate.id)}
+        src={near || claim ? slotVideoSrc(city, plate.id) : undefined}
+        poster={responsiveImage(slotSrc(city, plate.id))?.src ?? slotSrc(city, plate.id)}
         muted
         loop
         playsInline
-        preload={eager ? 'auto' : 'metadata'}
+        preload={near || claim ? 'metadata' : 'none'}
         onError={() => setVideoFailed(true)}
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
       />
     )
   }
-  return <ImageSlot src={slotSrc(city, plate.id)} placeholder={plate.caption} eager={eager} />
+  return <ImageSlot src={city.slotFiles?.[plate.id]?.img ? slotSrc(city, plate.id) : undefined} placeholder={plate.caption} eager={eager} />
 }
 
 /** How much a clicked frame grows — same framing, just larger. */
@@ -124,7 +134,7 @@ function PlateGallery({ city, plates, eager = false }: { city: ReturnType<typeof
                 setPicked(true)
               }}
             >
-              <ImageSlot src={slotSrc(city, p.id)} placeholder="" />
+              <ImageSlot src={city.slotFiles?.[p.id]?.img ? slotSrc(city, p.id) : undefined} placeholder="" sizes="88px" />
               {p.video && slotHasVideo(city, p.id) && <span className="thumb-time">{p.video}</span>}
             </button>
           ))}

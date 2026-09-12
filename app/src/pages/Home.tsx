@@ -62,7 +62,7 @@ export function Home() {
         <div className="home-sample-grid">
           {highlights.map((item, index) => <article className="home-place-card" key={item.id}>
             <div className={`home-card-image${item.file ? '' : ' home-card-research'}`}>
-              {item.file ? <ImageSlot src={mediaUrl(city.id, item.file)} placeholder={item.place.name} /> : <span aria-hidden="true">0{index + 1}</span>}
+              {item.file ? <ImageSlot src={mediaUrl(city.id, item.file)} placeholder={item.place.name} sizes="(max-width: 760px) calc(100vw - 80px), 350px" /> : <span aria-hidden="true">0{index + 1}</span>}
               <span className="home-image-label">{item.file ? 'FROM THE ARCHIVE' : 'RESEARCHED'}</span>
             </div>
             <div className="home-card-meta"><span>{item.time || `~${item.place.dur} MIN`}</span><span>{item.place.area}</span></div>

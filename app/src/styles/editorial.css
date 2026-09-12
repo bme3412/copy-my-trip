@@ -153,3 +153,28 @@ html { scroll-padding-top: 100px; }
 @media(max-width:760px) { .city-selector-name { font-size: 45px; } .city-selector-row { gap: 16px; } .city-selector-trigger { min-height: 44px; } }
 @media(prefers-reduced-motion:reduce) { .city-selector-trigger svg { transition: none; } }
 @media print { .city-selector-trigger, .city-selector-panel { display:none; } }
+
+/* Live itinerary map: full canvas, with controls clear of the route summary. */
+.day-map-panel { height: calc(100vh - 80px); min-height: 650px; }
+.day-map-canvas, .trip-map { position: absolute; inset: 0; }
+.map-heading { left: 18px; right: 18px; top: 18px; padding: 10px 12px; background: #fffefbeF; border: 1px solid var(--color-divider); border-radius: 8px; pointer-events: none; }
+.route-summary { z-index: 2; bottom: 38px; left: 18px; right: 18px; }
+.trip-map .mapboxgl-ctrl-top-right { top: 70px; right: 8px; }
+.map-pin-button { border: 0; padding: 0; background: transparent; font: inherit; cursor: pointer; text-align: left; }
+.map-pin-button:focus-visible { outline: 3px solid #cf490c; outline-offset: 5px; border-radius: 5px; z-index: 3; }
+.map-fit-day { position: absolute; top: 76px; left: 18px; z-index: 2; border: 1px solid var(--color-divider); background: white; border-radius: 6px; padding: 8px 11px; color: var(--color-text); font: 12px var(--font-body); box-shadow: 0 2px 8px #15223814; }
+.map-route-key { position: absolute; bottom: 263px; left: 18px; max-width: calc(100% - 36px); border-radius: 5px; padding: 5px 8px; background: #fffefbf2; color: #384453; font: 10px/1.5 var(--font-body); pointer-events: none; }
+.map-load-state { position: absolute; inset: 120px 24px 270px; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; color: var(--color-neutral-700); text-align: center; font-size: 14px; }
+.storage-warning { padding: 10px 24px; background: #fff4e1; border-bottom: 1px solid #ecd3a5; font-size: 13px; }
+.workspace-recovery > summary { cursor: pointer; font-weight: 600; }
+.workspace-recovery:not([open]) { padding-block: 14px; }
+@media (max-width: 1000px) { .day-map-panel { height: 700px; min-height: 0; } }
+@media print { .map-fit-day, .map-route-key, .trip-map .mapboxgl-control-container { display: none; } }
+.trip-map .map-pin-button { width: 28px; height: 28px; }
+.trip-map .map-pin-button .map-ring { width: 26px; height: 26px; margin: 1px; font-size: 12px; background: #fffdf8; }
+.trip-map .map-pin-button .map-ring-home { background: var(--color-text); width: 18px; height: 18px; margin: 5px; }
+.trip-map .map-pin-button .map-name { position: absolute; top: 0; left: 34px; margin: 0; width: max-content; max-width: 170px; text-align: left; }
+.trip-map .map-pin-button:focus .map-name { display: inline-block; }
+.trip-map .map-pin-button:focus { z-index: 5; }
+.map-route-key { top: 120px; bottom: auto; max-width: calc(100% - 88px); }
+.trip-map .map-pin-button .map-name { overflow: hidden; text-overflow: ellipsis; }

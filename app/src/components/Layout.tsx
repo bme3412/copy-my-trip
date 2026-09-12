@@ -1,5 +1,5 @@
 import { WebAnalytics } from './WebAnalytics'
-import { LocalSaveStatus } from './LocalSaveStatus'
+import { StorageWarning } from './LocalSaveStatus'
 import { useEffect, type CSSProperties, type ReactNode } from 'react'
 import { Link, Navigate, Outlet, ScrollRestoration, useLocation, useParams } from 'react-router-dom'
 import { CITIES, DEFAULT_CITY } from '../cities'
@@ -49,7 +49,7 @@ export function Layout() {
           {archiveLinks.map(navLink)}
           <button className="header-print" onClick={() => window.print()} aria-label="Print this page">Print ↗</button>
         </nav>
-        {!isHome && <LocalSaveStatus />}
+        <StorageWarning />
         <ScrollRestoration />
         <WebAnalytics />
         <div id={isHome ? undefined : 'main-content'} tabIndex={-1}><Outlet /></div>
