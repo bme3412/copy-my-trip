@@ -28,13 +28,12 @@ export function Home() {
     <main className="editorial-home page-enter" id="main-content" tabIndex={-1}>
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-hero-copy">
-          <p className="editorial-eyebrow">A personal travel archive · An itinerary of your own</p>
           <h1 id="home-title">
             <span className="home-city-picker">
               <select aria-label="Choose city" value={city.id} onChange={event => navigate(`/${event.target.value}`)}>
                 {Object.values(CITIES).map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select><span aria-hidden="true">⌄</span>
-            </span>,<br />
+            </span><br />
             {isParis ? 'from someone who’s been there.' : 'a new city, thoughtfully planned.'}
           </h1>
           <p className="home-lede">{isParis
@@ -44,7 +43,6 @@ export function Home() {
             <Link to={`${base}/compose`} viewTransition className="btn btn-primary">Build your {city.name} itinerary <span aria-hidden="true">→</span></Link>
             <a href="#sample-day" className="btn btn-secondary">{isParis ? 'Explore a sample day' : 'Explore the collection'} <span aria-hidden="true">↓</span></a>
           </div>
-          <p className="home-footnote">{city.places.length} places to explore <span aria-hidden="true">·</span> Start without an account</p>
         </div>
         <div className={`home-photo-frame${isParis ? '' : ' home-research-frame'}`}>
           {isParis ? <HeroPhoto height="100%" caption="The Eiffel Tower, from the Seine" /> : <div className="home-research-cover">
