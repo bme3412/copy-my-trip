@@ -7,8 +7,6 @@ import type { Candidate, CommittedStop, DayState } from '../lib/planner'
  * deck adds its candidates as clickable dashed pins. No tiles, no tokens:
  * the day's own geometry, drawn in the system's ink. */
 
-const W = 1000
-const H = 420
 const PAD = 64
 
 interface Pt {
@@ -24,6 +22,7 @@ export function RouteMap({
   hoverId = null,
   onHover,
   onChoose,
+  portrait = false,
 }: {
   city: City
   day: DayState
@@ -32,7 +31,10 @@ export function RouteMap({
   hoverId?: string | null
   onHover?: (id: string | null) => void
   onChoose?: (c: Candidate) => void
+  portrait?: boolean
 }) {
+  const W = portrait ? 640 : 1000
+  const H = portrait ? 660 : 420
   const stops: { c: CommittedStop; p: Place }[] = []
   for (const c of day.committed) {
     const p = city.places.find((pl) => pl.id === c.id)
@@ -57,26 +59,39 @@ export function RouteMap({
   const Y = (p: Pt) => oy + (-p.lat - minY) * s
   const xy = (p: Pt) => `${X(p).toFixed(1)},${Y(p).toFixed(1)}`
 
-  const route = [home as Pt, ...stops.map((x) => x.p as Pt)]
+  const route: Pt[] = [home]
+  for (const { c, p } of stops) { route.push(p); if (c.returnAfter) route.push(c.returnAfter.to) }
   const loc = day.loc as Pt
+  const labels: { x: number; y: number; width: number; text: string }[] = []
+  for (const { p, c } of stops) {
+    const text = c.name.length > 25 ? c.name.slice(0, 23) + '…' : c.name
+    const width = text.length * 7.2 + 18
+    const x = X(p) + width + 26 < W ? X(p) + 20 : X(p) - width - 20
+    let y = Y(p) - 12
+    for (const shift of [0, -28, 28, -56, 56, -84, 84]) {
+      const candidateY = Math.max(8, Math.min(H - 30, Y(p) - 12 + shift))
+      if (!labels.some(l => x < l.x + l.width + 5 && x + width + 5 > l.x && candidateY < l.y + 29 && candidateY + 29 > l.y)) { y = candidateY; break }
+    }
+    labels.push({ x, y, width, text })
+  }
 
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
-      role="img"
+      role={candidates.length ? 'group' : 'img'}
       aria-label={`Map of the day's route: ${stops.length} stops from ${home.name}`}
-      style={{ display: 'block', width: '100%', height: '100%', background: 'var(--color-neutral-100)' }}
+      style={{ display: 'block', width: '100%', height: '100%' }}
     >
       {/* the river, a soft ribbon under everything */}
       {city.river && city.river.length >= 2 && (
         <polyline
           points={city.river.map(([lat, lon]) => xy({ lat, lon })).join(' ')}
           fill="none"
-          stroke="var(--color-neutral-300)"
-          strokeWidth={16}
+          stroke={portrait ? '#8fbeff' : 'var(--color-neutral-300)'}
+          strokeWidth={portrait ? 30 : 16}
           strokeLinecap="round"
           strokeLinejoin="round"
-          opacity={0.7}
+          opacity={0.8}
         />
       )}
 
@@ -85,9 +100,9 @@ export function RouteMap({
         <polyline
           points={route.map(xy).join(' ')}
           fill="none"
-          stroke="var(--color-accent-400)"
-          strokeWidth={1.5}
-          strokeDasharray="2 7"
+          stroke="var(--color-accent)"
+          strokeWidth={portrait ? 3 : 1.5}
+          strokeDasharray="5 7"
           strokeLinecap="round"
         />
       )}
@@ -117,6 +132,12 @@ export function RouteMap({
         const verified = x.c.src === 'verified'
         return (
           <g key={`${x.c.id}@${x.c.timeIn}`}>
+            <title>{i + 1}. {x.c.name}</title>
+            {portrait && <>
+              <line x1={X(x.p)} y1={Y(x.p)} x2={labels[i].x + labels[i].width / 2} y2={labels[i].y + 12} stroke="#a1aec2" strokeWidth={1} />
+              <rect x={labels[i].x} y={labels[i].y} width={labels[i].width} height={24} rx={4} fill="#182337" />
+              <text x={labels[i].x + 9} y={labels[i].y + 16} fontSize={13} fontFamily="var(--font-body)" fill="white">{labels[i].text}</text>
+            </>}
             <circle
               cx={X(x.p)}
               cy={Y(x.p)}
@@ -147,9 +168,11 @@ export function RouteMap({
           <g
             key={`c-${cand.p.id}`}
             role="button"
+            tabIndex={onChoose ? 0 : undefined}
             aria-label={`Choose ${cand.p.name}`}
             style={{ cursor: onChoose ? 'pointer' : undefined }}
             onClick={onChoose ? () => onChoose(cand) : undefined}
+            onKeyDown={onChoose ? e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onChoose(cand) } } : undefined}
             onMouseEnter={onHover ? () => onHover(cand.p.id) : undefined}
             onMouseLeave={onHover ? () => onHover(null) : undefined}
           >

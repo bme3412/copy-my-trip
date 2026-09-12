@@ -1,5 +1,7 @@
-import type { CSSProperties, ReactNode } from 'react'
-import { Link, Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
+import { WebAnalytics } from './WebAnalytics'
+import { LocalSaveStatus } from './LocalSaveStatus'
+import { useEffect, type CSSProperties, type ReactNode } from 'react'
+import { Link, Navigate, Outlet, ScrollRestoration, useLocation, useParams } from 'react-router-dom'
 import { CITIES, DEFAULT_CITY } from '../cities'
 import { CityContext } from '../state/CityContext'
 
@@ -7,11 +9,15 @@ export function Layout() {
   const { city: cityId } = useParams()
   const { pathname } = useLocation()
   const city = cityId ? CITIES[cityId] : undefined
+  useEffect(() => { if (city) document.title = `Copy My Trip · ${city.name}` }, [city])
   if (!city) return <Navigate to={`/${DEFAULT_CITY}`} replace />
 
   const base = `/${city.id}`
+  const isHome = pathname.replace(/\/$/, '') === base
   const tripLinks = [
     { to: `${base}/compose`, label: 'Plan a visit' },
+    { to: `${base}/saved`, label: 'Saved trip', match: `${base}/saved` },
+    { to: `${base}/today`, label: 'Today' },
     { to: `${base}/itinerary/1`, label: 'Itinerary', match: `${base}/itinerary` },
   ]
   const archiveLinks = [
@@ -30,9 +36,10 @@ export function Layout() {
   return (
     <CityContext.Provider value={city}>
       <div style={{ minHeight: '100vh', background: 'var(--color-bg)' }}>
-        <nav className="nav site-nav" style={{ position: 'sticky', top: 0, background: 'var(--color-bg)', zIndex: 10 }}>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <nav className="nav site-nav" aria-label="Main navigation">
           <Link to={base} viewTransition className="nav-brand" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Copy My Trip{' '}
+            <span className="brand-book" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 5v15M3 4.5c3-1 6-.5 9 1 3-1.5 6-2 9-1V19c-3-1-6-.5-9 1-3-1.5-6-2-9-1Z" /></svg></span>Copy My Trip{' '}
             <span className="text-muted" style={{ fontSize: 13, fontFamily: 'var(--font-body)' }}>
               · {city.name}
             </span>
@@ -40,8 +47,12 @@ export function Layout() {
           {tripLinks.map(navLink)}
           <span aria-hidden style={{ alignSelf: 'stretch', borderLeft: '1px solid var(--color-divider)' }} />
           {archiveLinks.map(navLink)}
+          <button className="header-print" onClick={() => window.print()} aria-label="Print this page">Print ↗</button>
         </nav>
-        <Outlet />
+        {!isHome && <LocalSaveStatus />}
+        <ScrollRestoration />
+        <WebAnalytics />
+        <div id={isHome ? undefined : 'main-content'} tabIndex={-1}><Outlet /></div>
       </div>
     </CityContext.Provider>
   )
@@ -71,7 +82,7 @@ export function Page({
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap', marginBottom: 28 }}>
           <div>
             {kicker && (
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: 11, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--color-accent)' }}>
+              <div className="editorial-eyebrow">
                 {kicker}
               </div>
             )}

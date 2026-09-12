@@ -1,15 +1,15 @@
+import { catalogVersion } from '../lib/trips/snapshot'
 import { useEffect, useMemo, useReducer, useRef, useState, type ReactNode } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import type { DayStop, Pace } from '../cities/types'
 import type { CandidateImpact } from '../components/CandidateCard'
 import { DayTimeline } from '../components/DayTimeline'
 import { FanIcon, InfoIcon, TicketIcon } from '../components/icons'
 import { Page } from '../components/Layout'
 import { ReconsiderDeck } from '../components/ReconsiderDeck'
-import { RouteMap } from '../components/RouteMap'
-import { TripMap } from '../components/TripMap'
-import { builtDayStops, builtDayTitle } from '../lib/built-day'
-import { dayPlanContext, PLAN_PRESETS } from '../lib/plan-presets'
+import { DayMapPanel } from '../components/DayMapPanel'
+import { builtDayStops, builtDayTitle, builtDayVerifiedLabel } from '../lib/built-day'
+import { dayPlanContext, PLAN_PRESETS, restoreDayContext } from '../lib/plan-presets'
 import { buildDayFacts, dayContentKey, ensureNarration, narrationResult, narrationUnavailable, onNarrationChunk } from '../lib/narrate'
 import { em } from '../lib/text'
 import {
@@ -24,6 +24,9 @@ import {
   isDayDone,
   removeAt,
   replayFrom,
+  replayDay,
+  PACE,
+  ENGINE,
   replaySequence,
   stayLoc,
   stopPlace,
@@ -73,11 +76,15 @@ export function ItineraryPage() {
   const { n } = useParams()
   const { hash } = useLocation()
   const city = useCity()
-  const { trip, update, resetDay, setDayNarration, dayCount } = useTrip()
+  const { trip, update, resetDay, setDayNarration, dayCount, accept, editable } = useTrip()
+
+  const navigate = useNavigate()
+  const [saveError, setSaveError] = useState('')
+  const [narrationRequested, setNarrationRequested] = useState(false)
 
   // Arriving from the archive: scroll to the linked stop and flash it.
   useEffect(() => {
-    if (!hash) return
+    if (!hash || hash === '#day-route-map' || hash === '#itinerary-top') return
     const el = document.getElementById(hash.slice(1))
     if (!el) return
     const t = window.setTimeout(() => {
@@ -98,7 +105,7 @@ export function ItineraryPage() {
   // the raw material generation reads, not a plan anyone was handed. Serving
   // one on a cold load is the app claiming to have composed something for a
   // traveler it knows nothing about. No dates, no itinerary — compose first.
-  const curated = trip.arriving ? (city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined) : undefined
+  const curated = !trip.release && trip.arriving ? (city.curatedDays[dayIdx] as (typeof city.curatedDays)[number] | undefined) : undefined
   const stay = useMemo(() => stayLoc(city, trip.stayHood), [city, trip.stayHood])
   const stayName = trip.stayHood || city.hoodOrder[0]
   const date = trip.arriving ? dayDate(trip.arriving, dayIdx) : undefined
@@ -108,12 +115,12 @@ export function ItineraryPage() {
   // changed, and what the last replay flagged. All reset when the day changes.
   const [openSlot, setOpenSlot] = useState<Slot | null>(null)
   const [scratch, setScratch] = useState(false)
-  const [flags, setFlags] = useState<StopFlag[]>([])
+  const flags: StopFlag[] = day.flags ?? []
   const [hoverCandId, setHoverCandId] = useState<string | null>(null)
   useEffect(() => {
     setOpenSlot(null)
     setScratch(false)
-    setFlags([])
+    setNarrationRequested(false)
   }, [dayIdx])
 
   // A curated day is editable once every stop resolves to a place record.
@@ -154,9 +161,9 @@ export function ItineraryPage() {
   // drifted into re-offering what the generator forbade.
   const ctx = useMemo(
     () =>
-      dayPlanContext(city, dayIdx, {
+      trip.dayContexts?.[dayIdx] ? restoreDayContext(trip.dayContexts[dayIdx]) : dayPlanContext(city, dayIdx, {
         dayCount,
-        preset: PLAN_PRESETS.find((p) => p.id === trip.planId) ?? null,
+        preset: PLAN_PRESETS.find((p) => p.id === (trip.originPresetId ?? trip.planId)) ?? null,
         travelerPace: trip.pace,
         stay,
         arriving: trip.arriving || undefined,
@@ -166,13 +173,13 @@ export function ItineraryPage() {
         visitedElsewhere,
         usedHoods,
       }),
-    [city, dayIdx, dayCount, trip.planId, trip.pace, stay, trip.arriving, trip.interests, trip.extracted, visitedElsewhere, usedHoods],
+    [city, dayIdx, dayCount, trip.dayContexts, trip.originPresetId, trip.planId, trip.pace, stay, trip.arriving, trip.interests, trip.extracted, visitedElsewhere, usedHoods],
   )
   // Edit at the pace the day was BUILT at — the stored plan pace, else the
   // resolved template's. Re-timing a day at today's slider rewrites durations
   // the traveler never asked to change.
   const pace = trip.dayPaces?.[dayIdx] ?? ctx.pace
-  const engineOpts = ctx.opts
+  const engineOpts = { ...ctx.opts, date, weekday, usedHoods, limit: undefined }
   const maxStops = ctx.profile.maxStops
 
   // A composed trip never falls back to the curator's stock day: an empty day
@@ -181,7 +188,7 @@ export function ItineraryPage() {
   // traveler's own day. The pace it materialized at is recorded with the trip,
   // so later edits re-time against it rather than the current slider.
   useEffect(() => {
-    if (!trip.arriving || isBuilt || scratch || !curated || !materializable) return
+    if (!editable || trip.release || !trip.arriving || isBuilt || scratch || !curated || !materializable) return
     const r = replaySequence(
       city,
       curated.stops.map((s) => ({ placeId: s.placeId! })),
@@ -192,16 +199,15 @@ export function ItineraryPage() {
     if (r.day.committed.length === 0) return
     const dayPaces = [...(trip.dayPaces ?? [])]
     dayPaces[dayIdx] = pace
-    update({ days: trip.days.map((x, i) => (i === dayIdx ? r.day : x)), dayPaces })
-    setFlags(r.flags)
+    update({ days: trip.days.map((x, i) => (i === dayIdx ? { ...r.day, flags: r.flags } : x)), dayPaces })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trip.arriving, isBuilt, scratch, curated, materializable, dayIdx, pace])
 
   // Editing a day makes the plan yours — compose then guards it like any
   // hand-built work instead of silently replacing it with a preset.
   const commitDay = (d: DayState, dayFlags: StopFlag[]) => {
-    update({ days: trip.days.map((x, i) => (i === dayIdx ? d : x)), planId: null })
-    setFlags(dayFlags)
+    if (!editable) return
+    update({ days: trip.days.map((x, i) => (i === dayIdx ? { ...d, flags: dayFlags } : x)), edited: true, originPresetId: trip.originPresetId ?? trip.planId ?? undefined })
   }
 
   const appendCands = useMemo(() => {
@@ -223,14 +229,14 @@ export function ItineraryPage() {
       trip.days.map((d, i) => (i === dayIdx ? { ...d, committed: d.committed.filter((_, j) => j !== openSlot) } : d)),
     )
     const cands = alternativesAt(city, day, openSlot, pace, visited, stay, { ...engineOpts, covered })
-    const replays = cands.map((c) => replayFrom(city, day, openSlot, c, pace, stay, { date, weekday }))
+    const replays = cands.map((c) => replayFrom(city, day, openSlot, c, pace, stay, engineOpts))
     return { cands, replays, prefix: truncateDay(city, day, openSlot, pace, stay), incumbent }
   }, [openSlot, editing, appendCands, city, trip.days, dayIdx, day, pace, visited, stay, weekday, date, engineOpts])
 
   const choose = (c: Candidate) => {
     if (openSlot === null || !deck) return
     if (openSlot === 'append') {
-      commitDay({ ...day, ...commitCandidate(day, c) }, [])
+      commitDay({ ...day, ...commitCandidate(day, c) }, flags)
       return // the deck stays open — building continues until the day is done
     }
     const i = deck.cands.indexOf(c)
@@ -261,7 +267,7 @@ export function ItineraryPage() {
 
   // Remove-and-retime: the legs close up around the gap; breaks get flagged.
   const removeStop = (i: number) => {
-    const r = removeAt(city, day, i, pace, stay, { date, weekday })
+    const r = removeAt(city, day, i, pace, stay, engineOpts)
     commitDay(r.day, r.flags)
     setOpenSlot(null)
   }
@@ -270,7 +276,7 @@ export function ItineraryPage() {
     resetDay(dayIdx)
     setOpenSlot(null)
     setScratch(false)
-    setFlags([])
+    setNarrationRequested(false)
   }
 
   const rawStops = editing ? builtDayStops(city, day) : (curated?.stops ?? [])
@@ -284,7 +290,7 @@ export function ItineraryPage() {
       const extra: Partial<DayStop> = {}
       if (v.role === 'anchor') extra.tag = `Anchor · the day's one ${v.label.split('·')[0].trim().toLowerCase()}`
       if (v.timed) {
-        if (!out.timeNote) extra.timeNote = 'timed slot'
+        if (!out.timeNote) extra.timeNote = 'suggested entry · not booked'
         const entry = city.entry[v.id]
         if (entry) {
           let site: string | undefined
@@ -306,7 +312,7 @@ export function ItineraryPage() {
                 timeIn !== undefined
                   ? timeIn <= hrs[0] * 60 + 45
                     ? `, so take the ${fmt(hrs[0] * 60)} opening`
-                    : ` — your slot: ${fmt(timeIn)}`
+                    : ` — suggested slot: ${fmt(timeIn)}`
                   : ''
               dateLine = `on a ${WEEKDAYS[weekday]} it closes at ${fmt(hrs[1] * 60)}${slotBit}`
             }
@@ -340,13 +346,14 @@ export function ItineraryPage() {
   // The intro is written by the narrator — no template fallback. The current
   // day narrates first, then the rest of the trip prefetches so every tab
   // arrives pre-written. Cached per day-content in trip state.
+  const narrationKeys = useMemo(() => trip.days.map((d, i) => dayContentKey(d, { city: city.id, catalog: catalogVersion(city), date: dayDate(trip.arriving, i), purpose: trip.dayPurposes?.[i], context: trip.dayContexts?.[i] })), [city, trip.days, trip.arriving, trip.dayPurposes, trip.dayContexts])
   const narrationFor = (i: number) => {
     const d = trip.days[i]
     if (d.committed.length === 0) return undefined
     const n = trip.dayNarrations?.[i]
-    return n?.key === dayContentKey(d) ? n.text : undefined
+    return n?.key === narrationKeys[i] ? n.text : undefined
   }
-  const dayKey = dayContentKey(day)
+  const dayKey = narrationKeys[dayIdx]
   // Trip-state cache first; the module memo backs it up (StrictMode-proof).
   const narrated = narrationFor(dayIdx) ?? narrationResult(dayKey) ?? undefined
   // The current day's paragraph streams in live; `draft` is the text so far.
@@ -354,18 +361,18 @@ export function ItineraryPage() {
   const failedRef = useRef<Set<string>>(new Set())
   const [, bumpNarration] = useReducer((x: number) => x + 1, 0)
   useEffect(() => {
-    if (!trip.arriving || narrationUnavailable()) return
+    if (!narrationRequested || !trip.arriving || narrationUnavailable()) return
     // Fetch ownership lives in lib/narrate (one fetch per content key, shared
     // across StrictMode's double-mounted effects); writes here are idempotent,
     // so there is nothing to cancel and nothing to race.
     ;(async () => {
-      const order = [dayIdx, ...Array.from({ length: dayCount }, (_, i) => i).filter((i) => i !== dayIdx)]
+      const order = [dayIdx]
       for (const i of order) {
         const d = trip.days[i]
         if (d.committed.length === 0) continue
         // A day mid-edit isn't settled — it narrates when the deck closes.
         if (i === dayIdx && openSlot !== null && !done) continue
-        const key = dayContentKey(d)
+        const key = narrationKeys[i]
         if (trip.dayNarrations?.[i]?.key === key) continue
         const dDate = dayDate(trip.arriving, i)
         const dWd = dayWeekday(trip.arriving, i)
@@ -380,24 +387,25 @@ export function ItineraryPage() {
       }
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trip.days, trip.arriving, dayIdx, dayCount, openSlot, done])
+  }, [narrationRequested, trip.days, trip.arriving, dayIdx, dayCount, openSlot, done])
   // Live chunks for the day on screen — resubscribes whenever its content changes.
   useEffect(() => {
     setDraft('')
     if (day.committed.length === 0) return
-    return onNarrationChunk(dayContentKey(day), setDraft)
+    return onNarrationChunk(dayKey, setDraft)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dayIdx, dayKey])
   // Ghost lines only while a fetch can actually be in flight — never while a
   // deck is open (narration deliberately waits for the day to settle).
   const narrationPending =
+    narrationRequested &&
     editing &&
     isBuilt &&
     !narrated &&
     !!trip.arriving &&
     (openSlot === null || done) &&
     !narrationUnavailable() &&
-    !failedRef.current.has(dayContentKey(day))
+    !failedRef.current.has(dayKey)
 
   const timedStops = editing
     ? day.committed
@@ -456,33 +464,7 @@ export function ItineraryPage() {
       )
     ) : null
 
-  return (
-    <Page
-      topBar={
-        // No trip, no days to tab between — the count would be the 4-day
-        // default standing in for dates nobody has given yet.
-        !trip.arriving ? undefined : (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 22, fontFamily: 'var(--font-heading)', fontSize: 15, padding: '4px 0 18px' }}>
-          {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
-            <Link
-              key={d}
-              to={`/${city.id}/itinerary/${d}`}
-              viewTransition
-              onClick={() => setLeafDir(d)}
-              style={
-                d === num
-                  ? { color: 'var(--color-accent)', borderBottom: '2px solid var(--color-accent)', paddingBottom: 6, textDecoration: 'none' }
-                  : { color: 'color-mix(in srgb, var(--color-text) 45%, transparent)', paddingBottom: 6, textDecoration: 'none' }
-              }
-            >
-              Day {d}
-            </Link>
-          ))}
-        </div>
-        )
-      }
-      title={title}
-      aside={
+  const paceControl = (
         editing ? (
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <span className="text-muted" style={{ fontSize: 10, letterSpacing: '.1em' }}>
@@ -490,7 +472,7 @@ export function ItineraryPage() {
             </span>
             <div className="seg">
               {PACE_LABELS.map((p) => (
-                <label
+                <button type="button" aria-pressed={pace === p.key} disabled={!editable}
                   key={p.key}
                   className="seg-opt"
                   style={
@@ -498,16 +480,57 @@ export function ItineraryPage() {
                       ? { color: 'var(--color-accent)', boxShadow: 'inset 0 0 0 1px var(--color-accent)', cursor: 'pointer' }
                       : { cursor: 'pointer' }
                   }
-                  onClick={() => update({ pace: p.key })}
+                  onClick={() => {
+                    if (!editable) return
+                    const repaced = { ...day, committed: day.committed.map(s => ({ ...s, timing: { notBefore: s.timing?.notBefore ?? s.timeIn, duration: Math.round((stopPlace(city, s)?.dur ?? s.dur) * PACE[p.key].f), linger: ENGINE.linger[p.key] } })) }
+                    const result = replayDay(city, repaced, p.key, stay, engineOpts)
+                    const dayPaces = [...(trip.dayPaces ?? [])]; dayPaces[dayIdx] = p.key
+                    update({ dayPaces, edited: true, days: trip.days.map((d, i) => i === dayIdx ? { ...result.day, flags: result.flags } : d) })
+                  }}
                 >
                   {p.label}
-                </label>
+                </button>
               ))}
             </div>
           </div>
         ) : undefined
+
+  )
+  return (
+    <div className="itinerary-workspace" id="itinerary-top">
+    <Page
+      topBar={
+        // No trip, no days to tab between — the count would be the 4-day
+        // default standing in for dates nobody has given yet.
+        !trip.arriving ? undefined : (
+        <div className="day-toolbar"><nav className="day-tabs" aria-label="Itinerary days">
+          {Array.from({ length: dayCount }, (_, i) => i + 1).map((d) => (
+            <Link
+              key={d}
+              to={`/${city.id}/itinerary/${d}`}
+              viewTransition
+              onClick={() => setLeafDir(d)}
+              aria-current={d === num ? 'page' : undefined}
+              className={d === num ? 'day-tab is-active' : 'day-tab'}
+            >
+              <span>Day</span> <strong>{d}</strong>
+            </Link>
+          ))}
+        </nav>{paceControl}</div>
+        )
       }
+      title={title}
+
     >
+      <div className="companion-actions itinerary-actions">
+        {isBuilt && <button className="btn btn-primary" disabled={!editable} onClick={() => { try { const s = accept(); navigate(`/${city.id}/saved/${s.id}`) } catch(e) { setSaveError(e instanceof Error ? e.message : 'Could not save.') } }}>Accept & save itinerary</button>}
+        <Link to={`/${city.id}/saved`}>Saved trip & preview</Link>
+        <a className="mobile-map-jump" href="#day-route-map">View route map ↓</a>
+        {isBuilt && <details className="itinerary-more"><summary>More</summary><div className="itinerary-more-menu"><button onClick={() => setNarrationRequested(true)} disabled={narrationRequested || narrationUnavailable()}>Write optional day introduction</button>{narrationUnavailable() && <p>Optional AI introductions are currently unavailable. Your itinerary is ready to use.</p>}</div></details>}
+      </div>
+      {saveError && <p role="alert">{saveError}</p>}
+      {!editable && <p className="companion-notice">This draft belongs to an older engine/catalog. Open its saved version to view the exact schedule; compose a new plan to regenerate.</p>}
+      {isBuilt && <p className="evidence-label">{builtDayVerifiedLabel(day)} · travel durations are estimates. This is the working draft.</p>}
       {narrated || draft ? (
         <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, margin: '14px 0 0', lineHeight: 1.75, textAlign: 'justify', color: 'color-mix(in srgb, var(--color-text) 82%, transparent)' }}>
           {em(narrated ?? draft)}
@@ -582,51 +605,18 @@ export function ItineraryPage() {
 
       {(isBuilt || (openSlot !== null && editing)) && (
         <>
-          <div
-            style={{
-              position: 'relative',
-              height: 340,
-              marginTop: 20,
-              border: '1px solid var(--color-divider)',
-              borderRadius: 8,
-              overflow: 'hidden',
-            }}
-          >
-            {MAPBOX_TOKEN ? (
-              <TripMap
-                token={MAPBOX_TOKEN}
-                city={city}
-                day={openSlot !== null && deck ? deck.prefix : day}
-                home={stay}
-                candidates={openSlot !== null && deck ? deck.cands : []}
-                hoverId={hoverCandId}
-                onHover={setHoverCandId}
-                onChoose={choose}
-              />
-            ) : (
-              <RouteMap
-                city={city}
-                day={openSlot !== null && deck ? deck.prefix : day}
-                home={stay}
-                candidates={openSlot !== null && deck ? deck.cands : []}
-                hoverId={hoverCandId}
-                onHover={setHoverCandId}
-                onChoose={choose}
-              />
-            )}
-          </div>
           {editing && isBuilt && (
             <p
-              className="text-muted"
+              className="text-muted home-base-note"
               style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, lineHeight: 1.6, margin: '10px 0 0', maxWidth: 660, display: 'flex', gap: 8 }}
             >
               <InfoIcon size={14} style={{ flex: 'none', marginTop: 3 }} />
               <span>
                 Home base at {trip.stayHood ? `your place in ${trip.stayHood}` : city.homeBase} · about{' '}
-                {day.committed.filter((c) => c.travelMode === 'walk').reduce((a, c) => a + c.travelMin, 0)} min on foot across the day
+                {day.committed.reduce((a, c) => a + (c.travelMode === 'walk' ? c.travelMin : 0) + (c.returnAfter?.mode === 'walk' ? c.returnAfter.min : 0), 0)} min on foot across the day
                 {(() => {
-                  const hops = day.committed.filter((c) => c.travelMode === 'metro').length
-                  return hops > 0 ? ` and ${hops} short métro ${hops === 1 ? 'hop' : 'hops'}` : ''
+                  const hops = day.committed.reduce((sum, c) => sum + Number(c.travelMode === 'metro') + Number(c.returnAfter?.mode === 'metro'), 0)
+                  return hops > 0 ? ` and ${hops} estimated métro ${hops === 1 ? 'hop' : 'hops'}` : ''
                 })()}
                 . Remove a stop, or add one below, and the day re-routes and re-times itself.
               </span>
@@ -642,12 +632,12 @@ export function ItineraryPage() {
           <>
             <DayTimeline
               stops={stops}
-              onReconsider={editing || materializable ? reconsider : undefined}
-              onRemove={editing ? removeStop : undefined}
+              onReconsider={editable && (editing || materializable) ? reconsider : undefined}
+              onRemove={editable && editing ? removeStop : undefined}
               openIndex={typeof openSlot === 'number' ? openSlot : null}
               deck={alignDeck(deckNode)}
             />
-            {editing && !done && (openSlot === 'append' ? alignDeck(deckNode) : (
+            {editable && editing && !done && (openSlot === 'append' ? alignDeck(deckNode) : (
               alignDeck(
                 <button type="button" className="append-slot" onClick={() => setOpenSlot('append')}>
                   <FanIcon size={15} />
@@ -655,7 +645,7 @@ export function ItineraryPage() {
                 </button>,
               )
             ))}
-            {editing && isBuilt && suggestions.length > 0 && (
+            {editable && editing && isBuilt && suggestions.length > 0 && (
               <div className="card" style={{ padding: '24px 28px', marginTop: 28, maxWidth: 700 }}>
                 <h3 style={{ fontSize: 21, margin: '0 0 6px' }}>Something missing?</h3>
                 <p className="text-muted" style={{ fontSize: 13.5, lineHeight: 1.6, margin: '0 0 16px', maxWidth: 480 }}>
@@ -705,5 +695,9 @@ export function ItineraryPage() {
         )}
       </div>
     </Page>
+    <DayMapPanel city={city} day={openSlot !== null && deck ? deck.prefix : day} home={stay} number={num} date={date}
+      token={MAPBOX_TOKEN} candidates={openSlot !== null && deck ? deck.cands : []}
+      hoverId={hoverCandId} onHover={setHoverCandId} onChoose={choose} />
+    </div>
   )
 }

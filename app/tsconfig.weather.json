@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.api.json",
+  "include": [
+    "src",
+    "server",
+    "scripts/weather-*.ts",
+    "scripts/cloud-fixtures.ts"
+  ]
+}

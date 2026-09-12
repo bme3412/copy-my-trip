@@ -1,3 +1,5 @@
+import { plannedDays, PLANNER_VERSION } from '../lib/trips/schema'
+import { catalogVersion } from '../lib/trips/snapshot'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DateRangePicker } from '../components/DateRangePicker'
@@ -6,6 +8,7 @@ import { Page } from '../components/Layout'
 import { CheckIcon } from '../components/icons'
 import type { Pace } from '../cities/types'
 import { generatePlan, PLAN_PRESETS, type GeneratedPlan } from '../lib/plan-presets'
+import { aiAvailable } from '../lib/ai-availability'
 import { extractPreferences } from '../lib/extract'
 import { stayLoc } from '../lib/planner'
 import type { City } from '../cities/types'
@@ -66,6 +69,7 @@ export function ComposePage() {
   // deterministically without another call.
   const runExtract = async (text: string) => {
     const trimmed = text.trim()
+    if (!aiAvailable) { if (trimmed !== trip.brief) update({ brief: trimmed, extracted: undefined }); return }
     if (extracting || trimmed.length < 12 || trimmed === trip.brief || lastTried.current === trimmed) return
     lastTried.current = trimmed
     setExtracting(true)
@@ -91,16 +95,6 @@ export function ComposePage() {
     return () => window.clearTimeout(t)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [briefDraft])
-
-  // Until a plan is chosen or days are built, compose starts fresh each visit —
-  // half-entered answers don't survive as phantom "defaults".
-  useEffect(() => {
-    const committed = trip.planId !== null || trip.days.some((d) => d.committed.length > 0)
-    if (!committed && (trip.arriving || trip.departing || trip.stayHood || trip.interests.length > 0)) {
-      update({ arriving: '', departing: '', stayHood: '', interests: [] })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   // Plans regenerate live as the form changes — same engine as the builder.
   // Real dates matter now: closures (Louvre Tue, Orsay Mon) prune the days.
@@ -138,7 +132,7 @@ export function ComposePage() {
     ? new Date(trip.arriving + 'T12:00:00').toLocaleDateString('en-US', { month: 'long' })
     : ''
   const where = `${dayCount} ${dayCount === 1 ? 'day' : 'days'} in ${city.name} in ${month}`
-  const dayCountNote =
+  const dayCountNote = city.id !== 'paris' ? `${where} — composed from this city’s researched catalog.` :
     dayCount <= 3
       ? `${where} — short and sweet. We'll keep it to the heart of things.`
       : dayCount === 4
@@ -151,7 +145,7 @@ export function ComposePage() {
 
   // Progressive reveal: dates → preferences → plans.
   const datesSet =
-    !!trip.arriving && !!trip.departing && Date.parse(trip.departing + 'T12:00:00') > Date.parse(trip.arriving + 'T12:00:00')
+    plannedDays(trip) > 0
   const staySet = datesSet && !!trip.stayHood
 
   const stage1Open = !datesSet || editing === 1
@@ -160,7 +154,7 @@ export function ComposePage() {
   // Only hand-built days need protecting — switching between presets is free.
   const guardHandBuilt = () => {
     const builtStops = trip.days.reduce((a, d) => a + d.committed.length, 0)
-    if (trip.planId === null && builtStops > 0) {
+    if ((trip.edited || trip.planId === null) && builtStops > 0) {
       return window.confirm('This replaces the days you built yourself. Continue?')
     }
     return true
@@ -170,14 +164,14 @@ export function ComposePage() {
   const select = (plan: GeneratedPlan) => {
     if (choosing || plan.preset.id === selectedId) return
     if (!guardHandBuilt()) return
-    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces })
+    update({ planId: plan.preset.id, originPresetId: plan.preset.id, scheduledFor: { arriving: trip.arriving, departing: trip.departing, stayHood: trip.stayHood }, edited: false, demo: false, unplaced: plan.unplaced, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces, dayContexts: plan.contexts, dayNarrations: {}, release: { planner: PLANNER_VERSION, catalog: catalogVersion(city) } })
   }
 
   /** The card's button applies the plan and goes to day 1. */
   const choose = (plan: GeneratedPlan) => {
-    if (choosing) return
-    if (plan.preset.id !== selectedId && !guardHandBuilt()) return
-    update({ planId: plan.preset.id, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces })
+    if (choosing || !plannedDays(trip)) return
+    if ((trip.edited || plan.preset.id !== selectedId) && !guardHandBuilt()) return
+    update({ planId: plan.preset.id, originPresetId: plan.preset.id, scheduledFor: { arriving: trip.arriving, departing: trip.departing, stayHood: trip.stayHood }, edited: false, demo: false, unplaced: plan.unplaced, days: plan.days, dayPurposes: plan.purposes, dayPaces: plan.paces, dayContexts: plan.contexts, dayNarrations: {}, release: { planner: PLANNER_VERSION, catalog: catalogVersion(city) } })
     const go = () => navigate(`/${city.id}/itinerary/1`, { viewTransition: true })
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       go()
@@ -189,6 +183,7 @@ export function ComposePage() {
 
   return (
     <Page>
+      {trip.arriving && trip.departing && !datesSet && <p role="alert">Choose 1–7 planned days. The departure date is checkout and is not a planned day.</p>}
       {/* Same grid geometry as the landing hero, so the shared photo plate
           stays pinned while the left column swaps copy for the form. */}
       <div
@@ -317,6 +312,7 @@ export function ComposePage() {
                   style={{ resize: 'vertical', fontFamily: 'var(--font-body)', fontSize: 13.5, lineHeight: 1.55 }}
                 />
               </div>
+              {!aiAvailable && <p className="text-muted">Your note is saved with the trip. Automatic interpretation is unavailable; use the interests and pace controls to shape your itinerary.</p>}
               {extracting && (
                 <p className="text-muted" style={{ fontFamily: 'var(--font-body)', fontSize: 12, fontStyle: 'italic', margin: '8px 0 0' }}>
                   reading…
@@ -469,12 +465,12 @@ export function ComposePage() {
           )}
         </div>
         <div style={{ position: 'sticky', top: 78, alignSelf: 'start' }}>
-          <HeroPhoto
+          {city.id === 'paris' ? <HeroPhoto
             src="paris-bridge-tables.jpeg"
             objectPosition="center"
             height="clamp(420px, calc(100vh - 180px), 640px)"
             caption="Lunch tables above the Seine, Île Saint-Louis"
-          />
+          /> : <div className="companion-panel"><h2>Researched places in {city.name}</h2><p>This city has no firsthand archive imagery yet.</p></div>}
         </div>
       </div>
     </Page>

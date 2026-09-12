@@ -1,0 +1,23 @@
+{
+  "name": "copy-my-trip-infra",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "synth": "cdk synth --strict",
+    "diff": "cdk diff",
+    "deploy": "cdk deploy --outputs-file outputs.json",
+    "destroy": "cdk destroy"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.267.0",
+    "constructs": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "aws-cdk": "^2.1139.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,17 +1,27 @@
 import type { City } from '../cities/types'
 
+const configuredMediaBase = import.meta.env?.VITE_MEDIA_BASE_URL ?? ''
+
+/** Resolve a browser-facing media URL. Production can point at CloudFront;
+ * an empty base preserves Vite's local /public/media behavior. */
+export function mediaUrl(cityId: string, file: string, base = configuredMediaBase): string {
+  const cleanBase = base.trim().replace(/\/+$/, '')
+  const cleanFile = file.replace(/^\/+/, '')
+  return `${cleanBase}/media/${cityId}/${cleanFile}`
+}
+
 /** Slot media resolves through the city's slot-file map first (archive files
  * keep their own names), then falls back to the `<slot-id>.jpg` /
  * `<slot-id>.mp4` filename convention. Missing files render as the styled
  * placeholder at runtime. */
 export function slotSrc(city: City, slotId: string): string {
   const mapped = city.slotFiles?.[slotId]?.img
-  return `/media/${city.id}/${mapped ?? `${slotId}.jpg`}`
+  return mediaUrl(city.id, mapped ?? `${slotId}.jpg`)
 }
 
 export function slotVideoSrc(city: City, slotId: string): string {
   const mapped = city.slotFiles?.[slotId]?.video
-  return `/media/${city.id}/${mapped ?? `${slotId}.mp4`}`
+  return mediaUrl(city.id, mapped ?? `${slotId}.mp4`)
 }
 
 /** True when real footage is mapped to this slot — badges only for real video. */

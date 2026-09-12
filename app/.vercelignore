@@ -1,2 +1,10 @@
 .env
 .env.local
+
+# Internal curator tooling and private run artifacts never ship to Vercel.
+.review-pilot/**
+scripts/review/**
+
+# Uncomment only after CloudFront is populated, VITE_MEDIA_BASE_URL is set in
+# Vercel, and production image/video playback has been verified.
+# public/media/**

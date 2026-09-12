@@ -13,14 +13,17 @@ The distinction from a generic AI trip planner is the whole point, and it is
 structural rather than cosmetic. Every fact is either **witnessed** — a
 photograph, a capture date, a route actually walked, a count of return visits —
 or **web-sourced**, and the interface never blurs the two: filled versus hollow
-provenance markers, measured versus estimated travel legs, "N of M stops
-personally verified" on every day. No language model schedules anything, and
+provenance markers and experience-scoped firsthand counts. Generated travel
+legs are labeled estimated; historical archive evidence is distinct from current conditions. No language model schedules anything, and
 none of them may write city data.
 
 ## What ships today
 
-A fully client-side React 19 + Vite + TypeScript app. Trip state lives in
-localStorage; there is no backend beyond two narrow serverless functions.
+A React 19 + Vite + TypeScript app with local planning. Trip state lives in
+validated, versioned localStorage. Working drafts and accepted snapshots are
+separate; saved views never regenerate the schedule. Optional Supabase account
+and private cloud-save code is implemented behind configuration, with a trip API
+alongside the two narrow AI functions. It has not been connected to a live project.
 
 | | Paris | Rome |
 |---|---|---|
@@ -33,11 +36,12 @@ Rome is honest about being researched and not yet walked — it claims no visits
 and shows no archive plates. Paris carries 114 media files, every one of them
 dated, 86 with GPS.
 
-Language models appear in exactly two places, both narrow, both non-scheduling:
+In the traveler application, language models appear in two places, both narrow, both non-scheduling:
 `api/extract-preferences.ts` turns a traveler's free-text brief into validated
 engine inputs, and `api/narrate-day.ts` restyles already-computed facts as prose.
 The engine's output is deterministic — the same inputs always produce the same
-plan — and regeneration never re-calls either API.
+plan when inputs and engine/catalog versions are held fixed. Restoration and
+briefing previews call neither API. Day narration is an explicit optional action.
 
 ## Quick start
 
@@ -59,6 +63,146 @@ npm run dev:full             # vercel dev on :3333
 
 Note that a full clone is large — the Paris archive alone is ~535 MB of
 original media, tracked in the repo.
+
+## Local companion (milestones 1–2)
+
+Open `/:city/saved` (Paris or Rome), create a labeled demonstration draft or
+compose your own dates, edit it, and choose **Accept & save itinerary**. Refresh
+keeps the exact schedule. **Preview tomorrow** shows an explicit date in the
+city's IANA time zone; the date picker does not change the trip. **Today** handles
+before-trip, active, open-day, day-trip travel, and completed states.
+
+The itinerary uses a numbered timeline beside a sticky route map on wide screens.
+On phones it stacks, with links to jump between the itinerary and map. The map
+summary shows planned stops, estimated walking/métro travel and the planned
+finish; it does not track traveler completion. Without Mapbox configuration,
+the map is explicitly schematic. The header includes a print action.
+
+The preview has shared in-app, escaped email HTML, and plain-text output. HTML
+and offline text can be downloaded. No itinerary email is sent; scheduling and
+weather are later milestones. Rome has no firsthand imagery.
+Known static catalog/evidence gaps still need curator review.
+
+Local storage keeps at most 20 accepted versions and a bounded workspace.
+Unreadable data is preserved, with explicit original-data export, legacy draft
+import, reset, and retry controls. Storage denial/quota failure leaves the plan
+usable in memory with a visible unsaved notice. Export a backup before clearing
+browser data. This is device-local storage, not a synced account.
+
+Engine changes must bump `PLANNER_VERSION` in `src/lib/trips/schema.ts`. Catalog
+references hash the loaded city data; checksums identify content, not authenticity.
+Unsupported engine/catalog versions remain readable through frozen snapshot
+facts; editing requires a supported release. No promise is made to execute old
+engines indefinitely. A list of place IDs alone cannot replay accepted waiting,
+duration, and return-travel intent: use the recorded `replayDay` contract.
+
+```bash
+npm run test:companion   # strict checking + snapshot/replay/calendar/render tests
+npm run build            # frontend + API TypeScript checks, then Vite
+```
+
+See [implementation plan and verification](build-plan/11-copy-my-trip-companion-implementation-plan.md).
+
+## Optional accounts and cloud save (milestone 3)
+
+The Saved trip page contains optional account controls when Supabase public
+configuration is present. Saving is explicit. It uploads an accepted snapshot,
+keeps the local copy, and checks the cloud revision before changing anything.
+Cloud trips support ordered segments, including repeated cities. A downloaded
+trip only becomes a persistent local copy when **Keep a copy on this device**
+succeeds. Those deliberate local copies survive sign-out; account lists and
+in-memory remote data are cleared. Sign-in lasts for this page session only.
+
+The migration, API, setup and remaining live checks are described in
+[cloud-save setup and verification](build-plan/12-cloud-save-implementation.md).
+The approved `copy-my-trip-preview` Supabase project is connected locally and
+migrated. `npm run dev` now serves `/api/trips` through the same handler used in
+production, so cloud saving works on port 4318 without a separate API process.
+Without configuration the app remains local-only. Hosted Auth, exact snapshot
+round trips, ownership isolation, conflicts and browser save/download/reload
+have passed with disposable accounts. Password recovery and self-service account deletion are implemented and tested.
+The [live site](https://copy-my-trip.com) is deployed, with `www` redirecting to it.
+Signup and recovery email are enabled after real delivery, confirmation, recovery
+and sign-in checks. Production sign-in, cloud save/readback and account deletion
+also passed; see [launch verification](build-plan/16-production-launch.md).
+The sender is `accounts@mail.copy-my-trip.com`, through Resend SMTP configured
+in Supabase. See [domain and email activation](build-plan/15-domain-and-email-activation.md).
+
+```bash
+cd app
+npm run test:cloud       # runtime validation, Auth/API boundaries, import/session safety
+npm run test:cloud:db    # disposable database on a LOCAL PostgreSQL server; honors PGHOST/PGPORT
+```
+
+## Internal curator pilot
+
+A separate local tool reviews 20 Paris records with the OpenAI Agents API,
+validates cited proposals, and records curator decisions and evaluation metrics.
+It never publishes changes or modifies city data. It requires an `OPENAI_API_KEY`
+in `app/.env.local` for live research; synthetic interface testing needs no key.
+
+```bash
+npm run review -- prepare       # freeze a batch; prints RUN_ID
+npm run review -- run RUN_ID    # live research, model/search charges apply
+npm run review -- serve RUN_ID  # local curator UI on 127.0.0.1:4317
+npm run test:review             # offline protocol and review tests
+```
+
+See [the pilot guide](build-plan/08-curator-review-pilot.md) for the prepared
+batch, review protocol, cost attribution, recovery, and how results should
+inform the later editor. Live measurements remain pending until research and
+human review are completed.
+
+## Deployment
+
+Vercel, and the one setting that matters is **Root Directory = `app`**. The
+repository root holds no `package.json`, so a build pointed at it installs
+nothing and fails with `vite: command not found`; and Vercel only treats `api/`
+as serverless functions when it sits directly under the root directory, so
+pointing elsewhere would deploy a site whose two API routes quietly 404. With
+the root set to `app`, `npm run build` runs and output lands in `dist`.
+
+Three environment variables, and none announces itself when missing:
+
+| | |
+|---|---|
+| `VITE_MAPBOX_TOKEN` | read at build time and baked into the client; without it the archive map renders its schematic fallback |
+| `VITE_MEDIA_BASE_URL` | CloudFront origin read at build time; leave blank locally to serve `app/public/media`, set it in Vercel before excluding media from the deploy |
+| `ANTHROPIC_API_KEY` | server-side only, used by both functions; without it brief extraction and day narration stop working while the deploy still looks green |
+
+### Hybrid media delivery
+
+Production media can live in a private S3 bucket behind CloudFront while the
+application and its two API routes remain on Vercel. The TypeScript CDK stack is
+in `infra/`; it retains the bucket if the stack is removed and prints the bucket,
+distribution and media base URL as outputs.
+
+```bash
+cd infra
+npm install
+npx cdk bootstrap aws://ACCOUNT/REGION  # once per AWS account and region
+npm run synth
+npm run diff
+npm run deploy                          # writes ignored infra/outputs.json
+
+cd ../app
+npm run media:manifest                  # local allowlist, no AWS writes
+npm run media:publish                   # upload + CloudFront invalidation
+```
+
+The publisher uploads only filenames referenced by city `slot-files.json` plus
+the explicit hero allowlist in `app/media-extras.json`. Browser-ready JPEG and
+MP4 derivatives are published; `.mov` masters and archive evidence remain local.
+Set Vercel's `VITE_MEDIA_BASE_URL` to the emitted `MediaBaseUrl`, verify images
+and range-based video playback, then add `public/media/**` to `.vercelignore`.
+Pass `-- --delete` to `npm run media:publish` only when stale CDN objects should
+be removed deliberately.
+
+Publishing requires AWS credentials permitted to write the media prefix and
+create CloudFront invalidations. CI should use short-lived OIDC credentials,
+never static access keys. The distribution uses the lower-cost North America
+and Europe edge class; change `priceClass` in `infra/lib/media-stack.ts` if the
+audience requires global edge coverage.
 
 ## Commands
 
@@ -133,3 +277,13 @@ Read them in order; each is written as deltas against the one before.
 
 `build-plan/reference/` holds superseded planning documents, kept for
 vocabulary; `00-current-state.md` maps their terms onto what actually exists.
+
+### Itinerary email work in progress
+
+The optional evening briefing workflow is live in a single-owner pilot. The approved immediate test was delivered and signed delivery events verified; one scheduled message is due at 20:00 Eastern on 12 September, followed by automatic verification and pausing. General email delivery remains restricted. See [plan 17](build-plan/17-scheduled-itinerary-email-preview.md).
+
+### Weather integration preview
+
+An isolated development preview now adds sourced city-level weather alongside accepted itineraries, with simulated outage/expiry scenarios and shared app/HTML/text output. Eight weather checks and real Paris/Rome evaluation fetches pass. Production weather remains disabled pending scheduled-mail acceptance, commercial access and shared caching/job integration. See [plan 18](build-plan/18-weather-preview.md).
+
+The shared weather cache and email-preparation integration are now implemented behind disabled controls, with 25 weather/provider/database checks. The new migration has not been applied to Supabase and no weather email has been sent. See [plan 19](build-plan/19-weather-cache-and-mail-integration.md).

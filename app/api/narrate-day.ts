@@ -44,7 +44,18 @@ export default async function handler(req: { method?: string; body?: unknown }, 
     res.status(405).send('POST only')
     return
   }
-  const body = (typeof req.body === 'string' ? JSON.parse(req.body) : req.body) as Record<string, unknown>
+  res.setHeader('Cache-Control', 'private, no-store')
+  if (process.env.AI_ENABLED !== 'true' || !process.env.ANTHROPIC_API_KEY) {
+    res.status(503).send('Optional AI assistance is unavailable. Planning works without it.')
+    return
+  }
+  let parsed: unknown
+  try {
+    const raw = typeof req.body === 'string' ? req.body : JSON.stringify(req.body)
+    if (!raw || Buffer.byteLength(raw) > 32768) { res.status(413).send('Request too large'); return }
+    parsed = JSON.parse(raw)
+  } catch { res.status(400).send('Invalid JSON'); return }
+  const body = parsed as Record<string, unknown>
   const facts = body?.facts
   if (typeof facts !== 'object' || facts === null) {
     res.status(400).send('facts required')
@@ -99,6 +110,6 @@ export default async function handler(req: { method?: string; body?: unknown }, 
       res.end()
       return
     }
-    res.status(502).send((err instanceof Error ? err.message : 'narration error').slice(0, 200))
+    res.status(502).send('Optional introduction could not be completed.')
   }
 }

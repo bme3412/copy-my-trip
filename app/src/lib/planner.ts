@@ -1,4 +1,5 @@
 import type { City, Meal, Pace, Place, StartLoc, Theme } from '../cities/types'
+import { closureOverlaps, type OperationalCondition } from './conditions/operations'
 
 export const PACE: Record<Pace, { f: number; slot: number }> = {
   gentle: { f: 1.3, slot: 90 },
@@ -108,6 +109,9 @@ export interface CommittedStop {
   /** Carried through only where the archive states it — see Place.visits. */
   visits?: number
   last?: string
+  /** Accepted timing intent: edits may move later, never erase deliberate waiting. */
+  timing?: { notBefore: number; duration: number; linger: number }
+  returnAfter?: { min: number; mode: 'walk' | 'metro'; to: StartLoc }
   timeIn: number
   dur: number
   travelMin: number
@@ -119,10 +123,13 @@ export interface CommittedStop {
 }
 
 export interface DayState {
+  /** Explicit free time retained after the last committed activity. */
+  trailingWaitUntil?: number
   clock: number
   loc: Place | StartLoc
   committed: CommittedStop[]
   meals: { lunch: boolean; dinner: boolean; coffee: boolean }
+  flags?: StopFlag[]
 }
 
 /** One contribution to a candidate's score — term from the canonical scoring
@@ -240,7 +247,7 @@ export function stopPlace(city: City, stop: { id: string; experienceId?: string 
   const p = city.places.find((pl) => pl.id === stop.id)
   if (!p) return undefined
   const variants = placeVariants(p)
-  return variants.find((v) => v.experienceId === stop.experienceId) ?? variants[0]
+  return stop.experienceId ? variants.find((v) => v.experienceId === stop.experienceId) : variants[0]
 }
 
 /** Coverage themes the trip has already satisfied. */
@@ -283,7 +290,7 @@ function travel(a: Place | StartLoc, b: Place) {
   const d = dist(a, b)
   const min = travelMinutes(a, b)
   const mode: 'walk' | 'metro' = d <= 1.2 ? 'walk' : 'metro'
-  const measured = !!(a && a.src === 'verified' && b.src === 'verified' && mode === 'walk' && d < 1.6)
+  const measured = false // Distance heuristics are estimates, regardless of endpoint provenance.
   return { min, mode, measured }
 }
 
@@ -313,6 +320,10 @@ function forecast(e: Omit<Candidate, 'forecast'>, day: DayState, pace: Pace, day
 }
 
 export interface CandidateOpts {
+  /** Validated, fresh conditions supplied by the proposal service. */
+  closures?: readonly OperationalCondition[]
+  /** Proposal swaps may choose another supported experience at this venue. */
+  allowSamePlaceExperience?: boolean
   /** Real weekday of this trip day (JS getDay) — prunes closed places. */
   weekday?: number
   /** Real ISO date of this trip day — activates date-specific exceptions. */
@@ -447,7 +458,8 @@ export function buildCandidates(city: City, day: DayState, pace: Pace, visited: 
         p.meal === 'dinner' ||
         pinnedIds.has(p.id) ||
         !(t.mode === 'metro' && t.min >= ENGINE.longTransferMin && longTransfers >= ENGINE.maxLongTransfers)
-      return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk && pinReady }
+      const operationallyOpen = !opts.closures?.some(c => closureOverlaps(c, city.id, opts.date, p, arrive, dur))
+      return { p, t, dur, arrive, leave, open: open && curfew && timely && transferOk && pinReady && operationallyOpen }
     })
     .filter((e) => e.open)
 
@@ -662,6 +674,7 @@ export function commitCandidate(day: DayState, c: Candidate): DayState {
     src: c.p.src,
     visits: c.p.visits,
     last: c.p.last,
+    timing: { notBefore: c.arrive, duration: c.dur, linger: c.leave - c.arrive - c.dur },
     timeIn: c.arrive,
     dur: c.dur,
     travelMin: c.t.min,
@@ -691,7 +704,9 @@ export function returnFromDayTrip(city: City, day: DayState, stay: StartLoc): Da
   if (!last) return day
   const from = stopPlace(city, last)
   if (!from) return day
-  return { ...day, clock: day.clock + travelMinutes(from, stay), loc: stay }
+  const min = travelMinutes(from, stay)
+  const mode = dist(from, stay) <= 1.2 ? 'walk' as const : 'metro' as const
+  return { ...day, committed: day.committed.map((s, i) => i === day.committed.length - 1 ? { ...s, returnAfter: { min, mode, to: stay } } : s), clock: day.clock + min, loc: stay }
 }
 
 /** The prefix state 0..k−1 with its literal meals — replay starts here. */
@@ -699,14 +714,14 @@ function dayPrefix(city: City, day: DayState, k: number, pace: Pace, stay: Start
   const committed = day.committed.slice(0, k)
   const prev = committed[committed.length - 1]
   // Stored times are the source of truth: clock = free-again after stop k−1.
-  const clock = prev ? prev.timeIn + prev.dur + ENGINE.linger[pace] : city.dayStart
+  const clock = prev ? prev.timeIn + prev.dur + (prev.timing?.linger ?? ENGINE.linger[pace]) + (prev.returnAfter?.min ?? 0) : city.dayStart
   // Resolve through the COMMITTED VARIANT, not the parent place: an experience
   // may downgrade its parent's provenance ("The Louvre, inside" is web under a
   // verified parent), and taking the parent handed the next leg a verified
   // origin it never had — stamping `measured` on a walk leaving a room the
   // curator has never been in. The stay fallback only fires on a stale id
   // (place gone from city data), which the replay loops flag downstream.
-  const loc = prev ? (stopPlace(city, prev) ?? stay) : stay
+  const loc = prev ? (prev.returnAfter?.to ?? stopPlace(city, prev) ?? stay) : stay
   const meals = { lunch: false, dinner: false, coffee: false }
   for (const c of committed) if (c.meal) meals[c.meal] = true
   return { clock, loc, committed, meals }
@@ -749,7 +764,7 @@ export function alternativesAt(
     slotMeal: incumbent.meal,
     limit: limit + 1,
   })
-  return cands.filter((c) => c.p.id !== incumbent.id).slice(0, limit)
+  return cands.filter((c) => c.p.id !== incumbent.id || (opts.allowSamePlaceExperience && c.p.experienceId !== incumbent.experienceId)).slice(0, limit)
 }
 
 /** One named constraint a replayed stop now violates. */
@@ -775,19 +790,24 @@ function scheduleNext(
   state: DayState,
   v: EffectivePlace,
   pace: Pace,
-  opts: { date?: string; weekday?: number },
+  opts: CandidateOpts,
   reasons?: ScoreReason[],
+  intent?: CommittedStop['timing'],
 ): { next: DayState; notes: string[] } {
   const notes: string[] = []
+  if (opts.exclude?.has(v.id)) notes.push('excluded by your brief')
+  if (opts.blockAnchors && v.role === 'anchor') notes.push('an anchor on a day planned without anchors')
+  if (opts.blockTimed && v.timed) notes.push('timed entry on a day planned without it')
   const pf = PACE[pace].f
   const t = travel(state.loc, v)
-  const dur = Math.round(v.dur * pf)
+  const dur = intent?.duration ?? Math.round(v.dur * pf)
   const durMax = Math.round((v.dur + (v.durVar ?? 0)) * pf)
   // The same idle the generator performs by jumping its clock — held here so
   // a replayed day reproduces it. Without this, removing an afternoon stop
   // slid dinner back to 15:11 and reported no violation at all.
   const from = v.meal === 'dinner' ? Math.max(state.clock, ENGINE.dinnerFrom) : state.clock
-  let arrive = from + t.min + (v.timed ? ENGINE.timedEntryBuffer : 0)
+  let arrive = Math.max(from + t.min + (v.timed ? ENGINE.timedEntryBuffer : 0), intent?.notBefore ?? 0, opts.pins?.find((p) => p.id === v.id)?.notBefore ?? 0)
+  if (v.meal === 'lunch') arrive = Math.max(arrive, 11 * 60)
   const hrs = effectiveHours(v, opts.date, opts.weekday)
   if (!hrs) notes.push('closed this day')
   else {
@@ -800,6 +820,7 @@ function scheduleNext(
     if (arrive > hrs[1] * 60 - Math.max(dur, 30)) notes.push(`would run past the ${fmt(hrs[1] * 60)} close`)
   }
   const depart = arrive + dur
+  if (opts.closures?.some(c => closureOverlaps(c, city.id, opts.date, v, arrive, dur))) notes.push('overlaps an operational closure')
   const close = hrs ? hrs[1] * 60 : Infinity
   // Worst case caps at closing time, never below the typical plan.
   const worstDepart = Math.max(depart, Math.min(arrive + durMax, close))
@@ -825,7 +846,7 @@ function scheduleNext(
   if (v.role === 'anchor' && state.committed.some((c) => stopPlace(city, c)?.role === 'anchor')) notes.push('a second anchor in one day')
   if (v.timed && state.committed.filter((c) => stopPlace(city, c)?.timed).length >= ENGINE.maxTimedPerDay)
     notes.push('a third timed booking')
-  if (v.meal !== 'dinner' && state.committed.filter((c) => c.meal !== 'dinner').length >= ENGINE.stopBudget[pace])
+  if (v.meal !== 'dinner' && state.committed.filter((c) => c.meal !== 'dinner').length >= (opts.maxStops ?? ENGINE.stopBudget[pace]))
     notes.push(`past the day's ${ENGINE.stopBudget[pace]}-stop budget`)
   // Coffee is a morning ritual — parity with the lunch-window note above.
   if (v.meal === 'coffee' && arrive >= 12 * 60) notes.push(`coffee lands at ${fmt(arrive)} — past the morning`)
@@ -844,6 +865,7 @@ function scheduleNext(
     src: v.src,
     visits: v.visits,
     last: v.last,
+    timing: { notBefore: intent?.notBefore ?? arrive, duration: dur, linger: intent?.linger ?? ENGINE.linger[pace] },
     timeIn: arrive,
     dur,
     travelMin: t.min,
@@ -852,7 +874,7 @@ function scheduleNext(
     meal: v.meal,
     reasons,
   }
-  return { next: { committed: [...state.committed, stop], clock: depart + ENGINE.linger[pace], loc: v, meals }, notes }
+  return { next: { committed: [...state.committed, stop], clock: depart + (intent?.linger ?? ENGINE.linger[pace]), loc: v, meals }, notes }
 }
 
 /** Rebuild the day with `chosen` in slot k: the prefix stands untouched, the
@@ -865,8 +887,9 @@ export function replayFrom(
   chosen: Candidate,
   pace: Pace,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  opts: CandidateOpts = {},
 ): ReplayResult {
+  if (day.committed.some((s) => !stopPlace(city, s))) return { day, flags: [{ index: k, note: 'Saved experience unavailable; editing is blocked for this catalog.' }] }
   const flags: StopFlag[] = []
   // The candidate was built against exactly this prefix state — commit as-is.
   let state = commitCandidate(dayPrefix(city, day, k, pace, stay), chosen)
@@ -878,9 +901,10 @@ export function replayFrom(
       flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
-    const r = scheduleNext(city, state, v, pace, opts, old.reasons)
+    const r = scheduleNext(city, state, v, pace, opts, old.reasons, old.timing)
     for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
+    if (old.returnAfter) state = returnFromDayTrip(city, state, old.returnAfter.to)
   })
   return { day: state, flags }
 }
@@ -893,8 +917,9 @@ export function removeAt(
   k: number,
   pace: Pace,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  opts: CandidateOpts = {},
 ): ReplayResult {
+  if (day.committed.some((s) => !stopPlace(city, s))) return { day, flags: [{ index: k, note: 'Saved experience unavailable; editing is blocked for this catalog.' }] }
   const flags: StopFlag[] = []
   let state = dayPrefix(city, day, k, pace, stay)
   day.committed.slice(k + 1).forEach((old) => {
@@ -903,9 +928,10 @@ export function removeAt(
       flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
-    const r = scheduleNext(city, state, v, pace, opts, old.reasons)
+    const r = scheduleNext(city, state, v, pace, opts, old.reasons, old.timing)
     for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
+    if (old.returnAfter) state = returnFromDayTrip(city, state, old.returnAfter.to)
   })
   return { day: state, flags }
 }
@@ -920,8 +946,9 @@ export function insertAt(
   ref: { placeId: string; experienceId?: string },
   pace: Pace,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  opts: CandidateOpts = {},
 ): ReplayResult {
+  if (day.committed.some((s) => !stopPlace(city, s))) return { day, flags: [{ index: k, note: 'Saved experience unavailable; editing is blocked for this catalog.' }] }
   const v = stopPlace(city, { id: ref.placeId, experienceId: ref.experienceId })
   if (!v) return { day, flags: [{ index: k, note: 'not in the city data' }] }
   const flags: StopFlag[] = []
@@ -935,9 +962,10 @@ export function insertAt(
       flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
-    const r = scheduleNext(city, state, ov, pace, opts, old.reasons)
+    const r = scheduleNext(city, state, ov, pace, opts, old.reasons, old.timing)
     for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
+    if (old.returnAfter) state = returnFromDayTrip(city, state, old.returnAfter.to)
   })
   return { day: state, flags }
 }
@@ -950,7 +978,7 @@ export function bestInsertion(
   placeId: string,
   pace: Pace,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  opts: CandidateOpts = {},
 ): { k: number; result: ReplayResult } | null {
   const dinnerIdx = day.committed.findIndex((c) => c.meal === 'dinner')
   const maxK = dinnerIdx >= 0 ? dinnerIdx : day.committed.length
@@ -1021,10 +1049,10 @@ export function insertionSuggestions(
  * where their weekday breaks it. */
 export function replaySequence(
   city: City,
-  stops: ReadonlyArray<{ placeId: string; experienceId?: string }>,
+  stops: ReadonlyArray<{ placeId: string; experienceId?: string; timing?: CommittedStop['timing']; returnAfter?: CommittedStop['returnAfter']; reasons?: ScoreReason[] }>,
   pace: Pace,
   stay: StartLoc,
-  opts: { date?: string; weekday?: number } = {},
+  opts: CandidateOpts = {},
 ): ReplayResult {
   const flags: StopFlag[] = []
   let state = blankDay(city, stay)
@@ -1034,9 +1062,18 @@ export function replaySequence(
       flags.push({ index: state.committed.length, note: 'not in the city data' })
       return
     }
-    const r = scheduleNext(city, state, v, pace, opts, [{ term: 'narrative_fit', value: 0, note: 'from the curated day' }])
+    const r = scheduleNext(city, state, v, pace, opts, s.reasons ?? [{ term: 'narrative_fit', value: 0, note: 'from the curated day' }], s.timing)
     for (const note of r.notes) flags.push({ index: state.committed.length, note })
     state = r.next
+    if (s.returnAfter) state = returnFromDayTrip(city, state, s.returnAfter.to)
   })
   return { day: state, flags }
+}
+
+/** Replay the recorded execution contract, not a lossy list of IDs. */
+export function replayDay(city: City, day: DayState, pace: Pace, stay: StartLoc, opts: CandidateOpts = {}): ReplayResult {
+  if (day.committed.some((s) => !stopPlace(city, s))) return { day, flags: [{ index: 0, note: 'This saved experience is unavailable in the current catalog; keep the saved version.' }] }
+  const result = replaySequence(city, day.committed.map((s) => ({ ...s, placeId: s.id })), pace, stay, opts)
+  if (day.trailingWaitUntil !== undefined) result.day = { ...result.day, trailingWaitUntil: day.trailingWaitUntil, clock: Math.max(result.day.clock, day.trailingWaitUntil) }
+  return result
 }

@@ -5,6 +5,32 @@ of this document: `02-roadmap.md` is written as *deltas against this*, not as a
 greenfield build. Counts and line references are accurate as of 2026-07-24; treat
 them as "at time of writing".
 
+## September 2026 update
+
+The sections below preserve the July architecture description. Current changes
+are documented in [plan 11](11-copy-my-trip-companion-implementation-plan.md):
+validated local drafts and immutable accepted snapshots, faithful replay with
+recorded timing/return travel, saved-trip/Today/briefing routes, explicit optional
+narration, and experience-scoped provenance. Two narrow Anthropic routes and the
+separate local OpenAI curator pilot now exist. Optional account/cloud-save code
+and a tested PostgreSQL migration are implemented. The approved Supabase preview
+is connected and migrated; hosted Auth/RLS and browser save/download checks pass
+([preview verification](13-supabase-preview-verification.md)). Password recovery and account deletion are implemented; an application preview is deployed
+([plan 14](14-account-lifecycle-and-hosted-preview.md)). Signup/recovery delivery is
+verified and enabled in the latest preview ([plan 15](15-domain-and-email-activation.md));
+the approved production release is now live at `https://copy-my-trip.com`
+([launch verification](16-production-launch.md)).
+Scheduled itinerary delivery is implemented with the approved single-owner pilot
+recorded in [plan 17](17-scheduled-itinerary-email-preview.md). Weather preview and
+shared-cache/mail preparation are implemented locally, disabled and unapplied to
+production ([plan 18](18-weather-preview.md), [plan 19](19-weather-cache-and-mail-integration.md)).
+Commercial weather is deferred. Operational alternatives, traveler AI editing,
+scoped MCP and broader rollout are planned in
+[plan 20](20-alternatives-ai-mcp-and-rollout-plan.md); they do not depend on commercial weather.
+Its first local alternatives slice is implemented and browser verified
+([plan 21](21-local-alternatives-verification.md)); live source coverage and cloud proposal acceptance remain planned. The older
+“no API / no LLM” and three-preset statements below are historical.
+
 ## The product in one paragraph
 
 **Copy My Trip — "a verified archive, not a diary."** One curator's photo/video
@@ -175,3 +201,13 @@ the list as it stands now.
 8. **The plan cannot leave the device.** Trip state persists in localStorage and
    nowhere else — no accounts, no calendar or offline export, no print stylesheet.
    A traveler cannot carry, share or reopen elsewhere the itinerary they built.
+
+## Scheduled itinerary mail preview — 12 September 2026
+
+The opt-in email implementation and 23 dedicated local checks are complete. The approved production release is live with a single-owner pilot. Its first real itinerary test is delivered; signed events, duplicate-request suppression, private access and exact saved facts pass. The second message is scheduled for 20:00 Eastern on 12 September; automatic verification, pause and cleanup follow. General delivery is restricted. See [plan 17](17-scheduled-itinerary-email-preview.md) for current deployment and pilot state; plan 16 is the prior release.
+
+## Weather preview — 12 September 2026
+
+The local prototype has an Open-Meteo adapter, strict normalized records, bounded process caching, clear failure/expiry labels, and shared app/HTML/text presentation. Browser and provider evaluation checks pass. It is not connected to production mail, and no weather subscription or cloud persistence was added. See [plan 18](18-weather-preview.md).
+
+The next weather layer is implemented locally: a capability-protected shared cache, request budgets/leases, and forecast freezing before email submission. Migration 004 and production activation remain pending; tonight's mail release is unchanged. See [plan 19](19-weather-cache-and-mail-integration.md).

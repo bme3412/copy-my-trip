@@ -1,3 +1,7 @@
+import { MailBriefingPage } from './pages/MailBriefingPage'
+import { SavedTripPage } from './pages/SavedTripPage'
+import { BriefingPage } from './pages/BriefingPage'
+import { TodayPage } from './pages/TodayPage'
 import { redirect, type RouteObject } from 'react-router-dom'
 import { CITIES, DEFAULT_CITY } from './cities'
 import { Layout } from './components/Layout'
@@ -14,8 +18,15 @@ export const routes: RouteObject[] = [
     element: <Layout />,
     loader: ({ params }) => (params.city && CITIES[params.city] ? null : redirect(`/${DEFAULT_CITY}`)),
     children: [
+      ...(import.meta.env.DEV ? [{ path: 'saved/:snapshotId/alternatives', hydrateFallbackElement: <p role="status">Loading alternatives…</p>, lazy: async () => ({ Component: (await import('./pages/AlternativesPreviewPage')).AlternativesPreviewPage }) }] : []),
+      ...(import.meta.env.DEV ? [{ path: 'weather-preview', hydrateFallbackElement: <p role="status">Loading weather preview…</p>, lazy: async () => ({ Component: (await import('./pages/WeatherPreviewPage')).WeatherPreviewPage }) }] : []),
       { index: true, element: <Home /> },
       { path: 'compose', element: <ComposePage /> },
+      { path: 'saved', element: <SavedTripPage /> },
+      { path: 'saved/:snapshotId', element: <SavedTripPage /> },
+      { path: 'saved/:snapshotId/briefing', element: <BriefingPage /> },
+      { path: 'mail/:mailId', element: <MailBriefingPage /> },
+      { path: 'today', element: <TodayPage /> },
       // Plans folded into compose — old links land there.
       { path: 'plans', loader: ({ params }) => redirect(`/${params.city}/compose`) },
       { path: 'itinerary/:n', element: <ItineraryPage /> },

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "tripId": "itinerary-delivery-pilot",
+  "tripRevision": 1,
+  "serviceDate": "2026-09-13",
+  "zone": "America/New_York",
+  "windowStart": "2026-09-13T04:00:00.000Z",
+  "windowEnd": "2026-09-14T04:00:00.000Z",
+  "items": [
+    {
+      "schemaVersion": 1,
+      "id": "mail-c099f730b3fe8dde",
+      "planId": "plan-mtyu9nm1-0e4ebe2b2f11fae1",
+      "tripId": "plan-mtyu9nm1-0e4ebe2b2f11fae1",
+      "cityId": "paris",
+      "cityName": "Paris",
+      "date": "2026-09-13",
+      "timeZone": "Europe/Paris",
+      "acceptedAt": "2026-09-12T20:29:46.825Z",
+      "demo": true,
+      "title": "Le Marais & the Islands, into the evening",
+      "purpose": "Historic Paris and the Seine — context before any giant museum.",
+      "status": "active",
+      "stops": [
+        {
+          "id": "cafehugo",
+          "name": "Café Hugo",
+          "area": "Place des Vosges, 4e",
+          "timeIn": 547,
+          "dur": 40,
+          "travelMin": 7,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "Slow start under the arcades. The corner table I always end up at — order the *tartine* and watch the square wake up.",
+          "evidence": "Marked firsthand in the catalog · archive image unavailable",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8553,2.3663",
+          "timed": false
+        },
+        {
+          "id": "vosges",
+          "name": "Place des Vosges",
+          "area": "Le Marais, 4e",
+          "timeIn": 620,
+          "dur": 45,
+          "travelMin": 3,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "A full loop of the arcades, then the garden. My most-shot place in the city — I've never once walked through without stopping.",
+          "evidence": "Firsthand archive · Oct 2016 · Jun 2026 · historical visit, not current operating information",
+          "image": {
+            "url": "/media/paris/paris-places-des-vosges.jpeg",
+            "caption": "The square, full sun · Oct 2016"
+          },
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8556,2.3655",
+          "timed": false
+        },
+        {
+          "id": "rosiers",
+          "name": "Rue des Rosiers",
+          "area": "Le Marais, 4e",
+          "timeIn": 702,
+          "dur": 40,
+          "travelMin": 7,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "Falafel in hand, eaten leaning on whatever wall has sun — the line at the green storefront moves faster than it looks.",
+          "evidence": "Marked firsthand in the catalog · archive image unavailable",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8571,2.3592",
+          "timed": false
+        },
+        {
+          "id": "pompidou",
+          "name": "Centre Pompidou",
+          "area": "Beaubourg, 4e",
+          "timeIn": 781,
+          "dur": 75,
+          "travelMin": 9,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "The inside-out building, currently wrapped for its long renovation — which is its own kind of honest: pipes on pipes. The plateau out front still earns the detour.",
+          "evidence": "Firsthand archive · Dec 2024 · Jun 2026 · historical visit, not current operating information",
+          "image": {
+            "url": "/media/paris/paris-centre-pompidou.jpeg",
+            "caption": "The escalators, wrapped · Jun 2026"
+          },
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8607,2.3514",
+          "timed": false
+        },
+        {
+          "id": "notredame",
+          "name": "Notre-Dame",
+          "area": "Île de la Cité",
+          "timeIn": 898,
+          "dur": 60,
+          "travelMin": 12,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "Go early — the parvis before nine is almost private. Inside, the stone is *pale again* since the reopening; I finally have interior shots worth keeping.",
+          "evidence": "Firsthand archive · Jul 2024 – Jan 2025 · historical visit, not current operating information",
+          "image": {
+            "url": "/media/paris/paris-notre-dame-seine.jpeg",
+            "caption": "From the bridge · Jul 2024"
+          },
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.853,2.3499",
+          "timed": false
+        },
+        {
+          "id": "vertgalant",
+          "name": "Square du Vert-Galant",
+          "area": "Pont Neuf, 1er",
+          "timeIn": 1000,
+          "dur": 30,
+          "travelMin": 12,
+          "travelMode": "walk",
+          "source": "verified",
+          "description": "Down the steps behind the Pont Neuf statue — the prow of the island, water on both sides. Face west and let the boats slide past.",
+          "evidence": "Firsthand archive · Jul 2022 – Jun 2026 · historical visit, not current operating information",
+          "image": {
+            "url": "/media/paris/paris-vert-gallant.jpeg",
+            "caption": "Looking west · Jun 2026"
+          },
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8574,2.3398",
+          "timed": false
+        },
+        {
+          "id": "allard",
+          "name": "Allard",
+          "area": "Rue Saint-André-des-Arts",
+          "timeIn": 1140,
+          "dur": 120,
+          "travelMin": 6,
+          "travelMode": "walk",
+          "source": "web",
+          "description": "",
+          "evidence": "Web-researched experience · no firsthand archive evidence",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=48.8534,2.3396",
+          "timed": false
+        }
+      ],
+      "warnings": [],
+      "firsthand": 6,
+      "conditions": "Weather and live operational updates are not connected."
+    }
+  ]
+}

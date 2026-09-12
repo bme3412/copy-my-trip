@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src",
+    "server",
+    "api",
+    "scripts/mail-*.ts",
+    "scripts/cloud-fixtures.ts"
+  ]
+}

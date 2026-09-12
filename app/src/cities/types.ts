@@ -164,6 +164,7 @@ export interface Plate {
 }
 
 export interface DayStop {
+  evidenceNote?: string
   time: string
   timeNote?: string
   /** The place this stop is, when it exists in the city data — what lets a
@@ -250,6 +251,7 @@ export interface DayTemplate {
 }
 
 export interface City {
+  timeZone: string
   id: string
   name: string
   tagline: string

@@ -1,4 +1,4 @@
-import { fileDateLabel } from '../lib/media'
+import { fileDateLabel, mediaUrl } from '../lib/media'
 import { useCity } from '../state/CityContext'
 
 /** The hero plate. Shares a view-transition-name across pages, so navigating
@@ -22,7 +22,7 @@ export function HeroPhoto({
       <div className="plate hero-photo" style={{ position: 'relative', height, viewTransitionName: 'hero-photo' }}>
         <div style={{ position: 'absolute', inset: 0 }}>
           <img
-            src={`/media/${city.id}/${src}`}
+            src={mediaUrl(city.id, src)}
             alt={caption ?? ''}
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block' }}
           />

@@ -1,173 +1,231 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import type { City, Pace } from '../cities/types'
-import { blankDay, stayLoc, type DayState } from '../lib/planner'
-import { useCity } from './CityContext'
-
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { CITIES } from '../cities';
+import type { City, Pace } from '../cities/types';
+import { blankDay, stayLoc, type DayState } from '../lib/planner';
+import { acceptSnapshot, canEdit, catalogVersion, draftHash } from '../lib/trips/snapshot';
+import { clone, plannedDays, PLANNER_VERSION, type PlanSnapshot } from '../lib/trips/schema';
+import { emptyData, importLegacy, loadLocal, MAX_VERSIONS, saveLocal, STORAGE_KEY, type LocalData, type LoadResult } from '../lib/trips/local-store';
+import { useCity } from './CityContext';
+import { mergeLocalSnapshots } from '../lib/cloud/schema';
+import type { ItineraryProposal } from '../lib/proposals/schema';
+import { persistProposal } from '../lib/proposals/validate';
+const LOCAL_LOCK = 'cmt-local-companion-write';
+const withLocalLock = <T,>(work: () => T): Promise<T> => navigator.locks ? navigator.locks.request(LOCAL_LOCK, work) : Promise.resolve().then(work);
 export interface TripState {
-  arriving: string
-  departing: string
-  pace: Pace
-  interests: string[]
-  /** Neighbourhood the traveler is staying in — days start and end here. */
-  stayHood: string
-  planId: string | null
-  /** Shuffle counter for plan generation — the same seed regenerates the same
-   * plans; bumping it rotates the picks. Deterministic variety, no RNG. */
-  planSeed?: number
-  /** The traveler's free-text trip brief, as typed. */
-  brief?: string
-  /** What the LLM read from the brief — stored so regeneration is
-   * deterministic and never re-calls the API. */
-  extracted?: import('../lib/extract').ExtractedPrefs
-  days: DayState[]
-  /** One-line purpose per day, set when a generated plan is chosen. */
-  dayPurposes?: string[]
-  /** The pace each day was BUILT at, set when a generated plan is chosen.
-   * Edits re-time a day at this pace, never at today's `pace` slider — a
-   * plan the traveler never asked to re-pace must not silently drift. */
-  dayPaces?: Pace[]
-  /** LLM narration per day index, keyed by the day's content so edits
-   * invalidate — fetched once, then served from state. */
-  dayNarrations?: Record<number, { key: string; text: string }>
+    arriving: string;
+    departing: string;
+    pace: Pace;
+    interests: string[];
+    /** Neighbourhood the traveler is staying in — days start and end here. */
+    stayHood: string;
+    planId: string | null;
+    originPresetId?: string;
+    edited?: boolean;
+    unplaced?: { placeId: string; reason: string }[];
+    demo?: boolean;
+    dayContexts?: import('../lib/plan-presets').StoredDayContext[];
+    scheduledFor?: {
+        arriving: string;
+        departing: string;
+        stayHood: string;
+    };
+    release?: {
+        planner: string;
+        catalog: string;
+    };
+    /** Shuffle counter for plan generation — the same seed regenerates the same
+     * plans; bumping it rotates the picks. Deterministic variety, no RNG. */
+    planSeed?: number;
+    /** The traveler's free-text trip brief, as typed. */
+    brief?: string;
+    /** What the LLM read from the brief — stored so regeneration is
+     * deterministic and never re-calls the API. */
+    extracted?: import('../lib/extract').ExtractedPrefs;
+    days: DayState[];
+    /** One-line purpose per day, set when a generated plan is chosen. */
+    dayPurposes?: string[];
+    /** The pace each day was BUILT at, set when a generated plan is chosen.
+     * Edits re-time a day at this pace, never at today's `pace` slider — a
+     * plan the traveler never asked to re-pace must not silently drift. */
+    dayPaces?: Pace[];
+    /** LLM narration per day index, keyed by the day's content so edits
+     * invalidate — fetched once, then served from state. */
+    dayNarrations?: Record<number, {
+        key: string;
+        text: string;
+    }>;
 }
-
-/** Trips scale 1–7 days (the framework's 4-day core plus Orsay, Versailles/personality, buffer). */
-export const MAX_DAYS = 7
-
-type TripMap = Record<string, TripState>
-
-// v3: trips begin blank (wizard flow) — earlier keys carried pre-filled test
-// dates, so they are deliberately not migrated.
-const STORAGE_KEY = 'cmt-trips-v3'
-
-/** No auth yet, so sessions are stateless by design: trip state lives in
- * memory for the visit (day pages and the builder work across navigation)
- * and a fresh load starts blank — the app never pretends to remember you.
- * Flip this on when accounts exist and persistence is honest again. */
-const PERSIST = false
-
-function defaultTrip(city: City): TripState {
-  // Fresh trips start blank — the compose page reveals itself as answers land.
-  const stay = stayLoc(city, undefined)
-  return {
-    arriving: '',
-    departing: '',
-    pace: 'balanced',
-    interests: [],
-    stayHood: '',
-    planId: null,
-    // The shuffle is part of the session, not a button: each visit gets its
-    // own seed, fixed at trip creation — so plans vary between visits but
-    // every regeneration within the session is reproducible.
-    planSeed: Date.now() % 1009,
-    days: Array.from({ length: MAX_DAYS }, () => blankDay(city, stay)),
-  }
+export const MAX_DAYS = 7;
+export function defaultTrip(city: City): TripState {
+    return { arriving: '', departing: '', pace: 'balanced', interests: [], stayHood: '', planId: null,
+        planSeed: Date.now() % 1009, days: Array.from({ length: MAX_DAYS }, () => blankDay(city, stayLoc(city))) };
 }
-
-function loadTrips(): TripMap {
-  try {
-    if (!PERSIST) {
-      // Clean up anything an earlier persisting build left behind.
-      localStorage.removeItem(STORAGE_KEY)
-      return {}
-    }
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return JSON.parse(raw)
-  } catch {
-    /* fall through to empty */
-  }
-  return {}
-}
-
-interface TripStore {
-  trips: TripMap
-  setTrip: (cityId: string, updater: (prev: TripState) => TripState, fallback: TripState) => void
-}
-
-const TripStoreContext = createContext<TripStore | null>(null)
-
-export function TripProvider({ children }: { children: ReactNode }) {
-  const [trips, setTrips] = useState<TripMap>(loadTrips)
-
-  useEffect(() => {
-    if (!PERSIST) return
+function initialLoad(): LoadResult {
+    if (typeof window === 'undefined')
+        return { data: emptyData(), blocked: false };
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(trips))
-    } catch {
-      /* private mode etc. — state still works in memory */
+        return loadLocal(window.localStorage);
     }
-  }, [trips])
-
-  const store = useMemo<TripStore>(
-    () => ({
-      trips,
-      setTrip: (cityId, updater, fallback) => setTrips((t) => ({ ...t, [cityId]: updater(t[cityId] ?? fallback) })),
-    }),
-    [trips],
-  )
-
-  return <TripStoreContext.Provider value={store}>{children}</TripStoreContext.Provider>
-}
-
-interface TripContextValue {
-  trip: TripState
-  update: (patch: Partial<TripState>) => void
-  updateDay: (index: number, day: DayState) => void
-  resetDay: (index: number) => void
-  setDays: (days: DayState[]) => void
-  /** Merge one day's narration on the LATEST state — concurrent fetches for
-   * different days must never clobber each other's entries. */
-  setDayNarration: (index: number, entry: { key: string; text: string }) => void
-  /** Number of trip days derived from the dates, clamped to 1–7. */
-  dayCount: number
-}
-
-/** The active city's trip — dates, pace, plan, and built days — persisted per city. */
-export function useTrip(): TripContextValue {
-  const city = useCity()
-  const store = useContext(TripStoreContext)
-  if (!store) throw new Error('useTrip must be used within TripProvider')
-
-  return useMemo<TripContextValue>(() => {
-    const fallback = defaultTrip(city)
-    const stored = store.trips[city.id]
-    // Trips saved before stay support get the default base; shorter saved
-    // day arrays (pre 7-day trips) get padded with blank days.
-    const trip = stored ? { ...fallback, ...stored } : fallback
-    // Hood names changed over time (arrondissements added) — remap stale stays.
-    // Empty means "not chosen yet", which is a valid wizard state.
-    if (trip.stayHood && !city.hoodOrder.includes(trip.stayHood)) trip.stayHood = city.hoodOrder[0]
-    if (trip.days.length < MAX_DAYS) {
-      const stay = stayLoc(city, trip.stayHood)
-      trip.days = [...trip.days, ...Array.from({ length: MAX_DAYS - trip.days.length }, () => blankDay(city, stay))]
+    catch {
+        return { data: emptyData(), blocked: true, problem: 'Storage is unavailable. Your changes will remain in memory only.' };
     }
-    const update = (patch: Partial<TripState>) =>
-      store.setTrip(
-        city.id,
-        (t) => {
-          const next = { ...fallback, ...t, ...patch }
-          // Moving home base re-roots any day not yet built.
-          if (patch.stayHood && patch.stayHood !== t.stayHood) {
-            const stay = stayLoc(city, patch.stayHood)
-            next.days = next.days.map((d) => (d.committed.length === 0 ? blankDay(city, stay) : d))
-          }
-          return next
+}
+interface TripStore {
+    data: LocalData;
+    status: string;
+    blocked: boolean;
+    recovery?: string;
+    setDraft: (cityId: string, updater: (draft: TripState) => TripState) => void;
+    accept: (city: City, demo?: boolean) => PlanSnapshot;
+    acceptProposal: (city: City, proposal: ItineraryProposal, optionId: string) => Promise<PlanSnapshot>;
+    remove: (id: string) => void;
+    recover: () => void;
+    reset: () => Promise<void>;
+    retry: () => Promise<void>;
+    importSnapshots: (snapshots: PlanSnapshot[]) => Promise<void>;
+}
+const TripStoreContext = createContext<TripStore | null>(null);
+export function TripProvider({ children }: {
+    children: ReactNode;
+}) {
+    const [loaded] = useState(initialLoad);
+    const [baseline] = useState(() => { try { return window.localStorage.getItem(STORAGE_KEY); } catch { return null; } });
+    const persisted = useRef(baseline);
+    const explicitWrite = useRef(0);
+    const [defaults] = useState(() => Object.fromEntries(Object.values(CITIES).map(city => [city.id, defaultTrip(city)])));
+    const [data, setData] = useState<LocalData>(() => ({ ...loaded.data, drafts: { ...defaults, ...loaded.data.drafts } }));
+    const [blocked, setBlocked] = useState(loaded.blocked);
+    const [status, setStatus] = useState(loaded.problem ?? 'Saving on this device…');
+    const write = (next: LocalData, replace = false) => {
+        if (!replace && window.localStorage.getItem(STORAGE_KEY) !== persisted.current) {
+            setBlocked(true);
+            throw Error('Local data changed in another tab. Export unsaved work if needed, then reload.');
+        }
+        saveLocal(window.localStorage, next);
+        persisted.current = window.localStorage.getItem(STORAGE_KEY);
+    };
+    useEffect(() => {
+        const changed = (event: StorageEvent) => {
+            if ((event.key === STORAGE_KEY || event.key === null) && event.storageArea === window.localStorage && window.localStorage.getItem(STORAGE_KEY) !== persisted.current) {
+                setBlocked(true);
+                setStatus('Local data changed in another tab. Export unsaved work if needed, then reload before saving.');
+            }
+        };
+        window.addEventListener('storage', changed);
+        return () => window.removeEventListener('storage', changed);
+    }, []);
+    useEffect(() => {
+        if (blocked)
+            return;
+        let cancelled = false;
+        const generation = explicitWrite.current;
+        void withLocalLock(() => {
+            if (cancelled || generation !== explicitWrite.current) return;
+            write(data);
+            setStatus('Saved on this device · cloud copies are managed separately');
+        }).catch(err => {
+            setStatus(`Not saved: ${err instanceof Error ? err.message : 'Storage unavailable'}. Your current plan is still in memory.`);
+        });
+        return () => { cancelled = true; };
+    }, [data, blocked]);
+    const store: TripStore = { data, status, blocked, recovery: loaded.recovery,
+        importSnapshots: async snapshots => {
+            if (blocked) throw new Error('Resolve local storage recovery before keeping cloud copies here.');
+            await withLocalLock(() => {
+                const current = loadLocal(window.localStorage);
+                if (current.blocked) throw Error('Resolve local storage recovery before keeping cloud copies here.');
+                const next = { ...current.data, snapshots: mergeLocalSnapshots(current.data.snapshots, snapshots) };
+                // Merge inside the same lock as proposal acceptance, then confirm durability.
+                write(next); explicitWrite.current++; setData(next);
+            });
         },
-        fallback,
-      )
-    const updateDay = (index: number, day: DayState) =>
-      store.setTrip(city.id, (t) => ({ ...t, days: t.days.map((d, i) => (i === index ? day : d)) }), fallback)
-    const resetDay = (index: number) =>
-      store.setTrip(
-        city.id,
-        (t) => ({ ...t, days: t.days.map((d, i) => (i === index ? blankDay(city, stayLoc(city, t.stayHood)) : d)) }),
-        fallback,
-      )
-    const setDays = (days: DayState[]) => store.setTrip(city.id, (t) => ({ ...t, days }), fallback)
-    const setDayNarration = (index: number, entry: { key: string; text: string }) =>
-      store.setTrip(city.id, (t) => ({ ...t, dayNarrations: { ...t.dayNarrations, [index]: entry } }), fallback)
-    const nights = Math.round((Date.parse(trip.departing) - Date.parse(trip.arriving)) / 86_400_000)
-    const dayCount = Number.isFinite(nights) ? Math.min(MAX_DAYS, Math.max(1, nights)) : 4
-    return { trip, update, updateDay, resetDay, setDays, setDayNarration, dayCount }
-  }, [store, city])
+        acceptProposal: async (city, proposal, optionId) => {
+            if (blocked) throw Error('Reload after resolving the local storage notice before accepting.');
+            if (!navigator.locks) throw Error('This browser cannot safely coordinate acceptance across tabs. Use a browser with Web Locks support.');
+            return withLocalLock(() => {
+                const result = persistProposal(window.localStorage, city, proposal, optionId);
+                explicitWrite.current++;
+                persisted.current = window.localStorage.getItem(STORAGE_KEY);
+                setData(result.data);
+                setStatus('Alternative saved on this device · cloud copies are managed separately');
+                return result.snapshot;
+            });
+        },
+        setDraft: (id, updater) => setData(d => ({ ...d, drafts: { ...d.drafts, [id]: updater(d.drafts[id] ?? defaults[id]) } })),
+        accept: (city, demo = false) => {
+            const draft = data.drafts[city.id];
+            const previous = data.snapshots.filter(s => s.cityId === city.id).at(-1);
+            if (previous?.inputsHash === draftHash(draft))
+                return previous;
+            if (data.snapshots.length >= MAX_VERSIONS)
+                throw new Error('Twenty versions are saved. Export and remove an older version before accepting another.');
+            if (draft.release && (draft.release.planner !== PLANNER_VERSION || draft.release.catalog !== catalogVersion(city)))
+                throw new Error('This draft uses an older engine or catalog. Keep its saved view; compose a new plan to regenerate.');
+            const snapshot = acceptSnapshot(city, draft, previous?.draft.arriving === draft.arriving ? previous : undefined, new Date(), demo || !!draft.demo);
+            setData(d => ({ ...d, snapshots: [...d.snapshots, snapshot] }));
+            return snapshot;
+        },
+        remove: id => setData(d => ({ ...d, snapshots: d.snapshots.filter(s => s.id !== id) })),
+        recover: () => {
+            if (!loaded.recovery)
+                return;
+            try {
+                const drafts = importLegacy(loaded.recovery);
+                setData(d => ({ ...d, drafts: { ...d.drafts, ...drafts } }));
+                setBlocked(false);
+            }
+            catch {
+                setStatus('This data cannot be imported safely as a draft. Export the original for recovery; nothing was deleted.');
+            }
+        },
+        reset: async () => {
+            try {
+                const clean = { ...emptyData(), drafts: defaults };
+                await withLocalLock(() => { write(clean, true); explicitWrite.current++; });
+                setData(clean);
+                setBlocked(false);
+                setStatus('Local workspace reset. Older-format storage was left intact.');
+            }
+            catch {
+                setStatus('Storage is still unavailable. Continue in memory or export your work.');
+            }
+        },
+        retry: async () => {
+            try {
+                if (blocked)
+                    throw new Error('Export/recover the original data before replacing it.');
+                await withLocalLock(() => write(data));
+                setStatus('Saved on this device · cloud copies are managed separately');
+            }
+            catch (err) {
+                setStatus(err instanceof Error ? err.message : 'Storage unavailable');
+            }
+        },
+    };
+    return <TripStoreContext.Provider value={store}>{children}</TripStoreContext.Provider>;
 }
+export function useLocalTrips() { const value = useContext(TripStoreContext); if (!value)
+    throw new Error('TripProvider missing'); return value; }
+export function useTrip() {
+    const city = useCity();
+    const store = useLocalTrips();
+    const trip = store.data.drafts[city.id];
+    const update = (patch: Partial<TripState>) => store.setDraft(city.id, t => ({ ...t, ...patch }));
+    const dayCount = plannedDays(trip) || 4;
+    const accepted = store.data.snapshots.filter(s => s.cityId === city.id).at(-1);
+    const editable = !trip.release || (trip.release.planner === PLANNER_VERSION && trip.release.catalog === catalogVersion(city));
+    const result = useMemo(() => ({ trip, dayCount, accepted, editable }), [trip, dayCount, accepted, editable]);
+    return { ...result, update,
+        updateDay: (index: number, day: DayState) => store.setDraft(city.id, t => ({ ...t, edited: true, days: t.days.map((d, i) => i === index ? day : d) })),
+        resetDay: (index: number) => store.setDraft(city.id, t => ({ ...t, edited: true, days: t.days.map((d, i) => i === index ? blankDay(city, stayLoc(city, t.stayHood)) : d) })),
+        setDays: (days: DayState[]) => update({ days }),
+        setDayNarration: (index: number, entry: {
+            key: string;
+            text: string;
+        }) => store.setDraft(city.id, t => ({ ...t, dayNarrations: { ...t.dayNarrations, [index]: entry } })),
+        accept: () => store.accept(city),
+        editAccepted: (snapshot: PlanSnapshot) => { if (!canEdit(snapshot, city))
+            throw new Error('This version is read-only with the current engine/catalog.'); update({ ...clone(snapshot.draft), release: snapshot.release }); },
+    };
+}
+export { STORAGE_KEY };

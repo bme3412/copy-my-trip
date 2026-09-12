@@ -65,6 +65,7 @@ export interface GeneratedPlan {
    * preset's, else the traveler's). Stored with the trip so later edits
    * re-time the day at the pace it was generated at, not today's slider. */
   paces: Pace[]
+  contexts: StoredDayContext[]
   stops: number
   verified: number
   pct: number
@@ -78,7 +79,7 @@ export const PLAN_PRESETS: PlanPreset[] = [
   {
     id: 'first-time',
     kicker: 'Recommended',
-    title: 'First Time in Paris',
+    title: 'The essential first visit',
     body: 'The confident first visit — the essentials, but only the ones I keep coming back to, at your pace with short hops between them.',
     pace: null,
     // The essentials lean: the first trip goes where the postcards are, which
@@ -286,6 +287,7 @@ export function generatePlan(
   const days: DayState[] = []
   const purposes: string[] = []
   const paces: Pace[] = []
+  const contexts: StoredDayContext[] = []
   const visited = new Set<string>()
 
   for (let d = 0; d < 7; d++) {
@@ -306,6 +308,7 @@ export function generatePlan(
         usedHoods,
         limit: ENGINE.candidatePoolGenerate,
       })
+      contexts[d] = storeDayContext(ctx)
       const { profile, pace, opts } = ctx
       const pins = opts.pins ?? []
       purposes.push(ctx.purpose)
@@ -333,6 +336,7 @@ export function generatePlan(
         // which is a normal hour to eat. Whether a dinner is still reachable
         // is the curfew's judgement, and it already makes it.
         const home = returnFromDayTrip(city, day, stay ?? city.start)
+        day = home
         if (!home.meals.dinner) {
           const evening = { ...home, clock: Math.max(home.clock, ENGINE.dinnerFrom) }
           const dinners = buildCandidates(city, evening, pace, visited, {
@@ -349,7 +353,7 @@ export function generatePlan(
       } else {
         const seed = profile.seed ? openToday(profile.seed, profile.seedExp) : null
         if (seed) {
-          day = commitPlace(day, seed.p, pace, seed.hrs, "the day's anchor — booked for the first entry")
+          day = commitPlace(day, seed.p, pace, seed.hrs, "the day's anchor — suggested first entry, not booked")
           visited.add(seed.p.id)
         }
         let guard = 0
@@ -451,6 +455,8 @@ export function generatePlan(
       purposes.push('')
       paces.push(basePace)
     }
+    const last = day.committed.at(-1)
+    if (last && day.clock > last.timeIn + last.dur + (last.timing?.linger ?? 0) + (last.returnAfter?.min ?? 0)) day = { ...day, trailingWaitUntil: day.clock }
     days.push(day)
   }
   while (purposes.length < 7) purposes.push('')
@@ -504,6 +510,7 @@ export function generatePlan(
     days,
     purposes,
     paces,
+    contexts,
     stops,
     verified,
     pct: stops ? Math.round((verified / stops) * 100) : 0,
@@ -511,4 +518,16 @@ export function generatePlan(
     perDay: `${dayCount} ${dayCount === 1 ? 'day' : 'days'} · ${lo === hi ? lo : `${lo}–${hi}`} stops each`,
     unplaced,
   }
+}
+
+/** JSON-safe resolved generation context; dynamic trip coverage is added by editors. */
+export type StoredDayContext = Omit<DayPlanContext, 'opts'> & {
+  opts: Omit<CandidateOpts, 'covered' | 'usedHoods' | 'exclude' | 'closures' | 'allowSamePlaceExperience'> & { exclude?: string[]; usedHoods?: string[] }
+}
+export function storeDayContext(ctx: DayPlanContext): StoredDayContext {
+  const { covered: _covered, closures: _closures, allowSamePlaceExperience: _samePlace, exclude, usedHoods, ...opts } = ctx.opts
+  return JSON.parse(JSON.stringify({ ...ctx, opts: { ...opts, exclude: [...(exclude ?? [])], usedHoods: [...(usedHoods ?? [])] } }))
+}
+export function restoreDayContext(ctx: StoredDayContext): DayPlanContext {
+  return { ...ctx, opts: { ...ctx.opts, exclude: new Set(ctx.opts.exclude), usedHoods: new Set(ctx.opts.usedHoods) } }
 }

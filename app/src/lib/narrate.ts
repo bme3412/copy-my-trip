@@ -1,3 +1,5 @@
+import { aiAvailable } from './ai-availability'
+import { contentHash } from './trips/schema'
 import type { City } from '../cities/types'
 import { effectiveHours, fmt, placeVariants, stopPlace, type DayState } from './planner'
 import { euTzOffsetMin, sunTimes } from './sun'
@@ -8,14 +10,14 @@ import { euTzOffsetMin, sunTimes } from './sun'
  * A 404 marks the endpoint gone for the session; transient failures retry. */
 
 let unavailable = false
-export const narrationUnavailable = () => unavailable
+export const narrationUnavailable = () => !aiAvailable || unavailable
 
 /** Cache key: the narration belongs to exactly this sequence at these times.
  * The version prefix retires narrations written under an older prompt or a
  * truncating token cap — bump it and every stored day rewrites itself. */
-const NARRATION_VERSION = 'v3'
-export function dayContentKey(day: DayState): string {
-  return `${NARRATION_VERSION}:` + day.committed.map((c) => `${c.id}@${c.timeIn}`).join(',')
+const NARRATION_VERSION = 'v4'
+export function dayContentKey(day: DayState, context: unknown = null): string {
+  return `${NARRATION_VERSION}:` + contentHash({day, context})
 }
 
 const shortName = (name: string) => name.split(',')[0].split(' — ')[0]
@@ -75,7 +77,7 @@ export function buildDayFacts(city: City, day: DayState, date: string, weekday: 
           fromArchive: c.src === 'verified',
           // Archive curator notes AND authored web-tier editorial copy — the
           // narration may only compress what's here, never add to it.
-          curatorNote: city.media[c.id]?.desc,
+          curatorNote: parent?.experiences?.find(e => e.id === c.experienceId)?.note ?? (c.experienceId && c.src === 'web' ? undefined : city.media[c.id]?.desc),
         }
       }),
       notableClosures: notableClosures(city, day, date, weekday),
@@ -149,6 +151,7 @@ export function ensureNarration(key: string, payload: unknown): Promise<string |
  * renders nothing rather than a template. */
 export async function fetchNarration(payload: unknown, onChunk?: (textSoFar: string) => void): Promise<string | null> {
   if (unavailable) return null
+  if (!aiAvailable) return null
   for (let attempt = 0; attempt < 3; attempt++) {
     // A hard ceiling per attempt: a stuck connection aborts instead of
     // hanging the page — 20s to finish, and the stream resets the clock
@@ -162,7 +165,7 @@ export async function fetchNarration(payload: unknown, onChunk?: (textSoFar: str
         body: JSON.stringify(payload),
         signal: abort.signal,
       })
-      if (r.status === 404) {
+      if (r.status === 404 || r.status === 503) {
         unavailable = true
         console.info('[narrate] endpoint unavailable — run `npm run dev:full` for narrated days')
         return null

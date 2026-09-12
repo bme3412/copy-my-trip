@@ -16,7 +16,7 @@ async function render(path: string) {
 
 async function main() {
   const cases: [string, string][] = [
-    ['/paris', 'actually been'],
+    ['/paris', 'personal Paris archive'],
     ['/paris/compose', 'Tell me about the trip'],
     // Cold load carries no trip: itinerary pages must refuse to serve the
     // curator's days as if they were composed for this traveler.
@@ -25,7 +25,7 @@ async function main() {
     ['/paris/itinerary/3', 'No trip yet'],
     ['/paris/archive', 'every trip merged'],
     ['/paris/neighbourhoods', 'The neighborhoods'],
-    ['/rome', 'planned with the same discipline'],
+    ['/rome', 'new chapter in the travel collection'],
     ['/rome/compose', 'Tell me about the trip'],
     ['/rome/itinerary/1', 'No trip yet'],
     ['/rome/archive', 'Trastevere'],

@@ -41,20 +41,22 @@ export function builtDayTitle(city: City, day: DayState): string {
 export function builtDayStops(city: City, day: DayState): DayStop[] {
   return day.committed.map((c, i) => {
     const media = city.media[c.id]
+    const note = city.places.find(p => p.id === c.id)?.experiences?.find(e => e.id === c.experienceId)?.note
     const verified = c.src === 'verified'
     const next = day.committed[i + 1]
     const stop: DayStop = {
+      evidenceNote: verified ? media?.plates?.some(p => city.slotFiles?.[p.id]?.img || city.slotFiles?.[p.id]?.video) ? 'Firsthand archive · historical visit, not current operating information' : 'Marked firsthand in the catalog · archive evidence unavailable' : 'Web-researched experience · no firsthand archive evidence',
       time: fmt(c.timeIn),
       timeNote: c.meal ?? undefined,
       placeId: c.id,
       name: c.name,
       sub: media?.sub ?? c.area,
-      desc: media?.desc ?? '',
+      desc: note ?? (c.experienceId && c.src === 'web' ? 'Researched experience; no firsthand visit is documented.' : media?.desc ?? ''),
       kind: verified ? 'verified' : media?.webImage ? 'web-image' : 'web-pin',
       plates: verified ? media?.plates : undefined,
       webImage: !verified ? media?.webImage : undefined,
       pin: !verified ? (media?.pin ?? c.area) : undefined,
-      prov: media?.prov,
+      prov: verified ? media?.prov : undefined,
       transitAfter: next ? { min: next.travelMin, measured: next.measured } : undefined,
       why: c.reasons?.filter((r) => r.value >= 0).map((r) => r.note),
     }
@@ -64,7 +66,7 @@ export function builtDayStops(city: City, day: DayState): DayStop[] {
 
 export function builtDayVerifiedLabel(day: DayState): string {
   const v = day.committed.filter((c) => c.src === 'verified').length
-  return `${v} of ${day.committed.length} stops personally verified`
+  return `${v} of ${day.committed.length} stops marked firsthand for the selected experience`
 }
 
 /** The same label for a curated day, counted from its stops rather than typed
@@ -72,5 +74,5 @@ export function builtDayVerifiedLabel(day: DayState): string {
  * four days, which is a false provenance claim waiting to reach the page. */
 export function curatedVerifiedLabel(day: FinishedDay): string {
   const v = day.stops.filter((s) => s.kind === 'verified').length
-  return `${v} of ${day.stops.length} stops personally verified`
+  return `${v} of ${day.stops.length} stops marked firsthand for the selected experience`
 }

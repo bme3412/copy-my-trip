@@ -172,6 +172,7 @@ function WebFrame({ city, webImage }: { city: ReturnType<typeof useCity>; webIma
 
 function Stop({
   stop,
+  number,
   isLast,
   eager = false,
   onReconsider,
@@ -179,6 +180,7 @@ function Stop({
   open = false,
 }: {
   stop: DayStop
+  number: number
   isLast: boolean
   eager?: boolean
   onReconsider?: () => void
@@ -212,6 +214,7 @@ function Stop({
           ))}
       </div>
       <div className="stop-body" style={{ borderLeft: `1.5px solid ${lineColor}`, padding: `0 0 ${isLast ? 8 : 40}px 28px`, position: 'relative' }}>
+        <span className={`stop-number ${verified ? '' : 'stop-number-web'}`} aria-label={`Stop ${number}`}>{number}</span>
         {verified ? (
           <span className="stop-dot" style={{ position: 'absolute', left: -6.5, top: 6, width: 11, height: 11, borderRadius: '50%', background: 'var(--color-accent)' }} />
         ) : (
@@ -266,6 +269,7 @@ function Stop({
             </button>
           )}
         </div>
+        {stop.evidenceNote && <p className="evidence-label">{stop.evidenceNote}</p>}
         {stop.desc && (
           <p
             style={{
@@ -435,6 +439,7 @@ export function DayTimeline({
               <div className="fold-inner">
                 <Stop
                   stop={stop}
+                  number={i + 1}
                   isLast={isLast}
                   eager={i === 0}
                   onReconsider={onReconsider ? () => onReconsider(i) : undefined}

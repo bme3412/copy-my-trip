@@ -2,5 +2,13 @@
 .env.local
 node_modules/
 app/dist/
+app/.review-pilot/
 *.tsbuildinfo
 node_modules/.tmp/
+supabase/.temp/
+
+# Credentials and hosting-local state (examples are safe to commit).
+.env
+.env.*
+!.env.example
+.vercel/

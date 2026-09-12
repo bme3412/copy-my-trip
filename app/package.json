@@ -6,27 +6,49 @@
   "scripts": {
     "dev": "vite",
     "dev:full": "kill $(lsof -ti tcp:3333) 2>/dev/null; vercel dev --listen 3333",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npm run check:api && npm run test:api-runtime && vite build",
     "preview": "vite preview",
-    "smoke": "esbuild scripts/route-smoke.tsx --bundle --format=cjs --jsx=automatic --platform=node --outfile=node_modules/.tmp/route-smoke.cjs --log-level=error && node node_modules/.tmp/route-smoke.cjs",
+    "smoke": "esbuild scripts/route-smoke.tsx --bundle --format=cjs --jsx=automatic --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/route-smoke.cjs --log-level=error && node node_modules/.tmp/route-smoke.cjs",
     "smoke:plans": "esbuild scripts/preset-smoke.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/preset-smoke.cjs --log-level=error && node node_modules/.tmp/preset-smoke.cjs",
     "media:slots": "esbuild scripts/list-slots.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/list-slots.cjs --log-level=error && node node_modules/.tmp/list-slots.cjs",
     "media:audit": "esbuild scripts/media-audit.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/media-audit.cjs --log-level=error && node node_modules/.tmp/media-audit.cjs",
     "archive:evidence": "esbuild scripts/archive-evidence.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/archive-evidence.cjs --log-level=error && node node_modules/.tmp/archive-evidence.cjs",
     "diag": "esbuild scripts/diag.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/diag.cjs --log-level=error && node node_modules/.tmp/diag.cjs",
-    "validate:cities": "esbuild scripts/validate-city.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/validate-city.cjs --log-level=error && node node_modules/.tmp/validate-city.cjs"
+    "validate:cities": "esbuild scripts/validate-city.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/validate-city.cjs --log-level=error && node node_modules/.tmp/validate-city.cjs",
+    "media:manifest": "esbuild scripts/publish-media.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/publish-media.cjs --log-level=error && node node_modules/.tmp/publish-media.cjs --check",
+    "media:publish": "esbuild scripts/publish-media.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/publish-media.cjs --log-level=error && node node_modules/.tmp/publish-media.cjs",
+    "smoke:media-url": "esbuild scripts/media-url-smoke.ts --bundle --format=cjs --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/media-url-smoke.cjs --log-level=error && node node_modules/.tmp/media-url-smoke.cjs",
+    "review": "esbuild scripts/review/cli.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/review-pilot.cjs --log-level=error && node node_modules/.tmp/review-pilot.cjs",
+    "test:review": "tsc -p tsconfig.review.json && esbuild scripts/review/tests.ts --bundle --format=cjs --platform=node --outfile=node_modules/.tmp/review-tests.cjs --log-level=error && CMT_REVIEW_TEST=1 node node_modules/.tmp/review-tests.cjs",
+    "check:api": "tsc -p tsconfig.api.json",
+    "test:companion": "tsc -p tsconfig.companion.json && esbuild scripts/companion-smoke.ts --bundle --format=cjs --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/companion-smoke.cjs --log-level=error && node node_modules/.tmp/companion-smoke.cjs",
+    "test:cloud": "tsc -p tsconfig.cloud.json && esbuild scripts/cloud-smoke.ts --bundle --format=cjs --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/cloud-smoke.cjs --log-level=error && node node_modules/.tmp/cloud-smoke.cjs",
+    "test:cloud:db": "esbuild scripts/cloud-db-smoke.ts --bundle --format=cjs --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/cloud-db-smoke.cjs --log-level=error && node node_modules/.tmp/cloud-db-smoke.cjs",
+    "test:api-runtime": "node scripts/api-runtime-smoke.mjs",
+    "test:mail:db": "esbuild scripts/mail-db-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/mail-db.cjs --log-level=error && node node_modules/.tmp/mail-db.cjs",
+    "test:mail": "tsc -p tsconfig.mail.json && esbuild scripts/mail-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/mail-smoke.cjs --log-level=error && node node_modules/.tmp/mail-smoke.cjs",
+    "test:weather": "tsc -p tsconfig.weather.json && esbuild scripts/weather-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/weather-smoke.cjs --log-level=error && node node_modules/.tmp/weather-smoke.cjs",
+    "test:weather:mail": "esbuild scripts/weather-mail-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/weather-mail-smoke.cjs --log-level=error && node node_modules/.tmp/weather-mail-smoke.cjs",
+    "test:weather:db": "esbuild scripts/weather-db-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/weather-db-smoke.cjs --log-level=error && node node_modules/.tmp/weather-db-smoke.cjs",
+    "test:proposals": "tsc -p tsconfig.proposals.json && esbuild scripts/proposal-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/proposal-smoke.cjs --log-level=error && node node_modules/.tmp/proposal-smoke.cjs",
+    "test:analytics": "esbuild scripts/analytics-smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.tmp/analytics-smoke.cjs --log-level=error && node node_modules/.tmp/analytics-smoke.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.4",
+    "@supabase/supabase-js": "^2.116.0",
+    "@vercel/analytics": "^2.0.1",
     "mapbox-gl": "^3.26.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.1",
+    "svix": "^2.5.0"
   },
   "devDependencies": {
+    "@types/node": "^22.20.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "esbuild": "^0.25.12",
     "typescript": "~5.7.2",
     "vite": "^6.0.0"
   }

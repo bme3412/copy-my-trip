@@ -1,0 +1,26 @@
+{
+  "id": "paris-20-v1",
+  "description": "Ten archive-backed places and ten researched places; museums, streets, gardens, food and performances. Review the named experience, not just its parent landmark.",
+  "places": [
+    { "id": "louvre", "domains": ["louvre.fr"] },
+    { "id": "eiffel", "domains": ["toureiffel.paris", "paris.fr"] },
+    { "id": "pompidou", "domains": ["centrepompidou.fr"] },
+    { "id": "notredame", "domains": ["notredamedeparis.fr"] },
+    { "id": "sacre", "domains": ["sacre-coeur-montmartre.com"] },
+    { "id": "vosges", "domains": ["paris.fr"] },
+    { "id": "vertgalant", "domains": ["paris.fr"] },
+    { "id": "canal", "domains": ["paris.fr"] },
+    { "id": "buci", "domains": ["paris.fr", "parisjetaime.com"] },
+    { "id": "seinecruise", "domains": ["vedettesdupontneuf.com"] },
+    { "id": "orsay", "domains": ["musee-orsay.fr"] },
+    { "id": "carnavalet", "domains": ["carnavalet.paris.fr", "parismusees.paris.fr"] },
+    { "id": "saintechapelle", "domains": ["sainte-chapelle.fr"] },
+    { "id": "catacombes", "domains": ["catacombes.paris.fr"] },
+    { "id": "grandpalais", "domains": ["grandpalais.fr"] },
+    { "id": "flv", "domains": ["fondationlouisvuitton.fr"] },
+    { "id": "cartier", "domains": ["fondationcartier.com"] },
+    { "id": "moulinrouge", "domains": ["moulinrouge.fr"] },
+    { "id": "chartier", "domains": ["bouillon-chartier.com"] },
+    { "id": "septime", "domains": ["septime-charonne.fr"] }
+  ]
+}

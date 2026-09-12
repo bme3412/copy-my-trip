@@ -23,6 +23,7 @@ import mediaDatesJson from './data/media-dates.json'
  * it checks every field, range and cross-reference the types can't. */
 export const PARIS: City = {
   ...(cityJson as unknown as Omit<City, 'places' | 'info' | 'entry' | 'nodes' | 'hoods' | 'curatedDays' | 'media' | 'slotFiles' | 'mediaDates'> & { start: StartLoc }),
+  timeZone: 'Europe/Paris',
   places: placesJson as unknown as Place[],
   info: infoJson as Record<string, PlaceInfo>,
   entry: entryJson as Record<string, PlaceEntry>,

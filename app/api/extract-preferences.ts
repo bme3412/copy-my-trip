@@ -61,14 +61,25 @@ export default async function handler(req: { method?: string; body?: unknown }, 
     res.status(405).send('POST only')
     return
   }
-  const body = (typeof req.body === 'string' ? JSON.parse(req.body) : req.body) as { brief?: unknown; city?: unknown; places?: unknown }
+  res.setHeader('Cache-Control', 'private, no-store')
+  if (process.env.AI_ENABLED !== 'true' || !process.env.ANTHROPIC_API_KEY) {
+    res.status(503).send('Optional AI assistance is unavailable. Planning works without it.')
+    return
+  }
+  let parsed: unknown
+  try {
+    const raw = typeof req.body === 'string' ? req.body : JSON.stringify(req.body)
+    if (!raw || Buffer.byteLength(raw) > 32768) { res.status(413).send('Request too large'); return }
+    parsed = JSON.parse(raw)
+  } catch { res.status(400).send('Invalid JSON'); return }
+  const body = parsed as { brief?: unknown; city?: unknown; places?: unknown }
   const brief = typeof body?.brief === 'string' ? body.brief.trim().slice(0, 1200) : ''
   const city = typeof body?.city === 'string' ? body.city.slice(0, 40) : 'the city'
   const places = Array.isArray(body?.places)
     ? (body.places as Array<{ id?: unknown; name?: unknown }>)
         .filter((p) => typeof p?.id === 'string' && typeof p?.name === 'string')
         .slice(0, 250)
-        .map((p) => ({ id: p.id, name: p.name }))
+        .map((p) => ({ id: String(p.id).slice(0, 100), name: String(p.name).slice(0, 200) }))
     : []
   if (brief.length < 8) {
     res.status(400).send('brief too short')
@@ -97,7 +108,6 @@ export default async function handler(req: { method?: string; body?: unknown }, 
     res.setHeader('Content-Type', 'application/json')
     res.status(200).json(JSON.parse(text.text))
   } catch (err) {
-    const msg = err instanceof Error ? err.message : 'extraction error'
-    res.status(502).send(msg.slice(0, 200))
+    res.status(502).send('Optional preference reading could not be completed.')
   }
 }
