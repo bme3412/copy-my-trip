@@ -43,6 +43,26 @@ await test('notification window includes carry-over with full accepted timing an
   const b=notificationFor(altered,addDate(day.date,1),'Europe/Paris');const item=b.items.find(i=>i.date===day.date)!;assert.equal(item.stops[0].timeIn,1430);assert.equal(item.stops[0].dur,60);
   const abroad=notificationFor(trip,dates[0],'America/New_York');assert.ok(abroad.items.every(i=>i.timeZone==='Europe/Paris' || i.timeZone==='Europe/Rome'));
 });
+await test('traveler email summarizes exact times, formats emphasis safely and moves evidence into notes',()=>{
+  const b=notificationFor(trip,dates[0],pref.zone);const item=b.items[0];
+  item.stops[0].description='Order the *tartine* and **coffee**. <img src=x onerror=bad()>';
+  const before=JSON.stringify(b);
+  const c=renderNotification(b,'https://example.invalid/briefing','https://example.invalid/pause');
+  assert.equal(c.subject,'Tomorrow in Paris · Sunday, September 13');
+  assert.ok(c.html.includes('<em>tartine</em>'));assert.ok(c.html.includes('<strong>coffee</strong>'));
+  assert.ok(!c.html.includes('<img src=x'));assert.ok(c.html.includes('&lt;img src=x'));
+  assert.ok(!c.text.includes('*tartine*'));assert.ok(c.text.includes('Order the tartine and coffee.'));
+  assert.ok(c.html.includes(`${item.stops.length} stops`));assert.ok(c.html.includes('Paris local time (Europe/Paris)'));
+  assert.ok(c.html.indexOf(`Plan ${item.planId}`)>c.html.indexOf('Trip notes'));
+  for(const stop of item.stops) assert.ok(c.text.includes(stop.evidence));
+  assert.ok(c.html.includes('Pause itinerary emails'));assert.ok(!c.html.includes('Calendar day'));
+  assert.equal(JSON.stringify(b),before);
+  const mixed=clone(b);mixed.items.push({...clone(item),cityName:'Rome',cityId:'rome',timeZone:'Europe/Rome'});
+  assert.ok(renderNotification(mixed,'https://example.invalid/x','https://example.invalid/p').subject.startsWith('Tomorrow’s itinerary'));
+  const overnight=clone(b);overnight.items[0].date=addDate(b.serviceDate,-1);overnight.items[0].stops[0].timeIn=1430;overnight.items[0].stops[0].dur=60;
+  const night=renderNotification(overnight,'https://example.invalid/x','https://example.invalid/p');
+  assert.ok(night.subject.startsWith('Tomorrow’s itinerary'));assert.ok(night.html.includes('23:50–24:50'));assert.ok(night.html.includes('following day'));
+});
 let sends=0;const calls:{action:string;data:any}[]=[];
 const rpc:WorkerRpc=async<T>(action:string,data?:unknown)=>{calls.push({action,data});return (action==='claim'?{id:'job-one',lease:'lease-one',trip,date:dates[0],zone:pref.zone,kind:'test'}:action==='submit'?{recipient:'verified@example.invalid'}:{}) as T;};
 await test('provider send follows durable claim and submission, derives recipient, and uses a stable idempotency key',async()=>{

@@ -33,7 +33,8 @@
     "test:proposals": "tsc -p tsconfig.proposals.json && esbuild scripts/proposal-smoke.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/proposal-smoke.cjs --log-level=error && node node_modules/.tmp/proposal-smoke.cjs",
     "test:analytics": "esbuild scripts/analytics-smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.tmp/analytics-smoke.cjs --log-level=error && node node_modules/.tmp/analytics-smoke.cjs",
     "media:optimize": "node scripts/optimize-media.mjs",
-    "test:map-media": "esbuild scripts/map-media-smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.tmp/map-media-smoke.cjs --log-level=error && node node_modules/.tmp/map-media-smoke.cjs"
+    "test:map-media": "esbuild scripts/map-media-smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.tmp/map-media-smoke.cjs --log-level=error && node node_modules/.tmp/map-media-smoke.cjs",
+    "preview:email": "esbuild scripts/email-preview.ts --bundle --platform=node --format=cjs --define:import.meta.env={} --outfile=node_modules/.tmp/email-preview.cjs --log-level=error && node node_modules/.tmp/email-preview.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.4",

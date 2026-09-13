@@ -1,6 +1,7 @@
 import { addDate, dateInZone, contentHash, type PlanSnapshot } from '../trips/schema.js';
 import type { CloudTrip } from '../cloud/schema.js';
 import { assembleBriefing, briefingText, briefingHtmlContent } from './assemble.js';
+import { daySummary, emailDocument, friendlyDate, linkStyle, smallStyle } from './presentation.js';
 import { escapeHtml, type Briefing } from './schema.js';
 export interface NotificationPreference {
   tripId: string; revision: number; enabled: boolean; zone: string; time: string;
@@ -91,11 +92,16 @@ export function nextSchedule(trip: CloudTrip, pref: NotificationPreference, now:
   return null;
 }
 export function renderNotification(b: SentBriefing, url: string, pauseUrl: string, test = false) {
-  const heading = `${test ? 'Test · ' : ''}Tomorrow’s itinerary · ${b.serviceDate}`;
-  const context = `Calendar day ${b.serviceDate} in ${b.zone}. Activity times use the destination zones shown below. Overnight activities retain their full accepted times.`;
-  const text = [heading, context, ...b.items.map(item => briefingText(item, true)), `Open this exact briefing (sign in): ${url}`, `Pause itinerary emails: ${pauseUrl}`].join('\n\n');
+  const cities = [...new Set(b.items.map(item => item.cityName))];
+  const sameDestinationDay = cities.length === 1 && b.items.every(item => item.date === b.serviceDate);
+  const title = `${test ? 'Test · ' : ''}${sameDestinationDay ? `Tomorrow in ${cities[0]}` : 'Tomorrow’s itinerary'}`;
+  const heading = `${title} · ${friendlyDate(b.serviceDate)}`;
+  const context = sameDestinationDay ? '' : 'Each destination’s date and local timezone are shown with its itinerary.';
+  // The selection window is still the user's notification zone, even when the destination differs.
+  const selectionNote = `Email day: ${b.serviceDate}, based on your ${b.zone} notification timezone.`;
+  const text = [heading, context, ...b.items.map(item => briefingText(item, true)), selectionNote, `Open this exact briefing (sign in): ${url}`, `Pause itinerary emails: ${pauseUrl}`].filter(Boolean).join('\n\n');
   const sections = b.items.map(item => briefingHtmlContent(item, new URL(url).origin, true)).join('');
-  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#faf7f0;color:#302c26;font-family:Georgia,serif"><main style="max-width:640px;margin:auto;padding:28px"><h1>${escapeHtml(heading)}</h1><p>${escapeHtml(context)}</p>${sections}<p><a href="${escapeHtml(url)}">Open this exact briefing</a> (sign in)</p><p><a href="${escapeHtml(pauseUrl)}">Pause itinerary emails</a></p></main></body></html>`;
+  const html = emailDocument(heading, `<h1 style="font:normal 32px/1.15 Georgia,serif;margin:0 0 12px">${escapeHtml(title)}</h1>${context ? `<p style="${smallStyle}">${escapeHtml(context)}</p>` : ''}${sections}<p style="margin:24px 0"><a style="display:inline-block;background:#142033;color:#ffffff;padding:12px 18px;border-radius:5px;text-decoration:none" href="${escapeHtml(url)}">Open this exact briefing →</a><br><span style="${smallStyle}">Sign in to view your saved briefing.</span></p><p style="${smallStyle}">${escapeHtml(selectionNote)}</p><p style="${smallStyle}"><a style="${linkStyle}" href="${escapeHtml(pauseUrl)}">Pause itinerary emails</a></p>`, b.items.map(daySummary).join(' | '));
   if (!b.items.length || BufferSafeSize(text + html) > 750000) throw new Error('Briefing is empty or too large');
   return { subject: heading, text, html };
 }
