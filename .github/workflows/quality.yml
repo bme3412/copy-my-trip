@@ -1,0 +1,29 @@
+name: Preserve trips and validate discovery
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npm run test:preservation
+      - run: npm run validate:cities && npm run validate:culture
+      - run: npm run smoke:plans && npm run smoke
+      - run: npm run test:companion && npm run test:cloud && npm run test:review
+      - run: npm run test:mail && npm run test:weather && npm run test:weather:mail
+      - run: npm run test:proposals && npm run test:analytics
+      - run: npm run test:map-media && npm run smoke:media-url && npm run test:media-preservation
+      - run: npm run build

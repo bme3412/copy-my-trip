@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "planner": "local-companion-1",
+  "storageKey": "cmt-local-companion-v1",
+  "legacyKey": "cmt-trips-v3",
+  "catalogs": {
+    "paris": "ed589fe219b927d8",
+    "rome": "db907f20df07d3ae"
+  }
+}

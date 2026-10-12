@@ -11,7 +11,21 @@ import { Home } from './pages/Home'
 import { ItineraryPage } from './pages/ItineraryPage'
 import { NeighbourhoodsPage } from './pages/NeighbourhoodsPage'
 
+const discovery = () => import('./pages/elsewhere/Discovery')
 export const routes: RouteObject[] = [
+  {
+    path: '/discover',
+    hydrateFallbackElement: <p role="status">Opening Elsewhere…</p>,
+    lazy: async () => { const m = await discovery(); return { Component: m.DiscoveryLayout, loader: m.discoveryLoader, ErrorBoundary: m.DiscoveryError } },
+    children: [
+      { index: true, lazy: async () => ({ Component: (await discovery()).DiscoveryEntry }) },
+      { path: 'browse', lazy: async () => ({ Component: (await discovery()).DiscoveryHome }) },
+      { path: 'place/:destinationId', lazy: async () => ({ Component: (await discovery()).DestinationPage }) },
+      { path: 'work/:workId', lazy: async () => ({ Component: (await discovery()).WorkPage }) },
+      { path: 'saved', lazy: async () => ({ Component: (await discovery()).SavedPage }) },
+      { path: '*', lazy: async () => ({ Component: (await discovery()).Missing }) },
+    ],
+  },
   { path: '/', loader: () => redirect(`/${DEFAULT_CITY}`) },
   {
     path: '/:city',

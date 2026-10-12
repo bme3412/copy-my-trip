@@ -1,0 +1,18 @@
+name: Validate offline culture evidence
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-culture-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Native Node tests only: no dependencies, credentials or provider calls.
+      - run: npm run test:culture-import
+        working-directory: app

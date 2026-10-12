@@ -1,0 +1,3 @@
+
+# Preserve imported evidence bytes and provenance hashes.
+/editorial/paris-verification-pass-1/source/** -text

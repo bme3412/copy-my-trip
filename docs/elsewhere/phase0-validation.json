@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-10-12 UTC",
+  "workspace": "non-iCloud verification copy",
+  "hostedWrites": false,
+  "commands": [
+    {
+      "command": "test:preservation",
+      "exitCode": 0,
+      "seconds": 0.6
+    },
+    {
+      "command": "validate:cities",
+      "exitCode": 0,
+      "seconds": 0.4
+    },
+    {
+      "command": "validate:culture",
+      "exitCode": 0,
+      "seconds": 0.5
+    },
+    {
+      "command": "smoke:plans",
+      "exitCode": 0,
+      "seconds": 9.3
+    },
+    {
+      "command": "smoke",
+      "exitCode": 0,
+      "seconds": 1.9
+    },
+    {
+      "command": "test:companion",
+      "exitCode": 0,
+      "seconds": 8.0
+    },
+    {
+      "command": "test:cloud",
+      "exitCode": 0,
+      "seconds": 6.4
+    },
+    {
+      "command": "test:review",
+      "exitCode": 0,
+      "seconds": 1.7
+    },
+    {
+      "command": "test:mail",
+      "exitCode": 0,
+      "seconds": 6.5
+    },
+    {
+      "command": "test:weather",
+      "exitCode": 0,
+      "seconds": 5.8
+    },
+    {
+      "command": "test:weather:mail",
+      "exitCode": 0,
+      "seconds": 0.4
+    },
+    {
+      "command": "test:proposals",
+      "exitCode": 0,
+      "seconds": 6.1
+    },
+    {
+      "command": "test:analytics",
+      "exitCode": 0,
+      "seconds": 0.2
+    },
+    {
+      "command": "test:map-media",
+      "exitCode": 0,
+      "seconds": 0.2
+    },
+    {
+      "command": "smoke:media-url",
+      "exitCode": 0,
+      "seconds": 0.2
+    },
+    {
+      "command": "test:media-preservation",
+      "exitCode": 0,
+      "seconds": 0.5
+    },
+    {
+      "command": "media:audit",
+      "exitCode": 0,
+      "seconds": 3.0
+    },
+    {
+      "command": "archive:evidence",
+      "exitCode": 0,
+      "seconds": 3.7
+    },
+    {
+      "command": "build",
+      "exitCode": 0,
+      "seconds": 62.0
+    }
+  ],
+  "media": {
+    "images": 282,
+    "videos": 40,
+    "documents": 1,
+    "originalHashes": "unchanged",
+    "audiovisualStreamHashes": "40 identical",
+    "optimizedWebpBytes": "unchanged"
+  },
+  "backup": {
+    "files": 330,
+    "bytes": 587864856,
+    "restoredAndVerified": true,
+    "location": "same Mac outside iCloud"
+  },
+  "hostedMigrations": {
+    "applied": [
+      "202609120001",
+      "202609120002",
+      "202609120003"
+    ],
+    "unapplied": [
+      "202609120004"
+    ]
+  },
+  "git": {
+    "allTrackedFilesHashed": true,
+    "missingTrackedFiles": 0,
+    "sourceMediaCityPlannerChanges": 0,
+    "diffCheckAllChangedTrackedFiles": "pass",
+    "cleanTreeClaim": false
+  }
+}

@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/discover/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/paris/:path*",
       "destination": "/index.html"
     },
@@ -48,5 +52,10 @@
       "path": "/api/companion-tick",
       "schedule": "*/5 * * * *"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "codex/elsewhere-discovery": false
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import catalog from '../api/catalog';
 import notifications from '../api/notifications';
 import tick from '../api/companion-tick';
 import events from '../api/companion-events';
@@ -12,6 +13,12 @@ import { isDate } from '../src/lib/trips/schema';
 // Vite development adapter; production continues to use api/trips.ts directly.
 export async function devTrips(req: IncomingMessage, res: ServerResponse, next: () => void) {
   const url = new URL(req.url ?? '/', 'http://localhost');
+  if (url.pathname === '/api/catalog') {
+    const query: Record<string, unknown> = {};
+    for (const key of url.searchParams.keys()) { const values=url.searchParams.getAll(key); query[key]=values.length===1?values[0]:values; }
+    catalog({method:req.method,query},{setHeader:(k,v)=>res.setHeader(k,v),status:code=>({json:body=>{res.statusCode=code;res.setHeader('Content-Type','application/json');res.end(JSON.stringify(body));}})});
+    return;
+  }
   if (url.pathname === '/api/weather-preview') {
     res.setHeader('Content-Type','application/json');res.setHeader('Cache-Control','no-store');
     const city=url.searchParams.get('city')||'', date=url.searchParams.get('date')||'';

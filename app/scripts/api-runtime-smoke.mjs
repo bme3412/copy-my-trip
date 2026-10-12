@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 const outdir = 'node_modules/.tmp/api-runtime';
 await mkdir(outdir, { recursive: true });
 await writeFile(`${outdir}/package.json`, '{"type":"module"}');
-const names = ['trips','account','notifications','companion-tick','narrate-day','extract-preferences'];
+const names = ['catalog','trips','account','notifications','companion-tick','narrate-day','extract-preferences'];
 const entries = [...names.map(n=>`api/${n}.ts`),'api/companion-events.ts'];
 const graph = await build({entryPoints:entries,bundle:true,write:false,outdir,metafile:true,packages:'external',platform:'node',logLevel:'error'});
 await build({entryPoints:Object.keys(graph.metafile.inputs),outbase:'.',outdir,bundle:false,format:'esm',platform:'node',logLevel:'error'});

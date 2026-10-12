@@ -44,6 +44,7 @@ export function Layout() {
               · {city.name}
             </span>
           </Link>
+          <Link to="/discover" viewTransition>Discover Elsewhere ↗</Link>
           {tripLinks.map(navLink)}
           <span aria-hidden style={{ alignSelf: 'stretch', borderLeft: '1px solid var(--color-divider)' }} />
           {archiveLinks.map(navLink)}

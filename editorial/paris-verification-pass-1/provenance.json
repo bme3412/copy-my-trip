@@ -1,0 +1,12 @@
+{
+  "bundleId": "paris-verification-pass-1",
+  "source": "User-supplied elsewhere_paris_verification_pass",
+  "sourceClaimsIndependentlyRechecked": false,
+  "files": {
+    "README.md": "020278c960223b182db4b83132377073045976fa12109a60f56e75cf24842a7b",
+    "priority_40_verification.csv": "d85dcc0ae40e8daa743f057e77f8190e0ce81501fa2ce10ab1f77c1dd0b8b94e",
+    "source_backed_claims.csv": "cf2f0cbaccf91fb40d1cf7bda43772f5a39032054ffbad144fe72f1cd901b0bc",
+    "verification_report.json": "ac7f427eb4c58525b857b87c1d2477ba4d78bdeb9f27b8dd6166cb285b614e0d",
+    "verified_place_edges.csv": "87032c1b243759efd2e7c02338b5753ffdb66969fb117e226d0ea0d4393842b7"
+  }
+}

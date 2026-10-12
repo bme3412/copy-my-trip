@@ -5,6 +5,10 @@ Design ground-truth for this repo. Everything below is pulled from the codebase 
 `project/Copy My Trip.dc.html`. Nothing invented, nothing placeholder: if it isn't
 in the repo, it isn't in this document.
 
+## Elsewhere status — 2026-10-12
+
+The additive `/discover` surface uses a scoped light editorial design and original Paris photography, backed by the catalog API and persistent device-local bookmarks. The existing planner design and routes remain. This document describes that original planner baseline; [the implementation report](docs/elsewhere/10-initial-slice-implementation.md) records the Elsewhere slice, current hosted configuration and validation. Neither this slice nor the new release-media redaction has been deployed.
+
 ---
 
 ## 1. What this product is

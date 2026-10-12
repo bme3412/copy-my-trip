@@ -17,13 +17,17 @@ provenance markers and experience-scoped firsthand counts. Generated travel
 legs are labeled estimated; historical archive evidence is distinct from current conditions. No language model schedules anything, and
 none of them may write city data.
 
+## Elsewhere implementation status
+
+The locally validated additive `/discover` slice offers original photography, 21 source-attributed book/film records, Paris/Rome pages, filters and device-local bookmarks. Existing trip routes, saved snapshots and deterministic planning contracts remain. This slice has not been deployed. See [the implementation report](docs/elsewhere/10-initial-slice-implementation.md) for validation, the verified same-Mac backup outside iCloud, redacted build outputs and remaining hosted release gates.
+
 ## What ships today
 
 A React 19 + Vite + TypeScript app with local planning. Trip state lives in
 validated, versioned localStorage. Working drafts and accepted snapshots are
 separate; saved views never regenerate the schedule. Optional Supabase account
 and private cloud-save code is implemented behind configuration, with a trip API
-alongside the two narrow AI functions. It has not been connected to a live project.
+alongside the two narrow AI functions. Read-only verification on 2026-10-12 confirmed that production uses the Supabase project named `copy-my-trip-preview`; migrations 001–003 are applied and weather migration 004 is not. AI and companion email flags are disabled. Live write-based account checks remain a separate release gate.
 
 | | Paris | Rome |
 |---|---|---|

@@ -91,6 +91,10 @@ for (const asset of assets) {
   copyFileSync(asset.source, destination)
 }
 
+// Sanitize only the already-selected stage. Originals and published URL paths stay intact.
+// Fail closed before any AWS call if redaction or its full audit fails.
+run(process.execPath, [join(ROOT, 'scripts/public-media.mjs'), '--stage'])
+
 const syncArgs = [
   's3',
   'sync',

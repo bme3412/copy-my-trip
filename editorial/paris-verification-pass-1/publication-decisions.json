@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-12",
+  "authorization": "User requested reviewed candidates visible in app; no deployment or Supabase changes",
+  "decisions": [
+    {
+      "candidate": "PAR-0001",
+      "workId": "the-only-street-in-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0002",
+      "workId": "the-seine",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0003",
+      "workId": "paris-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0004",
+      "workId": "the-other-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0005",
+      "workId": "impossible-city",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0006",
+      "workId": "a-waiter-in-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0007",
+      "workId": "the-flaneur",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0008",
+      "workId": "the-most-beautiful-walk-in-the-world",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0009",
+      "workId": "the-new-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0010",
+      "workId": "my-paris-dream",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0011",
+      "workId": "the-sweet-life-in-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0012",
+      "workId": "pancakes-in-paris",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0042",
+      "workId": "before-sunset",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0043",
+      "workId": "amelie",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0046",
+      "workId": "the-400-blows",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0047",
+      "workId": "breathless",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0049",
+      "workId": "the-class",
+      "status": "published-local",
+      "scope": "facts, original summary, typographic cover; city relationship only"
+    },
+    {
+      "candidate": "PAR-0045",
+      "workId": "cleo-from-5-to-7",
+      "status": "existing-identity-retained"
+    },
+    {
+      "candidate": "PAR-0044",
+      "status": "held",
+      "reason": "Final director credits unresolved"
+    },
+    {
+      "candidate": "PAR-0048",
+      "status": "held",
+      "reason": "Paris setting evidence missing"
+    }
+  ],
+  "otherMedia": "20 candidates remain unverified; separate factual review required",
+  "assets": "No third-party covers or stills; original summaries and typographic covers only",
+  "creatorDecision": "The Other Paris displays current publisher credit Lucy Sante; original supplied byline retained in immutable source bundle."
+}

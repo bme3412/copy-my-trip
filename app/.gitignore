@@ -1,2 +1,8 @@
 .vercel
 .env
+
+# Retained local dependency cache from the Phase 0 iCloud recovery.
+.node_modules-icloud/
+
+# Ignore the dependency symlink in the non-iCloud validation checkout.
+node_modules

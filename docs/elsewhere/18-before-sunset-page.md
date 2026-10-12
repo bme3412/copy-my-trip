@@ -1,0 +1,11 @@
+# Before Sunset editorial page — October 12, 2026
+
+Implemented a dedicated page at /discover/work/before-sunset: original-photo hero, Save, working section navigation, film facts, three selectable place connections, existing map component, trilogy context, viewing prompts and source links. Embedded discovery details link to the dedicated page. No new routes or planner inputs.
+
+Sources checked: https://www.criterion.com/films/28693-before-sunset (cast, director, runtime, year, setting and scene preview); https://www.criterion.com/current/posts/4445-the-before-trilogy-time-regained (trilogy years and Shakespeare and Company, Promenade Plantée and Seine connections). Film France could not be opened reliably and was not used as the final authority.
+
+The screenshot is a layout reference, not factual evidence. Its 12-place count, scene timestamps, dialogue quotes, route and film artwork were not copied. Existing original Paris photographs are explicitly identified as archive images. A link opens Criterion’s scene preview page; it is not labeled as a trailer or an in-app video player. Related trilogy titles are contextual text, not newly published catalog records.
+
+The two map pins reuse the existing catalog reference coordinates; the river is not assigned a fabricated point. The local environment lacks a Mapbox token, so it displays the labeled coordinate schematic. No street-map or walking route is claimed as locally verified. Place selection uses ?place= and survives reload; invalid values fall back to Shakespeare and Company. Archive links provide real navigation. No changes to itinerary screens, media originals, Supabase or hosted deployments.
+
+Passed route smoke (dedicated page, valid/invalid place selection), culture, preservation, TypeScript and production app bundle with public-media copying disabled. Browser verified keyboard selection, URL/reload restoration, Save persistence/removal, desktop at 1280px and mobile at 390px with no horizontal overflow. Corrected hero heading contrast after visual review. Full media-inclusive build remains subject to the existing disk-space blocker and was not rerun. Screenshots saved with this report. Tested changes copied back to iCloud workspace and byte-compared.
