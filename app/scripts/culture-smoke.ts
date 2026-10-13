@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
 import { bookCover } from '../src/lib/culture/covers';
 import { cultureCatalog } from '../src/lib/culture/seed';
-import { parseCatalog, queryCatalog } from '../src/lib/culture/schema';
+import { parseCatalog, queryCatalog, validatePlaylistTracks } from '../src/lib/culture/schema';
 import { parseShelf, SHELF_KEY, writeBookmark } from '../src/lib/culture/shelf';
 import handler from '../api/catalog';
+import baseline from '../../editorial/paris-atlas-120/existing-catalog.json';
+const previous=parseCatalog(baseline);
+const previousIds=new Set(previous.works.map(w=>w.id));
 const clone=()=>JSON.parse(JSON.stringify(cultureCatalog));
-assert.equal(parseCatalog(clone()).works.length,21);
+assert.equal(parseCatalog(clone()).works.length,55);
 const cases=[
   [{destination:'paris',kind:'book'},['the-only-street-in-paris','the-seine','paris-paris','the-other-paris','impossible-city','a-waiter-in-paris','the-flaneur','the-most-beautiful-walk-in-the-world','the-new-paris','my-paris-dream','the-sweet-life-in-paris','pancakes-in-paris','giovannis-room']],
   [{destination:'rome',kind:'film'},['the-great-beauty']],
@@ -15,7 +18,7 @@ const cases=[
   [{destination:'lisbon'},[]],
   [{q:'Paris Rome'},[]],
 ] as const;
-for(const [query,expected] of cases)assert.deepEqual(queryCatalog(cultureCatalog,query).map(w=>w.id),expected);
+for(const [query,expected] of cases)assert.deepEqual(queryCatalog(cultureCatalog,query).filter(w=>previousIds.has(w.id)).map(w=>w.id),expected);
 for(const mutate of [
   (c:any)=>c.works.push(c.works[0]),
   (c:any)=>c.works[0].sourceIds=['missing'],
@@ -51,3 +54,39 @@ const result=response('GET',{id:'roman-stories'});assert.equal(result.status,200
 assert.equal(response('GET',{q:'Berlin'}).body.works.length,0);
 assert.equal(cultureCatalog.destinations.find(d=>d.id==='rome')?.archive,'none');
 console.log('PASS culture: 7 golden queries; source/scope/rights validation; API success/error contracts; persisted idempotent bookmarks, corrupt/quota/conflict recovery and trip isolation');
+
+// Audio contract, backward compatibility, filtered envelopes and playlist integrity.
+const legacy=JSON.parse(JSON.stringify(previous));legacy.schemaVersion=1;legacy.works=legacy.works.filter((w:any)=>['book','film'].includes(w.kind));
+assert.equal(parseCatalog(legacy).works.length,21);
+const audioInLegacy=clone();audioInLegacy.schemaVersion=1;assert.throws(()=>parseCatalog(audioInLegacy));
+assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'song'}).length,11);
+assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'podcast_episode'}).length,7);
+assert.equal(queryCatalog(cultureCatalog,{q:'earful tower'}).length,2);
+assert.equal(queryCatalog(cultureCatalog,{q:'Gregory'}).at(0)?.id,'carving-paris');
+assert.equal(queryCatalog(cultureCatalog,{destination:'rome',kind:'song'}).length,0);
+assert.equal(queryCatalog(cultureCatalog,{q:'Edith Piaf'}).at(0)?.id,'sous-le-ciel-de-paris');
+for(const kind of ['song','playlist','podcast_episode'])assert.equal(response('GET',{kind}).status,200);
+assert.equal(response('GET',{kind:'album'}).status,400);
+assert.equal(parseCatalog(response('GET',{id:'paris-playlist'}).body).works[0].tracks?.length,8);
+validatePlaylistTracks(cultureCatalog);
+for(const mutate of [
+ (c:any)=>c.works.find((w:any)=>w.kind==='playlist').tracks.push('absent'),
+ (c:any)=>c.works.find((w:any)=>w.kind==='playlist').tracks.push('roman-stories'),
+ (c:any)=>c.works.find((w:any)=>w.kind==='playlist').tracks.push('paris-playlist'),
+]){const c=clone();mutate(c);assert.throws(()=>validatePlaylistTracks(c));}
+for(const mutate of [
+ (c:any)=>c.works.find((w:any)=>w.kind==='playlist').tracks.push('la-seine'),
+ (c:any)=>c.works.find((w:any)=>w.kind==='song').durationSeconds=-1,
+ (c:any)=>c.works.find((w:any)=>w.kind==='song').listeningLinks[0].url='javascript:bad',
+ (c:any)=>c.works.find((w:any)=>w.kind==='song').listeningLinks[0].sourceId='absent',
+ (c:any)=>c.works.find((w:any)=>w.kind==='podcast_episode').publishedOn='2020-02-31',
+ (c:any)=>delete c.works.find((w:any)=>w.kind==='podcast_episode').podcast,
+]){const c=clone();mutate(c);assert.throws(()=>parseCatalog(c));}
+const saves=new Map<string,string>([['saved-trips','unchanged']]);
+const audioStore={getItem:(k:string)=>saves.get(k)??null,setItem:(k:string,v:string)=>{saves.set(k,v);}};
+writeBookmark(audioStore,'paris-playlist',true);
+assert.deepEqual(parseShelf(audioStore.getItem(SHELF_KEY)).workIds,['paris-playlist']);
+writeBookmark(audioStore,'la-seine',true);writeBookmark(audioStore,'paris-playlist',false);
+assert.deepEqual(parseShelf(audioStore.getItem(SHELF_KEY)).workIds,['la-seine']);
+assert.equal(saves.get('saved-trips'),'unchanged');
+console.log('PASS audio: v1 compatibility, v2 metadata, sourced listening URLs, playlist integrity, scoped search, API filters and independent saves');

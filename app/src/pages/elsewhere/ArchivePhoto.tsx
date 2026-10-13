@@ -2,6 +2,9 @@ import { useState } from 'react';
 import variants from '../../media/variants.json';
 import dates from '../../cities/paris/data/media-dates.json';
 export const archivePhotos = {
+  notredame: {file:'paris-notre-dame-seine.jpeg',caption:'Notre-Dame, from the Seine',position:'center'},
+  garden: {file:'paris-jardin-luxembourg-boats.jpeg',caption:'Jardin du Luxembourg',position:'center'},
+  sunset: {file:'paris-eiffel-tower-sunset-seine.jpeg',caption:'The Seine at sunset',position:'center 68%'},
   hero: {file:'paris-eiffel-tower-quai.jpeg',caption:'Paris, along the Seine',position:'center 48%'},
   cafe: {file:'paris-saint-germain-deux-magots.jpeg',caption:'Saint-Germain-des-Prés',position:'center'},
   river: {file:'paris-vert-gallant.jpeg',caption:'At the edge of the Seine',position:'center'},

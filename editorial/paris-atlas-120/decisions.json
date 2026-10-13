@@ -1,0 +1,2531 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "seedId": "PAR-001",
+      "existingWorkId": "giovannis-room",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-002",
+      "existingWorkId": "the-only-street-in-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0001",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-003",
+      "existingWorkId": "the-other-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0004",
+      "firstBatch": false,
+      "correction": "Retain current publisher credit Lucy Sante. Supplied Greater Paris scope is not independently established; do not overwrite geography.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-004",
+      "existingWorkId": "a-waiter-in-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0006",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-005",
+      "existingWorkId": "impossible-city",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0005",
+      "firstBatch": false,
+      "correction": "Publisher identifies the selected edition as 2024, not supplied 2022.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-006",
+      "existingWorkId": "the-flaneur",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0007",
+      "firstBatch": false,
+      "correction": "2001 is original publication; current selected edition is a 2026 reissue. Keep these dates distinct.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-007",
+      "existingWorkId": "the-seine",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0002",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-008",
+      "existingWorkId": "the-new-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0009",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-009",
+      "existingWorkId": "the-sweet-life-in-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0011",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-010",
+      "existingWorkId": "paris-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0003",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-011",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "a-moveable-feast"
+    },
+    {
+      "seedId": "PAR-012",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-belly-of-paris"
+    },
+    {
+      "seedId": "PAR-013",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-hunchback-of-notre-dame"
+    },
+    {
+      "seedId": "PAR-014",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-015",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-016",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-017",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-new-parisienne"
+    },
+    {
+      "seedId": "PAR-018",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-elegance-of-the-hedgehog"
+    },
+    {
+      "seedId": "PAR-019",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-020",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-021",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-022",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-023",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-024",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-025",
+      "existingWorkId": "the-most-beautiful-walk-in-the-world",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0008",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-026",
+      "existingWorkId": "before-sunset",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0042",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-027",
+      "existingWorkId": "cleo-from-5-to-7",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0045",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-028",
+      "existingWorkId": "the-class",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0049",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-029",
+      "existingWorkId": "amelie",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0043",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-030",
+      "existingWorkId": "the-400-blows",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0046",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-031",
+      "existingWorkId": "breathless",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0047",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-032",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0044",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-033",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "la-haine"
+    },
+    {
+      "seedId": "PAR-034",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-035",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0048",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-036",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "les-miserables-ladj-ly"
+    },
+    {
+      "seedId": "PAR-037",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-038",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-039",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-040",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-041",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-042",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "paris-13th-district"
+    },
+    {
+      "seedId": "PAR-043",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "full-time"
+    },
+    {
+      "seedId": "PAR-044",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-045",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-046",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-047",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-048",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-red-balloon"
+    },
+    {
+      "seedId": "PAR-049",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-050",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-051",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0061",
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "call-my-agent"
+    },
+    {
+      "seedId": "PAR-052",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0063",
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "lupin"
+    },
+    {
+      "seedId": "PAR-053",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0062",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-054",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-055",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-eddy"
+    },
+    {
+      "seedId": "PAR-056",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-057",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-058",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-059",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-060",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-061",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-062",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "insufficient",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Artist and 2025 release confirmed: https://benjaminbiolay.com/ and https://music.apple.com/us/album/adieu-paris-single/1810715903 . Precise Paris-subject relevance remains insufficiently supported for the core collection; not published based on title alone."
+    },
+    {
+      "seedId": "PAR-063",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-064",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-065",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "paname-slimane"
+    },
+    {
+      "seedId": "PAR-066",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-067",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-068",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-069",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-070",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "paris-va-bien"
+    },
+    {
+      "seedId": "PAR-071",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-072",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "je-connaissais-pas-paris-le-matin"
+    },
+    {
+      "seedId": "PAR-073",
+      "existingWorkId": "la-seine",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-074",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-075",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-076",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-077",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-078",
+      "existingWorkId": "paris-sera-toujours-paris",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-079",
+      "existingWorkId": "la-boheme",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "Same song/performer; keep unknown recording release date absent until matched.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-080",
+      "existingWorkId": "paris-seveille",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "Same composition/performer; existing record is the 1968 INA television performance. Do not replace with a studio recording.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-081",
+      "existingWorkId": "sous-le-ciel-de-paris",
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0101",
+      "firstBatch": false,
+      "correction": "Same song/performer; draft 1954 is not enough to identify the exact master linked by the current record.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-082",
+      "existingWorkId": "jai-deux-amours",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "Same composition/performer; draft 1930 does not date the existing 1968 INA performance.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-083",
+      "existingWorkId": "les-champs-elysees",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "Same song/performer; keep unknown recording release date absent until matched.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-084",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-085",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-086",
+      "existingWorkId": "walking-through-paris",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-087",
+      "existingWorkId": "an-intro-to-jazz-in-paris",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-088",
+      "existingWorkId": "carving-paris",
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "Publisher conversation is about limestone and a Marais workshop; do not infer a visited quarry or a map pin.",
+      "evidenceReview": "existing-source-attributed",
+      "publicationEligible": false,
+      "publicationAction": "retain-existing",
+      "note": "Existing public identity retained; seed metadata not applied automatically."
+    },
+    {
+      "seedId": "PAR-089",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-seine-past-and-present"
+    },
+    {
+      "seedId": "PAR-090",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "bikes-olympics-transforming-city"
+    },
+    {
+      "seedId": "PAR-091",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-092",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "documenting-everyday-paris"
+    },
+    {
+      "seedId": "PAR-093",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "changing-urban-landscape-paris"
+    },
+    {
+      "seedId": "PAR-094",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-095",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-096",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-097",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-098",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-099",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-100",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-101",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-102",
+      "existingWorkId": null,
+      "earlierCandidateId": "paris-verification-pass-1:PAR-0085",
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-103",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-104",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-105",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-106",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "the-painter-of-modern-life"
+    },
+    {
+      "seedId": "PAR-107",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-108",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-109",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-110",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-111",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "verified-facts",
+      "publicationEligible": true,
+      "publicationAction": "include-local",
+      "note": "Identity, selected edition/release and Paris relevance checked against linked sources. Original summary; no full-consumption review or artwork clearance claimed.",
+      "workId": "an-attempt-at-exhausting-a-place-in-paris"
+    },
+    {
+      "seedId": "PAR-112",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-113",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-114",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": true,
+      "correction": "",
+      "evidenceReview": "insufficient",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Poem identity and Paris connection supported by https://poets.org/text/avant-situ-apollinaire-derive-politics-third-dimension . https://www.nyrb.com/products/zone identifies a 2015 selected-poems anthology, not the standalone poem. Exact chosen poem translation/parent identification still needs reconciliation; do not treat anthology metadata as poem publication metadata."
+    },
+    {
+      "seedId": "PAR-115",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-116",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-117",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-118",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-119",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    },
+    {
+      "seedId": "PAR-120",
+      "existingWorkId": null,
+      "earlierCandidateId": null,
+      "firstBatch": false,
+      "correction": "",
+      "evidenceReview": "pending",
+      "publicationEligible": false,
+      "publicationAction": "hold",
+      "note": "Not yet individually verified; priority is an editorial suggestion only."
+    }
+  ],
+  "approvedWorks": [
+    {
+      "id": "a-moveable-feast",
+      "title": "A Moveable Feast",
+      "creator": "Ernest Hemingway",
+      "kind": "book",
+      "year": 1996,
+      "yearLabel": "Cited edition",
+      "form": "Memoir",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "Writing, friendships and early married life in remembered 1920s Paris.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Scribner describes Hemingway’s recollections of life and writing in 1920s Paris.",
+        "sourceId": "atlas-a-moveable-feast",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-a-moveable-feast"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Scribner describes Hemingway’s recollections of life and writing in 1920s Paris.",
+        "sourceId": "atlas-a-moveable-feast"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9780684833637",
+          "sourceId": "atlas-a-moveable-feast"
+        }
+      ],
+      "edition": "Classic edition hardcover · ISBN 9780684833637",
+      "publication": {
+        "edition": {
+          "year": 1996,
+          "label": "Classic edition hardcover",
+          "isbn": "9780684833637",
+          "sourceId": "atlas-a-moveable-feast"
+        },
+        "sourceId": "atlas-a-moveable-feast"
+      }
+    },
+    {
+      "id": "the-belly-of-paris",
+      "title": "The Belly of Paris",
+      "creator": "Émile Zola",
+      "kind": "book",
+      "year": 2009,
+      "yearLabel": "Cited edition",
+      "form": "Novel",
+      "language": "French · English translation",
+      "destinationId": "paris",
+      "description": "Food, political suspicion and class collide in the markets of Les Halles.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "The publisher places Florent’s return to Paris in the rebuilt Les Halles markets during the Second Empire.",
+        "sourceId": "atlas-the-belly-of-paris",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-belly-of-paris"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The publisher places Florent’s return to Paris in the rebuilt Les Halles markets during the Second Empire.",
+        "sourceId": "atlas-the-belly-of-paris"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9780812974225",
+          "sourceId": "atlas-the-belly-of-paris"
+        }
+      ],
+      "edition": "Paperback · ISBN 9780812974225",
+      "publication": {
+        "edition": {
+          "year": 2009,
+          "label": "Paperback",
+          "isbn": "9780812974225",
+          "sourceId": "atlas-the-belly-of-paris",
+          "translator": "Mark Kurlansky"
+        },
+        "sourceId": "atlas-the-belly-of-paris",
+        "originalYear": 1873
+      }
+    },
+    {
+      "id": "the-hunchback-of-notre-dame",
+      "title": "The Hunchback of Notre-Dame",
+      "creator": "Victor Hugo",
+      "kind": "book",
+      "year": 2019,
+      "yearLabel": "Cited edition",
+      "form": "Novel",
+      "language": "French · English translation",
+      "destinationId": "paris",
+      "description": "A cathedral and the people around it shape a tragedy in medieval Paris.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "The publisher identifies Notre-Dame and fifteenth-century Paris as the novel’s setting.",
+        "sourceId": "atlas-the-hunchback-of-notre-dame",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-hunchback-of-notre-dame"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The publisher identifies Notre-Dame and fifteenth-century Paris as the novel’s setting.",
+        "sourceId": "atlas-the-hunchback-of-notre-dame"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9789389567793",
+          "sourceId": "atlas-the-hunchback-of-notre-dame"
+        }
+      ],
+      "edition": "Paperback · ISBN 9789389567793",
+      "publication": {
+        "edition": {
+          "year": 2019,
+          "label": "Paperback",
+          "isbn": "9789389567793",
+          "sourceId": "atlas-the-hunchback-of-notre-dame",
+          "translator": "Isabel F. Hapgood"
+        },
+        "sourceId": "atlas-the-hunchback-of-notre-dame"
+      }
+    },
+    {
+      "id": "the-elegance-of-the-hedgehog",
+      "title": "The Elegance of the Hedgehog",
+      "creator": "Muriel Barbery",
+      "kind": "book",
+      "year": 2008,
+      "yearLabel": "Cited edition",
+      "form": "Novel",
+      "language": "French · English translation",
+      "destinationId": "paris",
+      "description": "A concierge and a young resident conceal their inner lives in a wealthy Paris apartment building.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Europa’s synopsis places the novel’s contrasting social worlds in an upscale Paris apartment building.",
+        "sourceId": "atlas-the-elegance-of-the-hedgehog",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-elegance-of-the-hedgehog"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Europa’s synopsis places the novel’s contrasting social worlds in an upscale Paris apartment building.",
+        "sourceId": "atlas-the-elegance-of-the-hedgehog"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9781933372600",
+          "sourceId": "atlas-the-elegance-of-the-hedgehog"
+        }
+      ],
+      "edition": "Paperback · ISBN 9781933372600",
+      "publication": {
+        "edition": {
+          "year": 2008,
+          "label": "Paperback",
+          "isbn": "9781933372600",
+          "sourceId": "atlas-the-elegance-of-the-hedgehog",
+          "translator": "Alison Anderson"
+        },
+        "sourceId": "atlas-the-elegance-of-the-hedgehog"
+      }
+    },
+    {
+      "id": "the-new-parisienne",
+      "title": "The New Parisienne",
+      "creator": "Lindsey Tramuta",
+      "kind": "book",
+      "year": 2020,
+      "yearLabel": "Cited edition",
+      "form": "Profiles",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "Women working in culture, politics and civic life challenge a familiar Parisian stereotype.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Abrams describes profiles of women whose work shapes Paris’s contemporary culture.",
+        "sourceId": "atlas-the-new-parisienne",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-new-parisienne"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Abrams describes profiles of women whose work shapes Paris’s contemporary culture.",
+        "sourceId": "atlas-the-new-parisienne"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9781419742811",
+          "sourceId": "atlas-the-new-parisienne"
+        }
+      ],
+      "edition": "Hardcover · ISBN 9781419742811",
+      "publication": {
+        "edition": {
+          "year": 2020,
+          "label": "Hardcover",
+          "isbn": "9781419742811",
+          "sourceId": "atlas-the-new-parisienne"
+        },
+        "sourceId": "atlas-the-new-parisienne"
+      },
+      "context": [
+        "A portrait published in 2020, not a current directory of businesses or visitor recommendations."
+      ]
+    },
+    {
+      "id": "an-attempt-at-exhausting-a-place-in-paris",
+      "title": "An Attempt at Exhausting a Place in Paris",
+      "creator": "Georges Perec",
+      "kind": "book",
+      "year": 2010,
+      "yearLabel": "Cited edition",
+      "form": "Observation",
+      "language": "French · English translation",
+      "destinationId": "paris",
+      "description": "Perec stays in one square and records the buses, people and small events that usually escape notice.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Wakefield locates Perec’s observations at Place Saint-Sulpice over a weekend in October 1974.",
+        "sourceId": "atlas-an-attempt-at-exhausting-a-place-in-paris",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-an-attempt-at-exhausting-a-place-in-paris"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Wakefield locates Perec’s observations at Place Saint-Sulpice over a weekend in October 1974.",
+        "sourceId": "atlas-an-attempt-at-exhausting-a-place-in-paris"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9781939663836",
+          "sourceId": "atlas-an-attempt-at-exhausting-a-place-in-paris"
+        }
+      ],
+      "edition": "Paperback · ISBN 9781939663836",
+      "publication": {
+        "edition": {
+          "year": 2010,
+          "label": "Paperback",
+          "isbn": "9781939663836",
+          "sourceId": "atlas-an-attempt-at-exhausting-a-place-in-paris",
+          "translator": "Marc Lowenthal"
+        },
+        "sourceId": "atlas-an-attempt-at-exhausting-a-place-in-paris"
+      }
+    },
+    {
+      "id": "paris-13th-district",
+      "title": "Paris, 13th District",
+      "creator": "Jacques Audiard",
+      "kind": "film",
+      "year": 2021,
+      "yearLabel": "Film year",
+      "form": "Feature film",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "Relationships and shared apartments connect four young adults in the 13th arrondissement.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Cannes explicitly places the story in contemporary Paris’s 13th district.",
+        "sourceId": "atlas-paris-13th-district",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-paris-13th-district"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Cannes explicitly places the story in contemporary Paris’s 13th district.",
+        "sourceId": "atlas-paris-13th-district"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.festival-cannes.com/en/f/les-olympiades/",
+          "sourceId": "atlas-paris-13th-district"
+        }
+      ]
+    },
+    {
+      "id": "full-time",
+      "title": "Full Time",
+      "creator": "Éric Gravel",
+      "kind": "film",
+      "year": 2021,
+      "yearLabel": "Film year",
+      "form": "Feature film",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A working parent struggles to reconcile childcare, a hotel job and a disrupted commute.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Music Box describes a mother living outside Paris who depends on the train to reach her city hotel job.",
+        "sourceId": "atlas-full-time",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-full-time"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "both",
+        "note": "Music Box describes a mother living outside Paris who depends on the train to reach her city hotel job.",
+        "sourceId": "atlas-full-time"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.musicboxfilms.com/film/full-time/",
+          "sourceId": "atlas-full-time"
+        }
+      ]
+    },
+    {
+      "id": "les-miserables-ladj-ly",
+      "title": "Les Misérables",
+      "creator": "Ladj Ly",
+      "kind": "film",
+      "year": 2019,
+      "yearLabel": "Film year",
+      "form": "Feature film",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A new police officer enters the tense relationships of a Montfermeil neighborhood.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Cannes places the anti-crime brigade’s story in Montfermeil, Seine-Saint-Denis, outside Paris city.",
+        "sourceId": "atlas-les-miserables-ladj-ly",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-les-miserables-ladj-ly"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "greater_paris",
+        "note": "Cannes places the anti-crime brigade’s story in Montfermeil, Seine-Saint-Denis, outside Paris city.",
+        "sourceId": "atlas-les-miserables-ladj-ly"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.festival-cannes.com/en/2019/meeting-the-team-of-les-miserables-by-ladj-ly/",
+          "sourceId": "atlas-les-miserables-ladj-ly"
+        }
+      ]
+    },
+    {
+      "id": "la-haine",
+      "title": "La Haine",
+      "creator": "Mathieu Kassovitz",
+      "kind": "film",
+      "year": 1995,
+      "yearLabel": "Film year",
+      "form": "Feature film",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "Three friends face the aftermath of unrest in a Paris banlieue.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Criterion identifies low-income districts on Paris’s outskirts as the film’s central social setting.",
+        "sourceId": "atlas-la-haine",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-la-haine"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "greater_paris",
+        "note": "Criterion identifies low-income districts on Paris’s outskirts as the film’s central social setting.",
+        "sourceId": "atlas-la-haine"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.criterion.com/films/216-la-haine",
+          "sourceId": "atlas-la-haine"
+        }
+      ]
+    },
+    {
+      "id": "the-red-balloon",
+      "title": "The Red Balloon",
+      "creator": "Albert Lamorisse",
+      "kind": "film",
+      "year": 1956,
+      "yearLabel": "Film year",
+      "form": "Short film",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A boy and a seemingly independent balloon move through the streets of Paris.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Criterion situates the boy’s adventure on the streets of 1950s Paris.",
+        "sourceId": "atlas-the-red-balloon",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-red-balloon"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Criterion situates the boy’s adventure on the streets of 1950s Paris.",
+        "sourceId": "atlas-the-red-balloon"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.criterion.com/films/886-the-red-balloon",
+          "sourceId": "atlas-the-red-balloon"
+        }
+      ]
+    },
+    {
+      "id": "call-my-agent",
+      "title": "Call My Agent!",
+      "creator": "Fanny Herrero",
+      "kind": "tv_show",
+      "year": 2015,
+      "yearLabel": "Series began",
+      "form": "TV show",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A Paris talent agency balances demanding clients, personal loyalties and the business of entertainment.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Netflix describes the series as a workplace comedy set in a Paris talent firm.",
+        "sourceId": "atlas-call-my-agent",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-call-my-agent",
+        "atlas-call-my-agent-dates"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Netflix describes the series as a workplace comedy set in a Paris talent firm.",
+        "sourceId": "atlas-call-my-agent"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://www.netflix.com/gb/title/80133335",
+          "sourceId": "atlas-call-my-agent"
+        }
+      ],
+      "series": {
+        "start": 2015,
+        "end": 2020,
+        "sourceId": "atlas-call-my-agent-dates"
+      },
+      "context": [
+        "Original French series, also titled Dix pour cent. Fanny Herrero is the creator credited by Netflix; France Télévisions also credits the originating literary bible to Dominique Besnehard, Michel Vereecken, Julien Messemackers and Fanny Herrero.",
+        "The dates refer to the original television run, not the later Netflix availability date or a separate film."
+      ]
+    },
+    {
+      "id": "the-eddy",
+      "title": "The Eddy",
+      "creator": "Jack Thorne",
+      "kind": "tv_show",
+      "year": 2020,
+      "yearLabel": "Series began",
+      "form": "Limited series",
+      "language": "French · English · Arabic",
+      "destinationId": "paris",
+      "description": "A jazz club owner tries to protect his musicians, business and family in contemporary Paris.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Netflix’s production notes place the drama in modern Paris’s multicultural neighborhoods.",
+        "sourceId": "atlas-the-eddy",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-the-eddy",
+        "atlas-the-eddy-meta"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Netflix’s production notes place the drama in modern Paris’s multicultural neighborhoods.",
+        "sourceId": "atlas-the-eddy"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://media.netflix.com/en/only-on-netflix/80197844",
+          "sourceId": "atlas-the-eddy"
+        }
+      ],
+      "series": {
+        "start": 2020,
+        "end": 2020,
+        "sourceId": "atlas-the-eddy-meta"
+      }
+    },
+    {
+      "id": "lupin",
+      "title": "Lupin",
+      "creator": "George Kay, in collaboration with François Uzan",
+      "kind": "tv_show",
+      "year": 2021,
+      "yearLabel": "Series began",
+      "form": "TV show",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "Assane Diop draws on a fictional gentleman thief to challenge a powerful family.",
+      "relationship": {
+        "type": "primarily_set_in",
+        "scope": "city",
+        "statement": "Paris Region connects Assane’s story with Paris and its surrounding region; the series also travels beyond it.",
+        "sourceId": "atlas-lupin-paris",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-lupin",
+        "atlas-lupin-paris"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "both",
+        "note": "Paris Region connects Assane’s story with Paris and its surrounding region; the series also travels beyond it.",
+        "sourceId": "atlas-lupin-paris"
+      },
+      "identifiers": [
+        {
+          "scheme": "publisher",
+          "value": "https://about.netflix.com/fr/news/netflix-today-confirms-original-french-series-lupin-will-return-summer-2021",
+          "sourceId": "atlas-lupin"
+        }
+      ],
+      "series": {
+        "start": 2021,
+        "sourceId": "atlas-lupin"
+      },
+      "context": [
+        "Paris and its region are important settings, but the whole series is not confined to them. No filming-site map pins are created from this overview.",
+        "Series began in 2021. No end year is asserted. Marking it watched applies to this show record, not individual episodes."
+      ]
+    },
+    {
+      "id": "paname-slimane",
+      "title": "Paname",
+      "creator": "Slimane",
+      "kind": "song",
+      "year": 2016,
+      "yearLabel": "Recording released",
+      "form": "Song",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A song about approaching Paris with the ambition to make a life in music.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The published lyrics describe a journey toward Paris and hopes of singing there.",
+        "sourceId": "atlas-paname-slimane-subject",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-paname-slimane",
+        "atlas-paname-slimane-subject",
+        "atlas-paname-release"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The published lyrics describe a journey toward Paris and hopes of singing there.",
+        "sourceId": "atlas-paname-slimane-subject"
+      },
+      "identifiers": [
+        {
+          "scheme": "youtube",
+          "value": "Xs90a3K9aIU",
+          "sourceId": "atlas-paname-slimane"
+        }
+      ],
+      "recording": "Official music video for Paname, Slimane’s 2016 single.",
+      "listeningLinks": [
+        {
+          "provider": "YouTube",
+          "url": "https://www.youtube.com/watch?v=Xs90a3K9aIU",
+          "sourceId": "atlas-paname-slimane"
+        }
+      ],
+      "context": [
+        "Song-subject summary based on the cited lyrics and release metadata. Lyrics are not reproduced. This does not identify a recording or performance location."
+      ]
+    },
+    {
+      "id": "je-connaissais-pas-paris-le-matin",
+      "title": "Je connaissais pas Paris le matin",
+      "creator": "Grand Corps Malade",
+      "kind": "song",
+      "year": 2006,
+      "yearLabel": "Recording released",
+      "form": "Song",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "A morning without a work timetable opens up a different experience of Paris.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The published lyrics describe free time spent walking in Paris after leaving a fixed working schedule.",
+        "sourceId": "atlas-je-connaissais-pas-paris-le-matin-subject",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-je-connaissais-pas-paris-le-matin",
+        "atlas-je-connaissais-pas-paris-le-matin-subject"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The published lyrics describe free time spent walking in Paris after leaving a fixed working schedule.",
+        "sourceId": "atlas-je-connaissais-pas-paris-le-matin-subject"
+      },
+      "identifiers": [
+        {
+          "scheme": "youtube",
+          "value": "r-8m6CC3Yvs",
+          "sourceId": "atlas-je-connaissais-pas-paris-le-matin"
+        }
+      ],
+      "recording": "Midi 20 album recording; official artist-channel audio supplied by Universal, release date 27 March 2006.",
+      "listeningLinks": [
+        {
+          "provider": "YouTube",
+          "url": "https://www.youtube.com/watch?v=r-8m6CC3Yvs",
+          "sourceId": "atlas-je-connaissais-pas-paris-le-matin"
+        }
+      ],
+      "context": [
+        "Song-subject summary based on the cited lyrics and release metadata. Lyrics are not reproduced. This does not identify a recording or performance location."
+      ]
+    },
+    {
+      "id": "paris-va-bien",
+      "title": "Paris va bien",
+      "creator": "Sexion d’Assaut",
+      "kind": "song",
+      "year": 2011,
+      "yearLabel": "Recording released",
+      "form": "Song",
+      "language": "French",
+      "destinationId": "paris",
+      "description": "Parisian identity and street life appear alongside the group’s ambitions.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The published lyrics explicitly address Paris, its streets and the group’s identification with the city.",
+        "sourceId": "atlas-paris-va-bien-subject",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-paris-va-bien",
+        "atlas-paris-va-bien-subject"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The published lyrics explicitly address Paris, its streets and the group’s identification with the city.",
+        "sourceId": "atlas-paris-va-bien-subject"
+      },
+      "identifiers": [
+        {
+          "scheme": "youtube",
+          "value": "vTqplgREdsM",
+          "sourceId": "atlas-paris-va-bien"
+        }
+      ],
+      "recording": "Les Chroniques Du 75, En Attendant L’Apogée album recording; official artist-channel audio supplied by Jive Epic, release date 4 April 2011.",
+      "listeningLinks": [
+        {
+          "provider": "YouTube",
+          "url": "https://www.youtube.com/watch?v=vTqplgREdsM",
+          "sourceId": "atlas-paris-va-bien"
+        }
+      ],
+      "context": [
+        "Song-subject summary based on the cited lyrics and release metadata. Lyrics are not reproduced. This does not identify a recording or performance location."
+      ]
+    },
+    {
+      "id": "the-seine-past-and-present",
+      "title": "The Seine River’s Past & Present with Mary Winston Nicklin",
+      "creator": "Lindsey Tramuta",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "The river’s history, the 2024 Olympics and a major cleanup project.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Publisher notes discuss the Seine’s place in Paris and the cleanup associated with the 2024 Olympics.",
+        "sourceId": "atlas-new-paris-rss",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-new-paris-rss"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Publisher notes discuss the Seine’s place in Paris and the cleanup associated with the 2024 Olympics.",
+        "sourceId": "atlas-new-paris-rss"
+      },
+      "identifiers": [
+        {
+          "scheme": "podcast_guid",
+          "value": "4d783bba-c429-437d-9e4d-ae9503d4fec0",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "publishedOn": "2024-11-23",
+      "durationSeconds": 2252,
+      "podcast": {
+        "show": "The New Paris Podcast",
+        "guest": "Mary Winston Nicklin",
+        "episode": 140
+      },
+      "recording": "Publisher-hosted episode, identified by its RSS GUID and publication date.",
+      "listeningLinks": [
+        {
+          "provider": "the publisher’s episode page",
+          "url": "https://podcasters.spotify.com/pod/show/thenewparis/episodes/140-The-Seine-Rivers-Past--Present-with-Mary-Winston-Nicklin-e2rcsr7",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "context": [
+        "Summary based on publisher notes, not a full listening review. Discussion reflects the episode’s publication date."
+      ]
+    },
+    {
+      "id": "bikes-olympics-transforming-city",
+      "title": "On bikes, the Olympics, & the Transforming City with Brent Longley",
+      "creator": "Lindsey Tramuta",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "An urbanist discusses cycling, infrastructure and changes to Paris ahead of the Olympics.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Publisher notes describe urban transformation and infrastructure policies in Paris.",
+        "sourceId": "atlas-new-paris-rss",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-new-paris-rss"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Publisher notes describe urban transformation and infrastructure policies in Paris.",
+        "sourceId": "atlas-new-paris-rss"
+      },
+      "identifiers": [
+        {
+          "scheme": "podcast_guid",
+          "value": "cd9603b3-4cc5-4723-8e66-605008c3c46c",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "publishedOn": "2024-03-11",
+      "durationSeconds": 2422,
+      "podcast": {
+        "show": "The New Paris Podcast",
+        "guest": "Brent Longley",
+        "episode": 128
+      },
+      "recording": "Publisher-hosted episode, identified by its RSS GUID and publication date.",
+      "listeningLinks": [
+        {
+          "provider": "the publisher’s episode page",
+          "url": "https://podcasters.spotify.com/pod/show/thenewparis/episodes/128-On-bikes--the-Olympics---the-Transforming-City-with-Brent-Longley-e2gtp21",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "context": [
+        "Summary based on publisher notes, not a full listening review. Discussion reflects the episode’s publication date."
+      ]
+    },
+    {
+      "id": "documenting-everyday-paris",
+      "title": "Documenting the everyday in Paris with Seb Emina",
+      "creator": "Lindsey Tramuta",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "A writer considers the details of daily life and returning to Paris with fresh attention.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Publisher notes describe a discussion of Parisian daily life and the approaching 2024 Olympics.",
+        "sourceId": "atlas-new-paris-rss",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-new-paris-rss"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "Publisher notes describe a discussion of Parisian daily life and the approaching 2024 Olympics.",
+        "sourceId": "atlas-new-paris-rss"
+      },
+      "identifiers": [
+        {
+          "scheme": "podcast_guid",
+          "value": "66e3eebc-2ff6-4f16-9507-a2a7d73a279f",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "publishedOn": "2024-06-10",
+      "durationSeconds": 2666,
+      "podcast": {
+        "show": "The New Paris Podcast",
+        "guest": "Seb Emina"
+      },
+      "recording": "Publisher-hosted episode, identified by its RSS GUID and publication date.",
+      "listeningLinks": [
+        {
+          "provider": "the publisher’s episode page",
+          "url": "https://podcasters.spotify.com/pod/show/thenewparis/episodes/132-Documenting-the-everyday-in-Paris-with-Seb-Emina-e2knk7c",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "context": [
+        "Summary based on publisher notes, not a full listening review. Discussion reflects the episode’s publication date.",
+        "Episode number omitted: the publisher title says 132 while its RSS episode field says 125."
+      ]
+    },
+    {
+      "id": "changing-urban-landscape-paris",
+      "title": "The Changing Urban Landscape of Paris with Alice Cabaret",
+      "creator": "Lindsey Tramuta",
+      "kind": "podcast_episode",
+      "year": 2018,
+      "yearLabel": "Episode published",
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "description": "Urban change beyond Haussmann: reused spaces, new projects and the city’s relationship with its suburbs.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Publisher notes discuss Paris urbanism and explicitly reference the Grand Paris project and the suburbs.",
+        "sourceId": "atlas-new-paris-rss",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-new-paris-rss"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "both",
+        "note": "Publisher notes discuss Paris urbanism and explicitly reference the Grand Paris project and the suburbs.",
+        "sourceId": "atlas-new-paris-rss"
+      },
+      "identifiers": [
+        {
+          "scheme": "podcast_guid",
+          "value": "tag:soundcloud,2010:tracks/427794861",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "publishedOn": "2018-04-11",
+      "durationSeconds": 1646,
+      "podcast": {
+        "show": "The New Paris Podcast",
+        "guest": "Alice Cabaret",
+        "episode": 19
+      },
+      "recording": "Publisher-hosted episode, identified by its RSS GUID and publication date.",
+      "listeningLinks": [
+        {
+          "provider": "the publisher’s episode page",
+          "url": "https://podcasters.spotify.com/pod/show/thenewparis/episodes/Episode-19-The-Changing-Urban-Landscape-of-Paris-with-Alice-Cabaret-e16qpa1",
+          "sourceId": "atlas-new-paris-rss"
+        }
+      ],
+      "context": [
+        "Summary based on publisher notes, not a full listening review. Discussion reflects the episode’s publication date."
+      ]
+    },
+    {
+      "id": "the-painter-of-modern-life",
+      "title": "The Painter of Modern Life",
+      "creator": "Charles Baudelaire",
+      "kind": "essay",
+      "year": 1863,
+      "yearLabel": "First published",
+      "form": "Essay",
+      "language": "French · English translation",
+      "destinationId": "paris",
+      "description": "An argument for taking art’s subjects from contemporary life, fashion and the passing moment.",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The National Gallery of Art situates Baudelaire’s 1863 essay in the emergence of modern Paris as an artistic subject.",
+        "sourceId": "atlas-painter-paris",
+        "review": "source_reported"
+      },
+      "sourceIds": [
+        "atlas-painter-paris",
+        "atlas-painter-edition"
+      ],
+      "immersion": "unreviewed",
+      "geography": {
+        "area": "paris_city",
+        "note": "The National Gallery of Art situates Baudelaire’s 1863 essay in the emergence of modern Paris as an artistic subject.",
+        "sourceId": "atlas-painter-paris"
+      },
+      "identifiers": [
+        {
+          "scheme": "isbn",
+          "value": "9780141956435",
+          "sourceId": "atlas-painter-edition"
+        }
+      ],
+      "publication": {
+        "originalYear": 1863,
+        "edition": {
+          "year": 2010,
+          "label": "Penguin Great Ideas ebook",
+          "isbn": "9780141956435",
+          "translator": "P. E. Charvet",
+          "sourceId": "atlas-painter-edition"
+        },
+        "sourceId": "atlas-painter-paris"
+      },
+      "parentPublication": {
+        "title": "The Painter of Modern Life · Penguin Great Ideas edition",
+        "sourceId": "atlas-painter-edition"
+      },
+      "context": [
+        "This record identifies the essay. The linked Penguin volume is its selected reading edition; the volume’s page count is not an essay reading-time estimate."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "atlas-a-moveable-feast",
+      "title": "Scribner · A Moveable Feast",
+      "url": "https://www.simonandschuster.com/books/A-Moveable-Feast/Ernest-Hemingway/9780684833637",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-belly-of-paris",
+      "title": "Modern Library · The Belly of Paris",
+      "url": "https://www.penguinrandomhouse.com/books/196067/the-belly-of-paris-by-emile-zola/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-hunchback-of-notre-dame",
+      "title": "Fingerprint / Penguin Random House · The Hunchback of Notre-Dame",
+      "url": "https://www.penguinrandomhouse.com/books/831775/the-hunchback-of-notre-dame-by-victor-hugotranslated-by-isabel-f-hapgood/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-elegance-of-the-hedgehog",
+      "title": "Europa Editions · The Elegance of the Hedgehog",
+      "url": "https://www.europaeditions.com/book/9781933372600/the-elegance-of-the-hedgehog",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-new-parisienne",
+      "title": "Abrams · The New Parisienne",
+      "url": "https://www.abramsbooks.com/product/new-parisienne_9781419742811/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-an-attempt-at-exhausting-a-place-in-paris",
+      "title": "Wakefield Press · An Attempt at Exhausting a Place in Paris",
+      "url": "https://wakefieldpress.com/products/an-attempt-at-exhausting-a-place-in-paris",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paris-13th-district",
+      "title": "Festival de Cannes · Paris, 13th District",
+      "url": "https://www.festival-cannes.com/en/f/les-olympiades/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-full-time",
+      "title": "Music Box Films · Full Time",
+      "url": "https://www.musicboxfilms.com/film/full-time/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-les-miserables-ladj-ly",
+      "title": "Festival de Cannes · Les Misérables",
+      "url": "https://www.festival-cannes.com/en/2019/meeting-the-team-of-les-miserables-by-ladj-ly/",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-la-haine",
+      "title": "Criterion · La Haine",
+      "url": "https://www.criterion.com/films/216-la-haine",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-red-balloon",
+      "title": "Criterion · The Red Balloon",
+      "url": "https://www.criterion.com/films/886-the-red-balloon",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-call-my-agent",
+      "title": "Netflix · Call My Agent!",
+      "url": "https://www.netflix.com/gb/title/80133335",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-call-my-agent-dates",
+      "title": "France Télévisions · Dix pour cent credits and dates",
+      "url": "https://www.francetelevisions.fr/et-vous/notre-tele/a-ne-pas-manquer/dix-pour-cent-3785",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-eddy",
+      "title": "Netflix Media Center · The Eddy",
+      "url": "https://media.netflix.com/en/only-on-netflix/80197844",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-the-eddy-meta",
+      "title": "Netflix · The Eddy credits and 2020 release",
+      "url": "https://www.netflix.com/gb/title/80197844",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-lupin",
+      "title": "Netflix · Lupin creator and 2021 release",
+      "url": "https://about.netflix.com/fr/news/netflix-today-confirms-original-french-series-lupin-will-return-summer-2021",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-lupin-paris",
+      "title": "Visit Paris Region · Lupin",
+      "url": "https://www.visitparisregion.com/fr/parcours-cine-tourisme/lieux-tournage-lupin",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paname-slimane",
+      "title": "Official artist channel · Paname",
+      "url": "https://www.youtube.com/watch?v=Xs90a3K9aIU",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paname-slimane-subject",
+      "title": "Paroles.net · song subject (licensed lyrics; not reproduced)",
+      "url": "https://www.paroles.net/slimane/paroles-paname",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paname-release",
+      "title": "Apple Music · Paname release metadata",
+      "url": "https://music.apple.com/us/music-video/paname/1445012827",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-je-connaissais-pas-paris-le-matin",
+      "title": "Official artist channel · Je connaissais pas Paris le matin",
+      "url": "https://www.youtube.com/watch?v=r-8m6CC3Yvs",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-je-connaissais-pas-paris-le-matin-subject",
+      "title": "Paroles.net · song subject (licensed lyrics; not reproduced)",
+      "url": "https://www.paroles.net/grand-corps-malade/paroles-je-connaissais-pas-paris-le-matin",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paris-va-bien",
+      "title": "Official artist channel · Paris va bien",
+      "url": "https://www.youtube.com/watch?v=vTqplgREdsM",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-paris-va-bien-subject",
+      "title": "Paroles.net · song subject (licensed lyrics; not reproduced)",
+      "url": "https://www.paroles.net/sexion-d-assaut/paroles-paris-va-bien",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-new-paris-rss",
+      "title": "The New Paris Podcast · publisher RSS",
+      "url": "https://anchor.fm/s/1d906628/podcast/rss",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-painter-edition",
+      "title": "Penguin · The Painter of Modern Life, P. E. Charvet translation",
+      "url": "https://www.penguin.co.uk/books/177555/the-painter-of-modern-life-by-baudelaire-charles/9780141956435",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "atlas-painter-paris",
+      "title": "National Gallery of Art · Picturing France, Paris and the Painters of Modern Life",
+      "url": "https://www.nga.gov/sites/default/files/migrate_images/content/dam/ngaweb/education/learning-resources/teaching-packets/pdfs/picturing_france.pdf",
+      "checkedAt": "2026-10-12",
+      "policy": "citation-and-facts-only"
+    }
+  ]
+}

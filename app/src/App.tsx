@@ -14,12 +14,22 @@ import { NeighbourhoodsPage } from './pages/NeighbourhoodsPage'
 const discovery = () => import('./pages/elsewhere/Discovery')
 export const routes: RouteObject[] = [
   {
+    path: '/paris/archive',
+    hydrateFallbackElement: <p role="status">Opening the Paris archive…</p>,
+    lazy: async () => { const m = await discovery(); return { Component: m.DiscoveryLayout, loader: m.discoveryLoader, ErrorBoundary: m.DiscoveryError } },
+    children: [{ index: true, lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisArchive')).ParisArchive }) }],
+  },
+  {
     path: '/discover',
     hydrateFallbackElement: <p role="status">Opening Elsewhere…</p>,
     lazy: async () => { const m = await discovery(); return { Component: m.DiscoveryLayout, loader: m.discoveryLoader, ErrorBoundary: m.DiscoveryError } },
     children: [
       { index: true, lazy: async () => ({ Component: (await discovery()).DiscoveryEntry }) },
       { path: 'browse', lazy: async () => ({ Component: (await discovery()).DiscoveryHome }) },
+      { path: 'place/paris/atlas', lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisAtlas')).ParisAtlasPage }) },
+      { path: 'place/paris/trails', lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisDiscoveryPages')).ParisTrailPage }) },
+      { path: 'place/paris/:section/:entityId', lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisDiscoveryPages')).ParisEntityPage }) },
+      { path: 'place/paris/:section', lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisDiscoveryPages')).ParisIndexPage }) },
       { path: 'place/:destinationId', lazy: async () => ({ Component: (await discovery()).DestinationPage }) },
       { path: 'work/:workId', lazy: async () => ({ Component: (await discovery()).WorkPage }) },
       { path: 'saved', lazy: async () => ({ Component: (await discovery()).SavedPage }) },

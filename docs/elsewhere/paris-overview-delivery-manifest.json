@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-12",
+  "source": "/Users/brendan/Library/Caches/copy-my-trip-phase0-check",
+  "destination": "/Users/brendan/Library/Mobile Documents/com~apple~CloudDocs/copy-my-trip",
+  "copiedFiles": 21,
+  "preCopyLimitation": "iCloud blocked a pre-copy content read. All original edited target modification times predated the task baseline; the baseline copies are retained in /private/tmp/paris-overview-baseline. Atomic copied-back files were read and SHA-256 matched.",
+  "sha256": {
+    "app/package.json": "3b3af2254cddbfcb5bca36dfb848b04dbc957eae386f9dab02f90204a57440de",
+    "app/src/pages/elsewhere/Discovery.tsx": "272374b2521db064f1b7c8f85cb049466bf74585a4bc0771f1ca329d80547082",
+    "app/src/pages/elsewhere/ParisDestination.tsx": "86391ae38698409ea5cc916a44e27bd345d1b02a2e3f89d8427aba63928d4c4c",
+    "app/src/pages/elsewhere/WorkPresentation.tsx": "98b66ca53eeee76c22a072446ae2f0eafb6a21f4d13fceadcbfbf8cc41100880",
+    "app/src/pages/elsewhere/AudioPresentation.tsx": "ac35e8547f51b9be6403d2f8529de20a06950bd2ff19291a9ca23c0392b327d8",
+    "app/src/pages/elsewhere/WorkArtwork.tsx": "a69161507a99b7cb3204899f5c23b7aaa9f05a960e491b1d9497ae2a438f7049",
+    "app/src/pages/elsewhere/ParisOverview.tsx": "02a691bf901bc5ec211e03ce99e9994987f63ce936635b9b83f9cc9b93e6d095",
+    "app/src/pages/elsewhere/ParisOverviewNavigation.tsx": "295acff21dd6300722a148082b2347a6a31a9073c5196a2ebaba97c9f70397b0",
+    "app/src/lib/culture/artwork.ts": "1f53642202647cf1dbc78ac52df9edddbd241c2408d8ecdb12f00f34a7d8af19",
+    "app/src/lib/culture/paris-overview.ts": "c3b546a09f9057d6e9666413814d5cc08cefefeaf1779ed1f30e9a4ec4dd1b44",
+    "app/src/styles/elsewhere-overview.css": "354fa092834b34deef82b4beae72565380c1afae8f98f73d7a132be28d24829f",
+    "app/scripts/route-smoke.tsx": "ad45f91de419a09a18ced31903a0356746886fc47e4fc4dac94e5e7f92cafaf5",
+    "app/scripts/paris-overview-smoke.tsx": "216968a8395f2ef45efba2e446372497bbac32d734686520b035c6ccfcf1a519",
+    "docs/elsewhere/26-paris-overview-implementation.md": "6a09a3f94f48f57b8b37be01fb24b8ae1a9f973ac1aed8b4140d9f7155b74f25",
+    "docs/elsewhere/27-paris-overview-artwork-ledger.md": "de4f24be4cc0d1c6e8f4f1fc13b882863142eb09a5a7f22b239b467e2e510233",
+    "docs/elsewhere/paris-overview-screenshots/paris-390.jpg": "58815a8df11c2396fb7b743f3c29dfdece9ec49429405f1255290594f3ba90ee",
+    "docs/elsewhere/paris-overview-screenshots/paris-1280.jpg": "fb9ff3c1fe6ae29ced0fb709703cb5c1a6ed9e8959cdfea6259752a2963eb07c",
+    "docs/elsewhere/paris-overview-screenshots/paris-768.jpg": "4e4495f64f1256d97a8b7fb3562d1057cfb66fc7960fb9f13846befb03021ef2",
+    "docs/elsewhere/paris-overview-screenshots/paris-390-top.jpg": "c1a86446364d838c93a34758793aa92249f8a5b20f95f651c808d6391d07450a",
+    "docs/elsewhere/paris-overview-screenshots/paris-1600-top.jpg": "ac34565434ef761ed0e7af29a35629e3c072777c50c2badfc15fa21475088af1",
+    "docs/elsewhere/paris-overview-screenshots/paris-1600.jpg": "052be65a5ade64c63627647c8e03d311893784bb69d025aec4c2b5e875c1cd12"
+  },
+  "protectedUnchanged": {
+    "app/src/lib/culture/seed.ts": "f2fac109d3d405b6592c55a0200685a4b47b6f945c393e25380e82831d281cba",
+    "app/src/lib/culture/paris-batch.json": "1f44799e2405df38d17f2aec0dc08762b7d8c2471eb13c3c6d581b8f2edaf6b2",
+    "app/src/lib/culture/audio-selection.ts": "5538522fc25fb1f5c55bb0d3a87c31c50096d6ddd540551447314b0f95a6eceb",
+    "app/src/lib/culture/paris-discovery.ts": "87ae05ed6ac47323c3bcd2570c76c657140ff79756ce0b21b8cdca103f0ac6bd",
+    "app/src/lib/culture/shelf.ts": "0699fc6d38087e1fa774f750b5f673f8fee1103c04b45cf64453e637a7e49c68",
+    "app/src/lib/culture/paris-personal.ts": "a11dbd974f7f4a360ed01b2ef8ae484399819166eb1d10a413293a12ece70f93",
+    "app/src/cities/paris/data/places.json": "4dbf9fe62dbc375857d9e84adf6f21a464b43b732d6b6bd3226a541b6b7d6190"
+  }
+}

@@ -43,7 +43,11 @@
     "media:redact": "node scripts/public-media.mjs",
     "test:public-media": "node scripts/public-media.mjs --check && node scripts/public-media-smoke.mjs",
     "import:culture-review": "node scripts/culture/import-review.mjs",
-    "test:culture-import": "node --test scripts/culture/import-review.test.mjs && node scripts/culture/import-review.mjs --check"
+    "test:culture-import": "node --test scripts/culture/import-review.test.mjs && node scripts/culture/import-review.mjs --check && node --test scripts/culture/atlas-import.test.mjs",
+    "test:paris-discovery": "esbuild scripts/paris-discovery-smoke.ts --bundle --platform=node --format=cjs --outfile=node_modules/.tmp/paris-discovery.cjs --log-level=error && node node_modules/.tmp/paris-discovery.cjs",
+    "import:paris-atlas": "node scripts/culture/atlas-import.mjs",
+    "test:paris-batch": "esbuild scripts/paris-batch-smoke.ts --bundle --format=cjs --platform=node --define:import.meta.env={} --outfile=node_modules/.tmp/paris-batch.cjs --log-level=error && node node_modules/.tmp/paris-batch.cjs",
+    "test:paris-overview": "esbuild scripts/paris-overview-smoke.tsx --bundle --platform=node --format=cjs --jsx=automatic --define:import.meta.env={} --outfile=node_modules/.tmp/paris-overview.cjs --log-level=error && node node_modules/.tmp/paris-overview.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.4",

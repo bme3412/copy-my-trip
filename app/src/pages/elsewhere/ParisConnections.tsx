@@ -1,0 +1,26 @@
+import { useEffect, useRef, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import type { CultureCatalog } from '../../lib/culture/schema';
+import { entitiesFor, entityHref, neighbors, parisDiscovery, trailHref, type Connection } from '../../lib/culture/paris-discovery';
+export function Evidence({ids,catalog}:{ids:string[];catalog:CultureCatalog}) {
+  const sources=[...catalog.sources,...parisDiscovery.sources];
+  return <span className="pd-evidence">{ids.map(id=>{const source=sources.find(s=>s.id===id);return source?<a key={id} href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>:null;})}</span>;
+}
+export function ConnectionReason({connection,catalog}:{connection:Connection;catalog:CultureCatalog}) {return <div className="pd-reason"><span className="ew-eyebrow">{connection.basis==='editorial'?'Editorial connection':connection.label}</span><p>{connection.explanation}</p><Evidence ids={connection.sourceIds} catalog={catalog}/></div>;}
+export function ParisConnections({root,catalog}:{root:string;catalog:CultureCatalog}) {
+  const entities=entitiesFor(catalog),[params,setParams]=useSearchParams(),[graph,setGraph]=useState(false),heading=useRef<HTMLHeadingElement>(null),last=useRef('');
+  const requested=params.get('node'),selected=entities.find(e=>e.id===(requested??root))??entities.find(e=>e.id===root)!;
+  const links=neighbors(selected.id).flatMap(n=>{const entity=entities.find(e=>e.id===n.id);return entity?[{...n,entity}]:[];});
+  useEffect(()=>{if(last.current && last.current!==selected.id)heading.current?.focus({preventScroll:true});last.current=selected.id;},[selected.id]);
+  const select=(id:string)=>{const next=new URLSearchParams(params);next.set('node',id);setParams(next,{preventScrollReset:true});};
+  if(!links.length)return <section className="pd pd-connections pd-panel" id="connections"><h2 ref={heading} tabIndex={-1}>Keep exploring</h2>{requested&&!entities.some(e=>e.id===requested)&&<p role="status">That connection is unavailable.</p>}<p>No reviewed connections from {selected.title} yet.</p><Link to="/discover/place/paris">Explore more Paris stories ↗</Link>{selected.id!==root&&<p><button onClick={()=>select(root)}>Back to this work’s connections</button></p>}</section>;
+  return <section className="pd pd-connections pd-panel" id="connections"><p className="ew-eyebrow">Follow your curiosity</p><h2 ref={heading} tabIndex={-1}>Connections from {selected.title}</h2><p>Every line has a reason. Explore a connection, or follow it into your own trail.</p>{requested&&!entities.some(e=>e.id===requested)&&<p role="status">That connection is unavailable. Showing this chapter’s starting point.</p>}<div className="pd-actions"><Link className="ew-button" to={trailHref([selected.id])}>Start a discovery trail ↗</Link><Link to={entityHref(selected)}>Open {selected.title} ↗</Link><button className="pd-graph-toggle" aria-expanded={graph} onClick={()=>setGraph(!graph)}>{graph?'Hide':'Show'} connection graph</button></div>
+    <div className={`pd-connection-layout ${graph?'pd-show-graph':''}`}><ul className="pd-connection-list">{links.map(({entity,connection})=><li key={connection.id}><p className="ew-eyebrow">{entity.kind}</p><h3><Link to={entityHref(entity)}>{entity.title}</Link></h3><ConnectionReason connection={connection} catalog={catalog}/><button onClick={()=>select(entity.id)}>Explore connections from {entity.title} →</button></li>)}{!links.length&&<li>No reviewed connections yet. <Link to="/discover/place/paris">Choose another starting point</Link>.</li>}</ul>
+    <div className="pd-graph"><svg viewBox="0 0 1000 880" role="group" aria-label={`Interactive connections from ${selected.title}`}><circle cx="500" cy="440" r="330" fill="none" stroke="#e0e6df"/>{links.map((n,i)=>{const a=2*Math.PI*i/links.length-Math.PI/2,x=500+330*Math.cos(a),y=440+330*Math.sin(a);const next=new URLSearchParams(params);next.set('node',n.id);return <g key={n.id}><line x1="500" y1="440" x2={x} y2={y} stroke="#a5bcb5"/><a href={`?${next}#connections`} onClick={e=>{e.preventDefault();select(n.id);}} aria-label={`Explore connections from ${n.entity.title}`}><title>{`${n.entity.title} · ${n.connection.label}`}</title><rect x={x-110} y={y-65} width="220" height="130" rx="10" fill="#e4eeea" stroke="#b3c7bc"/><GraphTitle title={n.entity.title} x={x} y={y-37}/><text x={x} y={y+49} textAnchor="middle" fill="#4c6257" fontSize="14">{n.connection.label}</text></a></g>;})}<rect x="380" y="367" width="240" height="146" rx="12" fill="#174c46"/><text x="500" y="388" textAnchor="middle" fill="#fff" fontSize="12">{selected.kind.toUpperCase()}</text><GraphTitle title={selected.title} x={500} y={414} color="white"/></svg><p className="ew-small">Select a node to explore its connections. The list carries the same links and evidence.</p></div></div></section>;
+}
+
+function GraphTitle({title,x,y,color='#174c46'}:{title:string;x:number;y:number;color?:string}) {
+  const lines:string[]=[];
+  for(const word of title.split(' ')){const last=lines.length-1;if(last>=0&&lines[last].length+word.length<27)lines[last]+=` ${word}`;else lines.push(word);}
+  return <text x={x} y={y} textAnchor="middle" fill={color} fontSize="17">{lines.map((line,i)=><tspan x={x} dy={i?20:0} key={i}>{line}</tspan>)}</text>;
+}

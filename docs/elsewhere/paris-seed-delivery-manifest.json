@@ -1,0 +1,180 @@
+{
+  "files": [
+    {
+      "path": "app/api/catalog.ts",
+      "sha256": "0e222f8373152315baf6d76638e437b7fc896812fe73322a31483492b0dcb537"
+    },
+    {
+      "path": "app/package.json",
+      "sha256": "1ff8e0d905a7e9a0f4a366758c3ab3e50225236bb9ef8d4d5fb6000084f627cb"
+    },
+    {
+      "path": "app/scripts/api-runtime-smoke.mjs",
+      "sha256": "9988501594e98b5e9d048cba91a248d6663944fbd353c7eddbd7ceb7215cbb2b"
+    },
+    {
+      "path": "app/scripts/culture-smoke.ts",
+      "sha256": "59137870cd9a375c259b25b2b875881cd4309889d312f68de794f513f060d95c"
+    },
+    {
+      "path": "app/scripts/culture/atlas-import.mjs",
+      "sha256": "e9b938d633358e9c7eeaeb303add958d69fc42afcbcd53d22e7e6e776c873186"
+    },
+    {
+      "path": "app/scripts/culture/atlas-import.test.mjs",
+      "sha256": "c705285cfa0ddf7d431b591e34af0323c136e994f7708560608157d21199b98a"
+    },
+    {
+      "path": "app/scripts/paris-batch-smoke.ts",
+      "sha256": "e0df9e5e678f99fd991496f6de1dba3a79f9d1c686eb86eec94690a0a938a1d9"
+    },
+    {
+      "path": "app/scripts/route-smoke.tsx",
+      "sha256": "8c64307851598929a269fc40ec82c8b635a2ff20104ac228176a2bd5be612fb6"
+    },
+    {
+      "path": "app/src/lib/culture/catalog-metadata.ts",
+      "sha256": "301ea26dd0f2c1bf5bda1ee590db3239dfefb9ac51034ae3383ae633294e15c9"
+    },
+    {
+      "path": "app/src/lib/culture/covers.ts",
+      "sha256": "e6fb6f7afbae33d6973892e281cef9337dfb3f97e2697ae18f2e34a814f520f1"
+    },
+    {
+      "path": "app/src/lib/culture/paris-batch.json",
+      "sha256": "1f44799e2405df38d17f2aec0dc08762b7d8c2471eb13c3c6d581b8f2edaf6b2"
+    },
+    {
+      "path": "app/src/lib/culture/paris-discovery.ts",
+      "sha256": "87ae05ed6ac47323c3bcd2570c76c657140ff79756ce0b21b8cdca103f0ac6bd"
+    },
+    {
+      "path": "app/src/lib/culture/schema.ts",
+      "sha256": "b98ff79b2d72c823a11dc5568034e6fd871552a518c8dd552a7c8db30a936918"
+    },
+    {
+      "path": "app/src/lib/culture/seed.ts",
+      "sha256": "f2fac109d3d405b6592c55a0200685a4b47b6f945c393e25380e82831d281cba"
+    },
+    {
+      "path": "app/src/pages/elsewhere/AudioPresentation.tsx",
+      "sha256": "60af7461d2f50f22bc3bfad805930e60260950e1ca47c979f0c252cd72e80833"
+    },
+    {
+      "path": "app/src/pages/elsewhere/Discovery.tsx",
+      "sha256": "9ca152284bab2c1c5989ebd2c6fff04d6915d084cf918928ddb4a2365c74f7f6"
+    },
+    {
+      "path": "app/src/pages/elsewhere/ParisConnections.tsx",
+      "sha256": "ac83e525362f9c492fa885765d0985ba7e693aebfa4dd8a3a93c33e08c4543fd"
+    },
+    {
+      "path": "app/src/pages/elsewhere/ParisDiscoveryPages.tsx",
+      "sha256": "57bb4b8660a86882264609f08157291cb30624b07cad2baa1d60151704fc4c76"
+    },
+    {
+      "path": "app/src/pages/elsewhere/WorkPresentation.tsx",
+      "sha256": "4dad895788676cf25f2a752934279a878ba9ac0c5ea60586d3a4da220c7df749"
+    },
+    {
+      "path": "app/src/styles/elsewhere-paris-hub.css",
+      "sha256": "abbb254220c33a0acfd243ab9df44ba1f258da8d6e5a634298065e7ea3ab8e26"
+    },
+    {
+      "path": "docs/elsewhere/25-paris-seed-integration.md",
+      "sha256": "6ed0a4d7443e5661cce25f642b1b0b63353aaa5d99c4271bedd8d01b27bee89e"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/browse-1280.jpg",
+      "sha256": "6e8b571560bac548d9618d8dbd3b29b1455ffba2b59544354689918d64c49786"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/browse-1600.jpg",
+      "sha256": "dbfa467530de7ffafee89e652b7506d61a6acc7f300c2e2c53210b78ace8c89c"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/browse-200-percent-equivalent.jpg",
+      "sha256": "6f7bdc99bc3841c629819844430569defa9c0d3060dc7330d9aa495c347da127"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/browse-390.jpg",
+      "sha256": "17a283cf40abc9193e6515b852b53f027797a2a696f84d6ca24328cf48b0ea42"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/browse-768.jpg",
+      "sha256": "431958cb91064d5e42c24441973c370e32441dc919bdad242372b9a664c742c3"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/essay-1280.jpg",
+      "sha256": "c6a45f48241c5e44a76b798b2d44798a5949de547bb33d576ea7623b39a73498"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/essay-1600.jpg",
+      "sha256": "94d9c64e37c227e86de522ab02ea6234f396ce0ab2c3ce45fb988614ce756be9"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/essay-390.jpg",
+      "sha256": "6ce8dffc86680b5121bc6befa125665ee613c4c15431cab30f7796c42313004f"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/essay-768.jpg",
+      "sha256": "8e7cc0dc1bb0979049c18213c7a2b9131f3737f853f744ccb9059069ea4dd6a6"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/paris-1280.jpg",
+      "sha256": "47b623f6d3b2ed5b30b2ad5b082611640b33dab5b44e74e330a767cda4ba66ca"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/paris-1600.jpg",
+      "sha256": "6376b6cd20f3f145910bbd10bc6ae9010b799ca715ce6b72d83badbff75941e9"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/paris-390.jpg",
+      "sha256": "3d011dc05bcc8cbd20b35e1ace9219a8d351446037fd965ce16fe787c305f1bc"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/paris-768.jpg",
+      "sha256": "c61904f940897291b591a5494784743b8cf2897518ea927c5e1ed23c13a6dc84"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/paris-featured-desktop.jpg",
+      "sha256": "b5e3a1c94e76f33de5b9b33f8007710a481bb0b9f7bba4498507ff1ec7a5b22e"
+    },
+    {
+      "path": "docs/elsewhere/paris-seed-screenshots/selected-tv-390.jpg",
+      "sha256": "766899aa1fc6319e6ea1eefba56314731e3c632f5f151af0a7d00d1bec970e7f"
+    },
+    {
+      "path": "editorial/paris-atlas-120/README.md",
+      "sha256": "c54d1b1a6cf65eb5d57829066d87ed346659304ccc40076a6dcbb48acd1bc6d0"
+    },
+    {
+      "path": "editorial/paris-atlas-120/decisions.json",
+      "sha256": "880c4d78c34286d72c7b28303493bc106bb944745ce3cd719acc96305dc2b3e3"
+    },
+    {
+      "path": "editorial/paris-atlas-120/existing-catalog.json",
+      "sha256": "266c344c24d77eb91c6010653d27802210775d22ea2511c1494a581d7dbdb7dc"
+    },
+    {
+      "path": "editorial/paris-atlas-120/generated/review-queue.json",
+      "sha256": "d804bf1a13b06837be6471141ffd1f86c570b4417daf295345215ce3e2f10d8c"
+    },
+    {
+      "path": "editorial/paris-atlas-120/generated/review-report.md",
+      "sha256": "dd8fd687348cc09f5cf6a5123d3020c8d9d3a6b70a3f870d204191847d7048b9"
+    },
+    {
+      "path": "editorial/paris-atlas-120/podcast-evidence.json",
+      "sha256": "796cf6137d154380e329b0d8328ef1fb1895aea498027550a79c91365affb32e"
+    },
+    {
+      "path": "editorial/paris-atlas-120/source/catalog.md",
+      "sha256": "e6ec0bec336e81fcb681e8669b5e6eec347cae955efe7e550b7d20e1f9ef03ba"
+    },
+    {
+      "path": "editorial/paris-atlas-120/source/manifest.json",
+      "sha256": "c394fb7172347775d025e2d812662c3cefe749ba6f3d28c2d6cadb0ac1700ec3"
+    }
+  ]
+}

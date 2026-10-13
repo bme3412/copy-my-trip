@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {parseDraft,reconcile,run} from './atlas-import.mjs';
+const dir=new URL('../../../editorial/paris-atlas-120/',import.meta.url),read=p=>JSON.parse(readFileSync(new URL(p,dir),'utf8'));
+const raw=readFileSync(new URL('source/catalog.md',dir));
+const manifest=read('source/manifest.json'),decisions=read('decisions.json'),existing=read('existing-catalog.json');
+const earlier=JSON.parse(readFileSync(new URL('../../../editorial/paris-verification-pass-1/generated/review-queue.json',import.meta.url),'utf8'));
+const clone=x=>structuredClone(x);
+test('complete inventory, explicit matches and deterministic output',()=>{const q=reconcile(raw,manifest,decisions,existing,earlier);assert.equal(q.candidates.length,120);assert.equal(q.counts.existing,27);assert.deepEqual(q,reconcile(raw,manifest,decisions,existing,earlier));});
+test('malformed and duplicate rows cannot import',()=>{assert.throws(()=>parseDraft(raw.toString().replace('PAR-120','PAR-119')));assert.throws(()=>parseDraft(raw.toString().replace('| PAR-120','| PAR-999')));assert.throws(()=>reconcile(Buffer.concat([raw,Buffer.from('changed')]),manifest,decisions,existing,earlier));});
+test('priority never grants publication; identity and source gates',()=>{for(const mutate of [d=>{d.records[0].publicationEligible=true;},d=>{d.records[0].existingWorkId='missing';},d=>{d.records[0].earlierCandidateId='missing';},d=>{d.records[0].firstBatch=true;},d=>{d.records[0].publicationAction='include-local';},d=>{d.approvedWorks.push({id:'unapproved'});}]){const d=clone(decisions);mutate(d);assert.throws(()=>reconcile(raw,manifest,d,existing,earlier));}});
+test('generated queue is current',()=>run(true));
