@@ -45,7 +45,7 @@ const id = (v: unknown) => typeof v === 'string' && /^[a-z0-9-]{1,80}$/.test(v);
 function safeUrl(v:unknown) { text(v);const u=new URL(v);if(u.protocol!=='https:'||u.username||u.password)throw Error('Unsafe citation'); }
 function validDate(v:unknown):v is string {return typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;}
 /** Filtered API envelopes may omit playlist members. Full catalog loads additionally validate integrity. */
-export const CATALOG_LIMITS = {destinations:20,sources:2000,works:500} as const;
+export const CATALOG_LIMITS = {destinations:20,sources:2000,works:750} as const;
 export function parseCatalog(value: unknown): CultureCatalog {
   object(value); keys(value,['schemaVersion','revision','destinations','sources','works']);
   if(value.schemaVersion!==1&&value.schemaVersion!==2&&value.schemaVersion!==3) throw Error('Unsupported catalog'); text(value.revision,80);

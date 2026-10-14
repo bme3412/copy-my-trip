@@ -1,0 +1,1810 @@
+{
+  "sources": [
+    {
+      "id": "tv-import-1",
+      "title": "Supplied TV catalog · Emily in Paris",
+      "url": "https://www.justwatch.com/us/tv-show/emily-in-paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-2",
+      "title": "Supplied TV catalog · The Hook Up Plan (Plan cœur)",
+      "url": "https://www.justwatch.com/us/tv-show/the-hook-up-plan",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-3",
+      "title": "Supplied TV catalog · Standing Up (Drôle)",
+      "url": "https://www.justwatch.com/us/tv-show/standing-up",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-4",
+      "title": "Supplied TV catalog · Family Business",
+      "url": "https://www.justwatch.com/us/tv-show/family-business",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-5",
+      "title": "Supplied TV catalog · Paris Has Fallen",
+      "url": "https://www.justwatch.com/us/tv-show/paris-has-fallen",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-6",
+      "title": "Supplied TV catalog · Berlin (Berlín y las joyas de París)",
+      "url": "https://www.justwatch.com/us/tv-show/berlin",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-7",
+      "title": "Supplied TV catalog · Criminal: France",
+      "url": "https://www.justwatch.com/us/tv-show/criminal-france",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-8",
+      "title": "Supplied TV catalog · Furies",
+      "url": "https://www.justwatch.com/us/tv-show/furies",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-9",
+      "title": "Supplied TV catalog · Osmosis",
+      "url": "https://www.justwatch.com/us/tv-show/osmosis",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-10",
+      "title": "Supplied TV catalog · Vampires",
+      "url": "https://www.justwatch.com/us/tv-show/vampires-2020",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-11",
+      "title": "Supplied TV catalog · Weekend Family (Week-End Family)",
+      "url": "https://www.justwatch.com/us/tv-show/week-end-family",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-12",
+      "title": "Supplied TV catalog · I3P",
+      "url": "https://www.justwatch.com/us/tv-show/i3p",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-13",
+      "title": "Supplied TV catalog · Détectives",
+      "url": "https://www.justwatch.com/us/tv-show/detectives",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-14",
+      "title": "Supplied TV catalog · Spiral (Engrenages)",
+      "url": "https://www.justwatch.com/us/tv-show/spiral",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-15",
+      "title": "Supplied TV catalog · The Bureau (Le Bureau des légendes)",
+      "url": "https://www.justwatch.com/us/tv-show/the-bureau-2015",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-16",
+      "title": "Supplied TV catalog · Astrid et Raphaëlle (Astrid)",
+      "url": "https://www.justwatch.com/us/tv-show/astrid-et-raphaelle",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-17",
+      "title": "Supplied TV catalog · The Art of Crime (L’Art du crime)",
+      "url": "https://www.justwatch.com/us/tv-show/art-of-crime",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-18",
+      "title": "Supplied TV catalog · La Mante",
+      "url": "https://www.justwatch.com/us/tv-show/la-mante",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-19",
+      "title": "Supplied TV catalog · The New Look",
+      "url": "https://www.justwatch.com/us/tv-show/the-new-look",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-20",
+      "title": "Supplied TV catalog · Carême",
+      "url": "https://www.justwatch.com/us/tv-show/careme",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-21",
+      "title": "Supplied TV catalog · The Collection",
+      "url": "https://www.justwatch.com/us/tv-show/the-collection",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-22",
+      "title": "Supplied TV catalog · Paris Police 1900",
+      "url": "https://www.justwatch.com/us/tv-show/paris-police-1900",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-23",
+      "title": "Supplied TV catalog · Paris Police 1905",
+      "url": "https://www.justwatch.com/us/tv-show/paris-police-1905",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-24",
+      "title": "Supplied TV catalog · The Bonfire of Destiny (Le Bazar de la Charité)",
+      "url": "https://www.justwatch.com/us/tv-show/le-bazar-de-la-charite",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-25",
+      "title": "Supplied TV catalog · Notre-Dame (Notre-Dame, la part du feu)",
+      "url": "https://www.justwatch.com/us/tv-show/notre-dame",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-26",
+      "title": "Supplied TV catalog · Les Misérables",
+      "url": "https://www.justwatch.com/us/tv-show/les-miserables",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-27",
+      "title": "Supplied TV catalog · Marie Antoinette",
+      "url": "https://www.justwatch.com/us/tv-show/marie-antoinette",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-28",
+      "title": "Supplied TV catalog · Versailles",
+      "url": "https://www.justwatch.com/us/tv-show/versailles",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-29",
+      "title": "Supplied TV catalog · The Walking Dead: Daryl Dixon",
+      "url": "https://www.justwatch.com/us/tv-show/the-walking-dead-daryl-dixon",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-30",
+      "title": "Supplied TV catalog · The Parisian Agency: Exclusive Properties (L’Agence)",
+      "url": "https://www.justwatch.com/us/tv-show/the-parisian-agency-exclusive-properties-2020",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-31",
+      "title": "Supplied TV catalog · Chefs",
+      "url": "https://www.justwatch.com/us/tv-show/chefs",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-32",
+      "title": "Supplied TV catalog · Paris (Sandrine Voillet documentary)",
+      "url": "https://www.justwatch.com/us/tv-show/paris-2007",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-33",
+      "title": "Supplied TV catalog · Filthy Cities — S1E2: Revolutionary Paris",
+      "url": "https://www.justwatch.com/us/tv-show/filthy-cities",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-34",
+      "title": "Supplied TV catalog · Joanna Lumley’s Great Cities of the World — S1E1: Paris",
+      "url": "https://www.justwatch.com/us/tv-show/joanna-lumleys-great-cities-of-the-world",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-35",
+      "title": "Supplied TV catalog · Secret Cities — S1E2: Paris, the Sacré-Cœur",
+      "url": "https://www.justwatch.com/us/tv-show/secret-cities",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-36",
+      "title": "Supplied TV catalog · Sinking Cities — Paris episode",
+      "url": "https://www.justwatch.com/us/tv-show/sinking-cities",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-37",
+      "title": "Supplied TV catalog · Chef’s Table: France — S1E1: Alain Passard",
+      "url": "https://www.justwatch.com/us/tv-show/chefs-table-france",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-38",
+      "title": "Supplied TV catalog · Chef’s Table: France — S1E3: Adeline Grattard",
+      "url": "https://www.justwatch.com/us/tv-show/chefs-table-france",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-39",
+      "title": "Supplied TV catalog · Best of the World with Antoni Porowski — S1E2: Paris",
+      "url": "https://www.justwatch.com/us/tv-show/best-of-the-world-with-antoni-porowski",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-40",
+      "title": "Supplied TV catalog · From Paris to Rome with Bettany Hughes — S1E1: Paris",
+      "url": "https://www.justwatch.com/us/tv-show/from-paris-to-rome-with-bettany-hughes",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "tv-import-41",
+      "title": "Supplied TV catalog · Paris, A Capital Tale (Paris, une histoire capitale)",
+      "url": "https://www.justwatch.com/us/tv-show/paris-a-capital-tale",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    }
+  ],
+  "works": [
+    {
+      "id": "tv-emily-in-paris-2020",
+      "title": "Emily in Paris",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2020,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2020,
+        "sourceId": "tv-import-1"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Fashion, marketing, cafés and the tourist imaginary.",
+      "sourceIds": [
+        "tv-import-1"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Fashion, marketing, cafés and the tourist imaginary.",
+        "sourceId": "tv-import-1",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2020. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Fashion, marketing, cafés and the tourist imaginary",
+        "sourceId": "tv-import-1"
+      }
+    },
+    {
+      "id": "tv-the-hook-up-plan-plan-cur-2018",
+      "title": "The Hook Up Plan (Plan cœur)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2018,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2018,
+        "sourceId": "tv-import-2"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Modern dating, friendships and Parisian nightlife.",
+      "sourceIds": [
+        "tv-import-2"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Modern dating, friendships and Parisian nightlife.",
+        "sourceId": "tv-import-2",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2018. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Modern dating, friendships and Parisian nightlife",
+        "sourceId": "tv-import-2"
+      }
+    },
+    {
+      "id": "tv-standing-up-drole-2022",
+      "title": "Standing Up (Drôle)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-3"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Parisian stand-up clubs and emerging comedians.",
+      "sourceIds": [
+        "tv-import-3"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Parisian stand-up clubs and emerging comedians.",
+        "sourceId": "tv-import-3",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Parisian stand-up clubs and emerging comedians",
+        "sourceId": "tv-import-3"
+      }
+    },
+    {
+      "id": "tv-family-business-2019",
+      "title": "Family Business",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-4"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris family life and the neighborhood shop economy.",
+      "sourceIds": [
+        "tv-import-4"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris family life and the neighborhood shop economy.",
+        "sourceId": "tv-import-4",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris family life and the neighborhood shop economy",
+        "sourceId": "tv-import-4"
+      }
+    },
+    {
+      "id": "tv-paris-has-fallen-2024",
+      "title": "Paris Has Fallen",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2024,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2024,
+        "sourceId": "tv-import-5"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Contemporary Paris as target of an extremist plot.",
+      "sourceIds": [
+        "tv-import-5"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Contemporary Paris as target of an extremist plot.",
+        "sourceId": "tv-import-5",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2024. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Contemporary Paris as target of an extremist plot",
+        "sourceId": "tv-import-5"
+      }
+    },
+    {
+      "id": "tv-berlin-berlin-y-las-joyas-de-paris-2023",
+      "title": "Berlin (Berlín y las joyas de París)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2023,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2023,
+        "sourceId": "tv-import-6"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris high-society jewel heist; Money Heist spin-off.",
+      "sourceIds": [
+        "tv-import-6"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris high-society jewel heist; Money Heist spin-off.",
+        "sourceId": "tv-import-6",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2023. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris high-society jewel heist; Money Heist spin-off",
+        "sourceId": "tv-import-6"
+      }
+    },
+    {
+      "id": "tv-criminal-france-2019",
+      "title": "Criminal: France",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-7"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "An interrogation room in Paris.",
+      "sourceIds": [
+        "tv-import-7"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: An interrogation room in Paris.",
+        "sourceId": "tv-import-7",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. An interrogation room in Paris",
+        "sourceId": "tv-import-7"
+      }
+    },
+    {
+      "id": "tv-furies-2024",
+      "title": "Furies",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2024,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2024,
+        "sourceId": "tv-import-8"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Fictional Paris underworld and rival mafia families.",
+      "sourceIds": [
+        "tv-import-8"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Fictional Paris underworld and rival mafia families.",
+        "sourceId": "tv-import-8",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2024. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Fictional Paris underworld and rival mafia families",
+        "sourceId": "tv-import-8"
+      }
+    },
+    {
+      "id": "tv-osmosis-2019",
+      "title": "Osmosis",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-9"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Near-future Paris, brain-data dating technology.",
+      "sourceIds": [
+        "tv-import-9"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Near-future Paris, brain-data dating technology.",
+        "sourceId": "tv-import-9",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Near-future Paris, brain-data dating technology",
+        "sourceId": "tv-import-9"
+      }
+    },
+    {
+      "id": "tv-vampires-2020",
+      "title": "Vampires",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2020,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2020,
+        "sourceId": "tv-import-10"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Secret vampire community in modern Paris.",
+      "sourceIds": [
+        "tv-import-10"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Secret vampire community in modern Paris.",
+        "sourceId": "tv-import-10",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2020. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Secret vampire community in modern Paris",
+        "sourceId": "tv-import-10"
+      }
+    },
+    {
+      "id": "tv-weekend-family-week-end-family-2022",
+      "title": "Weekend Family (Week-End Family)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-11"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Contemporary Parisian family life.",
+      "sourceIds": [
+        "tv-import-11"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Contemporary Parisian family life.",
+        "sourceId": "tv-import-11",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Contemporary Parisian family life",
+        "sourceId": "tv-import-11"
+      }
+    },
+    {
+      "id": "tv-i3p-2022",
+      "title": "I3P",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-12"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris police psychiatric unit; episodes reference Panthéon and Butte-aux-Cailles.",
+      "sourceIds": [
+        "tv-import-12"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris police psychiatric unit; episodes reference Panthéon and Butte-aux-Cailles.",
+        "sourceId": "tv-import-12",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris police psychiatric unit; episodes reference Panthéon and Butte-aux-Cailles",
+        "sourceId": "tv-import-12"
+      }
+    },
+    {
+      "id": "tv-detectives-2013",
+      "title": "Détectives",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2013,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2013,
+        "sourceId": "tv-import-13"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "A family-run Paris detective agency.",
+      "sourceIds": [
+        "tv-import-13"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: A family-run Paris detective agency.",
+        "sourceId": "tv-import-13",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Contemporary Paris",
+        "Supplied listing year: 2013. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. A family-run Paris detective agency",
+        "sourceId": "tv-import-13"
+      }
+    },
+    {
+      "id": "tv-spiral-engrenages-2005",
+      "title": "Spiral (Engrenages)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2005,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2005,
+        "sourceId": "tv-import-14"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris police, courts, institutional corruption.",
+      "sourceIds": [
+        "tv-import-14"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris police, courts, institutional corruption.",
+        "sourceId": "tv-import-14",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Crime, espionage and society",
+        "Supplied listing year: 2005. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris police, courts, institutional corruption",
+        "sourceId": "tv-import-14"
+      }
+    },
+    {
+      "id": "tv-the-bureau-le-bureau-des-legendes-2015",
+      "title": "The Bureau (Le Bureau des légendes)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2015,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2015,
+        "sourceId": "tv-import-15"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris DGSE headquarters and international espionage.",
+      "sourceIds": [
+        "tv-import-15"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris DGSE headquarters and international espionage.",
+        "sourceId": "tv-import-15",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Crime, espionage and society",
+        "Supplied listing year: 2015. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris DGSE headquarters and international espionage",
+        "sourceId": "tv-import-15"
+      }
+    },
+    {
+      "id": "tv-astrid-et-raphaelle-astrid-2019",
+      "title": "Astrid et Raphaëlle (Astrid)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-16"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Investigations in and around Paris.",
+      "sourceIds": [
+        "tv-import-16"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Investigations in and around Paris.",
+        "sourceId": "tv-import-16",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Crime, espionage and society",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Investigations in and around Paris",
+        "sourceId": "tv-import-16"
+      }
+    },
+    {
+      "id": "tv-the-art-of-crime-lart-du-crime-2017",
+      "title": "The Art of Crime (L’Art du crime)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2017,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2017,
+        "sourceId": "tv-import-17"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Art-centered mysteries at Paris museums and landmarks.",
+      "sourceIds": [
+        "tv-import-17"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Art-centered mysteries at Paris museums and landmarks.",
+        "sourceId": "tv-import-17",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Crime, espionage and society",
+        "Supplied listing year: 2017. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Art-centered mysteries at Paris museums and landmarks",
+        "sourceId": "tv-import-17"
+      }
+    },
+    {
+      "id": "tv-la-mante-2017",
+      "title": "La Mante",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2017,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2017,
+        "sourceId": "tv-import-18"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris-region criminal investigation.",
+      "sourceIds": [
+        "tv-import-18"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris-region criminal investigation.",
+        "sourceId": "tv-import-18",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Crime, espionage and society",
+        "Supplied listing year: 2017. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris-region criminal investigation",
+        "sourceId": "tv-import-18"
+      }
+    },
+    {
+      "id": "tv-the-new-look-2024",
+      "title": "The New Look",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2024,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2024,
+        "sourceId": "tv-import-19"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Christian Dior, Coco Chanel and Paris under Nazi occupation.",
+      "sourceIds": [
+        "tv-import-19"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Christian Dior, Coco Chanel and Paris under Nazi occupation.",
+        "sourceId": "tv-import-19",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2024. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Christian Dior, Coco Chanel and Paris under Nazi occupation",
+        "sourceId": "tv-import-19"
+      }
+    },
+    {
+      "id": "tv-careme-2025",
+      "title": "Carême",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2025,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2025,
+        "sourceId": "tv-import-20"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris-born Antonin Carême, Napoleonic kitchens and politics.",
+      "sourceIds": [
+        "tv-import-20"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris-born Antonin Carême, Napoleonic kitchens and politics.",
+        "sourceId": "tv-import-20",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2025. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris-born Antonin Carême, Napoleonic kitchens and politics",
+        "sourceId": "tv-import-20"
+      }
+    },
+    {
+      "id": "tv-the-collection-2016",
+      "title": "The Collection",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2016,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2016,
+        "sourceId": "tv-import-21"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Post-World War II Paris fashion house.",
+      "sourceIds": [
+        "tv-import-21"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Post-World War II Paris fashion house.",
+        "sourceId": "tv-import-21",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2016. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Post-World War II Paris fashion house",
+        "sourceId": "tv-import-21"
+      }
+    },
+    {
+      "id": "tv-paris-police-1900-2021",
+      "title": "Paris Police 1900",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2021,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2021,
+        "sourceId": "tv-import-22"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris at the turn of the 20th century, police and political scandal.",
+      "sourceIds": [
+        "tv-import-22"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris at the turn of the 20th century, police and political scandal.",
+        "sourceId": "tv-import-22",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2021. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris at the turn of the 20th century, police and political scandal",
+        "sourceId": "tv-import-22"
+      }
+    },
+    {
+      "id": "tv-paris-police-1905-2022",
+      "title": "Paris Police 1905",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-23"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Belle Époque vice squad, Bois de Boulogne.",
+      "sourceIds": [
+        "tv-import-23"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Belle Époque vice squad, Bois de Boulogne.",
+        "sourceId": "tv-import-23",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Belle Époque vice squad, Bois de Boulogne",
+        "sourceId": "tv-import-23"
+      }
+    },
+    {
+      "id": "tv-the-bonfire-of-destiny-le-bazar-de-la-charite-2019",
+      "title": "The Bonfire of Destiny (Le Bazar de la Charité)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-24"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Real 1897 Paris charity-bazaar fire and its aftermath.",
+      "sourceIds": [
+        "tv-import-24"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Real 1897 Paris charity-bazaar fire and its aftermath.",
+        "sourceId": "tv-import-24",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Real 1897 Paris charity-bazaar fire and its aftermath",
+        "sourceId": "tv-import-24"
+      }
+    },
+    {
+      "id": "tv-notre-dame-notre-dame-la-part-du-feu-2022",
+      "title": "Notre-Dame (Notre-Dame, la part du feu)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-25"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "The 2019 Notre-Dame fire and emergency response.",
+      "sourceIds": [
+        "tv-import-25"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: The 2019 Notre-Dame fire and emergency response.",
+        "sourceId": "tv-import-25",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. The 2019 Notre-Dame fire and emergency response",
+        "sourceId": "tv-import-25"
+      }
+    },
+    {
+      "id": "tv-les-miserables-2018",
+      "title": "Les Misérables",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2018,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2018,
+        "sourceId": "tv-import-26"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Victor Hugo’s Paris, revolution and social history.",
+      "sourceIds": [
+        "tv-import-26"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Victor Hugo’s Paris, revolution and social history.",
+        "sourceId": "tv-import-26",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2018. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Victor Hugo’s Paris, revolution and social history",
+        "sourceId": "tv-import-26"
+      }
+    },
+    {
+      "id": "tv-marie-antoinette-2022",
+      "title": "Marie Antoinette",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-27"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Bourbon court and the political world preceding the French Revolution.",
+      "sourceIds": [
+        "tv-import-27"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Bourbon court and the political world preceding the French Revolution.",
+        "sourceId": "tv-import-27",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Paris-related selection; the story may extend beyond the city. Bourbon court and the political world preceding the French Revolution",
+        "sourceId": "tv-import-27"
+      }
+    },
+    {
+      "id": "tv-versailles-2015",
+      "title": "Versailles",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2015,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2015,
+        "sourceId": "tv-import-28"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Louis XIV and construction of the court at Versailles.",
+      "sourceIds": [
+        "tv-import-28"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Louis XIV and construction of the court at Versailles.",
+        "sourceId": "tv-import-28",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Historical Paris",
+        "Supplied listing year: 2015. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Paris-related selection; the story may extend beyond the city. Louis XIV and construction of the court at Versailles",
+        "sourceId": "tv-import-28"
+      }
+    },
+    {
+      "id": "tv-the-walking-dead-daryl-dixon-2023",
+      "title": "The Walking Dead: Daryl Dixon",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2023,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2023,
+        "sourceId": "tv-import-29"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris landmarks in a France-wide zombie storyline.",
+      "sourceIds": [
+        "tv-import-29"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris landmarks in a France-wide zombie storyline.",
+        "sourceId": "tv-import-29",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Scripted · Wider France with Paris episodes",
+        "Supplied listing year: 2023. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris landmarks in a France-wide zombie storyline",
+        "sourceId": "tv-import-29"
+      }
+    },
+    {
+      "id": "tv-the-parisian-agency-exclusive-properties-lagence-2020",
+      "title": "The Parisian Agency: Exclusive Properties (L’Agence)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2020,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2020,
+        "sourceId": "tv-import-30"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "High-end Paris residences, interiors and family business.",
+      "sourceIds": [
+        "tv-import-30"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: High-end Paris residences, interiors and family business.",
+        "sourceId": "tv-import-30",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Reality, architecture and lifestyle",
+        "Supplied listing year: 2020. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. High-end Paris residences, interiors and family business",
+        "sourceId": "tv-import-30"
+      }
+    },
+    {
+      "id": "tv-chefs-2015",
+      "title": "Chefs",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2015,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2015,
+        "sourceId": "tv-import-31"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "A Parisian fine-dining kitchen and culinary apprenticeship.",
+      "sourceIds": [
+        "tv-import-31"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: A Parisian fine-dining kitchen and culinary apprenticeship.",
+        "sourceId": "tv-import-31",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Reality, architecture and lifestyle",
+        "Supplied listing year: 2015. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. A Parisian fine-dining kitchen and culinary apprenticeship",
+        "sourceId": "tv-import-31"
+      }
+    },
+    {
+      "id": "tv-paris-sandrine-voillet-documentary-2007",
+      "title": "Paris (Sandrine Voillet documentary)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2007,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2007,
+        "sourceId": "tv-import-32"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "History, social life, and development of Paris.",
+      "sourceIds": [
+        "tv-import-32"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: History, social life, and development of Paris.",
+        "sourceId": "tv-import-32",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2007. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. History, social life, and development of Paris",
+        "sourceId": "tv-import-32"
+      }
+    },
+    {
+      "id": "tv-filthy-cities-s1e2-revolutionary-paris-2011",
+      "title": "Filthy Cities — S1E2: Revolutionary Paris",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2011,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2011,
+        "sourceId": "tv-import-33"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Everyday sanitation and street life during revolutionary-era Paris.",
+      "sourceIds": [
+        "tv-import-33"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Everyday sanitation and street life during revolutionary-era Paris.",
+        "sourceId": "tv-import-33",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2011. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Everyday sanitation and street life during revolutionary-era Paris",
+        "sourceId": "tv-import-33"
+      }
+    },
+    {
+      "id": "tv-joanna-lumleys-great-cities-of-the-world-s1e1-paris-2022",
+      "title": "Joanna Lumley’s Great Cities of the World — S1E1: Paris",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-34"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "City landmarks and less familiar Paris locations.",
+      "sourceIds": [
+        "tv-import-34"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: City landmarks and less familiar Paris locations.",
+        "sourceId": "tv-import-34",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. City landmarks and less familiar Paris locations",
+        "sourceId": "tv-import-34"
+      }
+    },
+    {
+      "id": "tv-secret-cities-s1e2-paris-the-sacre-cur-2019",
+      "title": "Secret Cities — S1E2: Paris, the Sacré-Cœur",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2019,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2019,
+        "sourceId": "tv-import-35"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "How the Sacré-Cœur was built and what it signifies.",
+      "sourceIds": [
+        "tv-import-35"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: How the Sacré-Cœur was built and what it signifies.",
+        "sourceId": "tv-import-35",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2019. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. How the Sacré-Cœur was built and what it signifies",
+        "sourceId": "tv-import-35"
+      }
+    },
+    {
+      "id": "tv-sinking-cities-paris-episode-2018",
+      "title": "Sinking Cities — Paris episode",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2018,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2018,
+        "sourceId": "tv-import-36"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris infrastructure and climate adaptation.",
+      "sourceIds": [
+        "tv-import-36"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris infrastructure and climate adaptation.",
+        "sourceId": "tv-import-36",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2018. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris infrastructure and climate adaptation",
+        "sourceId": "tv-import-36"
+      }
+    },
+    {
+      "id": "tv-chefs-table-france-s1e1-alain-passard-2016",
+      "title": "Chef’s Table: France — S1E1: Alain Passard",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2016,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2016,
+        "sourceId": "tv-import-37"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "L’Arpège and modern Parisian haute cuisine.",
+      "sourceIds": [
+        "tv-import-37"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: L’Arpège and modern Parisian haute cuisine.",
+        "sourceId": "tv-import-37",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2016. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. L’Arpège and modern Parisian haute cuisine",
+        "sourceId": "tv-import-37"
+      }
+    },
+    {
+      "id": "tv-chefs-table-france-s1e3-adeline-grattard-2016",
+      "title": "Chef’s Table: France — S1E3: Adeline Grattard",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2016,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2016,
+        "sourceId": "tv-import-38"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Yam’Tcha and Chinese–French culinary experimentation in Paris.",
+      "sourceIds": [
+        "tv-import-38"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Yam’Tcha and Chinese–French culinary experimentation in Paris.",
+        "sourceId": "tv-import-38",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2016. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Yam’Tcha and Chinese–French culinary experimentation in Paris",
+        "sourceId": "tv-import-38"
+      }
+    },
+    {
+      "id": "tv-best-of-the-world-with-antoni-porowski-s1e2-paris-2026",
+      "title": "Best of the World with Antoni Porowski — S1E2: Paris",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2026,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2026,
+        "sourceId": "tv-import-39"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris restaurants and local cultural experiences.",
+      "sourceIds": [
+        "tv-import-39"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris restaurants and local cultural experiences.",
+        "sourceId": "tv-import-39",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2026. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris restaurants and local cultural experiences",
+        "sourceId": "tv-import-39"
+      }
+    },
+    {
+      "id": "tv-from-paris-to-rome-with-bettany-hughes-s1e1-paris-2022",
+      "title": "From Paris to Rome with Bettany Hughes — S1E1: Paris",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2022,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2022,
+        "sourceId": "tv-import-40"
+      },
+      "form": "TV episode",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Paris through the cultural-history lens of the Grand Tour.",
+      "sourceIds": [
+        "tv-import-40"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Paris through the cultural-history lens of the Grand Tour.",
+        "sourceId": "tv-import-40",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Documentary series & Paris-specific episodes",
+        "Supplied listing year: 2022. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Paris through the cultural-history lens of the Grand Tour",
+        "sourceId": "tv-import-40"
+      }
+    },
+    {
+      "id": "tv-paris-a-capital-tale-paris-une-histoire-capitale-2012",
+      "title": "Paris, A Capital Tale (Paris, une histoire capitale)",
+      "creator": "Creator not listed",
+      "kind": "tv_show",
+      "year": 2012,
+      "yearLabel": "Series began",
+      "series": {
+        "start": 2012,
+        "sourceId": "tv-import-41"
+      },
+      "form": "TV series",
+      "language": "See listing",
+      "destinationId": "paris",
+      "description": "Four-part history of Paris from its formation to modernity.",
+      "sourceIds": [
+        "tv-import-41"
+      ],
+      "immersion": "unreviewed",
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied television catalog: Four-part history of Paris from its formation to modernity.",
+        "sourceId": "tv-import-41",
+        "review": "source_reported"
+      },
+      "context": [
+        "Editorial category: Purchase only (not subscription streaming)",
+        "Supplied listing year: 2012. This may identify the series rather than the individual episode.",
+        "The supplied list reports U.S. availability on October 13, 2026. Recheck the linked listing for current providers, seasons and access terms."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris-related selection; the story may extend beyond the city. Four-part history of Paris from its formation to modernity",
+        "sourceId": "tv-import-41"
+      }
+    }
+  ]
+}

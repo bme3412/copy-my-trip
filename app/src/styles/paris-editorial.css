@@ -444,3 +444,9 @@
 .po-genre-filters button span { margin-left:6px; opacity:.7; font-size:10px; }
 .po-genre-filters button[aria-pressed=true] { background:#e6ebe3; border-color:#637b69; }
 @media(max-width:650px) { .po-genre-filters { flex-wrap:nowrap; overflow-x:auto; } .po-genre-filters>* { flex-shrink:0; } .po-genre-filters button { min-height:44px; } }
+
+.po-streaming-availability { padding:18px; margin:20px 0; border:1px solid #deddd4; border-radius:10px; background:#f2f1eb; }
+.po-streaming-availability h3 { font:24px var(--font-heading); margin:0 0 12px; }
+.po-streaming-availability p { font-size:13px; line-height:1.6; margin:6px 0; }
+.po-streaming-availability small { display:block; color:#686c63; font-size:11px; line-height:1.5; }
+.po-streaming-availability>a { display:inline-block; margin-top:12px; font-size:13px; }

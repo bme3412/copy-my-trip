@@ -8,7 +8,7 @@ import baseline from '../../editorial/paris-atlas-120/existing-catalog.json';
 const previous=parseCatalog(baseline);
 const previousIds=new Set(previous.works.map(w=>w.id));
 const clone=()=>JSON.parse(JSON.stringify(cultureCatalog));
-assert.equal(parseCatalog(clone()).works.length,463);
+assert.equal(parseCatalog(clone()).works.length,504);
 const cases=[
   [{destination:'paris',kind:'book'},['the-only-street-in-paris','the-seine','paris-paris','the-other-paris','impossible-city','a-waiter-in-paris','the-flaneur','the-most-beautiful-walk-in-the-world','the-new-paris','my-paris-dream','the-sweet-life-in-paris','pancakes-in-paris','giovannis-room']],
   [{destination:'rome',kind:'film'},['the-great-beauty']],
@@ -51,7 +51,7 @@ assert.equal(response('POST',{}).status,405);assert.equal(response('GET',{id:'mi
 assert.equal(response('GET',{kind:['book','film']}).status,400);assert.equal(response('GET',{private:'true'}).status,400);
 assert.equal(response('GET',{destination:'berlin'}).status,400);
 const result=response('GET',{id:'roman-stories'});assert.equal(result.status,200);assert.equal(parseCatalog(result.body).works[0].id,'roman-stories');
-assert.equal(response('GET',{q:'Berlin'}).body.works.length,0);
+assert.equal(response('GET',{q:'no-such-title-xyz'}).body.works.length,0);
 assert.equal(cultureCatalog.destinations.find(d=>d.id==='rome')?.archive,'none');
 console.log('PASS culture: 7 golden queries; source/scope/rights validation; API success/error contracts; persisted idempotent bookmarks, corrupt/quota/conflict recovery and trip isolation');
 

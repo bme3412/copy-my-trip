@@ -8,7 +8,7 @@ const rules:Record<string,readonly (readonly [string,RegExp])[]>={
 export function parisGenres(work:CultureWork):string[]{
  if(work.kind==='song')return (musicCategories as Record<string,string[]>)[work.id]??['Other'];
  const text=[work.form,work.description,...(work.context??[])].join(' ');
- const matches=(rules[work.kind]??[]).filter(([,pattern])=>pattern.test(text)).map(([label])=>label);
+ const matches=(rules[work.kind==='tv_show'?'film':work.kind]??[]).filter(([,pattern])=>pattern.test(text)).map(([label])=>label);
  return matches.length?matches:['Other'];
 }
 export function parisGenreCounts(works:CultureWork[]) {

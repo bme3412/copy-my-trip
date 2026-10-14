@@ -72,3 +72,10 @@ for(const kind of ['book','film'] as const) {
  assert(works.every(work=>parisGenres(work).length>0));
 }
 assert(parisGenres(cultureCatalog.works.find(work=>work.id==='film-daguerreotypes-1975')!).includes('Documentary'));
+
+import tvAvailability from '../src/lib/culture/tv-availability.json';
+assert.equal(Object.keys(tvAvailability).length,44);
+assert.equal(cultureCatalog.works.filter(w=>w.destinationId==='paris'&&['film','tv_show'].includes(w.kind)).length,181);
+assert(html.includes('Film, TV &amp; streaming'));
+for(const id of Object.keys(tvAvailability))assert(cultureCatalog.works.some(w=>w.id===id&&w.kind==='tv_show'));
+assert.equal(cultureCatalog.works.filter(w=>w.title.startsWith('Chef’s Table: France')).length,2);

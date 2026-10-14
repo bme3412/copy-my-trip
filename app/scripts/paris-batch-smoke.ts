@@ -10,7 +10,7 @@ import decisions from '../../editorial/paris-atlas-120/decisions.json';
 import batch from '../src/lib/culture/paris-batch.json';
 const copy=(v:any)=>JSON.parse(JSON.stringify(v));
 assert.deepEqual(batch.works,decisions.approvedWorks);assert.deepEqual(batch.sources,decisions.sources);
-assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,463);
+assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,504);
 for(const old of baseline.works){const current=cultureCatalog.works.find(w=>w.id===old.id)!;for(const [key,value] of Object.entries(old))assert.deepEqual((current as any)[key],value,`${old.id}: ${key} changed`);}
 assert.equal(parseCatalog(baseline).schemaVersion,2);
 const v1=copy(baseline);v1.schemaVersion=1;v1.works=v1.works.filter((w:any)=>['book','film'].includes(w.kind));assert.equal(parseCatalog(v1).works.length,21);
@@ -35,7 +35,7 @@ assert.ok(ids({area:'greater_paris'}).includes('full-time'));assert.ok(ids({area
 assert.ok(ids({area:'greater_paris'}).includes('les-miserables-ladj-ly'));assert.ok(!ids({area:'paris_city'}).includes('les-miserables-ladj-ly'));
 assert.equal(ids({area:'paris_city',destination:'rome'}).length,0);assert.equal(ids({area:'bad'}).length,0);
 assert.equal(ids({q:'Mary Winston Nicklin',kind:'podcast_episode'}).length,1);assert.equal(ids({q:'new paris podcast'}).length,5);
-assert.equal(ids({kind:'tv_show'}).length,3);assert.equal(ids({kind:'essay'}).length,1);assert.equal(ids({kind:'poem'}).length,0);
+assert.equal(ids({kind:'tv_show'}).length,44);assert.equal(ids({kind:'essay'}).length,1);assert.equal(ids({kind:'poem'}).length,0);
 assert.equal(workDateLabel(cultureCatalog.works.find(w=>w.id==='the-belly-of-paris')!),'First published 1873');
 assert.equal(cultureCatalog.works.find(w=>w.id==='impossible-city')?.year,2024);assert.equal(cultureCatalog.works.find(w=>w.id==='the-other-paris')?.creator,'Lucy Sante');
 const response=(query:any)=>{let status=0,body:any;handler({method:'GET',query},{setHeader(){},status:s=>({json:b=>{status=s;body=b;}})});return{status,body};};

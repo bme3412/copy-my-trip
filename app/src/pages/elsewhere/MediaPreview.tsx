@@ -1,3 +1,4 @@
+import { StreamingAvailability } from './StreamingAvailability';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { formatLabel, type CultureWork } from '../../lib/culture/schema';
@@ -42,14 +43,14 @@ export function MediaPreview({work, onClose}: {work: CultureWork; onClose: () =>
     <div className="po-preview-content">
       <div className="po-preview-summary"><p className="ew-eyebrow">{formatLabel(work.kind)}{work.kind==='film' && work.year ? ` · ${work.year}` : ''} · {work.language}</p>
       <h2 ref={heading} tabIndex={-1} id="film-preview-title">{work.title}</h2>
-      <p className="po-preview-director">{work.kind==='film'?'Directed by ':work.kind==='tv_show'?'Created by ':''}{work.creator}</p>
+      <p className="po-preview-director">{work.kind==='film'?'Directed by ':work.kind==='tv_show'&&work.creator!=='Creator not listed'?'Created by ':''}{work.creator}</p>
       {work.kind!=='film' && <WorkMetadata work={work}/>}
       <p>{work.description}</p></div>
       {!music && work.kind!=='film' && work.kind!=='podcast_episode' && <div className="po-preview-art"><WorkCover work={work}/></div>}
       {cover && <p className="ew-small"><a href={cover.source} target="_blank" rel="noreferrer">Cover: Open Library</a> · Cover edition may differ from the cited edition.</p>}
       {work.kind==='podcast_episode' && <><PodcastPlayer key={work.id} work={work}/><ListeningLinks work={work}/></>}
       {music ? <section className="po-preview-listening" aria-label="Listen to this music">{playable ? <><h3>Choose how to listen</h3><div onClick={event=>{if((event.target as HTMLElement).closest('button'))onClose();}}><MusicPlay work={work}/></div><p className="ew-small">Your choice opens the player on this Paris page. Spotify is the default; YouTube is also available.</p></> : <><h3>Listening links</h3><ListeningLinks work={work}/><p className="ew-small">In-page playback is available for the eight-track Paris playlist. This song uses the available source links.</p></>}</section> : <FilmTrailer work={work} compact/>}
-      <div className="po-preview-connection"><h3>The Paris connection</h3><p>{work.relationship.statement}</p></div>
+      <StreamingAvailability id={work.id}/><div className="po-preview-connection"><h3>The Paris connection</h3><p>{work.relationship.statement}</p></div>
     </div>
       <div className="po-preview-actions"><SaveWork id={work.id} title={work.title}/><Link className="ew-button" to={`/discover/work/${work.id}`}>Explore {detailLabel} →</Link></div>
   </dialog>;
