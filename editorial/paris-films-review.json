@@ -1,0 +1,711 @@
+{
+  "inputCount": 137,
+  "added": 126,
+  "merged": [
+    "the-red-balloon",
+    "the-400-blows",
+    "breathless",
+    "cleo-from-5-to-7",
+    "la-haine",
+    "amelie",
+    "the-class",
+    "les-miserables-ladj-ly",
+    "paris-13th-district",
+    "full-time",
+    "before-sunset"
+  ],
+  "mapping": [
+    {
+      "title": "Paris qui dort (The Crazy Ray)",
+      "year": 1924,
+      "id": "film-paris-qui-dort-1924"
+    },
+    {
+      "title": "Entr’acte",
+      "year": 1924,
+      "id": "film-entracte-1924"
+    },
+    {
+      "title": "Under the Roofs of Paris (Sous les toits de Paris)",
+      "year": 1930,
+      "id": "film-under-the-roofs-of-paris-1930"
+    },
+    {
+      "title": "Boudu Saved from Drowning",
+      "year": 1932,
+      "id": "film-boudu-saved-from-drowning-1932"
+    },
+    {
+      "title": "The Crime of Monsieur Lange",
+      "year": 1936,
+      "id": "film-the-crime-of-monsieur-lange-1936"
+    },
+    {
+      "title": "Hôtel du Nord",
+      "year": 1938,
+      "id": "film-hotel-du-nord-1938"
+    },
+    {
+      "title": "Les Enfants du paradis (Children of Paradise)",
+      "year": 1945,
+      "id": "film-les-enfants-du-paradis-1945"
+    },
+    {
+      "title": "Quai des Orfèvres",
+      "year": 1947,
+      "id": "film-quai-des-orfevres-1947"
+    },
+    {
+      "title": "Rendezvous in July (Rendez-vous de juillet)",
+      "year": 1949,
+      "id": "film-rendezvous-in-july-1949"
+    },
+    {
+      "title": "An American in Paris",
+      "year": 1951,
+      "id": "film-an-american-in-paris-1951"
+    },
+    {
+      "title": "Rififi",
+      "year": 1955,
+      "id": "film-rififi-1955"
+    },
+    {
+      "title": "Bob le flambeur",
+      "year": 1956,
+      "id": "film-bob-le-flambeur-1956"
+    },
+    {
+      "title": "The Red Balloon (Le Ballon rouge)",
+      "year": 1956,
+      "id": "the-red-balloon"
+    },
+    {
+      "title": "Funny Face",
+      "year": 1957,
+      "id": "film-funny-face-1957"
+    },
+    {
+      "title": "The Lovers of Montparnasse (Montparnasse 19)",
+      "year": 1958,
+      "id": "film-the-lovers-of-montparnasse-1958"
+    },
+    {
+      "title": "Gigi",
+      "year": 1958,
+      "id": "film-gigi-1958"
+    },
+    {
+      "title": "Mon Oncle",
+      "year": 1958,
+      "id": "film-mon-oncle-1958"
+    },
+    {
+      "title": "Elevator to the Gallows",
+      "year": 1958,
+      "id": "film-elevator-to-the-gallows-1958"
+    },
+    {
+      "title": "The 400 Blows (Les Quatre Cents Coups)",
+      "year": 1959,
+      "id": "the-400-blows"
+    },
+    {
+      "title": "Breathless (À bout de souffle)",
+      "year": 1960,
+      "id": "breathless"
+    },
+    {
+      "title": "Zazie dans le Métro",
+      "year": 1960,
+      "id": "film-zazie-dans-le-metro-1960"
+    },
+    {
+      "title": "Shoot the Piano Player",
+      "year": 1960,
+      "id": "film-shoot-the-piano-player-1960"
+    },
+    {
+      "title": "Paris Belongs to Us",
+      "year": 1961,
+      "id": "film-paris-belongs-to-us-1961"
+    },
+    {
+      "title": "Cléo from 5 to 7",
+      "year": 1962,
+      "id": "cleo-from-5-to-7"
+    },
+    {
+      "title": "The Sign of Leo (Le Signe du lion)",
+      "year": 1962,
+      "id": "film-the-sign-of-leo-1962"
+    },
+    {
+      "title": "Jules and Jim",
+      "year": 1962,
+      "id": "film-jules-and-jim-1962"
+    },
+    {
+      "title": "Le Doulos",
+      "year": 1962,
+      "id": "film-le-doulos-1962"
+    },
+    {
+      "title": "The Bakery Girl of Monceau",
+      "year": 1963,
+      "id": "film-the-bakery-girl-of-monceau-1963"
+    },
+    {
+      "title": "Suzanne’s Career",
+      "year": 1963,
+      "id": "film-suzannes-career-1963"
+    },
+    {
+      "title": "Band of Outsiders (Bande à part)",
+      "year": 1964,
+      "id": "film-band-of-outsiders-1964"
+    },
+    {
+      "title": "The Soft Skin (La Peau douce)",
+      "year": 1964,
+      "id": "film-the-soft-skin-1964"
+    },
+    {
+      "title": "Masculin Féminin",
+      "year": 1966,
+      "id": "film-masculin-feminin-1966"
+    },
+    {
+      "title": "Two or Three Things I Know About Her",
+      "year": 1967,
+      "id": "film-two-or-three-things-i-know-about-her-1967"
+    },
+    {
+      "title": "Belle de Jour",
+      "year": 1967,
+      "id": "film-belle-de-jour-1967"
+    },
+    {
+      "title": "Le Samouraï",
+      "year": 1967,
+      "id": "film-le-samourai-1967"
+    },
+    {
+      "title": "Stolen Kisses (Baisers volés)",
+      "year": 1968,
+      "id": "film-stolen-kisses-1968"
+    },
+    {
+      "title": "Bed and Board (Domicile conjugal)",
+      "year": 1970,
+      "id": "film-bed-and-board-1970"
+    },
+    {
+      "title": "Love in the Afternoon (L’Amour l’après-midi)",
+      "year": 1972,
+      "id": "film-love-in-the-afternoon-1972"
+    },
+    {
+      "title": "The Mother and the Whore",
+      "year": 1973,
+      "id": "film-the-mother-and-the-whore-1973"
+    },
+    {
+      "title": "Céline and Julie Go Boating",
+      "year": 1974,
+      "id": "film-celine-and-julie-go-boating-1974"
+    },
+    {
+      "title": "One Sings, the Other Doesn’t (L’une chante, l’autre pas)",
+      "year": 1977,
+      "id": "film-one-sings-the-other-doesnt-1977"
+    },
+    {
+      "title": "Love on the Run (L’Amour en fuite)",
+      "year": 1979,
+      "id": "film-love-on-the-run-1979"
+    },
+    {
+      "title": "The Last Metro (Le Dernier Métro)",
+      "year": 1980,
+      "id": "film-the-last-metro-1980"
+    },
+    {
+      "title": "Diva",
+      "year": 1981,
+      "id": "film-diva-1981"
+    },
+    {
+      "title": "Boy Meets Girl",
+      "year": 1984,
+      "id": "film-boy-meets-girl-1984"
+    },
+    {
+      "title": "Subway",
+      "year": 1985,
+      "id": "film-subway-1985"
+    },
+    {
+      "title": "Mauvais Sang (Bad Blood)",
+      "year": 1986,
+      "id": "film-mauvais-sang-1986"
+    },
+    {
+      "title": "Round Midnight",
+      "year": 1986,
+      "id": "film-round-midnight-1986"
+    },
+    {
+      "title": "The Lovers on the Bridge (Les Amants du Pont-Neuf)",
+      "year": 1991,
+      "id": "film-the-lovers-on-the-bridge-1991"
+    },
+    {
+      "title": "La Vie de Bohème",
+      "year": 1992,
+      "id": "film-la-vie-de-boheme-1992"
+    },
+    {
+      "title": "Three Colors: Blue",
+      "year": 1993,
+      "id": "film-three-colors-blue-1993"
+    },
+    {
+      "title": "La Haine",
+      "year": 1995,
+      "id": "la-haine"
+    },
+    {
+      "title": "Rendezvous in Paris (Les Rendez-vous de Paris)",
+      "year": 1995,
+      "id": "film-rendezvous-in-paris-1995"
+    },
+    {
+      "title": "Irma Vep",
+      "year": 1996,
+      "id": "film-irma-vep-1996"
+    },
+    {
+      "title": "When the Cat’s Away (Chacun cherche son chat)",
+      "year": 1996,
+      "id": "film-when-the-cats-away-1996"
+    },
+    {
+      "title": "My Sex Life… or How I Got into an Argument",
+      "year": 1996,
+      "id": "film-my-sex-life-or-how-i-got-into-an-argument-1996"
+    },
+    {
+      "title": "Pola X",
+      "year": 1999,
+      "id": "film-pola-x-1999"
+    },
+    {
+      "title": "Amélie (Le Fabuleux Destin d’Amélie Poulain)",
+      "year": 2001,
+      "id": "amelie"
+    },
+    {
+      "title": "The Dreamers",
+      "year": 2003,
+      "id": "film-the-dreamers-2003"
+    },
+    {
+      "title": "The Story of Marie and Julien",
+      "year": 2003,
+      "id": "film-the-story-of-marie-and-julien-2003"
+    },
+    {
+      "title": "The Beat That My Heart Skipped",
+      "year": 2005,
+      "id": "film-the-beat-that-my-heart-skipped-2005"
+    },
+    {
+      "title": "Paris, je t’aime",
+      "year": 2006,
+      "id": "film-paris-je-taime-2006"
+    },
+    {
+      "title": "La Vie en Rose (La Môme)",
+      "year": 2007,
+      "id": "film-la-vie-en-rose-2007"
+    },
+    {
+      "title": "Paris",
+      "year": 2008,
+      "id": "film-paris-2008"
+    },
+    {
+      "title": "The Class (Entre les murs)",
+      "year": 2008,
+      "id": "the-class"
+    },
+    {
+      "title": "The Intouchables",
+      "year": 2011,
+      "id": "film-the-intouchables-2011"
+    },
+    {
+      "title": "Holy Motors",
+      "year": 2012,
+      "id": "film-holy-motors-2012"
+    },
+    {
+      "title": "Girlhood (Bande de filles)",
+      "year": 2014,
+      "id": "film-girlhood-2014"
+    },
+    {
+      "title": "Eden",
+      "year": 2014,
+      "id": "film-eden-2014"
+    },
+    {
+      "title": "Dheepan",
+      "year": 2015,
+      "id": "film-dheepan-2015"
+    },
+    {
+      "title": "Nocturama",
+      "year": 2016,
+      "id": "film-nocturama-2016"
+    },
+    {
+      "title": "Personal Shopper",
+      "year": 2016,
+      "id": "film-personal-shopper-2016"
+    },
+    {
+      "title": "120 BPM (Beats per Minute)",
+      "year": 2017,
+      "id": "film-120-bpm-2017"
+    },
+    {
+      "title": "Les Misérables",
+      "year": 2019,
+      "id": "les-miserables-ladj-ly"
+    },
+    {
+      "title": "Paris, 13th District (Les Olympiades)",
+      "year": 2021,
+      "id": "paris-13th-district"
+    },
+    {
+      "title": "Full Time (À plein temps)",
+      "year": 2021,
+      "id": "full-time"
+    },
+    {
+      "title": "Lost Illusions (Illusions perdues)",
+      "year": 2021,
+      "id": "film-lost-illusions-2021"
+    },
+    {
+      "title": "Eiffel",
+      "year": 2021,
+      "id": "film-eiffel-2021"
+    },
+    {
+      "title": "One Fine Morning (Un beau matin)",
+      "year": 2022,
+      "id": "film-one-fine-morning-2022"
+    },
+    {
+      "title": "Paris Memories (Revoir Paris)",
+      "year": 2022,
+      "id": "film-paris-memories-2022"
+    },
+    {
+      "title": "The Passengers of the Night (Les Passagers de la nuit)",
+      "year": 2022,
+      "id": "film-the-passengers-of-the-night-2022"
+    },
+    {
+      "title": "The Crime Is Mine (Mon crime)",
+      "year": 2023,
+      "id": "film-the-crime-is-mine-2023"
+    },
+    {
+      "title": "The Story of Souleymane (L’Histoire de Souleymane)",
+      "year": 2024,
+      "id": "film-the-story-of-souleymane-2024"
+    },
+    {
+      "title": "Sabrina",
+      "year": 1954,
+      "id": "film-sabrina-1954"
+    },
+    {
+      "title": "Charade",
+      "year": 1963,
+      "id": "film-charade-1963"
+    },
+    {
+      "title": "Paris When It Sizzles",
+      "year": 1964,
+      "id": "film-paris-when-it-sizzles-1964"
+    },
+    {
+      "title": "How to Steal a Million",
+      "year": 1966,
+      "id": "film-how-to-steal-a-million-1966"
+    },
+    {
+      "title": "Last Tango in Paris",
+      "year": 1972,
+      "id": "film-last-tango-in-paris-1972"
+    },
+    {
+      "title": "French Kiss",
+      "year": 1995,
+      "id": "film-french-kiss-1995"
+    },
+    {
+      "title": "Everyone Says I Love You",
+      "year": 1996,
+      "id": "film-everyone-says-i-love-you-1996"
+    },
+    {
+      "title": "Le Divorce",
+      "year": 2003,
+      "id": "film-le-divorce-2003"
+    },
+    {
+      "title": "Before Sunset",
+      "year": 2004,
+      "id": "before-sunset"
+    },
+    {
+      "title": "The Devil Wears Prada",
+      "year": 2006,
+      "id": "film-the-devil-wears-prada-2006"
+    },
+    {
+      "title": "The Da Vinci Code",
+      "year": 2006,
+      "id": "film-the-da-vinci-code-2006"
+    },
+    {
+      "title": "Midnight in Paris",
+      "year": 2011,
+      "id": "film-midnight-in-paris-2011"
+    },
+    {
+      "title": "Hugo",
+      "year": 2011,
+      "id": "film-hugo-2011"
+    },
+    {
+      "title": "Mrs. Harris Goes to Paris",
+      "year": 2022,
+      "id": "film-mrs-harris-goes-to-paris-2022"
+    },
+    {
+      "title": "The Phantom of the Opera",
+      "year": 1925,
+      "id": "film-the-phantom-of-the-opera-1925"
+    },
+    {
+      "title": "Nana",
+      "year": 1926,
+      "id": "film-nana-1926"
+    },
+    {
+      "title": "Les Misérables",
+      "year": 1934,
+      "id": "film-les-miserables-1934"
+    },
+    {
+      "title": "A Tale of Two Cities",
+      "year": 1935,
+      "id": "film-a-tale-of-two-cities-1935"
+    },
+    {
+      "title": "The Hunchback of Notre Dame",
+      "year": 1939,
+      "id": "film-the-hunchback-of-notre-dame-1939"
+    },
+    {
+      "title": "Gervaise",
+      "year": 1956,
+      "id": "film-gervaise-1956"
+    },
+    {
+      "title": "The Hunchback of Notre Dame",
+      "year": 1996,
+      "id": "film-the-hunchback-of-notre-dame-1996"
+    },
+    {
+      "title": "Time Regained (Le Temps retrouvé)",
+      "year": 1999,
+      "id": "film-time-regained-1999"
+    },
+    {
+      "title": "The Lady and the Duke (L’Anglaise et le Duc)",
+      "year": 2001,
+      "id": "film-the-lady-and-the-duke-2001"
+    },
+    {
+      "title": "The Phantom of the Opera",
+      "year": 2004,
+      "id": "film-the-phantom-of-the-opera-2004"
+    },
+    {
+      "title": "A Very Long Engagement",
+      "year": 2004,
+      "id": "film-a-very-long-engagement-2004"
+    },
+    {
+      "title": "Colette",
+      "year": 2018,
+      "id": "film-colette-2018"
+    },
+    {
+      "title": "Les Misérables",
+      "year": 2012,
+      "id": "film-les-miserables-2012"
+    },
+    {
+      "title": "The Three Musketeers: D’Artagnan",
+      "year": 2023,
+      "id": "film-the-three-musketeers-dartagnan-2023"
+    },
+    {
+      "title": "The Three Musketeers: Milady",
+      "year": 2023,
+      "id": "film-the-three-musketeers-milady-2023"
+    },
+    {
+      "title": "The Count of Monte Cristo",
+      "year": 2024,
+      "id": "film-the-count-of-monte-cristo-2024"
+    },
+    {
+      "title": "Paris 1900",
+      "year": 1948,
+      "id": "film-paris-1900-1948"
+    },
+    {
+      "title": "Chronicle of a Summer (Chronique d’un été)",
+      "year": 1961,
+      "id": "film-chronicle-of-a-summer-1961"
+    },
+    {
+      "title": "Le Joli Mai",
+      "year": 1963,
+      "id": "film-le-joli-mai-1963"
+    },
+    {
+      "title": "Paris Was a Woman",
+      "year": 1996,
+      "id": "film-paris-was-a-woman-1996"
+    },
+    {
+      "title": "Daguerréotypes",
+      "year": 1975,
+      "id": "film-daguerreotypes-1975"
+    },
+    {
+      "title": "Les Dites Cariatides (The So-Called Caryatids)",
+      "year": 1984,
+      "id": "film-les-dites-cariatides-1984"
+    },
+    {
+      "title": "Paris: The Luminous Years",
+      "year": 2010,
+      "id": "film-paris-the-luminous-years-2010"
+    },
+    {
+      "title": "La Maison de la Radio",
+      "year": 2013,
+      "id": "film-la-maison-de-la-radio-2013"
+    },
+    {
+      "title": "The Paris Opera (L’Opéra)",
+      "year": 2017,
+      "id": "film-the-paris-opera-2017"
+    },
+    {
+      "title": "Paris Calligrammes",
+      "year": 2019,
+      "id": "film-paris-calligrammes-2019"
+    },
+    {
+      "title": "The Aristocats",
+      "year": 1970,
+      "id": "film-the-aristocats-1970"
+    },
+    {
+      "title": "The Pink Panther",
+      "year": 2006,
+      "id": "film-the-pink-panther-2006"
+    },
+    {
+      "title": "District 13 (Banlieue 13)",
+      "year": 2004,
+      "id": "film-district-13-2004"
+    },
+    {
+      "title": "Ratatouille",
+      "year": 2007,
+      "id": "film-ratatouille-2007"
+    },
+    {
+      "title": "Taken",
+      "year": 2008,
+      "id": "film-taken-2008"
+    },
+    {
+      "title": "District 13: Ultimatum",
+      "year": 2009,
+      "id": "film-district-13-ultimatum-2009"
+    },
+    {
+      "title": "The Extraordinary Adventures of Adèle Blanc-Sec",
+      "year": 2010,
+      "id": "film-the-extraordinary-adventures-of-adele-blanc-sec-2010"
+    },
+    {
+      "title": "A Monster in Paris (Un monstre à Paris)",
+      "year": 2011,
+      "id": "film-a-monster-in-paris-2011"
+    },
+    {
+      "title": "Inception",
+      "year": 2010,
+      "id": "film-inception-2010"
+    },
+    {
+      "title": "Mission: Impossible – Fallout",
+      "year": 2018,
+      "id": "film-mission-impossible-fallout-2018"
+    },
+    {
+      "title": "The Smurfs 2",
+      "year": 2013,
+      "id": "film-the-smurfs-2-2013"
+    },
+    {
+      "title": "John Wick: Chapter 4",
+      "year": 2023,
+      "id": "film-john-wick-chapter-4-2023"
+    },
+    {
+      "title": "Miraculous: Ladybug & Cat Noir, The Movie",
+      "year": 2023,
+      "id": "film-miraculous-ladybug-cat-noir-the-movie-2023"
+    },
+    {
+      "title": "Under Paris (Sous la Seine)",
+      "year": 2024,
+      "id": "film-under-paris-2024"
+    }
+  ],
+  "reviewedOn": "2026-10-13",
+  "provenance": "User-supplied research, not independent verification of every film or place. Original input retained; generated IMDb searches explicitly labeled; no coordinates imported.",
+  "priorityTrailerSources": {
+    "film-daguerreotypes-1975": "https://bandhi.it/bah/beltrade/production/daguerreotypes/",
+    "film-midnight-in-paris-2011": "https://www.sonyclassics.com/midnightinparis/movie.html",
+    "film-le-joli-mai-1963": "https://icarusfilms.com/if-mai"
+  }
+}

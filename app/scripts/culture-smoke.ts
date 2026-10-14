@@ -8,7 +8,7 @@ import baseline from '../../editorial/paris-atlas-120/existing-catalog.json';
 const previous=parseCatalog(baseline);
 const previousIds=new Set(previous.works.map(w=>w.id));
 const clone=()=>JSON.parse(JSON.stringify(cultureCatalog));
-assert.equal(parseCatalog(clone()).works.length,188);
+assert.equal(parseCatalog(clone()).works.length,314);
 const cases=[
   [{destination:'paris',kind:'book'},['the-only-street-in-paris','the-seine','paris-paris','the-other-paris','impossible-city','a-waiter-in-paris','the-flaneur','the-most-beautiful-walk-in-the-world','the-new-paris','my-paris-dream','the-sweet-life-in-paris','pancakes-in-paris','giovannis-room']],
   [{destination:'rome',kind:'film'},['the-great-beauty']],

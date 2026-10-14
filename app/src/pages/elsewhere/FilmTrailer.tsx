@@ -60,7 +60,7 @@ function Trailer({work, source, compact}: {work: CultureWork; source: FilmTraile
     <div className="ew-trailer-heading">{!compact && <div><p className="ew-eyebrow">Watch on YouTube</p><h2>Watch the trailer</h2></div>}{open && <button type="button" className="ew-button" onClick={() => { stop(); focus.release(stop); }}>Close trailer</button>}</div>
     {open ? <div ref={host} className="ew-trailer-video"/> : <button className="ew-trailer-launch" type="button" onClick={start} aria-label={`Watch ${work.title} trailer`}><TrailerThumbnail work={work}/><span className="ew-trailer-cta">▶ Watch trailer</span></button>}
     {!compact && <p className="ew-trailer-source">{source.publisher} · Trailer for {work.title} ({work.year})</p>}
-    <a className="ew-link" href={source.url} target="_blank" rel="noreferrer">Watch trailer on YouTube ↗</a>
+    <a className="ew-link" href={source.url} target="_blank" rel="noreferrer">Watch trailer on YouTube</a>
     {message && <p role="status" className="ew-small">{message}</p>}{failed && <button type="button" className="ew-button" onClick={start}>Retry trailer</button>}
   </section>;
 }

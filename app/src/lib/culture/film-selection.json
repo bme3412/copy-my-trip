@@ -1,0 +1,4920 @@
+{
+  "sources": [
+    {
+      "id": "film-import-1",
+      "title": "Research search · Paris qui dort (The Crazy Ray)",
+      "url": "https://www.imdb.com/find/?q=Paris+qui+dort+%28The+Crazy+Ray%29+1924&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-2",
+      "title": "Research search · Entr’acte",
+      "url": "https://www.imdb.com/find/?q=Entr%E2%80%99acte+1924&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-3",
+      "title": "Research search · Under the Roofs of Paris (Sous les toits de Paris)",
+      "url": "https://www.imdb.com/find/?q=Under+the+Roofs+of+Paris+%28Sous+les+toits+de+Paris%29+1930&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-4",
+      "title": "Research search · Boudu Saved from Drowning",
+      "url": "https://www.imdb.com/find/?q=Boudu+Saved+from+Drowning+1932&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-5",
+      "title": "Research search · The Crime of Monsieur Lange",
+      "url": "https://www.imdb.com/find/?q=The+Crime+of+Monsieur+Lange+1936&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-6",
+      "title": "Research search · Hôtel du Nord",
+      "url": "https://www.imdb.com/find/?q=H%C3%B4tel+du+Nord+1938&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-7",
+      "title": "Research search · Les Enfants du paradis (Children of Paradise)",
+      "url": "https://www.imdb.com/find/?q=Les+Enfants+du+paradis+%28Children+of+Paradise%29+1945&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-8",
+      "title": "Research search · Quai des Orfèvres",
+      "url": "https://www.imdb.com/find/?q=Quai+des+Orf%C3%A8vres+1947&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-9",
+      "title": "Research search · Rendezvous in July (Rendez-vous de juillet)",
+      "url": "https://www.imdb.com/find/?q=Rendezvous+in+July+%28Rendez-vous+de+juillet%29+1949&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-10",
+      "title": "Research search · An American in Paris",
+      "url": "https://www.imdb.com/find/?q=An+American+in+Paris+1951&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-11",
+      "title": "Research search · Rififi",
+      "url": "https://www.imdb.com/find/?q=Rififi+1955&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-12",
+      "title": "Research search · Bob le flambeur",
+      "url": "https://www.imdb.com/find/?q=Bob+le+flambeur+1956&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-14",
+      "title": "Research search · Funny Face",
+      "url": "https://www.imdb.com/find/?q=Funny+Face+1957&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-15",
+      "title": "Research search · The Lovers of Montparnasse (Montparnasse 19)",
+      "url": "https://www.imdb.com/find/?q=The+Lovers+of+Montparnasse+%28Montparnasse+19%29+1958&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-16",
+      "title": "Research search · Gigi",
+      "url": "https://www.imdb.com/find/?q=Gigi+1958&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-17",
+      "title": "Research search · Mon Oncle",
+      "url": "https://www.imdb.com/find/?q=Mon+Oncle+1958&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-18",
+      "title": "Research search · Elevator to the Gallows",
+      "url": "https://www.imdb.com/find/?q=Elevator+to+the+Gallows+1958&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-21",
+      "title": "Research search · Zazie dans le Métro",
+      "url": "https://www.imdb.com/find/?q=Zazie+dans+le+M%C3%A9tro+1960&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-22",
+      "title": "Research search · Shoot the Piano Player",
+      "url": "https://www.imdb.com/find/?q=Shoot+the+Piano+Player+1960&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-23",
+      "title": "Supplied film reference · Paris Belongs to Us",
+      "url": "https://www.criterion.com/films/27724-paris-belongs-to-us",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-25",
+      "title": "Supplied film reference · The Sign of Leo (Le Signe du lion)",
+      "url": "https://www.bfi.org.uk/features/eric-rohmer-movie-guide-paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-26",
+      "title": "Research search · Jules and Jim",
+      "url": "https://www.imdb.com/find/?q=Jules+and+Jim+1962&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-27",
+      "title": "Research search · Le Doulos",
+      "url": "https://www.imdb.com/find/?q=Le+Doulos+1962&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-28",
+      "title": "Research search · The Bakery Girl of Monceau",
+      "url": "https://www.imdb.com/find/?q=The+Bakery+Girl+of+Monceau+1963&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-29",
+      "title": "Research search · Suzanne’s Career",
+      "url": "https://www.imdb.com/find/?q=Suzanne%E2%80%99s+Career+1963&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-30",
+      "title": "Research search · Band of Outsiders (Bande à part)",
+      "url": "https://www.imdb.com/find/?q=Band+of+Outsiders+%28Bande+%C3%A0+part%29+1964&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-31",
+      "title": "Research search · The Soft Skin (La Peau douce)",
+      "url": "https://www.imdb.com/find/?q=The+Soft+Skin+%28La+Peau+douce%29+1964&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-32",
+      "title": "Research search · Masculin Féminin",
+      "url": "https://www.imdb.com/find/?q=Masculin+F%C3%A9minin+1966&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-33",
+      "title": "Research search · Two or Three Things I Know About Her",
+      "url": "https://www.imdb.com/find/?q=Two+or+Three+Things+I+Know+About+Her+1967&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-34",
+      "title": "Research search · Belle de Jour",
+      "url": "https://www.imdb.com/find/?q=Belle+de+Jour+1967&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-35",
+      "title": "Research search · Le Samouraï",
+      "url": "https://www.imdb.com/find/?q=Le+Samoura%C3%AF+1967&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-36",
+      "title": "Research search · Stolen Kisses (Baisers volés)",
+      "url": "https://www.imdb.com/find/?q=Stolen+Kisses+%28Baisers+vol%C3%A9s%29+1968&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-37",
+      "title": "Research search · Bed and Board (Domicile conjugal)",
+      "url": "https://www.imdb.com/find/?q=Bed+and+Board+%28Domicile+conjugal%29+1970&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-38",
+      "title": "Research search · Love in the Afternoon (L’Amour l’après-midi)",
+      "url": "https://www.imdb.com/find/?q=Love+in+the+Afternoon+%28L%E2%80%99Amour+l%E2%80%99apr%C3%A8s-midi%29+1972&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-39",
+      "title": "Research search · The Mother and the Whore",
+      "url": "https://www.imdb.com/find/?q=The+Mother+and+the+Whore+1973&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-40",
+      "title": "Supplied film reference · Céline and Julie Go Boating",
+      "url": "https://www.criterion.com/films/28955-celine-and-julie-go-boating",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-41",
+      "title": "Supplied film reference · One Sings, the Other Doesn’t (L’une chante, l’autre pas)",
+      "url": "https://www.criterion.com/boxsets/3432-the-complete-films-of-agn-s-varda",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-42",
+      "title": "Research search · Love on the Run (L’Amour en fuite)",
+      "url": "https://www.imdb.com/find/?q=Love+on+the+Run+%28L%E2%80%99Amour+en+fuite%29+1979&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-43",
+      "title": "Research search · The Last Metro (Le Dernier Métro)",
+      "url": "https://www.imdb.com/find/?q=The+Last+Metro+%28Le+Dernier+M%C3%A9tro%29+1980&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-44",
+      "title": "Research search · Diva",
+      "url": "https://www.imdb.com/find/?q=Diva+1981&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-45",
+      "title": "Research search · Boy Meets Girl",
+      "url": "https://www.imdb.com/find/?q=Boy+Meets+Girl+1984&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-46",
+      "title": "Research search · Subway",
+      "url": "https://www.imdb.com/find/?q=Subway+1985&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-47",
+      "title": "Research search · Mauvais Sang (Bad Blood)",
+      "url": "https://www.imdb.com/find/?q=Mauvais+Sang+%28Bad+Blood%29+1986&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-48",
+      "title": "Research search · Round Midnight",
+      "url": "https://www.imdb.com/find/?q=Round+Midnight+1986&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-49",
+      "title": "Research search · The Lovers on the Bridge (Les Amants du Pont-Neuf)",
+      "url": "https://www.imdb.com/find/?q=The+Lovers+on+the+Bridge+%28Les+Amants+du+Pont-Neuf%29+1991&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-50",
+      "title": "Research search · La Vie de Bohème",
+      "url": "https://www.imdb.com/find/?q=La+Vie+de+Boh%C3%A8me+1992&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-51",
+      "title": "Research search · Three Colors: Blue",
+      "url": "https://www.imdb.com/find/?q=Three+Colors%3A+Blue+1993&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-53",
+      "title": "Research search · Rendezvous in Paris (Les Rendez-vous de Paris)",
+      "url": "https://www.imdb.com/find/?q=Rendezvous+in+Paris+%28Les+Rendez-vous+de+Paris%29+1995&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-54",
+      "title": "Research search · Irma Vep",
+      "url": "https://www.imdb.com/find/?q=Irma+Vep+1996&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-55",
+      "title": "Research search · When the Cat’s Away (Chacun cherche son chat)",
+      "url": "https://www.imdb.com/find/?q=When+the+Cat%E2%80%99s+Away+%28Chacun+cherche+son+chat%29+1996&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-56",
+      "title": "Research search · My Sex Life… or How I Got into an Argument",
+      "url": "https://www.imdb.com/find/?q=My+Sex+Life%E2%80%A6+or+How+I+Got+into+an+Argument+1996&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-57",
+      "title": "Research search · Pola X",
+      "url": "https://www.imdb.com/find/?q=Pola+X+1999&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-59",
+      "title": "Research search · The Dreamers",
+      "url": "https://www.imdb.com/find/?q=The+Dreamers+2003&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-60",
+      "title": "Supplied film reference · The Story of Marie and Julien",
+      "url": "https://www.filmfrance.net/en/once-upon-a-time/the-story-of-marie-and-julien/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-61",
+      "title": "Research search · The Beat That My Heart Skipped",
+      "url": "https://www.imdb.com/find/?q=The+Beat+That+My+Heart+Skipped+2005&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-62",
+      "title": "Research search · Paris, je t’aime",
+      "url": "https://www.imdb.com/find/?q=Paris%2C+je+t%E2%80%99aime+2006&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-63",
+      "title": "Research search · La Vie en Rose (La Môme)",
+      "url": "https://www.imdb.com/find/?q=La+Vie+en+Rose+%28La+M%C3%B4me%29+2007&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-64",
+      "title": "Supplied film reference · Paris",
+      "url": "https://www.filmfrance.net/en/once-upon-a-time/paris-4/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-66",
+      "title": "Research search · The Intouchables",
+      "url": "https://www.imdb.com/find/?q=The+Intouchables+2011&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-67",
+      "title": "Research search · Holy Motors",
+      "url": "https://www.imdb.com/find/?q=Holy+Motors+2012&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-68",
+      "title": "Research search · Girlhood (Bande de filles)",
+      "url": "https://www.imdb.com/find/?q=Girlhood+%28Bande+de+filles%29+2014&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-69",
+      "title": "Research search · Eden",
+      "url": "https://www.imdb.com/find/?q=Eden+2014&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-70",
+      "title": "Research search · Dheepan",
+      "url": "https://www.imdb.com/find/?q=Dheepan+2015&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-71",
+      "title": "Research search · Nocturama",
+      "url": "https://www.imdb.com/find/?q=Nocturama+2016&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-72",
+      "title": "Research search · Personal Shopper",
+      "url": "https://www.imdb.com/find/?q=Personal+Shopper+2016&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-73",
+      "title": "Research search · 120 BPM (Beats per Minute)",
+      "url": "https://www.imdb.com/find/?q=120+BPM+%28Beats+per+Minute%29+2017&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-77",
+      "title": "Research search · Lost Illusions (Illusions perdues)",
+      "url": "https://www.imdb.com/find/?q=Lost+Illusions+%28Illusions+perdues%29+2021&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-78",
+      "title": "Research search · Eiffel",
+      "url": "https://www.imdb.com/find/?q=Eiffel+2021&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-79",
+      "title": "Research search · One Fine Morning (Un beau matin)",
+      "url": "https://www.imdb.com/find/?q=One+Fine+Morning+%28Un+beau+matin%29+2022&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-80",
+      "title": "Research search · Paris Memories (Revoir Paris)",
+      "url": "https://www.imdb.com/find/?q=Paris+Memories+%28Revoir+Paris%29+2022&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-81",
+      "title": "Research search · The Passengers of the Night (Les Passagers de la nuit)",
+      "url": "https://www.imdb.com/find/?q=The+Passengers+of+the+Night+%28Les+Passagers+de+la+nuit%29+2022&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-82",
+      "title": "Research search · The Crime Is Mine (Mon crime)",
+      "url": "https://www.imdb.com/find/?q=The+Crime+Is+Mine+%28Mon+crime%29+2023&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-83",
+      "title": "Research search · The Story of Souleymane (L’Histoire de Souleymane)",
+      "url": "https://www.imdb.com/find/?q=The+Story+of+Souleymane+%28L%E2%80%99Histoire+de+Souleymane%29+2024&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-84",
+      "title": "Research search · Sabrina",
+      "url": "https://www.imdb.com/find/?q=Sabrina+1954&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-85",
+      "title": "Research search · Charade",
+      "url": "https://www.imdb.com/find/?q=Charade+1963&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-86",
+      "title": "Research search · Paris When It Sizzles",
+      "url": "https://www.imdb.com/find/?q=Paris+When+It+Sizzles+1964&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-87",
+      "title": "Research search · How to Steal a Million",
+      "url": "https://www.imdb.com/find/?q=How+to+Steal+a+Million+1966&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-88",
+      "title": "Research search · Last Tango in Paris",
+      "url": "https://www.imdb.com/find/?q=Last+Tango+in+Paris+1972&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-89",
+      "title": "Research search · French Kiss",
+      "url": "https://www.imdb.com/find/?q=French+Kiss+1995&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-90",
+      "title": "Research search · Everyone Says I Love You",
+      "url": "https://www.imdb.com/find/?q=Everyone+Says+I+Love+You+1996&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-91",
+      "title": "Research search · Le Divorce",
+      "url": "https://www.imdb.com/find/?q=Le+Divorce+2003&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-93",
+      "title": "Supplied film reference · The Devil Wears Prada",
+      "url": "https://www.filmfrance.net/en/once-upon-a-time/the-devil-wears-prada/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-94",
+      "title": "Research search · The Da Vinci Code",
+      "url": "https://www.imdb.com/find/?q=The+Da+Vinci+Code+2006&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-95",
+      "title": "Research search · Midnight in Paris",
+      "url": "https://www.imdb.com/find/?q=Midnight+in+Paris+2011&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-96",
+      "title": "Research search · Hugo",
+      "url": "https://www.imdb.com/find/?q=Hugo+2011&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-97",
+      "title": "Research search · Mrs. Harris Goes to Paris",
+      "url": "https://www.imdb.com/find/?q=Mrs.+Harris+Goes+to+Paris+2022&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-98",
+      "title": "Research search · The Phantom of the Opera",
+      "url": "https://www.imdb.com/find/?q=The+Phantom+of+the+Opera+1925&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-99",
+      "title": "Research search · Nana",
+      "url": "https://www.imdb.com/find/?q=Nana+1926&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-100",
+      "title": "Research search · Les Misérables",
+      "url": "https://www.imdb.com/find/?q=Les+Mis%C3%A9rables+1934&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-101",
+      "title": "Research search · A Tale of Two Cities",
+      "url": "https://www.imdb.com/find/?q=A+Tale+of+Two+Cities+1935&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-102",
+      "title": "Research search · The Hunchback of Notre Dame",
+      "url": "https://www.imdb.com/find/?q=The+Hunchback+of+Notre+Dame+1939&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-103",
+      "title": "Research search · Gervaise",
+      "url": "https://www.imdb.com/find/?q=Gervaise+1956&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-104",
+      "title": "Research search · The Hunchback of Notre Dame",
+      "url": "https://www.imdb.com/find/?q=The+Hunchback+of+Notre+Dame+1996&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-105",
+      "title": "Research search · Time Regained (Le Temps retrouvé)",
+      "url": "https://www.imdb.com/find/?q=Time+Regained+%28Le+Temps+retrouv%C3%A9%29+1999&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-106",
+      "title": "Research search · The Lady and the Duke (L’Anglaise et le Duc)",
+      "url": "https://www.imdb.com/find/?q=The+Lady+and+the+Duke+%28L%E2%80%99Anglaise+et+le+Duc%29+2001&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-107",
+      "title": "Research search · The Phantom of the Opera",
+      "url": "https://www.imdb.com/find/?q=The+Phantom+of+the+Opera+2004&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-108",
+      "title": "Research search · A Very Long Engagement",
+      "url": "https://www.imdb.com/find/?q=A+Very+Long+Engagement+2004&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-109",
+      "title": "Research search · Colette",
+      "url": "https://www.imdb.com/find/?q=Colette+2018&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-110",
+      "title": "Research search · Les Misérables",
+      "url": "https://www.imdb.com/find/?q=Les+Mis%C3%A9rables+2012&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-111",
+      "title": "Research search · The Three Musketeers: D’Artagnan",
+      "url": "https://www.imdb.com/find/?q=The+Three+Musketeers%3A+D%E2%80%99Artagnan+2023&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-112",
+      "title": "Research search · The Three Musketeers: Milady",
+      "url": "https://www.imdb.com/find/?q=The+Three+Musketeers%3A+Milady+2023&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-113",
+      "title": "Research search · The Count of Monte Cristo",
+      "url": "https://www.imdb.com/find/?q=The+Count+of+Monte+Cristo+2024&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-114",
+      "title": "Supplied film reference · Paris 1900",
+      "url": "https://fr.wikipedia.org/wiki/Paris_1900",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-115",
+      "title": "Research search · Chronicle of a Summer (Chronique d’un été)",
+      "url": "https://www.imdb.com/find/?q=Chronicle+of+a+Summer+%28Chronique+d%E2%80%99un+%C3%A9t%C3%A9%29+1961&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-116",
+      "title": "Supplied film reference · Le Joli Mai",
+      "url": "https://www.larousse.fr/encyclopedie/film/le_Joli_Mai/3141",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-117",
+      "title": "Supplied film reference · Paris Was a Woman",
+      "url": "https://zeitgeistfilms.com/film/pariswasawoman",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-118",
+      "title": "Supplied film reference · Daguerréotypes",
+      "url": "https://www.criterion.com/films/30111-daguerreotypes",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-119",
+      "title": "Supplied film reference · Les Dites Cariatides (The So-Called Caryatids)",
+      "url": "https://www.criterion.com/boxsets/3432-the-complete-films-of-agn-s-varda",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-120",
+      "title": "Research search · Paris: The Luminous Years",
+      "url": "https://www.imdb.com/find/?q=Paris%3A+The+Luminous+Years+2010&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-121",
+      "title": "Research search · La Maison de la Radio",
+      "url": "https://www.imdb.com/find/?q=La+Maison+de+la+Radio+2013&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-122",
+      "title": "Research search · The Paris Opera (L’Opéra)",
+      "url": "https://www.imdb.com/find/?q=The+Paris+Opera+%28L%E2%80%99Op%C3%A9ra%29+2017&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-123",
+      "title": "Research search · Paris Calligrammes",
+      "url": "https://www.imdb.com/find/?q=Paris+Calligrammes+2019&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-124",
+      "title": "Research search · The Aristocats",
+      "url": "https://www.imdb.com/find/?q=The+Aristocats+1970&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-125",
+      "title": "Research search · The Pink Panther",
+      "url": "https://www.imdb.com/find/?q=The+Pink+Panther+2006&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-126",
+      "title": "Research search · District 13 (Banlieue 13)",
+      "url": "https://www.imdb.com/find/?q=District+13+%28Banlieue+13%29+2004&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-127",
+      "title": "Research search · Ratatouille",
+      "url": "https://www.imdb.com/find/?q=Ratatouille+2007&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-128",
+      "title": "Research search · Taken",
+      "url": "https://www.imdb.com/find/?q=Taken+2008&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-129",
+      "title": "Research search · District 13: Ultimatum",
+      "url": "https://www.imdb.com/find/?q=District+13%3A+Ultimatum+2009&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-130",
+      "title": "Research search · The Extraordinary Adventures of Adèle Blanc-Sec",
+      "url": "https://www.imdb.com/find/?q=The+Extraordinary+Adventures+of+Ad%C3%A8le+Blanc-Sec+2010&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-131",
+      "title": "Research search · A Monster in Paris (Un monstre à Paris)",
+      "url": "https://www.imdb.com/find/?q=A+Monster+in+Paris+%28Un+monstre+%C3%A0+Paris%29+2011&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-132",
+      "title": "Research search · Inception",
+      "url": "https://www.imdb.com/find/?q=Inception+2010&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-133",
+      "title": "Research search · Mission: Impossible – Fallout",
+      "url": "https://www.imdb.com/find/?q=Mission%3A+Impossible+%E2%80%93+Fallout+2018&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-134",
+      "title": "Research search · The Smurfs 2",
+      "url": "https://www.imdb.com/find/?q=The+Smurfs+2+2013&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-135",
+      "title": "Research search · John Wick: Chapter 4",
+      "url": "https://www.imdb.com/find/?q=John+Wick%3A+Chapter+4+2023&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-136",
+      "title": "Research search · Miraculous: Ladybug & Cat Noir, The Movie",
+      "url": "https://www.imdb.com/find/?q=Miraculous%3A+Ladybug+%26+Cat+Noir%2C+The+Movie+2023&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "film-import-137",
+      "title": "Research search · Under Paris (Sous la Seine)",
+      "url": "https://www.imdb.com/find/?q=Under+Paris+%28Sous+la+Seine%29+2024&s=tt",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    }
+  ],
+  "works": [
+    {
+      "id": "film-paris-qui-dort-1924",
+      "title": "Paris qui dort",
+      "creator": "René Clair",
+      "kind": "film",
+      "year": 1924,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Silent sci-fi fantasy that turns the immobilized city into a playground.",
+      "sourceIds": [
+        "film-import-1"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Eiffel Tower; Paris streets.",
+        "sourceId": "film-import-1",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Eiffel Tower; Paris streets.",
+        "sourceId": "film-import-1"
+      }
+    },
+    {
+      "id": "film-entracte-1924",
+      "title": "Entr’acte",
+      "creator": "René Clair",
+      "kind": "film",
+      "year": 1924,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Dadaist short film; connects to Erik Satie and avant-garde Paris.",
+      "sourceIds": [
+        "film-import-2"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris rooftops and streets.",
+        "sourceId": "film-import-2",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris rooftops and streets.",
+        "sourceId": "film-import-2"
+      }
+    },
+    {
+      "id": "film-under-the-roofs-of-paris-1930",
+      "title": "Under the Roofs of Paris",
+      "creator": "René Clair",
+      "kind": "film",
+      "year": 1930,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A musical portrait of streets, song, and neighborhood life.",
+      "sourceIds": [
+        "film-import-3"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Working-class Paris rooftops.",
+        "sourceId": "film-import-3",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Working-class Paris rooftops.",
+        "sourceId": "film-import-3"
+      }
+    },
+    {
+      "id": "film-boudu-saved-from-drowning-1932",
+      "title": "Boudu Saved from Drowning",
+      "creator": "Jean Renoir",
+      "kind": "film",
+      "year": 1932,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A tramp rescued from the river disrupts respectable Parisian life.",
+      "sourceIds": [
+        "film-import-4"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Seine; bourgeois apartment.",
+        "sourceId": "film-import-4",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Seine; bourgeois apartment.",
+        "sourceId": "film-import-4"
+      }
+    },
+    {
+      "id": "film-the-crime-of-monsieur-lange-1936",
+      "title": "The Crime of Monsieur Lange",
+      "creator": "Jean Renoir",
+      "kind": "film",
+      "year": 1936,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Workers, collective action, and the lives of an urban courtyard community.",
+      "sourceIds": [
+        "film-import-5"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris courtyard and publishing world.",
+        "sourceId": "film-import-5",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris courtyard and publishing world.",
+        "sourceId": "film-import-5"
+      }
+    },
+    {
+      "id": "film-hotel-du-nord-1938",
+      "title": "Hôtel du Nord",
+      "creator": "Marcel Carné",
+      "kind": "film",
+      "year": 1938,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A landmark of poetic realism associated with the canal and its hotel.",
+      "sourceIds": [
+        "film-import-6"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Canal Saint-Martin.",
+        "sourceId": "film-import-6",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Canal Saint-Martin.",
+        "sourceId": "film-import-6"
+      }
+    },
+    {
+      "id": "film-les-enfants-du-paradis-1945",
+      "title": "Les Enfants du paradis",
+      "creator": "Marcel Carné",
+      "kind": "film",
+      "year": 1945,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The great 19th-century entertainment boulevard and the world of mime and theater.",
+      "sourceIds": [
+        "film-import-7"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Boulevard du Temple; theatrical Paris.",
+        "sourceId": "film-import-7",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Boulevard du Temple; theatrical Paris.",
+        "sourceId": "film-import-7"
+      }
+    },
+    {
+      "id": "film-quai-des-orfevres-1947",
+      "title": "Quai des Orfèvres",
+      "creator": "Henri-Georges Clouzot",
+      "kind": "film",
+      "year": 1947,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Postwar crime and entertainment culture in an atmospheric city portrait.",
+      "sourceIds": [
+        "film-import-8"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris police headquarters; cabaret scene.",
+        "sourceId": "film-import-8",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris police headquarters; cabaret scene.",
+        "sourceId": "film-import-8"
+      }
+    },
+    {
+      "id": "film-rendezvous-in-july-1949",
+      "title": "Rendezvous in July",
+      "creator": "Jacques Becker",
+      "kind": "film",
+      "year": 1949,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Young artists, students, jazz, and postwar Left Bank life.",
+      "sourceIds": [
+        "film-import-9"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Saint-Germain-des-Prés; jazz clubs.",
+        "sourceId": "film-import-9",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Saint-Germain-des-Prés; jazz clubs.",
+        "sourceId": "film-import-9"
+      }
+    },
+    {
+      "id": "film-an-american-in-paris-1951",
+      "title": "An American in Paris",
+      "creator": "Vincente Minnelli",
+      "kind": "film",
+      "year": 1951,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A Hollywood musical fantasy connecting Gershwin, painting, and the city.",
+      "sourceIds": [
+        "film-import-10"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Artists’ Paris; Seine.",
+        "sourceId": "film-import-10",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Artists’ Paris; Seine.",
+        "sourceId": "film-import-10"
+      }
+    },
+    {
+      "id": "film-rififi-1955",
+      "title": "Rififi",
+      "creator": "Jules Dassin",
+      "kind": "film",
+      "year": 1955,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A seminal heist movie with an unforgettable extended burglary.",
+      "sourceIds": [
+        "film-import-11"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets; jewelry district.",
+        "sourceId": "film-import-11",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets; jewelry district.",
+        "sourceId": "film-import-11"
+      }
+    },
+    {
+      "id": "film-bob-le-flambeur-1956",
+      "title": "Bob le flambeur",
+      "creator": "Jean-Pierre Melville",
+      "kind": "film",
+      "year": 1956,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Nightlife, gambling, and underworld Paris before the New Wave.",
+      "sourceIds": [
+        "film-import-12"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Montmartre; Pigalle.",
+        "sourceId": "film-import-12",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Montmartre; Pigalle.",
+        "sourceId": "film-import-12"
+      }
+    },
+    {
+      "id": "film-funny-face-1957",
+      "title": "Funny Face",
+      "creator": "Stanley Donen",
+      "kind": "film",
+      "year": 1957,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Audrey Hepburn, fashion photography, and stylized Paris landmarks.",
+      "sourceIds": [
+        "film-import-14"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Louvre; Paris fashion sites.",
+        "sourceId": "film-import-14",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Louvre; Paris fashion sites.",
+        "sourceId": "film-import-14"
+      }
+    },
+    {
+      "id": "film-the-lovers-of-montparnasse-1958",
+      "title": "The Lovers of Montparnasse",
+      "creator": "Jacques Becker",
+      "kind": "film",
+      "year": 1958,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The final years of painter Amedeo Modigliani amid bohemian Paris.",
+      "sourceIds": [
+        "film-import-15"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Montparnasse artists’ quarter.",
+        "sourceId": "film-import-15",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Montparnasse artists’ quarter.",
+        "sourceId": "film-import-15"
+      }
+    },
+    {
+      "id": "film-gigi-1958",
+      "title": "Gigi",
+      "creator": "Vincente Minnelli",
+      "kind": "film",
+      "year": 1958,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Musical depiction of courtesan culture, luxury, and manners.",
+      "sourceIds": [
+        "film-import-16"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Belle Époque Paris.",
+        "sourceId": "film-import-16",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Belle Époque Paris.",
+        "sourceId": "film-import-16"
+      }
+    },
+    {
+      "id": "film-mon-oncle-1958",
+      "title": "Mon Oncle",
+      "creator": "Jacques Tati",
+      "kind": "film",
+      "year": 1958,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A playful contrast between old urban life and mechanized modernity.",
+      "sourceIds": [
+        "film-import-17"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Old neighborhoods and modernized outskirts.",
+        "sourceId": "film-import-17",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Old neighborhoods and modernized outskirts.",
+        "sourceId": "film-import-17"
+      }
+    },
+    {
+      "id": "film-elevator-to-the-gallows-1958",
+      "title": "Elevator to the Gallows",
+      "creator": "Louis Malle",
+      "kind": "film",
+      "year": 1958,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A noir thriller with Miles Davis’s landmark jazz soundtrack.",
+      "sourceIds": [
+        "film-import-18"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris nightlife; city streets.",
+        "sourceId": "film-import-18",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris nightlife; city streets.",
+        "sourceId": "film-import-18"
+      }
+    },
+    {
+      "id": "film-zazie-dans-le-metro-1960",
+      "title": "Zazie dans le Métro",
+      "creator": "Louis Malle",
+      "kind": "film",
+      "year": 1960,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A playful, surreal adaptation of Raymond Queneau’s novel.",
+      "sourceIds": [
+        "film-import-21"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris métro; markets and landmarks.",
+        "sourceId": "film-import-21",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris métro; markets and landmarks.",
+        "sourceId": "film-import-21"
+      }
+    },
+    {
+      "id": "film-shoot-the-piano-player-1960",
+      "title": "Shoot the Piano Player",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1960,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Film noir, music, and the bohemian Paris underworld.",
+      "sourceIds": [
+        "film-import-22"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris bars and working-class streets.",
+        "sourceId": "film-import-22",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris bars and working-class streets.",
+        "sourceId": "film-import-22"
+      }
+    },
+    {
+      "id": "film-paris-belongs-to-us-1961",
+      "title": "Paris Belongs to Us",
+      "creator": "Jacques Rivette",
+      "kind": "film",
+      "year": 1961,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Conspiracy and youthful alienation in postwar intellectual Paris.",
+      "sourceIds": [
+        "film-import-23"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Left Bank; student and theater circles.",
+        "sourceId": "film-import-23",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Left Bank; student and theater circles.",
+        "sourceId": "film-import-23"
+      }
+    },
+    {
+      "id": "film-the-sign-of-leo-1962",
+      "title": "The Sign of Leo",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 1962,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An impoverished musician wanders through strikingly observed Paris streets.",
+      "sourceIds": [
+        "film-import-25"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Pont des Arts; Left Bank.",
+        "sourceId": "film-import-25",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Pont des Arts; Left Bank.",
+        "sourceId": "film-import-25"
+      }
+    },
+    {
+      "id": "film-jules-and-jim-1962",
+      "title": "Jules and Jim",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1962,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A love triangle set partly within bohemian Paris before World War I.",
+      "sourceIds": [
+        "film-import-26"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Belle Époque Paris; broader France.",
+        "sourceId": "film-import-26",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Belle Époque Paris; broader France.",
+        "sourceId": "film-import-26"
+      }
+    },
+    {
+      "id": "film-le-doulos-1962",
+      "title": "Le Doulos",
+      "creator": "Jean-Pierre Melville",
+      "kind": "film",
+      "year": 1962,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Melville’s deceptive black-and-white gangster thriller.",
+      "sourceIds": [
+        "film-import-27"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris criminal milieu.",
+        "sourceId": "film-import-27",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris criminal milieu.",
+        "sourceId": "film-import-27"
+      }
+    },
+    {
+      "id": "film-the-bakery-girl-of-monceau-1963",
+      "title": "The Bakery Girl of Monceau",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 1963,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An intimate short about chance encounters around one neighborhood.",
+      "sourceIds": [
+        "film-import-28"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Parc Monceau; Rue de Lévis area.",
+        "sourceId": "film-import-28",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Parc Monceau; Rue de Lévis area.",
+        "sourceId": "film-import-28"
+      }
+    },
+    {
+      "id": "film-suzannes-career-1963",
+      "title": "Suzanne’s Career",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 1963,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A young social circle reveals moral ambiguity in early-1960s Paris.",
+      "sourceIds": [
+        "film-import-29"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris students and cafés.",
+        "sourceId": "film-import-29",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris students and cafés.",
+        "sourceId": "film-import-29"
+      }
+    },
+    {
+      "id": "film-band-of-outsiders-1964",
+      "title": "Band of Outsiders",
+      "creator": "Jean-Luc Godard",
+      "kind": "film",
+      "year": 1964,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The famous dash through the Louvre and playful New Wave criminality.",
+      "sourceIds": [
+        "film-import-30"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Louvre; Paris periphery.",
+        "sourceId": "film-import-30",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Louvre; Paris periphery.",
+        "sourceId": "film-import-30"
+      }
+    },
+    {
+      "id": "film-the-soft-skin-1964",
+      "title": "The Soft Skin",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1964,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Middle-class Paris and the consequences of an affair.",
+      "sourceIds": [
+        "film-import-31"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris domestic and literary world.",
+        "sourceId": "film-import-31",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris domestic and literary world.",
+        "sourceId": "film-import-31"
+      }
+    },
+    {
+      "id": "film-masculin-feminin-1966",
+      "title": "Masculin Féminin",
+      "creator": "Jean-Luc Godard",
+      "kind": "film",
+      "year": 1966,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Politics, consumer culture, and young people in the 1960s.",
+      "sourceIds": [
+        "film-import-32"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris cafés; pop music spaces.",
+        "sourceId": "film-import-32",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris cafés; pop music spaces.",
+        "sourceId": "film-import-32"
+      }
+    },
+    {
+      "id": "film-two-or-three-things-i-know-about-her-1967",
+      "title": "Two or Three Things I Know About Her",
+      "creator": "Jean-Luc Godard",
+      "kind": "film",
+      "year": 1967,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Consumerism and the building of modern housing around Paris.",
+      "sourceIds": [
+        "film-import-33"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: New suburbs; Paris outskirts.",
+        "sourceId": "film-import-33",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: New suburbs; Paris outskirts.",
+        "sourceId": "film-import-33"
+      }
+    },
+    {
+      "id": "film-belle-de-jour-1967",
+      "title": "Belle de Jour",
+      "creator": "Luis Buñuel",
+      "kind": "film",
+      "year": 1967,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Catherine Deneuve in a surreal vision of social respectability.",
+      "sourceIds": [
+        "film-import-34"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris bourgeois neighborhoods.",
+        "sourceId": "film-import-34",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris bourgeois neighborhoods.",
+        "sourceId": "film-import-34"
+      }
+    },
+    {
+      "id": "film-le-samourai-1967",
+      "title": "Le Samouraï",
+      "creator": "Jean-Pierre Melville",
+      "kind": "film",
+      "year": 1967,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Minimalist noir navigating the city’s nocturnal geography.",
+      "sourceIds": [
+        "film-import-35"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris métro; nightclubs.",
+        "sourceId": "film-import-35",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris métro; nightclubs.",
+        "sourceId": "film-import-35"
+      }
+    },
+    {
+      "id": "film-stolen-kisses-1968",
+      "title": "Stolen Kisses",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1968,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Antoine Doinel becomes a young adult in everyday Paris.",
+      "sourceIds": [
+        "film-import-36"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris jobs; shops; neighborhoods.",
+        "sourceId": "film-import-36",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris jobs; shops; neighborhoods.",
+        "sourceId": "film-import-36"
+      }
+    },
+    {
+      "id": "film-bed-and-board-1970",
+      "title": "Bed and Board",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1970,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The rhythms of marriage and working-class city life.",
+      "sourceIds": [
+        "film-import-37"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris apartment courtyard.",
+        "sourceId": "film-import-37",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris apartment courtyard.",
+        "sourceId": "film-import-37"
+      }
+    },
+    {
+      "id": "film-love-in-the-afternoon-1972",
+      "title": "Love in the Afternoon",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 1972,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A modern morality tale about the routines of the city.",
+      "sourceIds": [
+        "film-import-38"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris offices; cafés; shops.",
+        "sourceId": "film-import-38",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris offices; cafés; shops.",
+        "sourceId": "film-import-38"
+      }
+    },
+    {
+      "id": "film-the-mother-and-the-whore-1973",
+      "title": "The Mother and the Whore",
+      "creator": "Jean Eustache",
+      "kind": "film",
+      "year": 1973,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Long conversations, relationships, and post-1968 disillusionment.",
+      "sourceIds": [
+        "film-import-39"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Saint-Germain-des-Prés cafés.",
+        "sourceId": "film-import-39",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Saint-Germain-des-Prés cafés.",
+        "sourceId": "film-import-39"
+      }
+    },
+    {
+      "id": "film-celine-and-julie-go-boating-1974",
+      "title": "Céline and Julie Go Boating",
+      "creator": "Jacques Rivette",
+      "kind": "film",
+      "year": 1974,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An inventive female friendship mystery transforming ordinary streets.",
+      "sourceIds": [
+        "film-import-40"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Montmartre; residential Paris.",
+        "sourceId": "film-import-40",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Montmartre; residential Paris.",
+        "sourceId": "film-import-40"
+      }
+    },
+    {
+      "id": "film-one-sings-the-other-doesnt-1977",
+      "title": "One Sings, the Other Doesn’t",
+      "creator": "Agnès Varda",
+      "kind": "film",
+      "year": 1977,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A friendship begins in Paris and becomes a feminist story crossing places and years.",
+      "sourceIds": [
+        "film-import-41"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris; women’s liberation.",
+        "sourceId": "film-import-41",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris; women’s liberation.",
+        "sourceId": "film-import-41"
+      }
+    },
+    {
+      "id": "film-love-on-the-run-1979",
+      "title": "Love on the Run",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1979,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The culmination of the Doinel film cycle and memory of a changing city.",
+      "sourceIds": [
+        "film-import-42"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris; Antoine Doinel’s life.",
+        "sourceId": "film-import-42",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris; Antoine Doinel’s life.",
+        "sourceId": "film-import-42"
+      }
+    },
+    {
+      "id": "film-the-last-metro-1980",
+      "title": "The Last Metro",
+      "creator": "François Truffaut",
+      "kind": "film",
+      "year": 1980,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A theater company survives the Nazi occupation in hiding and performance.",
+      "sourceIds": [
+        "film-import-43"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Occupied Paris; theater district.",
+        "sourceId": "film-import-43",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Occupied Paris; theater district.",
+        "sourceId": "film-import-43"
+      }
+    },
+    {
+      "id": "film-diva-1981",
+      "title": "Diva",
+      "creator": "Jean-Jacques Beineix",
+      "kind": "film",
+      "year": 1981,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Stylish music-centered thriller capturing underground Paris.",
+      "sourceIds": [
+        "film-import-44"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris métro; industrial spaces.",
+        "sourceId": "film-import-44",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris métro; industrial spaces.",
+        "sourceId": "film-import-44"
+      }
+    },
+    {
+      "id": "film-boy-meets-girl-1984",
+      "title": "Boy Meets Girl",
+      "creator": "Leos Carax",
+      "kind": "film",
+      "year": 1984,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A visually inventive debut about young love and urban solitude.",
+      "sourceIds": [
+        "film-import-45"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Night-time Paris; Seine.",
+        "sourceId": "film-import-45",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Night-time Paris; Seine.",
+        "sourceId": "film-import-45"
+      }
+    },
+    {
+      "id": "film-subway-1985",
+      "title": "Subway",
+      "creator": "Luc Besson",
+      "kind": "film",
+      "year": 1985,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An eccentric crime tale set largely in the subterranean transit network.",
+      "sourceIds": [
+        "film-import-46"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris Métro.",
+        "sourceId": "film-import-46",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris Métro.",
+        "sourceId": "film-import-46"
+      }
+    },
+    {
+      "id": "film-mauvais-sang-1986",
+      "title": "Mauvais Sang",
+      "creator": "Leos Carax",
+      "kind": "film",
+      "year": 1986,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Romance and thriller elements in a feverish nocturnal city.",
+      "sourceIds": [
+        "film-import-47"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets and rooftops.",
+        "sourceId": "film-import-47",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets and rooftops.",
+        "sourceId": "film-import-47"
+      }
+    },
+    {
+      "id": "film-round-midnight-1986",
+      "title": "Round Midnight",
+      "creator": "Bertrand Tavernier",
+      "kind": "film",
+      "year": 1986,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A moving portrait of the city’s American expatriate jazz scene.",
+      "sourceIds": [
+        "film-import-48"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris jazz clubs.",
+        "sourceId": "film-import-48",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris jazz clubs.",
+        "sourceId": "film-import-48"
+      }
+    },
+    {
+      "id": "film-the-lovers-on-the-bridge-1991",
+      "title": "The Lovers on the Bridge",
+      "creator": "Leos Carax",
+      "kind": "film",
+      "year": 1991,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Love and homelessness staged around the city’s historic bridge.",
+      "sourceIds": [
+        "film-import-49"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Pont Neuf; Seine.",
+        "sourceId": "film-import-49",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Pont Neuf; Seine.",
+        "sourceId": "film-import-49"
+      }
+    },
+    {
+      "id": "film-la-vie-de-boheme-1992",
+      "title": "La Vie de Bohème",
+      "creator": "Aki Kaurismäki",
+      "kind": "film",
+      "year": 1992,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A dryly comic adaptation of Henri Murger’s bohemian stories.",
+      "sourceIds": [
+        "film-import-50"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris artist apartments and cafés.",
+        "sourceId": "film-import-50",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris artist apartments and cafés.",
+        "sourceId": "film-import-50"
+      }
+    },
+    {
+      "id": "film-three-colors-blue-1993",
+      "title": "Three Colors: Blue",
+      "creator": "Krzysztof Kieślowski",
+      "kind": "film",
+      "year": 1993,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A woman’s grief and reinvention in the city after a family tragedy.",
+      "sourceIds": [
+        "film-import-51"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris apartments; swimming pools.",
+        "sourceId": "film-import-51",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris apartments; swimming pools.",
+        "sourceId": "film-import-51"
+      }
+    },
+    {
+      "id": "film-rendezvous-in-paris-1995",
+      "title": "Rendezvous in Paris",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 1995,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Three relationship tales built from encounters across the city.",
+      "sourceIds": [
+        "film-import-53"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Tuileries; Marais; Left Bank.",
+        "sourceId": "film-import-53",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Tuileries; Marais; Left Bank.",
+        "sourceId": "film-import-53"
+      }
+    },
+    {
+      "id": "film-irma-vep-1996",
+      "title": "Irma Vep",
+      "creator": "Olivier Assayas",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A film-within-a-film that connects Paris filmmaking to silent serials.",
+      "sourceIds": [
+        "film-import-54"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris film production spaces.",
+        "sourceId": "film-import-54",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris film production spaces.",
+        "sourceId": "film-import-54"
+      }
+    },
+    {
+      "id": "film-when-the-cats-away-1996",
+      "title": "When the Cat’s Away",
+      "creator": "Cédric Klapisch",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A neighborhood community takes shape around a missing cat.",
+      "sourceIds": [
+        "film-import-55"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Bastille; 11th arrondissement.",
+        "sourceId": "film-import-55",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Bastille; 11th arrondissement.",
+        "sourceId": "film-import-55"
+      }
+    },
+    {
+      "id": "film-my-sex-life-or-how-i-got-into-an-argument-1996",
+      "title": "My Sex Life… or How I Got into an Argument",
+      "creator": "Arnaud Desplechin",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A sprawling portrait of intellectual and romantic life.",
+      "sourceIds": [
+        "film-import-56"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris academia; relationships.",
+        "sourceId": "film-import-56",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris academia; relationships.",
+        "sourceId": "film-import-56"
+      }
+    },
+    {
+      "id": "film-pola-x-1999",
+      "title": "Pola X",
+      "creator": "Leos Carax",
+      "kind": "film",
+      "year": 1999,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A dark contemporary literary adaptation with substantial scenes beyond Paris.",
+      "sourceIds": [
+        "film-import-57"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and regional France.",
+        "sourceId": "film-import-57",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and regional France.",
+        "sourceId": "film-import-57"
+      }
+    },
+    {
+      "id": "film-the-dreamers-2003",
+      "title": "The Dreamers",
+      "creator": "Bernardo Bertolucci",
+      "kind": "film",
+      "year": 2003,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Students, cinema obsession, and the May 1968 protests.",
+      "sourceIds": [
+        "film-import-59"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Latin Quarter; Cinémathèque; 1968 Paris.",
+        "sourceId": "film-import-59",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Latin Quarter; Cinémathèque; 1968 Paris.",
+        "sourceId": "film-import-59"
+      }
+    },
+    {
+      "id": "film-the-story-of-marie-and-julien-2003",
+      "title": "The Story of Marie and Julien",
+      "creator": "Jacques Rivette",
+      "kind": "film",
+      "year": 2003,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A mysterious relationship drama anchored in urban everyday life.",
+      "sourceIds": [
+        "film-import-60"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris residential streets and gardens.",
+        "sourceId": "film-import-60",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris residential streets and gardens.",
+        "sourceId": "film-import-60"
+      }
+    },
+    {
+      "id": "film-the-beat-that-my-heart-skipped-2005",
+      "title": "The Beat That My Heart Skipped",
+      "creator": "Jacques Audiard",
+      "kind": "film",
+      "year": 2005,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A tense portrait of property speculation and the desire for music.",
+      "sourceIds": [
+        "film-import-61"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris real-estate and nightlife.",
+        "sourceId": "film-import-61",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris real-estate and nightlife.",
+        "sourceId": "film-import-61"
+      }
+    },
+    {
+      "id": "film-paris-je-taime-2006",
+      "title": "Paris, je t’aime",
+      "creator": "Multiple directors",
+      "kind": "film",
+      "year": 2006,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An anthology that treats neighborhoods as distinct storytelling worlds.",
+      "sourceIds": [
+        "film-import-62"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Eighteen Paris districts.",
+        "sourceId": "film-import-62",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Eighteen Paris districts.",
+        "sourceId": "film-import-62"
+      }
+    },
+    {
+      "id": "film-la-vie-en-rose-2007",
+      "title": "La Vie en Rose",
+      "creator": "Olivier Dahan",
+      "kind": "film",
+      "year": 2007,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Édith Piaf’s life, the music hall, and the city of chanson.",
+      "sourceIds": [
+        "film-import-63"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Belleville; Piaf’s Paris.",
+        "sourceId": "film-import-63",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Belleville; Piaf’s Paris.",
+        "sourceId": "film-import-63"
+      }
+    },
+    {
+      "id": "film-paris-2008",
+      "title": "Paris",
+      "creator": "Cédric Klapisch",
+      "kind": "film",
+      "year": 2008,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An ensemble portrait of interwoven lives across the capital.",
+      "sourceIds": [
+        "film-import-64"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Montmartre; diverse city districts.",
+        "sourceId": "film-import-64",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Montmartre; diverse city districts.",
+        "sourceId": "film-import-64"
+      }
+    },
+    {
+      "id": "film-the-intouchables-2011",
+      "title": "The Intouchables",
+      "creator": "Olivier Nakache and Éric Toledano",
+      "kind": "film",
+      "year": 2011,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Class differences, friendship, and mobility across the urban region.",
+      "sourceIds": [
+        "film-import-66"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris and western suburbs.",
+        "sourceId": "film-import-66",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris and western suburbs.",
+        "sourceId": "film-import-66"
+      }
+    },
+    {
+      "id": "film-holy-motors-2012",
+      "title": "Holy Motors",
+      "creator": "Leos Carax",
+      "kind": "film",
+      "year": 2012,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An unpredictable journey through identity and cinematic city spaces.",
+      "sourceIds": [
+        "film-import-67"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris by limousine; Pont Neuf.",
+        "sourceId": "film-import-67",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris by limousine; Pont Neuf.",
+        "sourceId": "film-import-67"
+      }
+    },
+    {
+      "id": "film-girlhood-2014",
+      "title": "Girlhood",
+      "creator": "Céline Sciamma",
+      "kind": "film",
+      "year": 2014,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A teenager’s friendships and freedom on the urban periphery.",
+      "sourceIds": [
+        "film-import-68"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris outskirts; eastern suburbs.",
+        "sourceId": "film-import-68",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris outskirts; eastern suburbs.",
+        "sourceId": "film-import-68"
+      }
+    },
+    {
+      "id": "film-eden-2014",
+      "title": "Eden",
+      "creator": "Mia Hansen-Løve",
+      "kind": "film",
+      "year": 2014,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A history of French house music and 1990s youth culture.",
+      "sourceIds": [
+        "film-import-69"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris clubs and suburbs.",
+        "sourceId": "film-import-69",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris clubs and suburbs.",
+        "sourceId": "film-import-69"
+      }
+    },
+    {
+      "id": "film-dheepan-2015",
+      "title": "Dheepan",
+      "creator": "Jacques Audiard",
+      "kind": "film",
+      "year": 2015,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A migrant family tries to build a life on the edges of the metropolis.",
+      "sourceIds": [
+        "film-import-70"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris peripheral housing estates.",
+        "sourceId": "film-import-70",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Paris peripheral housing estates.",
+        "sourceId": "film-import-70"
+      }
+    },
+    {
+      "id": "film-nocturama-2016",
+      "title": "Nocturama",
+      "creator": "Bertrand Bonello",
+      "kind": "film",
+      "year": 2016,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A politically disturbing thriller about alienated young people.",
+      "sourceIds": [
+        "film-import-71"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Central Paris; shopping mall.",
+        "sourceId": "film-import-71",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Central Paris; shopping mall.",
+        "sourceId": "film-import-71"
+      }
+    },
+    {
+      "id": "film-personal-shopper-2016",
+      "title": "Personal Shopper",
+      "creator": "Olivier Assayas",
+      "kind": "film",
+      "year": 2016,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A ghost story and contemporary portrait of work, luxury, and grief.",
+      "sourceIds": [
+        "film-import-72"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris fashion world; apartments.",
+        "sourceId": "film-import-72",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris fashion world; apartments.",
+        "sourceId": "film-import-72"
+      }
+    },
+    {
+      "id": "film-120-bpm-2017",
+      "title": "120 BPM",
+      "creator": "Robin Campillo",
+      "kind": "film",
+      "year": 2017,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The activism, intimacy, and politics of the 1990s AIDS crisis.",
+      "sourceIds": [
+        "film-import-73"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris ACT UP meetings; demonstrations.",
+        "sourceId": "film-import-73",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris ACT UP meetings; demonstrations.",
+        "sourceId": "film-import-73"
+      }
+    },
+    {
+      "id": "film-lost-illusions-2021",
+      "title": "Lost Illusions",
+      "creator": "Xavier Giannoli",
+      "kind": "film",
+      "year": 2021,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Balzac’s journalism, celebrity culture, and commercial literary world.",
+      "sourceIds": [
+        "film-import-77"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Restoration Paris; press; salons.",
+        "sourceId": "film-import-77",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Restoration Paris; press; salons.",
+        "sourceId": "film-import-77"
+      }
+    },
+    {
+      "id": "film-eiffel-2021",
+      "title": "Eiffel",
+      "creator": "Martin Bourboulon",
+      "kind": "film",
+      "year": 2021,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A fictionalized romance surrounding the tower’s construction.",
+      "sourceIds": [
+        "film-import-78"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Eiffel Tower; 1880s Paris.",
+        "sourceId": "film-import-78",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Eiffel Tower; 1880s Paris.",
+        "sourceId": "film-import-78"
+      }
+    },
+    {
+      "id": "film-one-fine-morning-2022",
+      "title": "One Fine Morning",
+      "creator": "Mia Hansen-Løve",
+      "kind": "film",
+      "year": 2022,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Tender realism about family, caregiving, and a new relationship.",
+      "sourceIds": [
+        "film-import-79"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris apartments and streets.",
+        "sourceId": "film-import-79",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris apartments and streets.",
+        "sourceId": "film-import-79"
+      }
+    },
+    {
+      "id": "film-paris-memories-2022",
+      "title": "Paris Memories",
+      "creator": "Alice Winocour",
+      "kind": "film",
+      "year": 2022,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A survivor revisits the city after a traumatic attack.",
+      "sourceIds": [
+        "film-import-80"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris cafés; city streets.",
+        "sourceId": "film-import-80",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris cafés; city streets.",
+        "sourceId": "film-import-80"
+      }
+    },
+    {
+      "id": "film-the-passengers-of-the-night-2022",
+      "title": "The Passengers of the Night",
+      "creator": "Mikhaël Hers",
+      "kind": "film",
+      "year": 2022,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Coming of age and family reconstruction in an evocative city.",
+      "sourceIds": [
+        "film-import-81"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 1980s Paris; radio station.",
+        "sourceId": "film-import-81",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 1980s Paris; radio station.",
+        "sourceId": "film-import-81"
+      }
+    },
+    {
+      "id": "film-the-crime-is-mine-2023",
+      "title": "The Crime Is Mine",
+      "creator": "François Ozon",
+      "kind": "film",
+      "year": 2023,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A period murder comedy shaped by the city’s entertainment world.",
+      "sourceIds": [
+        "film-import-82"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 1930s Paris; theatrical culture.",
+        "sourceId": "film-import-82",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 1930s Paris; theatrical culture.",
+        "sourceId": "film-import-82"
+      }
+    },
+    {
+      "id": "film-the-story-of-souleymane-2024",
+      "title": "The Story of Souleymane",
+      "creator": "Boris Lojkine",
+      "kind": "film",
+      "year": 2024,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Contemporary immigrant labor and the metropolis from street level.",
+      "sourceIds": [
+        "film-import-83"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets; bicycle delivery routes.",
+        "sourceId": "film-import-83",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets; bicycle delivery routes.",
+        "sourceId": "film-import-83"
+      }
+    },
+    {
+      "id": "film-sabrina-1954",
+      "title": "Sabrina",
+      "creator": "Billy Wilder",
+      "kind": "film",
+      "year": 1954,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A brief but memorable Paris transformation in a mainly American story.",
+      "sourceIds": [
+        "film-import-84"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris training interlude.",
+        "sourceId": "film-import-84",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris training interlude.",
+        "sourceId": "film-import-84"
+      }
+    },
+    {
+      "id": "film-charade-1963",
+      "title": "Charade",
+      "creator": "Stanley Donen",
+      "kind": "film",
+      "year": 1963,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Hitchcock-like mystery with Audrey Hepburn and Cary Grant.",
+      "sourceIds": [
+        "film-import-85"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris landmarks; Seine; streets.",
+        "sourceId": "film-import-85",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris landmarks; Seine; streets.",
+        "sourceId": "film-import-85"
+      }
+    },
+    {
+      "id": "film-paris-when-it-sizzles-1964",
+      "title": "Paris When It Sizzles",
+      "creator": "Richard Quine",
+      "kind": "film",
+      "year": 1964,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A Hollywood comedy about screenwriting and city glamour.",
+      "sourceIds": [
+        "film-import-86"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris hotels and landmarks.",
+        "sourceId": "film-import-86",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris hotels and landmarks.",
+        "sourceId": "film-import-86"
+      }
+    },
+    {
+      "id": "film-how-to-steal-a-million-1966",
+      "title": "How to Steal a Million",
+      "creator": "William Wyler",
+      "kind": "film",
+      "year": 1966,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Audrey Hepburn and Peter O’Toole in an art-theft caper.",
+      "sourceIds": [
+        "film-import-87"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris museums; art collecting.",
+        "sourceId": "film-import-87",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris museums; art collecting.",
+        "sourceId": "film-import-87"
+      }
+    },
+    {
+      "id": "film-last-tango-in-paris-1972",
+      "title": "Last Tango in Paris",
+      "creator": "Bernardo Bertolucci",
+      "kind": "film",
+      "year": 1972,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A controversial psychological drama set in Paris.",
+      "sourceIds": [
+        "film-import-88"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Passy; Right Bank apartments.",
+        "sourceId": "film-import-88",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Passy; Right Bank apartments.",
+        "sourceId": "film-import-88"
+      }
+    },
+    {
+      "id": "film-french-kiss-1995",
+      "title": "French Kiss",
+      "creator": "Lawrence Kasdan",
+      "kind": "film",
+      "year": 1995,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A romantic comedy that begins in Paris and travels elsewhere.",
+      "sourceIds": [
+        "film-import-89"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and southern France.",
+        "sourceId": "film-import-89",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and southern France.",
+        "sourceId": "film-import-89"
+      }
+    },
+    {
+      "id": "film-everyone-says-i-love-you-1996",
+      "title": "Everyone Says I Love You",
+      "creator": "Woody Allen",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "New York-centered ensemble musical with substantial Paris sequences.",
+      "sourceIds": [
+        "film-import-90"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Seine and Paris neighborhoods.",
+        "sourceId": "film-import-90",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Seine and Paris neighborhoods.",
+        "sourceId": "film-import-90"
+      }
+    },
+    {
+      "id": "film-le-divorce-2003",
+      "title": "Le Divorce",
+      "creator": "James Ivory",
+      "kind": "film",
+      "year": 2003,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "American sisters encounter French relationships, inheritance, and culture.",
+      "sourceIds": [
+        "film-import-91"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris apartments; art world.",
+        "sourceId": "film-import-91",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris apartments; art world.",
+        "sourceId": "film-import-91"
+      }
+    },
+    {
+      "id": "film-the-devil-wears-prada-2006",
+      "title": "The Devil Wears Prada",
+      "creator": "David Frankel",
+      "kind": "film",
+      "year": 2006,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A major closing section connects Paris to global fashion.",
+      "sourceIds": [
+        "film-import-93"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Place de la Concorde; fashion-week Paris.",
+        "sourceId": "film-import-93",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Place de la Concorde; fashion-week Paris.",
+        "sourceId": "film-import-93"
+      }
+    },
+    {
+      "id": "film-the-da-vinci-code-2006",
+      "title": "The Da Vinci Code",
+      "creator": "Ron Howard",
+      "kind": "film",
+      "year": 2006,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Conspiracy mystery using Paris monuments as historical puzzles.",
+      "sourceIds": [
+        "film-import-94"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Louvre; Saint-Sulpice.",
+        "sourceId": "film-import-94",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Louvre; Saint-Sulpice.",
+        "sourceId": "film-import-94"
+      }
+    },
+    {
+      "id": "film-midnight-in-paris-2011",
+      "title": "Midnight in Paris",
+      "creator": "Woody Allen",
+      "kind": "film",
+      "year": 2011,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Nostalgia, writers, and a fantasy encounter with the 1920s arts scene.",
+      "sourceIds": [
+        "film-import-95"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Saint-Étienne-du-Mont; Left Bank; river.",
+        "sourceId": "film-import-95",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Saint-Étienne-du-Mont; Left Bank; river.",
+        "sourceId": "film-import-95"
+      }
+    },
+    {
+      "id": "film-hugo-2011",
+      "title": "Hugo",
+      "creator": "Martin Scorsese",
+      "kind": "film",
+      "year": 2011,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Early cinema history, Georges Méliès, and life in a railway station.",
+      "sourceIds": [
+        "film-import-96"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Montparnasse railway station; 1930s Paris.",
+        "sourceId": "film-import-96",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Montparnasse railway station; 1930s Paris.",
+        "sourceId": "film-import-96"
+      }
+    },
+    {
+      "id": "film-mrs-harris-goes-to-paris-2022",
+      "title": "Mrs. Harris Goes to Paris",
+      "creator": "Anthony Fabian",
+      "kind": "film",
+      "year": 2022,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "1950s Dior fashion and a visitor’s encounter with the city.",
+      "sourceIds": [
+        "film-import-97"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris haute-couture ateliers.",
+        "sourceId": "film-import-97",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris haute-couture ateliers.",
+        "sourceId": "film-import-97"
+      }
+    },
+    {
+      "id": "film-the-phantom-of-the-opera-1925",
+      "title": "The Phantom of the Opera",
+      "creator": "Rupert Julian",
+      "kind": "film",
+      "year": 1925,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A landmark silent adaptation of Gaston Leroux’s novel.",
+      "sourceIds": [
+        "film-import-98"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Palais Garnier / Paris opera world.",
+        "sourceId": "film-import-98",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Palais Garnier / Paris opera world.",
+        "sourceId": "film-import-98"
+      }
+    },
+    {
+      "id": "film-nana-1926",
+      "title": "Nana",
+      "creator": "Jean Renoir",
+      "kind": "film",
+      "year": 1926,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Silent adaptation of Émile Zola’s novel of the Paris demimonde.",
+      "sourceIds": [
+        "film-import-99"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Second Empire Paris; theaters.",
+        "sourceId": "film-import-99",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Second Empire Paris; theaters.",
+        "sourceId": "film-import-99"
+      }
+    },
+    {
+      "id": "film-les-miserables-1934",
+      "title": "Les Misérables",
+      "creator": "Raymond Bernard",
+      "kind": "film",
+      "year": 1934,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A major early screen version of Victor Hugo’s epic.",
+      "sourceIds": [
+        "film-import-100"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 19th-century Paris; barricades.",
+        "sourceId": "film-import-100",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 19th-century Paris; barricades.",
+        "sourceId": "film-import-100"
+      }
+    },
+    {
+      "id": "film-a-tale-of-two-cities-1935",
+      "title": "A Tale of Two Cities",
+      "creator": "Jack Conway",
+      "kind": "film",
+      "year": 1935,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Dickens’s novel links revolutionary Paris with London.",
+      "sourceIds": [
+        "film-import-101"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and London; French Revolution.",
+        "sourceId": "film-import-101",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and London; French Revolution.",
+        "sourceId": "film-import-101"
+      }
+    },
+    {
+      "id": "film-the-hunchback-of-notre-dame-1939",
+      "title": "The Hunchback of Notre Dame",
+      "creator": "William Dieterle",
+      "kind": "film",
+      "year": 1939,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Hollywood adaptation of Victor Hugo’s cathedral novel.",
+      "sourceIds": [
+        "film-import-102"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Notre-Dame; medieval city.",
+        "sourceId": "film-import-102",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Notre-Dame; medieval city.",
+        "sourceId": "film-import-102"
+      }
+    },
+    {
+      "id": "film-gervaise-1956",
+      "title": "Gervaise",
+      "creator": "René Clément",
+      "kind": "film",
+      "year": 1956,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Zola’s L’Assommoir rendered as a social drama.",
+      "sourceIds": [
+        "film-import-103"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Goutte d’Or; working-class 19th-century Paris.",
+        "sourceId": "film-import-103",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Goutte d’Or; working-class 19th-century Paris.",
+        "sourceId": "film-import-103"
+      }
+    },
+    {
+      "id": "film-the-hunchback-of-notre-dame-1996",
+      "title": "The Hunchback of Notre Dame",
+      "creator": "Gary Trousdale and Kirk Wise",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Disney’s accessible, fictionalized version of Hugo’s novel.",
+      "sourceIds": [
+        "film-import-104"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Animated medieval Paris; Notre-Dame.",
+        "sourceId": "film-import-104",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Animated medieval Paris; Notre-Dame.",
+        "sourceId": "film-import-104"
+      }
+    },
+    {
+      "id": "film-time-regained-1999",
+      "title": "Time Regained",
+      "creator": "Raúl Ruiz",
+      "kind": "film",
+      "year": 1999,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A visually elaborate film adaptation of Marcel Proust.",
+      "sourceIds": [
+        "film-import-105"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Belle Époque salons; Proustian Paris.",
+        "sourceId": "film-import-105",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Belle Époque salons; Proustian Paris.",
+        "sourceId": "film-import-105"
+      }
+    },
+    {
+      "id": "film-the-lady-and-the-duke-2001",
+      "title": "The Lady and the Duke",
+      "creator": "Éric Rohmer",
+      "kind": "film",
+      "year": 2001,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A stylized reconstruction of city politics during the Terror.",
+      "sourceIds": [
+        "film-import-106"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Revolutionary Paris; historic sites.",
+        "sourceId": "film-import-106",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Revolutionary Paris; historic sites.",
+        "sourceId": "film-import-106"
+      }
+    },
+    {
+      "id": "film-the-phantom-of-the-opera-2004",
+      "title": "The Phantom of the Opera",
+      "creator": "Joel Schumacher",
+      "kind": "film",
+      "year": 2004,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Musical adaptation of Andrew Lloyd Webber and Gaston Leroux.",
+      "sourceIds": [
+        "film-import-107"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris opera house; 19th-century city.",
+        "sourceId": "film-import-107",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris opera house; 19th-century city.",
+        "sourceId": "film-import-107"
+      }
+    },
+    {
+      "id": "film-a-very-long-engagement-2004",
+      "title": "A Very Long Engagement",
+      "creator": "Jean-Pierre Jeunet",
+      "kind": "film",
+      "year": 2004,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Mystery and romance linking the city to First World War memories.",
+      "sourceIds": [
+        "film-import-108"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and rural France after WWI.",
+        "sourceId": "film-import-108",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris and rural France after WWI.",
+        "sourceId": "film-import-108"
+      }
+    },
+    {
+      "id": "film-colette-2018",
+      "title": "Colette",
+      "creator": "Wash Westmoreland",
+      "kind": "film",
+      "year": 2018,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "The novelist enters Parisian salons, theaters, and public celebrity.",
+      "sourceIds": [
+        "film-import-109"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Belle Époque literary Paris.",
+        "sourceId": "film-import-109",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Belle Époque literary Paris.",
+        "sourceId": "film-import-109"
+      }
+    },
+    {
+      "id": "film-les-miserables-2012",
+      "title": "Les Misérables",
+      "creator": "Tom Hooper",
+      "kind": "film",
+      "year": 2012,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Musical adaptation of Hugo’s novel, with locations recreated for film.",
+      "sourceIds": [
+        "film-import-110"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 19th-century Paris; revolutionary barricades.",
+        "sourceId": "film-import-110",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 19th-century Paris; revolutionary barricades.",
+        "sourceId": "film-import-110"
+      }
+    },
+    {
+      "id": "film-the-three-musketeers-dartagnan-2023",
+      "title": "The Three Musketeers: D’Artagnan",
+      "creator": "Martin Bourboulon",
+      "kind": "film",
+      "year": 2023,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Dumas’s swashbuckling world of intrigue and royal politics.",
+      "sourceIds": [
+        "film-import-111"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: 17th-century Paris court and wider France.",
+        "sourceId": "film-import-111",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: 17th-century Paris court and wider France.",
+        "sourceId": "film-import-111"
+      }
+    },
+    {
+      "id": "film-the-three-musketeers-milady-2023",
+      "title": "The Three Musketeers: Milady",
+      "creator": "Martin Bourboulon",
+      "kind": "film",
+      "year": 2023,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Sequel continuing the political intrigue of Dumas’s story.",
+      "sourceIds": [
+        "film-import-112"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris court and wider France.",
+        "sourceId": "film-import-112",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris court and wider France.",
+        "sourceId": "film-import-112"
+      }
+    },
+    {
+      "id": "film-the-count-of-monte-cristo-2024",
+      "title": "The Count of Monte Cristo",
+      "creator": "Alexandre de La Patellière and Matthieu Delaporte",
+      "kind": "film",
+      "year": 2024,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Dumas adaptation with important scenes in Paris but a multi-location story.",
+      "sourceIds": [
+        "film-import-113"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris elite society; Marseille and other locales.",
+        "sourceId": "film-import-113",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris elite society; Marseille and other locales.",
+        "sourceId": "film-import-113"
+      }
+    },
+    {
+      "id": "film-paris-1900-1948",
+      "title": "Paris 1900",
+      "creator": "Nicole Vedrès",
+      "kind": "film",
+      "year": 1948,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An archival portrait of Paris between 1900 and World War I.",
+      "sourceIds": [
+        "film-import-114"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Belle Époque city; archival footage.",
+        "sourceId": "film-import-114",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Belle Époque city; archival footage.",
+        "sourceId": "film-import-114"
+      }
+    },
+    {
+      "id": "film-chronicle-of-a-summer-1961",
+      "title": "Chronicle of a Summer",
+      "creator": "Jean Rouch and Edgar Morin",
+      "kind": "film",
+      "year": 1961,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Ordinary Parisians discuss happiness, work, identity, and social change.",
+      "sourceIds": [
+        "film-import-115"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets; homes; conversations.",
+        "sourceId": "film-import-115",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets; homes; conversations.",
+        "sourceId": "film-import-115"
+      }
+    },
+    {
+      "id": "film-le-joli-mai-1963",
+      "title": "Le Joli Mai",
+      "creator": "Chris Marker and Pierre Lhomme",
+      "kind": "film",
+      "year": 1963,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A sweeping documentary of residents emerging from the Algerian War.",
+      "sourceIds": [
+        "film-import-116"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets in May 1962.",
+        "sourceId": "film-import-116",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets in May 1962.",
+        "sourceId": "film-import-116"
+      }
+    },
+    {
+      "id": "film-paris-was-a-woman-1996",
+      "title": "Paris Was a Woman",
+      "creator": "Greta Schiller",
+      "kind": "film",
+      "year": 1996,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Women writers and artists of the Paris expatriate scene.",
+      "sourceIds": [
+        "film-import-117"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Left Bank; interwar literary Paris.",
+        "sourceId": "film-import-117",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Left Bank; interwar literary Paris.",
+        "sourceId": "film-import-117"
+      }
+    },
+    {
+      "id": "film-daguerreotypes-1975",
+      "title": "Daguerréotypes",
+      "creator": "Agnès Varda",
+      "kind": "film",
+      "year": 1975,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Shopkeeper portraits that make a single street an entire social universe.",
+      "sourceIds": [
+        "film-import-118"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Rue Daguerre; 14th arrondissement.",
+        "sourceId": "film-import-118",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Rue Daguerre; 14th arrondissement.",
+        "sourceId": "film-import-118"
+      }
+    },
+    {
+      "id": "film-les-dites-cariatides-1984",
+      "title": "Les Dites Cariatides",
+      "creator": "Agnès Varda",
+      "kind": "film",
+      "year": 1984,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An essay short observing human figures on Parisian façades.",
+      "sourceIds": [
+        "film-import-119"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Decorative sculptures across Paris.",
+        "sourceId": "film-import-119",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The supplied reference links to further film research."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Decorative sculptures across Paris.",
+        "sourceId": "film-import-119"
+      }
+    },
+    {
+      "id": "film-paris-the-luminous-years-2010",
+      "title": "Paris: The Luminous Years",
+      "creator": "Perry Miller Adato",
+      "kind": "film",
+      "year": 2010,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A documentary overview of artists and the rise of modernism.",
+      "sourceIds": [
+        "film-import-120"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris avant-garde, 1905–1930.",
+        "sourceId": "film-import-120",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris avant-garde, 1905–1930.",
+        "sourceId": "film-import-120"
+      }
+    },
+    {
+      "id": "film-la-maison-de-la-radio-2013",
+      "title": "La Maison de la Radio",
+      "creator": "Nicolas Philibert",
+      "kind": "film",
+      "year": 2013,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Behind the scenes at France’s major broadcasting house.",
+      "sourceIds": [
+        "film-import-121"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Maison de la Radio; 16th arrondissement.",
+        "sourceId": "film-import-121",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Maison de la Radio; 16th arrondissement.",
+        "sourceId": "film-import-121"
+      }
+    },
+    {
+      "id": "film-the-paris-opera-2017",
+      "title": "The Paris Opera",
+      "creator": "Jean-Stéphane Bron",
+      "kind": "film",
+      "year": 2017,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A look behind the scenes at the modern Paris Opera.",
+      "sourceIds": [
+        "film-import-122"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Opéra Bastille; Palais Garnier institution.",
+        "sourceId": "film-import-122",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Opéra Bastille; Palais Garnier institution.",
+        "sourceId": "film-import-122"
+      }
+    },
+    {
+      "id": "film-paris-calligrammes-2019",
+      "title": "Paris Calligrammes",
+      "creator": "Ulrike Ottinger",
+      "kind": "film",
+      "year": 2019,
+      "yearLabel": "Film year",
+      "form": "Documentary",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Autobiographical essay film about culture and political life in Paris.",
+      "sourceIds": [
+        "film-import-123"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 1960s Left Bank; artistic circles.",
+        "sourceId": "film-import-123",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 1960s Left Bank; artistic circles.",
+        "sourceId": "film-import-123"
+      }
+    },
+    {
+      "id": "film-the-aristocats-1970",
+      "title": "The Aristocats",
+      "creator": "Wolfgang Reitherman",
+      "kind": "film",
+      "year": 1970,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A musical family fantasy of cats, jazz, and Belle Époque streets.",
+      "sourceIds": [
+        "film-import-124"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Animated 1910 Paris.",
+        "sourceId": "film-import-124",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Animated 1910 Paris.",
+        "sourceId": "film-import-124"
+      }
+    },
+    {
+      "id": "film-the-pink-panther-2006",
+      "title": "The Pink Panther",
+      "creator": "Shawn Levy",
+      "kind": "film",
+      "year": 2006,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Comic police mystery set around Paris and its institutions.",
+      "sourceIds": [
+        "film-import-125"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris police; city landmarks.",
+        "sourceId": "film-import-125",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris police; city landmarks.",
+        "sourceId": "film-import-125"
+      }
+    },
+    {
+      "id": "film-district-13-2004",
+      "title": "District 13",
+      "creator": "Pierre Morel",
+      "kind": "film",
+      "year": 2004,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Parkour action makes the peripheral city a kinetic obstacle course.",
+      "sourceIds": [
+        "film-import-126"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Fictional near-future Paris banlieue.",
+        "sourceId": "film-import-126",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Fictional near-future Paris banlieue.",
+        "sourceId": "film-import-126"
+      }
+    },
+    {
+      "id": "film-ratatouille-2007",
+      "title": "Ratatouille",
+      "creator": "Brad Bird",
+      "kind": "film",
+      "year": 2007,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Food culture and the emotional fantasy of Paris seen through Pixar.",
+      "sourceIds": [
+        "film-import-127"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Animated rooftops; restaurants; Seine.",
+        "sourceId": "film-import-127",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Animated rooftops; restaurants; Seine.",
+        "sourceId": "film-import-127"
+      }
+    },
+    {
+      "id": "film-taken-2008",
+      "title": "Taken",
+      "creator": "Pierre Morel",
+      "kind": "film",
+      "year": 2008,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "An action thriller making the city into a chase landscape.",
+      "sourceIds": [
+        "film-import-128"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris streets; hotel and criminal underworld.",
+        "sourceId": "film-import-128",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris streets; hotel and criminal underworld.",
+        "sourceId": "film-import-128"
+      }
+    },
+    {
+      "id": "film-district-13-ultimatum-2009",
+      "title": "District 13: Ultimatum",
+      "creator": "Patrick Alessandrin",
+      "kind": "film",
+      "year": 2009,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Sequel that reprises the city’s dystopian peripheral zones.",
+      "sourceIds": [
+        "film-import-129"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Fictional near-future Paris suburbs.",
+        "sourceId": "film-import-129",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "greater_paris",
+        "note": "Greater Paris connection; the suburbs are distinct from central Paris. Research lead: Fictional near-future Paris suburbs.",
+        "sourceId": "film-import-129"
+      }
+    },
+    {
+      "id": "film-the-extraordinary-adventures-of-adele-blanc-sec-2010",
+      "title": "The Extraordinary Adventures of Adèle Blanc-Sec",
+      "creator": "Luc Besson",
+      "kind": "film",
+      "year": 2010,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Comic-book adventure drawing on prewar Paris fantasy.",
+      "sourceIds": [
+        "film-import-130"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: 1910s Paris; museums; monuments.",
+        "sourceId": "film-import-130",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: 1910s Paris; museums; monuments.",
+        "sourceId": "film-import-130"
+      }
+    },
+    {
+      "id": "film-a-monster-in-paris-2011",
+      "title": "A Monster in Paris",
+      "creator": "Bibo Bergeron",
+      "kind": "film",
+      "year": 2011,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A monster musical with cabarets and Belle Époque atmosphere.",
+      "sourceIds": [
+        "film-import-131"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Animated 1910 Paris; Montmartre.",
+        "sourceId": "film-import-131",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Animated 1910 Paris; Montmartre.",
+        "sourceId": "film-import-131"
+      }
+    },
+    {
+      "id": "film-inception-2010",
+      "title": "Inception",
+      "creator": "Christopher Nolan",
+      "kind": "film",
+      "year": 2010,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A memorable Paris sequence in a film that travels globally.",
+      "sourceIds": [
+        "film-import-132"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris streets and dream-training scenes.",
+        "sourceId": "film-import-132",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris streets and dream-training scenes.",
+        "sourceId": "film-import-132"
+      }
+    },
+    {
+      "id": "film-mission-impossible-fallout-2018",
+      "title": "Mission: Impossible – Fallout",
+      "creator": "Christopher McQuarrie",
+      "kind": "film",
+      "year": 2018,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Large-scale chases staged amid recognizable Paris landmarks.",
+      "sourceIds": [
+        "film-import-133"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris streets; Grand Palais; Seine.",
+        "sourceId": "film-import-133",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Paris streets; Grand Palais; Seine.",
+        "sourceId": "film-import-133"
+      }
+    },
+    {
+      "id": "film-the-smurfs-2-2013",
+      "title": "The Smurfs 2",
+      "creator": "Raja Gosnell",
+      "kind": "film",
+      "year": 2013,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Family film that relocates its characters to modern Paris.",
+      "sourceIds": [
+        "film-import-134"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Paris city landmarks.",
+        "sourceId": "film-import-134",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Paris city landmarks.",
+        "sourceId": "film-import-134"
+      }
+    },
+    {
+      "id": "film-john-wick-chapter-4-2023",
+      "title": "John Wick: Chapter 4",
+      "creator": "Chad Stahelski",
+      "kind": "film",
+      "year": 2023,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A spectacular Paris action sequence using streets as set pieces.",
+      "sourceIds": [
+        "film-import-135"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; the story also extends beyond Paris. Research lead: Arc de Triomphe; Montmartre; Sacré-Cœur.",
+        "sourceId": "film-import-135",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; the story also extends beyond Paris. Research lead: Arc de Triomphe; Montmartre; Sacré-Cœur.",
+        "sourceId": "film-import-135"
+      }
+    },
+    {
+      "id": "film-miraculous-ladybug-cat-noir-the-movie-2023",
+      "title": "Miraculous: Ladybug & Cat Noir, The Movie",
+      "creator": "Jeremy Zag",
+      "kind": "film",
+      "year": 2023,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "A modern superhero fantasy strongly identified with the city.",
+      "sourceIds": [
+        "film-import-136"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Animated Paris; Eiffel Tower; rooftops.",
+        "sourceId": "film-import-136",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Animated Paris; Eiffel Tower; rooftops.",
+        "sourceId": "film-import-136"
+      }
+    },
+    {
+      "id": "film-under-paris-2024",
+      "title": "Under Paris",
+      "creator": "Xavier Gens",
+      "kind": "film",
+      "year": 2024,
+      "yearLabel": "Film year",
+      "form": "Film",
+      "language": "See film source",
+      "destinationId": "paris",
+      "description": "Creature thriller that reimagines the city’s river as a danger zone.",
+      "sourceIds": [
+        "film-import-137"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection. Research lead: Seine; Paris waterways.",
+        "sourceId": "film-import-137",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "From the supplied Paris film research catalog. Release year and director are supplied metadata; distribution dates may vary.",
+        "Place leads describe a story connection, not verified filming coordinates. The source is a title search, not a verified film page or streaming offer."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection. Research lead: Seine; Paris waterways.",
+        "sourceId": "film-import-137"
+      }
+    }
+  ]
+}

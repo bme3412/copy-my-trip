@@ -94,5 +94,29 @@
     "publisher": "JANUS",
     "thumbnail": "https://i.ytimg.com/vi/avHJvdRPmus/hqdefault.jpg",
     "checkedAt": "2026-10-13"
+  },
+  "film-le-joli-mai-1963": {
+    "videoId": "fshGmG2pSjM",
+    "url": "https://www.youtube.com/watch?v=fshGmG2pSjM",
+    "title": "LE JOLI MAI (The Lovely Month of May) Trailer | A film by Chris Marker & Pierre Lhomme",
+    "publisher": "Icarus Films",
+    "thumbnail": "https://i.ytimg.com/vi/fshGmG2pSjM/hqdefault.jpg",
+    "checkedAt": "2026-10-13"
+  },
+  "film-daguerreotypes-1975": {
+    "videoId": "5iaIge_aVHk",
+    "url": "https://www.youtube.com/watch?v=5iaIge_aVHk",
+    "title": "Daguerréotypes - Trailer - SFF 19",
+    "publisher": "Sydney Film Festival",
+    "thumbnail": "https://i.ytimg.com/vi/5iaIge_aVHk/hqdefault.jpg",
+    "checkedAt": "2026-10-13"
+  },
+  "film-midnight-in-paris-2011": {
+    "videoId": "FAfR8omt-CY",
+    "url": "https://www.youtube.com/watch?v=FAfR8omt-CY",
+    "title": "Midnight in Paris | Official Trailer HD (2011)",
+    "publisher": "Sony Pictures Classics",
+    "thumbnail": "https://i.ytimg.com/vi/FAfR8omt-CY/hqdefault.jpg",
+    "checkedAt": "2026-10-13"
   }
 }

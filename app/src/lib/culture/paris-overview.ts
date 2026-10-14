@@ -51,5 +51,12 @@ export const parisSections = [
   ['Overview', PARIS_ROOT], ['Collections', PARIS_ROOT + '/collections'],
   ['Discovery trails', PARIS_ROOT + '/trails'], ['Places', PARIS_ROOT + '/places'],
   ['People', PARIS_ROOT + '/people'], ['Stories', PARIS_ROOT + '/stories'],
-  ['My Paris atlas ↗', PARIS_ROOT + '/atlas'],
+  ['My Paris atlas', PARIS_ROOT + '/atlas'],
 ] as const;
+
+// User-selected starting points, in requested order. Does not mutate catalog order.
+export const priorityParisFilmIds = ['cleo-from-5-to-7','film-daguerreotypes-1975','the-400-blows','amelie','before-sunset','film-midnight-in-paris-2011','film-le-joli-mai-1963','les-miserables-ladj-ly'];
+export function prioritizeParisFilms<T extends {id:string}>(works:T[]):T[] {
+  const rank=new Map(priorityParisFilmIds.map((id,index)=>[id,index]));
+  return [...works].sort((a,b)=>(rank.get(a.id)??Infinity)-(rank.get(b.id)??Infinity));
+}

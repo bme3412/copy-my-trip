@@ -46,7 +46,7 @@ export function MediaPreview({work, onClose}: {work: CultureWork; onClose: () =>
       <WorkMetadata work={work}/>
       <p>{work.description}</p>
       {!music && work.kind!=='film' && work.kind!=='podcast_episode' && <div className="po-preview-art"><WorkCover work={work}/></div>}
-      {cover && <p className="ew-small"><a href={cover.source} target="_blank" rel="noreferrer">Cover: Open Library ↗</a> · Cover edition may differ from the cited edition.</p>}
+      {cover && <p className="ew-small"><a href={cover.source} target="_blank" rel="noreferrer">Cover: Open Library</a> · Cover edition may differ from the cited edition.</p>}
       {work.kind==='podcast_episode' && <><PodcastPlayer key={work.id} work={work}/><ListeningLinks work={work}/></>}
       {music ? <section className="po-preview-listening" aria-label="Listen to this music">{playable ? <><h3>Choose how to listen</h3><div onClick={event=>{if((event.target as HTMLElement).closest('button'))onClose();}}><MusicPlay work={work}/></div><p className="ew-small">Your choice opens the player on this Paris page. Spotify is the default; YouTube is also available.</p></> : <><h3>Listening links</h3><ListeningLinks work={work}/><p className="ew-small">In-page playback is available for the eight-track Paris playlist. This song uses the available source links.</p></>}</section> : <FilmTrailer work={work} compact/>}
       <div className="po-preview-connection"><h3>The Paris connection</h3><p>{work.relationship.statement}</p></div>

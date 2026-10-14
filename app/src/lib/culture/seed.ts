@@ -1,6 +1,7 @@
 import batch from './paris-batch.json' with {type:'json'};
 import podcasts from './podcast-selection.json' with {type:'json'};
 import books from './book-selection.json' with {type:'json'};
+import films from './film-selection.json' with {type:'json'};
 import { enrichExistingWork } from './catalog-metadata.js';
 import { reviewedSources, reviewedWorks } from './reviewed-selection.js';
 import { audioSources, audioWorks } from './audio-selection.js';
@@ -19,6 +20,7 @@ export const cultureCatalog = parseCatalog({
     ...audioSources,
     ...podcasts.sources,
     ...books.sources,
+    ...films.sources,
     {id:'baldwin-prh',title:"Penguin Random House · Giovanni’s Room reading guide",url:'https://www.penguinrandomhouse.com/books/669846/giovannis-room-deluxe-edition-by-james-baldwin/readers-guide/',checkedAt:'2026-10-11',policy:'citation-and-facts-only'},
     {id:'cleo-criterion',title:'The Criterion Collection · Cléo from 5 to 7',url:'https://www.criterion.com/films/244-cleo-from-5-to-7',checkedAt:'2026-10-11',policy:'citation-and-facts-only'},
     {id:'lahiri-prh',title:'Penguin Random House · Roman Stories',url:'https://www.penguinrandomhouse.com/books/717579/roman-stories-by-jhumpa-lahiri/',checkedAt:'2026-10-11',policy:'citation-and-facts-only'},
@@ -30,6 +32,7 @@ export const cultureCatalog = parseCatalog({
     ...audioWorks,
     ...podcasts.works,
     ...books.works,
+    ...films.works,
     {id:'giovannis-room',title:'Giovanni’s Room',creator:'James Baldwin',kind:'book',year:1956,yearLabel:'First published',form:'Novel',language:'English',destinationId:'paris',description:'An American in Paris confronts desire and the difficulty of knowing himself.',relationship:{type:'primarily_set_in',scope:'city',statement:'The publisher’s reading guide places the central love affair in 1950s Paris.',sourceId:'baldwin-prh',review:'source_reported'},sourceIds:['baldwin-prh'],immersion:'unreviewed'},
     {id:'cleo-from-5-to-7',title:'Cléo from 5 to 7',creator:'Agnès Varda',kind:'film',year:1962,yearLabel:'Film released',form:'Feature film',language:'French',destinationId:'paris',description:'A singer moves through Paris while waiting for news that could change her life.',relationship:{type:'primarily_set_in',scope:'city',statement:'Criterion describes Cléo’s journey through Paris as she waits for medical test results.',sourceId:'cleo-criterion',review:'source_reported'},sourceIds:['cleo-criterion'],immersion:'unreviewed'},
     {id:'roman-stories',title:'Roman Stories',creator:'Jhumpa Lahiri',kind:'book',year:2023,yearLabel:'English edition',form:'Short stories',language:'Italian · English translation',destinationId:'rome',description:'Nine stories bring different lives into view across Rome.',relationship:{type:'primarily_set_in',scope:'city',statement:'The publisher identifies Rome as the central city of this nine-story collection.',sourceId:'lahiri-prh',review:'source_reported'},sourceIds:['lahiri-prh'],immersion:'unreviewed'},

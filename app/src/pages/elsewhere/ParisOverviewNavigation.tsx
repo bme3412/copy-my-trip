@@ -21,12 +21,12 @@ export function ParisOverviewNavigation() {
         <input type="hidden" name="destination" value="paris"/>
         <label className="ew-sr-only" htmlFor="po-search">Search Paris titles, creators and summaries</label>
         <input id="po-search" name="q" type="search" maxLength={120} defaultValue={new URLSearchParams(location.search).get('q') ?? ''} placeholder="Search Paris stories, books, cinema…"/>
-        <button type="submit" aria-label="Search Paris">↗</button>
+        <button type="submit" aria-label="Search Paris">Search</button>
       </Form>
-      <nav aria-label="Elsewhere navigation"><Link to="/paris/archive?view=map">Archive map</Link><Link to="/discover/saved">Saved <span className="ew-saved-count">{shelf.ids.length}</span></Link><Link to={PARIS_ROOT + '/collections'}>My collections ↗</Link></nav>
+      <nav aria-label="Elsewhere navigation"><Link to="/paris/archive?view=map">Archive map</Link><Link to="/discover/saved">Saved <span className="ew-saved-count">{shelf.ids.length}</span></Link><Link to={PARIS_ROOT + '/collections'}>My collections</Link></nav>
       <button className="po-menu-toggle" ref={toggle} type="button" aria-expanded={open} aria-controls="po-paris-menu" onClick={() => setOpen(value => !value)}>Paris menu {open ? '−' : '+'}</button>
     </header>
-    <aside className="po-sidebar"><p className="po-destination-label">Current destination</p><p className="po-city">Paris</p><p className="po-region">France · Île-de-France</p><ParisLinks/><div className="po-field-note"><p>● Field note</p><span>Follow a story beyond the page. The next chapter might be a place.</span></div><p className="po-device">Your discoveries.<br/>Saved on this device.</p></aside>
+    <aside className="po-sidebar"><p className="po-destination-label">Current destination</p><p className="po-city">Paris</p><p className="po-region">France · Île-de-France</p><ParisLinks/></aside>
     <div id="po-paris-menu" className="po-mobile-menu" hidden={!open} onKeyDown={event => {if(event.key === 'Escape') {event.preventDefault(); close();}}}><ParisLinks onNavigate={close}/></div>
   </>;
 }

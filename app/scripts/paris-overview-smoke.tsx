@@ -33,12 +33,12 @@ for(const anchor of ['paris-search','paris-feature-heading','more-discover-title
 for(const id of [...featuredParisIds,...recentParisIds,...parisTrackIds.slice(0,4)]) {
  const work=cultureCatalog.works.find(work=>work.id===id)!;
  if([...featuredParisIds,...recentParisIds].includes(id)) assert(html.includes(`aria-label="Preview ${work.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')}"`));
- else assert(html.includes(`/discover/work/${id}`));
+ else assert(html.includes(work.title.replaceAll("&","&amp;").replaceAll("'","&#x27;")));
 }
 for(const e of selection.entities.filter(e=>['place','person','collection'].includes(e.kind)))assert(html.includes(entityHref(e)));
 assert.equal((html.match(/class="po-work /g)??[]).length,12);
-assert(html.includes('8 tracks'));assert(html.includes('Editorial connection'));assert(html.includes('Place positions · schematic'));
-assert(html.includes('Play on Spotify while you explore.'));assert(html.includes('▶ Play on Spotify'));
+assert(html.includes('8 tracks'));assert(!html.includes('Follow a connection'));assert(html.includes('Place positions · schematic'));
+assert(html.includes('Listen with Spotify Premium, or choose YouTube.'));assert(html.includes('▶ Play on Spotify'));
 assert.equal((html.match(/class="ew-spotify-play"/g)??[]).length,10);
 assert.equal((html.match(/class="ew-youtube-play"/g)??[]).length,10);
 for(const track of selection.tracks)assert(html.includes(`Play ${track.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')} on YouTube`));
@@ -51,6 +51,15 @@ assert(!isParisContext('/discover/browse','?destination=rome',cultureCatalog));
 assert(!isParisContext('/discover/work/unknown','',cultureCatalog));
 const counts=parisCounts(cultureCatalog);
 assert.equal(counts.total,cultureCatalog.works.filter(w=>w.destinationId==='paris').length);
-assert.equal(counts.byKind.film,11);
+assert.equal(counts.byKind.film,137);
 assert(html.includes('Curated works'));
 assert(html.includes('Explore Paris places'));
+
+// The requested eight films lead the Films filter, including the three new entries.
+import { priorityParisFilmIds, prioritizeParisFilms } from '../src/lib/culture/paris-overview';
+const orderedFilms=prioritizeParisFilms(cultureCatalog.works.filter(w=>w.kind==='film'&&w.destinationId==='paris'));
+assert.deepEqual(orderedFilms.slice(0,8).map(w=>w.id),priorityParisFilmIds);
+assert.equal(orderedFilms.length,137);
+assert.equal(new Set(orderedFilms.map(w=>w.id)).size,137);
+assert.equal(cultureCatalog.works.find(w=>w.id==='film-mon-oncle-1958')?.geography?.area,'greater_paris');
+assert.equal(cultureCatalog.works.filter(w=>w.kind==='film'&&w.title==='Les Misérables').length,3);

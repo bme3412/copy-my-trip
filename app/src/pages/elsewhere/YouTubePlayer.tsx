@@ -109,7 +109,7 @@ export function YouTubeProvider({children, works}: {children: ReactNode; works: 
           <button type="button" disabled={selection.index === selection.ids.length - 1} onClick={() => move(1)} aria-label="Next YouTube song">Next ›</button>
           {failed && <button type="button" onClick={() => { setFailed(false); setRetry(value => value + 1); }}>Retry YouTube</button>}
         </div>
-        <div className="ew-youtube-links"><a href={youtubeWatchUrl(id)} target="_blank" rel="noreferrer">Open in YouTube ↗</a><Link to={`/discover/work/${id}`}>Song story</Link>{work && <SpotifyPlay work={work} tracks={selection.ids.map(trackId => works.find(item => item.id === trackId)).filter((item): item is CultureWork => !!item)} index={selection.index}/>}</div>
+        <div className="ew-youtube-links"><a href={youtubeWatchUrl(id)} target="_blank" rel="noreferrer">Open in YouTube</a><Link to={`/discover/work/${id}`}>Song story</Link>{work && <SpotifyPlay work={work} tracks={selection.ids.map(trackId => works.find(item => item.id === trackId)).filter((item): item is CultureWork => !!item)} index={selection.index}/>}</div>
         <p className="ew-youtube-status" role="status">{message}</p>
       </div>
     </section></div>}
@@ -122,5 +122,5 @@ export function YouTubePlay({work, tracks, index = 0}: {work: CultureWork; track
   if (!controls || !ids || !validYouTubeQueue(ids, index)) return null;
   const selected = work.kind === 'song' && controls.currentId === work.id;
   const active = selected && controls.playing;
-  return <button className="ew-youtube-play" type="button" aria-label={`${active ? 'Pause' : 'Play'} ${work.title} on YouTube`} onClick={() => selected ? controls.toggle() : controls.play(ids, index)}>{active ? 'Ⅱ Pause YouTube' : 'YouTube ↗'}</button>;
+  return <button className="ew-youtube-play" type="button" aria-label={`${active ? 'Pause' : 'Play'} ${work.title} on YouTube`} onClick={() => selected ? controls.toggle() : controls.play(ids, index)}>{active ? 'Ⅱ Pause YouTube' : 'YouTube'}</button>;
 }

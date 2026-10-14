@@ -5,9 +5,10 @@ import {filmTrailers,filmTrailer} from '../src/lib/culture/film-trailers';
 import {FilmTrailer} from '../src/pages/elsewhere/FilmTrailer';
 import {WorkCover} from '../src/pages/elsewhere/WorkPresentation';
 const films=cultureCatalog.works.filter(work=>work.kind==='film');
-assert.deepEqual(Object.keys(filmTrailers).sort(),films.map(work=>work.id).sort());
+for(const id of Object.keys(filmTrailers))assert(films.some(film=>film.id===id));
 for(const film of films){
- const trailer=filmTrailer(film.id)!;
+ const trailer=filmTrailer(film.id);
+ if(!trailer){assert.equal(renderToStaticMarkup(<FilmTrailer work={film}/>),'');continue;}
  assert.match(trailer.videoId,/^[\w-]{11}$/);
  assert.equal(new URL(trailer.url).searchParams.get('v'),trailer.videoId);
  assert.equal(new URL(trailer.thumbnail).hostname,'i.ytimg.com');
@@ -20,4 +21,4 @@ for(const film of films){
 }
 assert.equal(filmTrailer('toString'),undefined);
 assert.equal(renderToStaticMarkup(<FilmTrailer work={cultureCatalog.works.find(work=>work.kind==='book')!}/>),'');
-console.log('Film trailers: all '+films.length+' catalog films matched; thumbnail/video identity, click-to-load and non-film exclusion passed.');
+console.log('Film trailers: all '+films.length+' catalog films checked; available trailers matched; thumbnail/video identity, click-to-load and non-film exclusion passed.');

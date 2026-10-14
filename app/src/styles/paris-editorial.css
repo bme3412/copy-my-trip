@@ -266,3 +266,60 @@
  .po-card-footer { gap:4px; }
  .po-overview .po-work-art .ew-cover strong,.po-overview .po-work-art .ew-audio-cover strong { font-size:18px; }
 }
+
+/* A full-width listening selection, with compact, readable track rows. */
+.po-middle .po-playlist { grid-column:1/-1; padding:0; overflow:hidden; background:#fffefa; border:1px solid #e4dfd4; border-radius:12px; }
+.po-playlist-feature { display:grid; grid-template-columns:minmax(180px, .8fr) minmax(0, 1.5fr); gap:32px; padding:28px; background:#f1eee6; align-items:center; }
+.po-playlist-feature>.ew-photo { margin:0; min-width:0; }
+.po-playlist-feature>.ew-photo img { width:100%; height:220px; object-fit:cover; border-radius:6px; }
+.po-playlist-feature .ew-photo figcaption { font-size:10px; }
+.po-playlist-heading h2 { font-size:38px; line-height:1.1; margin:10px 0 14px; }
+.po-playlist-heading>p:not(.po-label) { max-width:48ch; color:#686961; font-size:14px; line-height:1.65; }
+.po-playlist-save { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:12px; }
+.po-playlist-save>button:last-child { background:none; border:0; font:inherit; font-size:12px; text-decoration:underline; min-height:44px; cursor:pointer; }
+.po-playlist-track-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:24px 28px 12px; }
+.po-playlist-track-heading h3 { margin:0; font:24px var(--font-heading); }
+.po-playlist-track-heading>span { font-size:11px; color:#66685f; }
+.po-playlist-rows { list-style:none; padding:0 28px; margin:0; }
+.po-playlist-rows>li { display:grid; grid-template-columns:24px minmax(0,1fr) auto auto; gap:16px; align-items:center; padding:15px 0; border-top:1px solid #e8e4dc; }
+.po-track-index { font-size:12px; color:#7c7c72; font-variant-numeric:tabular-nums; }
+.po-track-copy { min-width:0; }
+.po-track-copy>button { font:19px var(--font-heading); text-align:left; color:inherit; background:none; border:0; padding:6px 0; min-height:44px; cursor:pointer; }
+.po-track-copy>button:hover { text-decoration:underline; }
+.po-track-copy p { font-size:12px; color:#66685f; margin:0; }
+.po-playlist-rows .ew-music-options { margin:0; }
+.po-playlist-rows .ew-music-options small { display:none; }
+.po-playlist-note { font-size:11px; line-height:1.6; color:#66685f; padding:16px 28px 24px; margin:0; }
+@media(max-width:650px) {
+ .po-playlist-feature { grid-template-columns:1fr; padding:20px; gap:20px; }
+ .po-playlist-feature>.ew-photo img { height:180px; }
+ .po-playlist-heading h2 { font-size:32px; }
+ .po-playlist-track-heading { padding:20px 16px 12px; flex-wrap:wrap; }
+ .po-playlist-rows { padding:0 16px; }
+ .po-playlist-rows>li { grid-template-columns:20px minmax(0,1fr) auto; gap:6px 10px; }
+ .po-playlist-rows .ew-music-options { grid-column:2/-1; grid-row:2; }
+ .po-playlist-rows .ew-save { grid-column:3; grid-row:1; }
+ .po-playlist-note { padding:16px; }
+}
+
+/* Compact browsing: one card row and one discovery panel at a time. */
+.po-shortcuts { position:sticky; top:0; z-index:5; padding:12px 0; background:#faf9f5; flex-wrap:nowrap; overflow-x:auto; }
+.po-shortcuts button { flex-shrink:0; }
+.po-carousel { min-width:0; }
+.po-overview .po-work-grid.po-card-rail { display:grid; grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:calc((100% - 60px)/4); gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:2px; padding:2px 2px 12px; overscroll-behavior-x:contain; }
+.po-card-rail>.po-work { scroll-snap-align:start; }
+.po-carousel-controls,.po-pagination { display:flex; align-items:center; justify-content:flex-end; gap:12px; margin:8px 0 12px; }
+.po-carousel-controls>span,.po-pagination>span { font-size:12px; color:#696d63; }
+.po-carousel-controls button,.po-pagination button,.po-tab-list button { min-height:44px; padding:8px 15px; border:1px solid #dedfd5; border-radius:24px; background:#fffefa; color:#263b32; cursor:pointer; font:inherit; font-size:12px; }
+.po-pagination button:disabled { opacity:.45; cursor:default; }
+.po-pagination { justify-content:space-between; margin-top:16px; }
+.po-track-disclosure>summary { cursor:pointer; padding:18px 28px; min-height:44px; font-size:14px; }
+.po-track-disclosure[open]>summary { border-bottom:1px solid #e8e4dc; }
+.po-tab-list { display:flex; gap:8px; overflow-x:auto; padding:4px 0 16px; }
+.po-tab-list button { flex-shrink:0; }
+.po-tab-list button[aria-selected=true] { background:#263b32; color:white; }
+.po-discovery-tabs [role=tabpanel][hidden] { display:none; }
+.po-discovery-tabs [role=tabpanel] { padding:16px 0; }
+.po-discovery-tabs .po-entity { max-width:760px; }
+@media(max-width:1199px) { .po-overview .po-work-grid.po-card-rail { grid-auto-columns:calc((100% - 32px)/3); gap:16px; } }
+@media(max-width:650px) { .po-overview .po-work-grid.po-card-rail { grid-auto-columns:78%; gap:12px; } .po-shortcuts { margin-bottom:20px; } .po-pagination { gap:6px; } .po-pagination button { padding:8px 12px; } }
