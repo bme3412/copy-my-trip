@@ -1,0 +1,839 @@
+{
+  "seven-ages-of-paris": {
+    "coverId": 419032,
+    "editionId": "OL7699347M",
+    "workKey": "/works/OL1412408W",
+    "title": "Seven Ages of Paris",
+    "authors": [
+      "Alistair Horne"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "parisians-an-adventure-history-of-paris": {
+    "coverId": 6716448,
+    "editionId": "OL24624324M",
+    "workKey": "/works/OL15409576W",
+    "title": "Parisians",
+    "authors": [
+      "Graham Robb"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-the-biography-of-a-city": {
+    "coverId": 6730064,
+    "editionId": "OL17921721M",
+    "workKey": "/works/OL3483928W",
+    "title": "Paris",
+    "authors": [
+      "Jones, Colin"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-the-secret-history": {
+    "coverId": 877275,
+    "editionId": "OL8892314M",
+    "workKey": "/works/OL8026472W",
+    "title": "Paris",
+    "authors": [
+      "Andrew Hussey"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-other-paris": {
+    "coverId": 8863034,
+    "editionId": "OL27400664M",
+    "workKey": "/works/OL20211796W",
+    "title": "The other Paris",
+    "authors": [
+      "Lucy Sante",
+      "Pablo Uroz Velasco"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "walks-through-lost-paris": {
+    "coverId": 871403,
+    "editionId": "OL3417587M",
+    "workKey": "/works/OL851807W",
+    "title": "Walks through lost Paris",
+    "authors": [
+      "Leonard Pitt"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-reborn": {
+    "coverId": 10331023,
+    "editionId": "OL28654633M",
+    "workKey": "/works/OL19663839W",
+    "title": "Paris reborn",
+    "authors": [
+      "Stephane Kirkland"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-capital-of-modernity": {
+    "coverId": 269739,
+    "editionId": "OL13571876M",
+    "workKey": "/works/OL3232628W",
+    "title": "Paris, capital of modernity",
+    "authors": [
+      "David Harvey"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-only-street-in-paris": {
+    "coverId": 13091380,
+    "editionId": "OL26886608M",
+    "workKey": "/works/OL19668050W",
+    "title": "The only street in Paris",
+    "authors": [
+      "Elaine Sciolino"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-flaneur": {
+    "coverId": 4725164,
+    "editionId": "OL8097326M",
+    "workKey": "/works/OL272370W",
+    "title": "The Flaneur",
+    "authors": [
+      "Edmund White"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-greater-journey-americans-in-paris": {
+    "coverId": 7148898,
+    "editionId": "OL24903625M",
+    "workKey": "/works/OL16014196W",
+    "title": "The greater journey",
+    "authors": [
+      "David McCullough"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-most-beautiful-walk-in-the-world": {
+    "coverId": 7965997,
+    "editionId": "OL25065074M",
+    "workKey": "/works/OL16189070W",
+    "title": "The most beautiful walk in the world",
+    "authors": [
+      "Baxter, John"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-hunchback-of-notre-dame": {
+    "coverId": 2626880,
+    "editionId": "OL11036667M",
+    "workKey": "/works/OL15202030W",
+    "title": "Notre Dame de Paris",
+    "authors": [
+      "Victor Hugo"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "les-miserables": {
+    "coverId": 12721865,
+    "editionId": "OL24225109M",
+    "workKey": "/works/OL1063588W",
+    "title": "Les Misérables",
+    "authors": [
+      "Victor Hugo"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "lost-illusions": {
+    "coverId": 9523658,
+    "editionId": "OL26569712M",
+    "workKey": "/works/OL17982752W",
+    "title": "Lost illusions",
+    "authors": [
+      "Honoré de Balzac"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "cousin-bette": {
+    "coverId": 12643899,
+    "editionId": "OL34432327M",
+    "workKey": "/works/OL25645504W",
+    "title": "Cousin Bette",
+    "authors": [
+      "Honoré de Balzac",
+      "Marion Crawford"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-mysteries-of-paris": {
+    "coverId": 10978276,
+    "editionId": "OL32349106M",
+    "workKey": "/works/OL20025830W",
+    "title": "The mysteries of Paris",
+    "authors": [
+      "Eugène Sue"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-three-musketeers": {
+    "coverId": 15079464,
+    "editionId": "OL52300895M",
+    "workKey": "/works/OL38438001W",
+    "title": "The three musketeers",
+    "authors": [
+      "Alexandre Dumas"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-red-and-the-black": {
+    "coverId": 15050012,
+    "editionId": "OL58685451M",
+    "workKey": "/works/OL41132226W",
+    "title": "Red and the Black",
+    "authors": [
+      "Stendhal",
+      "C. K. Scott Moncrieff"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-belly-of-paris": {
+    "coverId": 6305419,
+    "editionId": "OL22502044M",
+    "workKey": "/works/OL15245492W",
+    "title": "The belly of Paris",
+    "authors": [
+      "Émile Zola"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-ladies-paradise-au-bonheur-des-dames": {
+    "coverId": 10930909,
+    "editionId": "OL32306096M",
+    "workKey": "/works/OL24393832W",
+    "title": "The Ladies' Paradise",
+    "authors": [
+      "Émile Zola"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "lassommoir": {
+    "coverId": 10720498,
+    "editionId": "OL32062697M",
+    "workKey": "/works/OL24241569W",
+    "title": "L'Assommoir",
+    "authors": [
+      "Émile Zola"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "nana": {
+    "coverId": 8237804,
+    "editionId": "OL24441296M",
+    "workKey": "/works/OL118984W",
+    "title": "Nana",
+    "authors": [
+      "Émile Zola"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "therese-raquin": {
+    "coverId": 979858,
+    "editionId": "OL8889970M",
+    "workKey": "/works/OL3521623W",
+    "title": "Therese Raquin",
+    "authors": [
+      "Émile Zola"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "bel-ami": {
+    "coverId": 997432,
+    "editionId": "OL9019149M",
+    "workKey": "/works/OL93842W",
+    "title": "Bel-Ami",
+    "authors": [
+      "Guy de Maupassant"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "a-parisian-affair-and-other-stories": {
+    "coverId": 104308,
+    "editionId": "OL3322023M",
+    "workKey": "/works/OL15086580W",
+    "title": "A Parisian affair and other stories",
+    "authors": [
+      "Guy de Maupassant"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-phantom-of-the-opera": {
+    "coverId": 14703470,
+    "editionId": "OL33905522M",
+    "workKey": "/works/OL25316562W",
+    "title": "Phantom of the Opera",
+    "authors": [
+      "Gaston Leroux"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "perfume-the-story-of-a-murderer": {
+    "coverId": 11796284,
+    "editionId": "OL33092103M",
+    "workKey": "/works/OL24895764W",
+    "title": "Perfume",
+    "authors": [
+      "Patrick Süskind"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "pure": {
+    "coverId": 7063721,
+    "editionId": "OL25207806M",
+    "workKey": "/works/OL16158200W",
+    "title": "Pure",
+    "authors": [
+      "Andrew Miller"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "a-moveable-feast": {
+    "coverId": 14811346,
+    "editionId": "OL7265163M",
+    "workKey": "/works/OL63001W",
+    "title": "A Moveable Feast",
+    "authors": [
+      "Ernest Hemingway"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-sun-also-rises": {
+    "coverId": 78741,
+    "editionId": "OL9274797M",
+    "workKey": "/works/OL62979W",
+    "title": "The Sun Also Rises",
+    "authors": [
+      "Ernest Hemingway"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-autobiography-of-alice-b-toklas": {
+    "coverId": 419879,
+    "editionId": "OL2216728M",
+    "workKey": "/works/OL37277W",
+    "title": "The Autobiography of Alice B. Toklas",
+    "authors": [
+      "Gertrude Stein"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-france": {
+    "coverId": 1016857,
+    "editionId": "OL9051063M",
+    "workKey": "/works/OL35377W",
+    "title": "Paris, France",
+    "authors": [
+      "Gertrude Stein"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "shakespeare-and-company": {
+    "coverId": 573802,
+    "editionId": "OL1536997M",
+    "workKey": "/works/OL4086610W",
+    "title": "Shakespeare and Company",
+    "authors": [
+      "Sylvia Beach"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-paris-wife": {
+    "coverId": 10204442,
+    "editionId": "OL28277735M",
+    "workKey": "/works/OL19946955W",
+    "title": "The Paris wife",
+    "authors": [
+      "Paula McLain"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-dud-avocado": {
+    "coverId": 903595,
+    "editionId": "OL8981260M",
+    "workKey": "/works/OL4092887W",
+    "title": "The dud avocado",
+    "authors": [
+      "Elaine Dundy"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "tropic-of-cancer": {
+    "coverId": 13119236,
+    "editionId": "OL3080148M",
+    "workKey": "/works/OL261866W",
+    "title": "Tropic of Cancer",
+    "authors": [
+      "Henry Miller"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "quiet-days-in-clichy": {
+    "coverId": 876757,
+    "editionId": "OL8891056M",
+    "workKey": "/works/OL261864W",
+    "title": "Quiet Days in Clichy",
+    "authors": [
+      "Henry Miller"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "giovannis-room": {
+    "coverId": 97395,
+    "editionId": "OL9304349M",
+    "workKey": "/works/OL228702W",
+    "title": "Giovanni's Room",
+    "authors": [
+      "James Baldwin"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "nightwood": {
+    "coverId": 378251,
+    "editionId": "OL7857737M",
+    "workKey": "/works/OL505583W",
+    "title": "Nightwood",
+    "authors": [
+      "Djuna Barnes"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-age-of-reason": {
+    "coverId": 107979,
+    "editionId": "OL7359081M",
+    "workKey": "/works/OL4489224W",
+    "title": "The age of reason",
+    "authors": [
+      "Jean-Paul Sartre"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "cheri": {
+    "coverId": 225120,
+    "editionId": "OL3946965M",
+    "workKey": "/works/OL1184871W",
+    "title": "Chéri",
+    "authors": [
+      "Colette"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "good-morning-midnight": {
+    "coverId": 248444,
+    "editionId": "OL2719343M",
+    "workKey": "/works/OL1858631W",
+    "title": "Good morning, midnight",
+    "authors": [
+      "Jean Rhys"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "when-paris-went-dark": {
+    "coverId": 11429661,
+    "editionId": "OL32797347M",
+    "workKey": "/works/OL19982005W",
+    "title": "When Paris went dark",
+    "authors": [
+      "Ronald C. Rosbottom"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "les-parisiennes": {
+    "coverId": 10102221,
+    "editionId": "OL28163025M",
+    "workKey": "/works/OL20038093W",
+    "title": "Les Parisiennes",
+    "authors": [
+      "Anne Sebba"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-after-the-liberation-19441949": {
+    "coverId": 8420357,
+    "editionId": "OL1084953M",
+    "workKey": "/works/OL1881610W",
+    "title": "Paris After the Liberation",
+    "authors": [
+      "Antony Beevor",
+      "Artemis Cooper"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "eleven-days-in-august": {
+    "coverId": 10219089,
+    "editionId": "OL28294140M",
+    "workKey": "/works/OL20889324W",
+    "title": "Eleven days in August",
+    "authors": [
+      "Matthew Cobb"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "is-paris-burning": {
+    "coverId": 285501,
+    "editionId": "OL1887127M",
+    "workKey": "/works/OL3421636W",
+    "title": "Is Paris Burning",
+    "authors": [
+      "Larry Collins",
+      "Dominique Lapierre"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "and-the-show-went-on": {
+    "coverId": 6716135,
+    "editionId": "OL24621683M",
+    "workKey": "/works/OL15695430W",
+    "title": "And the Show Went On",
+    "authors": [
+      "Alan Riding"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "a-train-in-winter": {
+    "coverId": 12777098,
+    "editionId": "OL27136423M",
+    "workKey": "/works/OL19956152W",
+    "title": "A train in winter",
+    "authors": [
+      "Caroline Moorehead"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "dora-bruder": {
+    "coverId": 326265,
+    "editionId": "OL372261M",
+    "workKey": "/works/OL742747W",
+    "title": "Dora Bruder",
+    "authors": [
+      "Patrick Modiano"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "missing-person-rue-des-boutiques-obscures": {
+    "coverId": 810247,
+    "editionId": "OL8687663M",
+    "workKey": "/works/OL19924676W",
+    "title": "Missing person",
+    "authors": [
+      "Patrick Modiano",
+      "Daniel Weissbort"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "sarahs-key": {
+    "coverId": 8370189,
+    "editionId": "OL24832604M",
+    "workKey": "/works/OL2144122W",
+    "title": "Sarah's Key",
+    "authors": [
+      "Tatiana de Rosnay"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-paris-library": {
+    "coverId": 10655816,
+    "editionId": "OL31980520M",
+    "workKey": "/works/OL24208703W",
+    "title": "The Paris Library",
+    "authors": [
+      "Janet Skeslien Charles"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "suite-francaise": {
+    "coverId": 10586111,
+    "editionId": "OL13571333M",
+    "workKey": "/works/OL1308096W",
+    "title": "Suite française",
+    "authors": [
+      "Irène Némirovsky"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-elegance-of-the-hedgehog": {
+    "coverId": 5698313,
+    "editionId": "OL23091479M",
+    "workKey": "/works/OL13351631W",
+    "title": "The Elegance of the Hedgehog",
+    "authors": [
+      "Muriel Barbery"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-red-notebook": {
+    "coverId": 10285921,
+    "editionId": "OL28337141M",
+    "workKey": "/works/OL20002431W",
+    "title": "The red notebook",
+    "authors": [
+      "Antoine Laurain"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-presidents-hat": {
+    "coverId": 9772070,
+    "editionId": "OL27152813M",
+    "workKey": "/works/OL19972628W",
+    "title": "The president's hat",
+    "authors": [
+      "Antoine Laurain"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-girl-who-reads-on-the-metro": {
+    "coverId": 9129959,
+    "editionId": "OL27691133M",
+    "workKey": "/works/OL20464448W",
+    "title": "The Girl Who Reads on the Metro",
+    "authors": [
+      "Christine Feret-Fleury"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-little-paris-bookshop": {
+    "coverId": 8289293,
+    "editionId": "OL26605119M",
+    "workKey": "/works/OL18020346W",
+    "title": "The Little Paris Bookshop",
+    "authors": [
+      "Nina George",
+      "Nina George"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "french-exit": {
+    "coverId": 10469792,
+    "editionId": "OL30546730M",
+    "workKey": "/works/OL21344198W",
+    "title": "French Exit",
+    "authors": [
+      "Patrick deWitt"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-paris-apartment": {
+    "coverId": 11541298,
+    "editionId": "OL32916318M",
+    "workKey": "/works/OL24783640W",
+    "title": "The Paris Apartment",
+    "authors": [
+      "Lucy Foley"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-for-one-and-other-stories": {
+    "coverId": 9327910,
+    "editionId": "OL27216223M",
+    "workKey": "/works/OL17722466W",
+    "title": "Paris for One and Other Stories",
+    "authors": [
+      "Jojo Moyes"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris": {
+    "coverId": 10322598,
+    "editionId": "OL28423225M",
+    "workKey": "/works/OL19670108W",
+    "title": "Paris",
+    "authors": [
+      "Edward Rutherfurd"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-paris-hours": {
+    "coverId": 9411678,
+    "editionId": "OL28030763M",
+    "workKey": "/works/OL20726841W",
+    "title": "The Paris Hours",
+    "authors": [
+      "Alex George"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-by-the-book": {
+    "coverId": 12062834,
+    "editionId": "OL35059384M",
+    "workKey": "/works/OL19736205W",
+    "title": "Paris by the book",
+    "authors": [
+      "Liam Callanan"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "french-lessons": {
+    "coverId": 6785193,
+    "editionId": "OL24727359M",
+    "workKey": "/works/OL15816382W",
+    "title": "French Lessons",
+    "authors": [
+      "Ellen Sussman"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-to-the-moon": {
+    "coverId": 4340372,
+    "editionId": "OL3940464M",
+    "workKey": "/works/OL5850279W",
+    "title": "Paris to the moon",
+    "authors": [
+      "Adam Gopnik"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "down-and-out-in-paris-and-london": {
+    "coverId": 5539329,
+    "editionId": "OL16626550M",
+    "workKey": "/works/OL1168030W",
+    "title": "Down and Out in Paris and London",
+    "authors": [
+      "George Orwell"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "my-life-in-france": {
+    "coverId": 745378,
+    "editionId": "OL3422947M",
+    "workKey": "/works/OL1820659W",
+    "title": "My life in France",
+    "authors": [
+      "Julia Child"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-sweet-life-in-paris": {
+    "coverId": 6699515,
+    "editionId": "OL24611223M",
+    "workKey": "/works/OL5757602W",
+    "title": "The Sweet Life in Paris",
+    "authors": [
+      "David Lebovitz"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "lappart": {
+    "coverId": 8822612,
+    "editionId": "OL27359461M",
+    "workKey": "/works/OL19726352W",
+    "title": "L'appart",
+    "authors": [
+      "David Lebovitz"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "between-meals-an-appetite-for-paris": {
+    "coverId": 656124,
+    "editionId": "OL2558825M",
+    "workKey": "/works/OL464653W",
+    "title": "Between meals",
+    "authors": [
+      "A. J. Liebling"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-letters": {
+    "coverId": 10230006,
+    "editionId": "OL28303155M",
+    "workKey": "/works/OL20895754W",
+    "title": "Paris Letters",
+    "authors": [
+      "Janice MacLeod"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-last-time-i-saw-paris": {
+    "coverId": 946549,
+    "editionId": "OL8761713M",
+    "workKey": "/works/OL4978840W",
+    "title": "The last time I saw Paris",
+    "authors": [
+      "Elliot Paul"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "almost-french": {
+    "coverId": 8276679,
+    "editionId": "OL8866341M",
+    "workKey": "/works/OL5801440W",
+    "title": "Almost French",
+    "authors": [
+      "Sarah Turnbull"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "at-the-existentialist-cafe": {
+    "coverId": 7402178,
+    "editionId": "OL25899856M",
+    "workKey": "/works/OL17323751W",
+    "title": "At the Existentialist Café",
+    "authors": [
+      "Sarah Bakewell"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "in-montmartre": {
+    "coverId": 7347469,
+    "editionId": "OL25677159M",
+    "workKey": "/works/OL17106782W",
+    "title": "In Montmartre",
+    "authors": [
+      "Sue Roe"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "in-montparnasse": {
+    "coverId": 14072700,
+    "editionId": "OL40080223M",
+    "workKey": "/works/OL21184565W",
+    "title": "In Montparnasse",
+    "authors": [
+      "Sue Roe"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-beautiful-fall": {
+    "coverId": 1174767,
+    "editionId": "OL9606217M",
+    "workKey": "/works/OL222252W",
+    "title": "The Beautiful Fall",
+    "authors": [
+      "Alicia Drake"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-new-paris": {
+    "coverId": 14500801,
+    "editionId": "OL27234388M",
+    "workKey": "/works/OL20054373W",
+    "title": "The new Paris",
+    "authors": [
+      "Lindsey Tramuta"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "paris-sweets": {
+    "coverId": 527911,
+    "editionId": "OL8064462M",
+    "workKey": "/works/OL2977759W",
+    "title": "Paris Sweets",
+    "authors": [
+      "Dorie Greenspan"
+    ],
+    "checkedAt": "2026-10-13"
+  },
+  "the-food-lovers-guide-to-paris": {
+    "coverId": 796349,
+    "editionId": "OL1743165M",
+    "workKey": "/works/OL18259W",
+    "title": "The food lover's guide to Paris",
+    "authors": [
+      "Patricia Wells"
+    ],
+    "checkedAt": "2026-10-13"
+  }
+}

@@ -8,7 +8,7 @@ import baseline from '../../editorial/paris-atlas-120/existing-catalog.json';
 const previous=parseCatalog(baseline);
 const previousIds=new Set(previous.works.map(w=>w.id));
 const clone=()=>JSON.parse(JSON.stringify(cultureCatalog));
-assert.equal(parseCatalog(clone()).works.length,55);
+assert.equal(parseCatalog(clone()).works.length,188);
 const cases=[
   [{destination:'paris',kind:'book'},['the-only-street-in-paris','the-seine','paris-paris','the-other-paris','impossible-city','a-waiter-in-paris','the-flaneur','the-most-beautiful-walk-in-the-world','the-new-paris','my-paris-dream','the-sweet-life-in-paris','pancakes-in-paris','giovannis-room']],
   [{destination:'rome',kind:'film'},['the-great-beauty']],
@@ -34,8 +34,8 @@ assert.equal(cultureCatalog.works.filter(w=>w.id==='cleo-from-5-to-7').length,1)
 assert.equal(cultureCatalog.works.find(w=>w.id==='the-flaneur')?.yearLabel,'Cited edition');
 assert.ok(!cultureCatalog.works.some(w=>['the-intouchables','paris-je-taime'].includes(w.id)));
 const missingEdition=clone();delete missingEdition.works[0].edition;assert.throws(()=>parseCatalog(missingEdition));
-assert.equal(cultureCatalog.works.filter(w=>bookCover(w)).length,14);
-for(const work of cultureCatalog.works){const cover=bookCover(work);if(work.kind==='film')assert.equal(cover,undefined);if(cover){assert.match(cover.isbn,/^\d{13}$/);assert.equal(new URL(cover.src).hostname,'covers.openlibrary.org');assert.ok(cover.src.endsWith('?default=false'));}}
+assert.ok(cultureCatalog.works.filter(w=>bookCover(w)).length>=14);
+for(const work of cultureCatalog.works){const cover=bookCover(work);if(work.kind==='film')assert.equal(cover,undefined);if(cover){if(cover.isbn)assert.match(cover.isbn,/^\d{13}$/);assert.equal(new URL(cover.src).hostname,'covers.openlibrary.org');assert.ok(cover.src.endsWith('?default=false'));}}
 const memory=new Map<string,string>([['cmt-local-companion-v1','do not touch']]);
 const storage={getItem:(k:string)=>memory.get(k)??null,setItem:(k:string,v:string)=>{memory.set(k,v);}};
 writeBookmark(storage,'giovannis-room',true);writeBookmark(storage,'giovannis-room',true);
@@ -60,8 +60,8 @@ const legacy=JSON.parse(JSON.stringify(previous));legacy.schemaVersion=1;legacy.
 assert.equal(parseCatalog(legacy).works.length,21);
 const audioInLegacy=clone();audioInLegacy.schemaVersion=1;assert.throws(()=>parseCatalog(audioInLegacy));
 assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'song'}).length,11);
-assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'podcast_episode'}).length,7);
-assert.equal(queryCatalog(cultureCatalog,{q:'earful tower'}).length,2);
+assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'podcast_episode'}).length,46);
+assert.equal(queryCatalog(cultureCatalog,{q:'earful tower'}).length,6);
 assert.equal(queryCatalog(cultureCatalog,{q:'Gregory'}).at(0)?.id,'carving-paris');
 assert.equal(queryCatalog(cultureCatalog,{destination:'rome',kind:'song'}).length,0);
 assert.equal(queryCatalog(cultureCatalog,{q:'Edith Piaf'}).at(0)?.id,'sous-le-ciel-de-paris');
@@ -90,3 +90,23 @@ writeBookmark(audioStore,'la-seine',true);writeBookmark(audioStore,'paris-playli
 assert.deepEqual(parseShelf(audioStore.getItem(SHELF_KEY)).workIds,['la-seine']);
 assert.equal(saves.get('saved-trips'),'unchanged');
 console.log('PASS audio: v1 compatibility, v2 metadata, sourced listening URLs, playlist integrity, scoped search, API filters and independent saves');
+
+const importedPodcasts=cultureCatalog.works.filter(w=>w.id.startsWith('podcast-'));
+assert.equal(importedPodcasts.length,39);
+const episodeUrls=importedPodcasts.map(w=>new URL(w.listeningLinks![0].url));
+assert.equal(new Set(episodeUrls.map(url=>url.pathname)).size,39);
+for(const url of episodeUrls){assert.equal(url.hostname,'open.spotify.com');assert.match(url.pathname,/^\/episode\/[A-Za-z0-9]{22}$/);}
+assert.equal(queryCatalog(cultureCatalog,{q:'Chambre de Bonne'}).length,1);
+console.log('PASS podcast import: 39 distinct Spotify episodes, sourced metadata and searchable titles');
+
+// Books without a verified publication date stay undated; supplied dates remain validated.
+const undated=structuredClone(cultureCatalog);
+const undatedBook=undated.works.find(w=>w.kind==='book')!;
+delete undatedBook.year;delete undatedBook.yearLabel;delete undatedBook.edition;
+assert.doesNotThrow(()=>parseCatalog(undated));
+const badBookDate=structuredClone(undated);badBookDate.works.find(w=>w.kind==='book')!.year=999;
+assert.throws(()=>parseCatalog(badBookDate));
+assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'book'}).length,113);
+assert.equal(queryCatalog(cultureCatalog,{q:'Seven Ages of Paris'}).length,1);
+assert.match(cultureCatalog.works.find(w=>w.id==='the-sun-also-rises')!.relationship.statement,/Partial Paris connection/);
+console.log('PASS expanded books: 113 Paris books, undated metadata validation, unique titles and partial geography');

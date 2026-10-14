@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-13",
+  "environment": "Codex in-app browser; http://127.0.0.1:5180",
+  "method": "YouTube public oEmbed metadata, publisher pages, and real embedded player UI (playing state and advancing elapsed time). No media downloaded.",
+  "limits": "Availability may differ by region, browser, and deployment origin. oEmbed metadata does not guarantee playback. Spotify authentication and real Spotify audio remain unverified.",
+  "results": [
+    {
+      "workId": "paris-seveille",
+      "videoId": "3WcCg6rm3uM",
+      "publisher": "INA Chansons",
+      "format": "Archive performance",
+      "result": "Playback verified",
+      "recordingNote": "18 April 1968, different from March broadcast in catalog.",
+      "url": "https://www.youtube.com/watch?v=3WcCg6rm3uM"
+    },
+    {
+      "workId": "sous-le-ciel-de-paris",
+      "videoId": "SC06NyI6KKU",
+      "publisher": "Edith Piaf Officiel",
+      "format": "Official audio",
+      "result": "Embed rejected; external YouTube and Spotify fallback",
+      "alternativesTested": [
+        "ZhqA3dRwWUM",
+        "tsiUBlELwqg"
+      ],
+      "url": "https://www.youtube.com/watch?v=SC06NyI6KKU"
+    },
+    {
+      "workId": "la-boheme",
+      "videoId": "qEVfXcdrk_4",
+      "publisher": "INA Chansons",
+      "format": "Archive performance",
+      "result": "Playback verified",
+      "recordingNote": "4 January 1968 performance, different from lyrics video in catalog.",
+      "alternativesTested": [
+        "fVfnEyLOkrM"
+      ],
+      "url": "https://www.youtube.com/watch?v=qEVfXcdrk_4"
+    },
+    {
+      "workId": "jai-deux-amours",
+      "videoId": "gRfrUdsL4Pk",
+      "publisher": "INA Chansons",
+      "format": "Archive performance",
+      "result": "Playback verified",
+      "url": "https://www.youtube.com/watch?v=gRfrUdsL4Pk"
+    },
+    {
+      "workId": "les-champs-elysees",
+      "videoId": "bb-DKKRN4o8",
+      "publisher": "joedassinVEVO",
+      "format": "Animated music video",
+      "result": "Embed rejected; external YouTube and Spotify fallback",
+      "alternativesTested": [
+        "tDWeLlvYyYU",
+        "woFTMwLJilI"
+      ],
+      "url": "https://www.youtube.com/watch?v=bb-DKKRN4o8"
+    },
+    {
+      "workId": "la-seine",
+      "videoId": "vlPZLE2g0Kc",
+      "publisher": "EUROPACORP",
+      "format": "Film music video",
+      "result": "Playback verified",
+      "url": "https://www.youtube.com/watch?v=vlPZLE2g0Kc"
+    },
+    {
+      "workId": "paris-sera-toujours-paris",
+      "videoId": "tmiI98EG1Fo",
+      "publisher": "Zaz Official",
+      "format": "Music video",
+      "result": "Playback verified",
+      "url": "https://www.youtube.com/watch?v=tmiI98EG1Fo"
+    },
+    {
+      "workId": "florence-sur-les-champs-elysees",
+      "videoId": "BDkfB41TDEs",
+      "publisher": "Miles Davis - Topic",
+      "format": "Official audio",
+      "result": "Embed rejected; external YouTube and Spotify fallback",
+      "alternativesTested": [
+        "MJnVaUv3ADM"
+      ],
+      "url": "https://www.youtube.com/watch?v=BDkfB41TDEs"
+    }
+  ],
+  "uiVerified": [
+    "Pause/resume",
+    "Next and previous selection",
+    "Same iframe and advancing playback through song-story navigation",
+    "Switching providers removes the previous dock",
+    "Mobile width 390: document width 390, video 358 x 200",
+    "Desktop width 1440: document width 1440, video 356 x 200"
+  ],
+  "checks": [
+    "Production build including TypeScript/API runtime/public media checks",
+    "Paris overview smoke",
+    "Culture catalog smoke",
+    "YouTube mappings and queue validation",
+    "Spotify PKCE and token regression smoke"
+  ]
+}

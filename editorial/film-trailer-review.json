@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-13",
+  "scope": "All 12 film records have matching YouTube oEmbed metadata and thumbnail URLs.",
+  "browserPlaybackVerified": [
+    "before-sunset",
+    "amelie"
+  ],
+  "otherTrailers": "Metadata verified; embedded playback not individually tested. Availability can vary by region and publisher.",
+  "checks": [
+    "Film mapping and server render smoke passed for all 12 films",
+    "Mobile 390px: thumbnail loaded, no horizontal overflow",
+    "Production build and API/public-media checks passed",
+    "Paris overview, culture and YouTube regression checks passed"
+  ],
+  "deployment": "local only"
+}

@@ -1,0 +1,39 @@
+.ew-spotify-play { border: 1px solid #31594c; border-radius: 999px; padding: 8px 15px; background: #31594c; color: #fff; font: inherit; font-size: 13px; cursor: pointer; margin: 8px 0; }
+.ew-spotify-play:hover { background: #234437; }
+.ew-spotify-play:disabled, .ew-spotify-player button:disabled { opacity: .55; cursor: wait; }
+.ew-spotify-space { height: 170px; }
+.ew-spotify-player { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 16px 24px calc(16px + env(safe-area-inset-bottom)); background: #f8f5ed; color: #233e34; border-top: 1px solid #b9c4b8; box-shadow: 0 -4px 24px #233e3414; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; font-family: inherit; }
+.ew-spotify-track { display: flex; gap: 12px; align-items: center; min-width: 180px; flex: 1; }
+.ew-spotify-track img { object-fit: contain; border-radius: 0; }
+.ew-spotify-track strong, .ew-spotify-track span, .ew-spotify-track small { display: block; }
+.ew-spotify-track strong { font-size: 15px; margin: 4px 0; }
+.ew-spotify-track small { font-size: 10px; letter-spacing: .1em; }
+.ew-spotify-track span { font-size: 12px; }
+.ew-spotify-controls, .ew-spotify-links, .ew-spotify-progress { display: flex; align-items: center; gap: 12px; }
+.ew-spotify-player button { font: inherit; font-size: 13px; padding: 9px 14px; border: 1px solid #31594c; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; min-height: 40px; }
+.ew-spotify-controls button:nth-child(2) { background: #31594c; color: white; min-width: 85px; }
+.ew-spotify-links { font-size: 12px; }
+.ew-spotify-links a { color: inherit; }
+.ew-spotify-progress { font-size: 11px; }
+.ew-spotify-progress input { width: 120px; accent-color: #31594c; }
+.ew-spotify-message { flex-basis: 100%; margin: 0; font-size: 13px; }
+.ew-spotify-player :focus-visible, .ew-spotify-play:focus-visible { outline: 3px solid #b47930; outline-offset: 3px; }
+.po-tracks { counter-reset: spotify-track; }
+.po-tracks li { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; column-gap: 10px; align-items: center; counter-increment: spotify-track; }
+.po-tracks li::before { content: counter(spotify-track, decimal-leading-zero); grid-column: 1; grid-row: 1 / 3; color: #69766c; font-size: 11px; }
+.po-tracks li > a { grid-column: 2; grid-row: 1; }
+.po-tracks li > span { grid-column: 2; grid-row: 2; }
+.po-tracks li > .ew-spotify-play { grid-column: 3; grid-row: 1 / 3; font-size: 11px; padding: 8px 10px; background: transparent; color: #31594c; }
+.ew-spotify-player { display: grid; grid-template-columns: minmax(180px, 1fr) auto minmax(140px, .6fr) auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.ew-spotify-track { min-width: 0; }
+.ew-spotify-track > div { min-width: 0; }
+.ew-spotify-track strong, .ew-spotify-track span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ew-spotify-links { grid-column: 4; }
+.ew-spotify-message { grid-column: 1 / -1; line-height: 1.5; max-width: 75ch; }
+.ew-spotify-progress { min-width: 0; }
+.ew-spotify-progress input { min-width: 40px; width: 100%; min-height: 32px; }
+.ew-spotify-links a { text-underline-offset: 3px; }
+@media(max-width: 1050px) { .ew-spotify-player { grid-template-columns: minmax(160px, 1fr) auto; gap: 10px 20px; } .ew-spotify-links { grid-column: 2; justify-content: end; } .ew-spotify-progress { grid-column: 1; grid-row: 2; } }
+@media(max-width: 650px) { .ew-spotify-player { gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); grid-template-columns: minmax(0, 1fr) auto; } .ew-spotify-track img { width: 40px; height: 40px; } .ew-spotify-track strong { max-width: 100%; } .ew-spotify-links { grid-column: 1 / -1; justify-content: space-between; flex-wrap: wrap; } .ew-spotify-progress { grid-column: 1 / -1; } .ew-spotify-controls { gap: 4px; } .ew-spotify-controls button { padding: 8px 10px; min-height: 44px; } .ew-spotify-space { height: 250px; } .po-tracks li { grid-template-columns: 18px minmax(0, 1fr); } .po-tracks li > .ew-spotify-play { grid-column: 2; grid-row: 3; justify-self: start; margin: 6px 0 10px; } }
+
+.ew-spotify-controls button { min-width: 44px; }

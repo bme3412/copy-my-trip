@@ -1,3 +1,4 @@
+import { MusicProvider } from './MusicPlayer';
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, ScrollRestoration, useLoaderData, useLocation, useOutletContext, useParams, useRouteError, useSearchParams, type LoaderFunctionArgs } from 'react-router-dom';
 import { parseCatalog, queryCatalog, validatePlaylistTracks, CULTURE_FORMATS, type CultureCatalog } from '../../lib/culture/schema';
@@ -18,8 +19,9 @@ import '../../styles/elsewhere-paris.css';
 import '../../styles/elsewhere-discovery-paths.css';
 import '../../styles/elsewhere-audio.css';
 import '../../styles/elsewhere-overview.css';
+import '../../styles/paris-editorial.css';
 import { ParisOverviewNavigation } from './ParisOverviewNavigation';
-import { isParisOverview, overviewSelection } from '../../lib/culture/paris-overview';
+import { isParisContext, overviewSelection } from '../../lib/culture/paris-overview';
 import { validateArtwork } from '../../lib/culture/artwork';
 export async function discoveryLoader({request}:LoaderFunctionArgs) {
   const response=await fetch('/api/catalog',{signal:request.signal});
@@ -34,16 +36,16 @@ export async function discoveryLoader({request}:LoaderFunctionArgs) {
 function ShellContent({catalog}:{catalog:CultureCatalog}) {
   const location=useLocation(),main=useRef<HTMLElement>(null),initial=useRef(true),shelf=useShelf();
   useEffect(()=>{document.title='Elsewhere · Discover a place through its stories';if(initial.current){initial.current=false;return;}main.current?.focus();},[location.pathname]);
-  const overview=isParisOverview(location.pathname);
+  const overview=isParisContext(location.pathname,location.search,catalog);
   return <div className={overview?"ew po-shell":"ew"}><a className="skip-link" href="#ew-main">Skip to content</a>
-    {overview?<ParisOverviewNavigation/>:<header className="ew-header"><Link className="ew-brand" to="/discover">Elsewhere</Link><nav aria-label="Elsewhere navigation"><NavLink end to="/discover">Destinations</NavLink><NavLink to="/discover/browse">Discover</NavLink><NavLink to="/discover/place/paris">Paris</NavLink><NavLink to="/discover/saved">Saved<span className="ew-saved-count">{shelf.ids.length}</span></NavLink><Link to="/paris/saved">My trips ↗</Link></nav></header>}
+    {overview?<ParisOverviewNavigation key={location.pathname + location.search}/>:<header className="ew-header"><Link className="ew-brand" to="/discover">Elsewhere</Link><nav aria-label="Elsewhere navigation"><NavLink end to="/discover">Destinations</NavLink><NavLink to="/discover/browse">Discover</NavLink><NavLink to="/discover/place/paris">Paris</NavLink><NavLink to="/discover/saved">Saved<span className="ew-saved-count">{shelf.ids.length}</span></NavLink><Link to="/paris/saved">My trips ↗</Link></nav></header>}
     {shelf.error&&<div className="ew-notice" role="alert">{shelf.error} <Link to="/discover/saved">Saved list & recovery</Link></div>}
     <div className="ew-announcement" role="status" aria-live="polite">{shelf.message}</div>
     <main ref={main} id="ew-main" tabIndex={-1}><Outlet context={catalog}/></main>
     <footer className="ew-footer"><Link className="ew-brand" to="/discover">Elsewhere</Link><p>Places, stories, and the paths between them.</p><Link to="/paris">Trip planning by Copy My Trip ↗</Link></footer><ScrollRestoration/>
   </div>;
 }
-export function DiscoveryLayout(){const catalog=useLoaderData() as CultureCatalog;return <ShelfProvider><ParisPersonalProvider><ShellContent catalog={catalog}/></ParisPersonalProvider></ShelfProvider>;}
+export function DiscoveryLayout(){const catalog=useLoaderData() as CultureCatalog;return <ShelfProvider><ParisPersonalProvider><MusicProvider works={catalog.works}><ShellContent catalog={catalog}/></MusicProvider></ParisPersonalProvider></ShelfProvider>;}
 export function DiscoveryError(){const error=useRouteError();return <div className="ew ew-error"><Link className="ew-brand" to="/discover">Elsewhere</Link><h1>A little pause in the journey.</h1><p>{error instanceof Error?error.message:'The collection is unavailable right now.'}</p><button className="ew-button" onClick={()=>window.location.reload()}>Try again</button> <Link to="/paris">Continue to trip planning ↗</Link></div>;}
 export function DiscoveryLoading(){return <div className="ew ew-error" role="status"><p className="ew-eyebrow">Elsewhere</p><h1>Opening the collection…</h1></div>;}
 function useCatalog(){return useOutletContext<CultureCatalog>();}

@@ -73,7 +73,19 @@ function ParisEntityContent({entity,catalog}:{entity:DiscoveryEntity;catalog:Cul
     {entity.kind!=='collection'&&<ParisConnections root={entity.id} catalog={catalog}/>}
   </div></div>;
 }
-export function ParisIndexPage(){const catalog=useOutletContext<CultureCatalog>(),{section}=useParams();if(!['stories','collections'].includes(section??''))return <ParisMissing/>;return <div className="pd ew-width pd-body"><ParisNav/><PersonalNotice/><p className="ew-eyebrow">Paris / {section}</p><h1>{section==='stories'?'One place. Another perspective.':'A few ways into the city.'}</h1><p className="ew-lede">{section==='stories'?'Short editorial stories and viewing prompts. Revisit any story, any day.':'Free guides to follow at your own pace. No progress score, just possibilities.'}</p><div className="pd-cards pd-three">{entitiesFor(catalog).filter(e=>e.kind===(section==='stories'?'story':'collection')).map(entity=><EntityCard key={entity.id} entity={entity} catalog={catalog}/>)}</div></div>;}
+const parisIndexSections: Record<string, {kind: string; title: string; description: string}> = {
+  stories: {kind:'story', title:'One place. Another perspective.', description:'Short editorial stories and viewing prompts. Revisit any story, any day.'},
+  collections: {kind:'collection', title:'A few ways into the city.', description:'Free guides to follow at your own pace. No progress score, just possibilities.'},
+  places: {kind:'place', title:'Places with a story.', description:'Bookshops, walks and riverbanks. Explore the places connected to this Paris collection.'},
+  people: {kind:'person', title:'The people behind the stories.', description:'Meet the writers and filmmakers connected to this Paris collection.'},
+};
+export function ParisIndexPage() {
+  const catalog=useOutletContext<CultureCatalog>(), {section}=useParams();
+  const presentation=Object.hasOwn(parisIndexSections,section??'') ? parisIndexSections[section!] : undefined;
+  if(!presentation)return <ParisMissing/>;
+  return <div className="pd ew-width pd-body"><ParisNav/><PersonalNotice/><p className="ew-eyebrow">Paris / {section}</p><h1>{presentation.title}</h1><p className="ew-lede">{presentation.description}</p><div className="pd-cards pd-three">{entitiesFor(catalog).filter(entity=>entity.kind===presentation.kind).map(entity=><EntityCard key={entity.id} entity={entity} catalog={catalog}/>)}</div></div>;
+}
+
 export function ParisTrailPage(){
   const catalog=useOutletContext<CultureCatalog>(),entities=entitiesFor(catalog),[params,setParams]=useSearchParams(),personal=useParisPersonal(),[title,setTitle]=useState('My Paris discoveries'),focus=useRef<HTMLHeadingElement>(null),previous=useRef('');
   let path:string[]=[],error='';try{path=parseTrail(params.get('path'),entities);}catch(e){error=(e as Error).message;}

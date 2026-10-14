@@ -1,0 +1,22 @@
+.ew-trailer-thumbnail { margin: 0; width: 100%; min-width: 0; background: #202020; color: #f8f5ed; overflow: hidden; display: flex; flex-direction: column; }
+.ew-trailer-thumbnail img { display: block; width: 100%; height: auto; min-height: 0; object-fit: contain; flex: 1; }
+.ew .ew-trailer-thumbnail figcaption { color: #f8f5ed; background: #202020; font: 10px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 7px 9px; }
+.ew-trailer-image-fallback { display: grid; place-items: center; min-height: 150px; padding: 20px; font-size: 24px; }
+.po-work-art > .ew-trailer-thumbnail, .pd-batch-art > .ew-trailer-thumbnail { height: 100%; }
+.ew-work > .ew-trailer-thumbnail { align-self: start; }
+.ew-work-detail > .ew-trailer-thumbnail { align-self: start; }
+.po-recent-work .ew-trailer-thumbnail figcaption { font-size: 8px; padding: 3px; }
+.ew-film-trailer { margin: 28px 0; padding: 24px; background: #eff1ea; border: 1px solid #d6ded4; border-radius: 8px; scroll-margin-top: 24px; }
+.ew-trailer-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.ew-trailer-heading h2 { margin: 0; }
+.ew-trailer-heading .ew-eyebrow { margin: 0 0 6px; }
+.ew-trailer-launch { display: block; position: relative; width: 100%; padding: 0; border: 0; background: #202020; cursor: pointer; color: white; }
+.ew-trailer-launch .ew-trailer-thumbnail { max-height: 480px; }
+.ew-trailer-launch .ew-trailer-thumbnail img { max-height: 430px; }
+.ew-trailer-cta { display: block; padding: 14px; background: #303030; font: 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.ew-trailer-video { width: 100%; min-width: 200px; aspect-ratio: 16/9; min-height: 200px; background: #111; }
+.ew-trailer-video iframe { width: 100%; height: 100%; display: block; border: 0; }
+.ew-trailer-source { font-size: 12px; line-height: 1.5; color: #526558; }
+.ew-film-trailer button:focus-visible { outline: 3px solid #b47930; outline-offset: 4px; }
+.ew-film-side .ew-film-trailer { margin: 0; }
+@media(max-width: 600px) { .ew-film-trailer { padding: 12px; } .ew-trailer-heading { align-items: start; flex-wrap: wrap; } .ew-trailer-heading h2 { font-size: 27px; } }

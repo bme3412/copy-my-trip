@@ -1,0 +1,3484 @@
+{
+  "sources": [
+    {
+      "id": "book-import-1",
+      "title": "Open Library · Seven Ages of Paris",
+      "url": "https://openlibrary.org/works/OL1412408W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-2",
+      "title": "Open Library · Parisians",
+      "url": "https://openlibrary.org/works/OL15409576W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-3",
+      "title": "Supplied reading list · The Invention of Paris",
+      "url": "https://books.google.com/books?q=The+Invention+of+Paris+Eric+Hazan",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-4",
+      "title": "Open Library · Paris",
+      "url": "https://openlibrary.org/works/OL3483928W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-5",
+      "title": "Open Library · Paris",
+      "url": "https://openlibrary.org/works/OL8026472W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-7",
+      "title": "Open Library · Walks through lost Paris",
+      "url": "https://openlibrary.org/works/OL851807W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-8",
+      "title": "Open Library · Paris reborn",
+      "url": "https://openlibrary.org/works/OL19663839W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-9",
+      "title": "Open Library · How Paris Became Paris",
+      "url": "https://openlibrary.org/works/OL21089044W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-10",
+      "title": "Open Library · Paris, capital of modernity",
+      "url": "https://openlibrary.org/works/OL3232628W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-14",
+      "title": "Open Library · The greater journey",
+      "url": "https://openlibrary.org/works/OL16014196W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-17",
+      "title": "Open Library · Les Misérables",
+      "url": "https://openlibrary.org/works/OL1063588W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-18",
+      "title": "Open Library · Père Goriot",
+      "url": "https://openlibrary.org/works/OL41572393W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-19",
+      "title": "Open Library · Lost illusions",
+      "url": "https://openlibrary.org/works/OL17982752W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-20",
+      "title": "Open Library · Cousin Bette",
+      "url": "https://openlibrary.org/works/OL25645504W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-21",
+      "title": "Open Library · The mysteries of Paris",
+      "url": "https://openlibrary.org/works/OL20025830W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-22",
+      "title": "Open Library · The three musketeers",
+      "url": "https://openlibrary.org/works/OL38438001W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-23",
+      "title": "Open Library · A Tale of Two Cities",
+      "url": "https://openlibrary.org/works/OL8193465W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-24",
+      "title": "Open Library · Red and the Black",
+      "url": "https://openlibrary.org/works/OL29697463W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-26",
+      "title": "Open Library · The Ladies' Paradise",
+      "url": "https://openlibrary.org/works/OL24393832W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-27",
+      "title": "Open Library · L'Assommoir",
+      "url": "https://openlibrary.org/works/OL24241569W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-28",
+      "title": "Open Library · Nana",
+      "url": "https://openlibrary.org/works/OL118984W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-29",
+      "title": "Open Library · Therese Raquin",
+      "url": "https://openlibrary.org/works/OL3521623W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-30",
+      "title": "Open Library · Bel-Ami",
+      "url": "https://openlibrary.org/works/OL93842W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-31",
+      "title": "Open Library · A Parisian affair and other stories",
+      "url": "https://openlibrary.org/works/OL15086580W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-32",
+      "title": "Open Library · Phantom of the Opera",
+      "url": "https://openlibrary.org/works/OL29954624W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-33",
+      "title": "Open Library · Lady of the Camellias",
+      "url": "https://openlibrary.org/works/OL40248974W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-34",
+      "title": "Open Library · Perfume",
+      "url": "https://openlibrary.org/works/OL24895764W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-35",
+      "title": "Open Library · Pure",
+      "url": "https://openlibrary.org/works/OL16158200W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-37",
+      "title": "Open Library · The Sun Also Rises",
+      "url": "https://openlibrary.org/works/OL62979W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-38",
+      "title": "Open Library · The Autobiography of Alice B. Toklas",
+      "url": "https://openlibrary.org/works/OL37277W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-39",
+      "title": "Open Library · Paris, France",
+      "url": "https://openlibrary.org/works/OL35377W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-40",
+      "title": "Open Library · Shakespeare and Company",
+      "url": "https://openlibrary.org/works/OL4086610W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-41",
+      "title": "Open Library · The Paris wife",
+      "url": "https://openlibrary.org/works/OL19946955W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-42",
+      "title": "Supplied reading list · The Paris Bookseller",
+      "url": "https://books.google.com/books?q=The+Paris+Bookseller+Kerri+Maher",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-43",
+      "title": "Open Library · The dud avocado",
+      "url": "https://openlibrary.org/works/OL4092887W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-44",
+      "title": "Open Library · Tropic of Cancer",
+      "url": "https://openlibrary.org/works/OL261866W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-45",
+      "title": "Open Library · Quiet Days in Clichy",
+      "url": "https://openlibrary.org/works/OL261864W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-47",
+      "title": "Open Library · Nightwood",
+      "url": "https://openlibrary.org/works/OL505583W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-48",
+      "title": "Supplied reading list · The Mandarins",
+      "url": "https://books.google.com/books?q=The+Mandarins+Simone+de+Beauvoir",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-49",
+      "title": "Open Library · The age of reason",
+      "url": "https://openlibrary.org/works/OL4489224W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-50",
+      "title": "Open Library · Chéri",
+      "url": "https://openlibrary.org/works/OL1184871W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-51",
+      "title": "Open Library · Good morning, midnight",
+      "url": "https://openlibrary.org/works/OL1858631W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-52",
+      "title": "Open Library · Quartet.",
+      "url": "https://openlibrary.org/works/OL34672503W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-53",
+      "title": "Open Library · When Paris went dark",
+      "url": "https://openlibrary.org/works/OL19982005W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-54",
+      "title": "Open Library · Les Parisiennes",
+      "url": "https://openlibrary.org/works/OL20038093W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-55",
+      "title": "Open Library · Paris After the Liberation",
+      "url": "https://openlibrary.org/works/OL1881610W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-56",
+      "title": "Open Library · Eleven days in August",
+      "url": "https://openlibrary.org/works/OL20889324W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-57",
+      "title": "Open Library · Is Paris Burning",
+      "url": "https://openlibrary.org/works/OL3421636W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-58",
+      "title": "Open Library · And the Show Went On",
+      "url": "https://openlibrary.org/works/OL15695430W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-59",
+      "title": "Open Library · A train in winter",
+      "url": "https://openlibrary.org/works/OL19956152W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-60",
+      "title": "Open Library · Dora Bruder",
+      "url": "https://openlibrary.org/works/OL742747W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-61",
+      "title": "Open Library · Missing person",
+      "url": "https://openlibrary.org/works/OL19924676W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-62",
+      "title": "Open Library · Honeymoon",
+      "url": "https://openlibrary.org/works/OL27827590W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-63",
+      "title": "Open Library · Sarah's Key",
+      "url": "https://openlibrary.org/works/OL2144122W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-64",
+      "title": "Open Library · The Paris Library",
+      "url": "https://openlibrary.org/works/OL24208703W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-65",
+      "title": "Open Library · Suite française",
+      "url": "https://openlibrary.org/works/OL1308096W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-66",
+      "title": "Open Library · All the Light We Cannot See",
+      "url": "https://openlibrary.org/works/OL16821606W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-68",
+      "title": "Open Library · The red notebook",
+      "url": "https://openlibrary.org/works/OL20002431W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-69",
+      "title": "Open Library · The president's hat",
+      "url": "https://openlibrary.org/works/OL19972628W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-70",
+      "title": "Supplied reading list · Lullaby (The Perfect Nanny)",
+      "url": "https://books.google.com/books?q=Lullaby+%28The+Perfect+Nanny%29+Le%C3%AFla+Slimani",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-71",
+      "title": "Open Library · The Girl Who Reads on the Metro",
+      "url": "https://openlibrary.org/works/OL20464448W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-72",
+      "title": "Open Library · The Little Paris Bookshop",
+      "url": "https://openlibrary.org/works/OL18020346W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-73",
+      "title": "Open Library · French Exit",
+      "url": "https://openlibrary.org/works/OL21344198W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-74",
+      "title": "Open Library · The Paris Apartment",
+      "url": "https://openlibrary.org/works/OL24783640W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-75",
+      "title": "Supplied reading list · The Anomaly",
+      "url": "https://books.google.com/books?q=The+Anomaly+Herv%C3%A9+Le+Tellier",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-76",
+      "title": "Open Library · Paris for One and Other Stories",
+      "url": "https://openlibrary.org/works/OL17722466W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-77",
+      "title": "Supplied reading list · The Paris Secret",
+      "url": "https://books.google.com/books?q=The+Paris+Secret+Natasha+Lester",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-78",
+      "title": "Open Library · Paris",
+      "url": "https://openlibrary.org/works/OL19670108W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-79",
+      "title": "Open Library · The Paris Hours",
+      "url": "https://openlibrary.org/works/OL20726841W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-80",
+      "title": "Open Library · Paris by the book",
+      "url": "https://openlibrary.org/works/OL19736205W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-81",
+      "title": "Open Library · French Lessons",
+      "url": "https://openlibrary.org/works/OL15816382W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-82",
+      "title": "Open Library · Paris to the moon",
+      "url": "https://openlibrary.org/works/OL5850279W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-83",
+      "title": "Open Library · Down and Out in Paris and London",
+      "url": "https://openlibrary.org/works/OL1168030W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-84",
+      "title": "Open Library · My life in France",
+      "url": "https://openlibrary.org/works/OL1820659W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-86",
+      "title": "Open Library · L'appart",
+      "url": "https://openlibrary.org/works/OL19726352W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-87",
+      "title": "Open Library · Between meals",
+      "url": "https://openlibrary.org/works/OL464653W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-88",
+      "title": "Open Library · Paris was ours",
+      "url": "https://openlibrary.org/works/OL15571584W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-89",
+      "title": "Open Library · Paris Letters",
+      "url": "https://openlibrary.org/works/OL20895754W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-90",
+      "title": "Open Library · The last time I saw Paris",
+      "url": "https://openlibrary.org/works/OL4978840W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-91",
+      "title": "Open Library · The piano shop on the left bank",
+      "url": "https://openlibrary.org/works/OL10039774W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-92",
+      "title": "Open Library · Almost French",
+      "url": "https://openlibrary.org/works/OL5801440W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-93",
+      "title": "Open Library · My Paris Kitchen",
+      "url": "https://openlibrary.org/works/OL17549835W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-94",
+      "title": "Open Library · At the Existentialist Café",
+      "url": "https://openlibrary.org/works/OL17323751W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-95",
+      "title": "Open Library · In Montmartre",
+      "url": "https://openlibrary.org/works/OL17106782W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-96",
+      "title": "Open Library · In Montparnasse",
+      "url": "https://openlibrary.org/works/OL21184565W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-97",
+      "title": "Open Library · The Beautiful Fall",
+      "url": "https://openlibrary.org/works/OL222252W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-98",
+      "title": "Supplied reading list · Shakespeare and Company: A History of the Rag & Bone Shop of the Heart",
+      "url": "https://books.google.com/books?q=Shakespeare+and+Company%3A+A+History+of+the+Rag+%26+Bone+Shop+of+the+Heart+Krista+Halverson+%28editor%29",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-101",
+      "title": "Supplied reading list · The Eater Guide to Paris",
+      "url": "https://www.abramsbooks.com/product/eater-guide-to-paris_9781419765841/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-102",
+      "title": "Open Library · Rooftops of Paris",
+      "url": "https://openlibrary.org/works/OL16633895W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-103",
+      "title": "Open Library · Paris in Bloom",
+      "url": "https://openlibrary.org/works/OL21141009W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-104",
+      "title": "Open Library · Paris Sweets",
+      "url": "https://openlibrary.org/works/OL2977759W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-105",
+      "title": "Open Library · The food lover's guide to Paris",
+      "url": "https://openlibrary.org/works/OL18259W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-106",
+      "title": "Supplied reading list · The Book of Salt",
+      "url": "https://books.google.com/books?q=The+Book+of+Salt+Monique+Truong",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "book-import-107",
+      "title": "Open Library · Parisian Chic",
+      "url": "https://openlibrary.org/works/OL21213345W",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    }
+  ],
+  "works": [
+    {
+      "id": "seven-ages-of-paris",
+      "title": "Seven Ages of Paris",
+      "creator": "Alistair Horne",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Narrative history that ties rulers, revolution, rebuilding, and everyday Paris into a continuous story.",
+      "sourceIds": [
+        "book-import-1"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Medieval–20th century; Citywide.",
+        "sourceId": "book-import-1",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Medieval–20th century; Citywide.",
+        "sourceId": "book-import-1"
+      }
+    },
+    {
+      "id": "parisians-an-adventure-history-of-paris",
+      "title": "Parisians: An Adventure History of Paris",
+      "creator": "Graham Robb",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Unusual interconnected episodes in the lives of the city’s inhabitants; strong story-mining material.",
+      "sourceIds": [
+        "book-import-2"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Many periods; Citywide.",
+        "sourceId": "book-import-2",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Many periods; Citywide.",
+        "sourceId": "book-import-2"
+      }
+    },
+    {
+      "id": "the-invention-of-paris",
+      "title": "The Invention of Paris",
+      "creator": "Eric Hazan",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A politically alert walking history that reads the city street by street.",
+      "sourceIds": [
+        "book-import-3"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Medieval–modern; Quartiers across Paris.",
+        "sourceId": "book-import-3",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Medieval–modern; Quartiers across Paris.",
+        "sourceId": "book-import-3"
+      }
+    },
+    {
+      "id": "paris-the-biography-of-a-city",
+      "title": "Paris: The Biography of a City",
+      "creator": "Colin Jones",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A scholarly but accessible account of urban transformation and Parisian society.",
+      "sourceIds": [
+        "book-import-4"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Roman–modern; Citywide.",
+        "sourceId": "book-import-4",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Roman–modern; Citywide.",
+        "sourceId": "book-import-4"
+      }
+    },
+    {
+      "id": "paris-the-secret-history",
+      "title": "Paris: The Secret History",
+      "creator": "Andrew Hussey",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A less sanitized account of revolt, disorder, subcultures, and the city’s layered past.",
+      "sourceIds": [
+        "book-import-5"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Ancient–modern; Citywide.",
+        "sourceId": "book-import-5",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Ancient–modern; Citywide.",
+        "sourceId": "book-import-5"
+      }
+    },
+    {
+      "id": "walks-through-lost-paris",
+      "title": "Walks Through Lost Paris",
+      "creator": "Leonard Pitt",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Walking tours and archival visuals that reveal demolished streets and radical changes in the city.",
+      "sourceIds": [
+        "book-import-7"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 19th century–today; Old vs. Haussmannized streets.",
+        "sourceId": "book-import-7",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 19th century–today; Old vs. Haussmannized streets.",
+        "sourceId": "book-import-7"
+      }
+    },
+    {
+      "id": "paris-reborn",
+      "title": "Paris Reborn",
+      "creator": "Stephane Kirkland",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "How Napoleon III and Haussmann redesigned the physical city and the politics behind it.",
+      "sourceIds": [
+        "book-import-8"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1848–1870; Boulevards / Opéra / parks.",
+        "sourceId": "book-import-8",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1848–1870; Boulevards / Opéra / parks.",
+        "sourceId": "book-import-8"
+      }
+    },
+    {
+      "id": "how-paris-became-paris",
+      "title": "How Paris Became Paris",
+      "creator": "Joan DeJean",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "How public space, commerce and sociability helped invent the modern urban experience.",
+      "sourceIds": [
+        "book-import-9"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 17th–18th century; Pont Neuf / Place des Vosges.",
+        "sourceId": "book-import-9",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 17th–18th century; Pont Neuf / Place des Vosges.",
+        "sourceId": "book-import-9"
+      }
+    },
+    {
+      "id": "paris-capital-of-modernity",
+      "title": "Paris: Capital of Modernity",
+      "creator": "David Harvey",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Urban geography, capitalism and political economy of the transformed city.",
+      "sourceIds": [
+        "book-import-10"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 19th century; Haussmann-era Paris.",
+        "sourceId": "book-import-10",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 19th century; Haussmann-era Paris.",
+        "sourceId": "book-import-10"
+      }
+    },
+    {
+      "id": "the-greater-journey-americans-in-paris",
+      "title": "The Greater Journey: Americans in Paris",
+      "creator": "David McCullough",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Americans who studied, created, and transformed themselves in Paris.",
+      "sourceIds": [
+        "book-import-14"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 19th century; Latin Quarter / artistic Paris.",
+        "sourceId": "book-import-14",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 01 — The city itself: streets, history, and hidden Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 19th century; Latin Quarter / artistic Paris.",
+        "sourceId": "book-import-14"
+      }
+    },
+    {
+      "id": "les-miserables",
+      "title": "Les Misérables",
+      "creator": "Victor Hugo",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The social landscape of Paris, poverty, barricades, crime and redemption.",
+      "sourceIds": [
+        "book-import-17"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Early 19th century; Left Bank / revolutionary streets.",
+        "sourceId": "book-import-17",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Early 19th century; Left Bank / revolutionary streets.",
+        "sourceId": "book-import-17"
+      }
+    },
+    {
+      "id": "pere-goriot",
+      "title": "Père Goriot",
+      "creator": "Honoré de Balzac",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Boardinghouses, ambition, and the mechanics of Parisian class mobility.",
+      "sourceIds": [
+        "book-import-18"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Restoration Paris; Latin Quarter / salons.",
+        "sourceId": "book-import-18",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Restoration Paris; Latin Quarter / salons.",
+        "sourceId": "book-import-18"
+      }
+    },
+    {
+      "id": "lost-illusions",
+      "title": "Lost Illusions",
+      "creator": "Honoré de Balzac",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The seductions of Parisian journalism and literary fame; starts outside Paris.",
+      "sourceIds": [
+        "book-import-19"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Early 19th century; Paris press / literary salons.",
+        "sourceId": "book-import-19",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Early 19th century; Paris press / literary salons.",
+        "sourceId": "book-import-19"
+      }
+    },
+    {
+      "id": "cousin-bette",
+      "title": "Cousin Bette",
+      "creator": "Honoré de Balzac",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The resentments and intrigues beneath respectable Parisian family life.",
+      "sourceIds": [
+        "book-import-20"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1830s–1840s; Paris bourgeois interiors.",
+        "sourceId": "book-import-20",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1830s–1840s; Paris bourgeois interiors.",
+        "sourceId": "book-import-20"
+      }
+    },
+    {
+      "id": "the-mysteries-of-paris",
+      "title": "The Mysteries of Paris",
+      "creator": "Eugène Sue",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A serial sensation revealing poverty, crime and social injustice.",
+      "sourceIds": [
+        "book-import-21"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1840s; Paris streets / underworld.",
+        "sourceId": "book-import-21",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1840s; Paris streets / underworld.",
+        "sourceId": "book-import-21"
+      }
+    },
+    {
+      "id": "the-three-musketeers",
+      "title": "The Three Musketeers",
+      "creator": "Alexandre Dumas",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Swashbuckling Paris and the wider kingdom under Louis XIII.",
+      "sourceIds": [
+        "book-import-22"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1620s; Paris court / Louvre.",
+        "sourceId": "book-import-22",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1620s; Paris court / Louvre.",
+        "sourceId": "book-import-22"
+      }
+    },
+    {
+      "id": "a-tale-of-two-cities",
+      "title": "A Tale of Two Cities",
+      "creator": "Charles Dickens",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The Terror and the moral drama of the Revolution across two cities.",
+      "sourceIds": [
+        "book-import-23"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. French Revolution; Paris / London.",
+        "sourceId": "book-import-23",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. French Revolution; Paris / London.",
+        "sourceId": "book-import-23"
+      }
+    },
+    {
+      "id": "the-red-and-the-black",
+      "title": "The Red and the Black",
+      "creator": "Stendhal",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Ambition, religion and class; key portions occur outside the capital.",
+      "sourceIds": [
+        "book-import-24"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1820s–1830s; Paris elite society.",
+        "sourceId": "book-import-24",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1820s–1830s; Paris elite society.",
+        "sourceId": "book-import-24"
+      }
+    },
+    {
+      "id": "the-ladies-paradise-au-bonheur-des-dames",
+      "title": "The Ladies’ Paradise (Au Bonheur des Dames)",
+      "creator": "Émile Zola",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The rise of the department store and the remaking of retail Paris.",
+      "sourceIds": [
+        "book-import-26"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Second Empire; Department stores / Right Bank.",
+        "sourceId": "book-import-26",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Second Empire; Department stores / Right Bank.",
+        "sourceId": "book-import-26"
+      }
+    },
+    {
+      "id": "lassommoir",
+      "title": "L’Assommoir",
+      "creator": "Émile Zola",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Working-class life, industry, alcoholism and social vulnerability.",
+      "sourceIds": [
+        "book-import-27"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Second Empire; Goutte d’Or.",
+        "sourceId": "book-import-27",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Second Empire; Goutte d’Or.",
+        "sourceId": "book-import-27"
+      }
+    },
+    {
+      "id": "nana",
+      "title": "Nana",
+      "creator": "Émile Zola",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Celebrity, sex, money and theatrical spectacle in imperial Paris.",
+      "sourceIds": [
+        "book-import-28"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Second Empire; Theaters / grand boulevards.",
+        "sourceId": "book-import-28",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Second Empire; Theaters / grand boulevards.",
+        "sourceId": "book-import-28"
+      }
+    },
+    {
+      "id": "therese-raquin",
+      "title": "Thérèse Raquin",
+      "creator": "Émile Zola",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A claustrophobic psychological novel set around a Paris arcade.",
+      "sourceIds": [
+        "book-import-29"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 19th century; Passage du Pont-Neuf.",
+        "sourceId": "book-import-29",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 19th century; Passage du Pont-Neuf.",
+        "sourceId": "book-import-29"
+      }
+    },
+    {
+      "id": "bel-ami",
+      "title": "Bel-Ami",
+      "creator": "Guy de Maupassant",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A journalist climbs Paris society through ambition and manipulation.",
+      "sourceIds": [
+        "book-import-30"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Belle Époque; Newspapers / Right Bank salons.",
+        "sourceId": "book-import-30",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Belle Époque; Newspapers / Right Bank salons.",
+        "sourceId": "book-import-30"
+      }
+    },
+    {
+      "id": "a-parisian-affair-and-other-stories",
+      "title": "A Parisian Affair and Other Stories",
+      "creator": "Guy de Maupassant",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Short fictional portraits of Parisian desire and hypocrisy.",
+      "sourceIds": [
+        "book-import-31"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 19th century; Paris high and low society.",
+        "sourceId": "book-import-31",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 19th century; Paris high and low society.",
+        "sourceId": "book-import-31"
+      }
+    },
+    {
+      "id": "the-phantom-of-the-opera",
+      "title": "The Phantom of the Opera",
+      "creator": "Gaston Leroux",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The theater’s real architecture and an imagined subterranean world.",
+      "sourceIds": [
+        "book-import-32"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Late 19th century; Palais Garnier.",
+        "sourceId": "book-import-32",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Late 19th century; Palais Garnier.",
+        "sourceId": "book-import-32"
+      }
+    },
+    {
+      "id": "the-lady-of-the-camellias",
+      "title": "The Lady of the Camellias",
+      "creator": "Alexandre Dumas fils",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A Parisian courtesan’s story that later inspired Verdi’s opera La traviata.",
+      "sourceIds": [
+        "book-import-33"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Mid-19th century; Paris theaters / salons.",
+        "sourceId": "book-import-33",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Mid-19th century; Paris theaters / salons.",
+        "sourceId": "book-import-33"
+      }
+    },
+    {
+      "id": "perfume-the-story-of-a-murderer",
+      "title": "Perfume: The Story of a Murderer",
+      "creator": "Patrick Süskind",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A sensory, sinister portrayal of Paris; substantial action happens elsewhere in France.",
+      "sourceIds": [
+        "book-import-34"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 18th century; Paris markets / wider France.",
+        "sourceId": "book-import-34",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 18th century; Paris markets / wider France.",
+        "sourceId": "book-import-34"
+      }
+    },
+    {
+      "id": "pure",
+      "title": "Pure",
+      "creator": "Andrew Miller",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A historical novel about clearing a dangerously overcrowded Paris burial ground.",
+      "sourceIds": [
+        "book-import-35"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1780s; Cimetière des Innocents.",
+        "sourceId": "book-import-35",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 02 — Classic fiction: Paris before 1900.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1780s; Cimetière des Innocents.",
+        "sourceId": "book-import-35"
+      }
+    },
+    {
+      "id": "the-sun-also-rises",
+      "title": "The Sun Also Rises",
+      "creator": "Ernest Hemingway",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Begins with expatriate cafés and nightlife before moving to Spain.",
+      "sourceIds": [
+        "book-import-37"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1920s; Left Bank / Spain.",
+        "sourceId": "book-import-37",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1920s; Left Bank / Spain.",
+        "sourceId": "book-import-37"
+      }
+    },
+    {
+      "id": "the-autobiography-of-alice-b-toklas",
+      "title": "The Autobiography of Alice B. Toklas",
+      "creator": "Gertrude Stein",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An art-and-literature circle including Picasso, Matisse and Hemingway.",
+      "sourceIds": [
+        "book-import-38"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1900s–1930s; Rue de Fleurus / Left Bank.",
+        "sourceId": "book-import-38",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1900s–1930s; Rue de Fleurus / Left Bank.",
+        "sourceId": "book-import-38"
+      }
+    },
+    {
+      "id": "paris-france",
+      "title": "Paris France",
+      "creator": "Gertrude Stein",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An eccentric, personal portrait of French culture by an expatriate insider.",
+      "sourceIds": [
+        "book-import-39"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Early 20th century; Paris literary society.",
+        "sourceId": "book-import-39",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Early 20th century; Paris literary society.",
+        "sourceId": "book-import-39"
+      }
+    },
+    {
+      "id": "shakespeare-and-company",
+      "title": "Shakespeare and Company",
+      "creator": "Sylvia Beach",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Memoir of the original bookstore, James Joyce and the publication of Ulysses.",
+      "sourceIds": [
+        "book-import-40"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1910s–1940s; Rue de l’Odéon.",
+        "sourceId": "book-import-40",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1910s–1940s; Rue de l’Odéon.",
+        "sourceId": "book-import-40"
+      }
+    },
+    {
+      "id": "the-paris-wife",
+      "title": "The Paris Wife",
+      "creator": "Paula McLain",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A fictionalized account of Hemingway and Hadley Richardson’s marriage.",
+      "sourceIds": [
+        "book-import-41"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s; Hemingway’s Paris.",
+        "sourceId": "book-import-41",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s; Hemingway’s Paris.",
+        "sourceId": "book-import-41"
+      }
+    },
+    {
+      "id": "the-paris-bookseller",
+      "title": "The Paris Bookseller",
+      "creator": "Kerri Maher",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Historical fiction about Sylvia Beach and literary modernism.",
+      "sourceIds": [
+        "book-import-42"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s; Shakespeare and Company.",
+        "sourceId": "book-import-42",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s; Shakespeare and Company.",
+        "sourceId": "book-import-42"
+      }
+    },
+    {
+      "id": "the-dud-avocado",
+      "title": "The Dud Avocado",
+      "creator": "Elaine Dundy",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A witty, mischievous expat portrait of postwar Paris.",
+      "sourceIds": [
+        "book-import-43"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1950s; Left Bank / Saint-Germain.",
+        "sourceId": "book-import-43",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1950s; Left Bank / Saint-Germain.",
+        "sourceId": "book-import-43"
+      }
+    },
+    {
+      "id": "tropic-of-cancer",
+      "title": "Tropic of Cancer",
+      "creator": "Henry Miller",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An unruly, controversial portrait of American bohemian life.",
+      "sourceIds": [
+        "book-import-44"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1930s; Montparnasse / bohemian Paris.",
+        "sourceId": "book-import-44",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1930s; Montparnasse / bohemian Paris.",
+        "sourceId": "book-import-44"
+      }
+    },
+    {
+      "id": "quiet-days-in-clichy",
+      "title": "Quiet Days in Clichy",
+      "creator": "Henry Miller",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An explicit bohemian tale of Paris and its outskirts.",
+      "sourceIds": [
+        "book-import-45"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1930s; Clichy / Montmartre.",
+        "sourceId": "book-import-45",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1930s; Clichy / Montmartre.",
+        "sourceId": "book-import-45"
+      }
+    },
+    {
+      "id": "nightwood",
+      "title": "Nightwood",
+      "creator": "Djuna Barnes",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Experimental modernist fiction about desire and alienation.",
+      "sourceIds": [
+        "book-import-47"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s; Paris bohemian circles.",
+        "sourceId": "book-import-47",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s; Paris bohemian circles.",
+        "sourceId": "book-import-47"
+      }
+    },
+    {
+      "id": "the-mandarins",
+      "title": "The Mandarins",
+      "creator": "Simone de Beauvoir",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A fictionalized reckoning with postwar French intellectual life.",
+      "sourceIds": [
+        "book-import-48"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Post-1944; Left Bank intellectual circles.",
+        "sourceId": "book-import-48",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Post-1944; Left Bank intellectual circles.",
+        "sourceId": "book-import-48"
+      }
+    },
+    {
+      "id": "the-age-of-reason",
+      "title": "The Age of Reason",
+      "creator": "Jean-Paul Sartre",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The problem of freedom dramatized through an urban intellectual circle.",
+      "sourceIds": [
+        "book-import-49"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1930s; Paris cafés and apartments.",
+        "sourceId": "book-import-49",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1930s; Paris cafés and apartments.",
+        "sourceId": "book-import-49"
+      }
+    },
+    {
+      "id": "cheri",
+      "title": "Chéri",
+      "creator": "Colette",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Intimate portrait of love, age and social expectation.",
+      "sourceIds": [
+        "book-import-50"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Belle Époque / early 1900s; Paris fashionable society.",
+        "sourceId": "book-import-50",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Belle Époque / early 1900s; Paris fashionable society.",
+        "sourceId": "book-import-50"
+      }
+    },
+    {
+      "id": "good-morning-midnight",
+      "title": "Good Morning, Midnight",
+      "creator": "Jean Rhys",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Bleak and brilliant story of a woman adrift in Paris.",
+      "sourceIds": [
+        "book-import-51"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1930s; Paris hotels and cafés.",
+        "sourceId": "book-import-51",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1930s; Paris hotels and cafés.",
+        "sourceId": "book-import-51"
+      }
+    },
+    {
+      "id": "quartet",
+      "title": "Quartet",
+      "creator": "Jean Rhys",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Outsider life and dependence within Paris expatriate circles.",
+      "sourceIds": [
+        "book-import-52"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s; Montparnasse expat world.",
+        "sourceId": "book-import-52",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 03 — Writers, artists, and expatriate Paris (1900–1960s).",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s; Montparnasse expat world.",
+        "sourceId": "book-import-52"
+      }
+    },
+    {
+      "id": "when-paris-went-dark",
+      "title": "When Paris Went Dark",
+      "creator": "Ronald C. Rosbottom",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Everyday urban life under occupation: accommodation, persecution, resistance.",
+      "sourceIds": [
+        "book-import-53"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1940–1944; Occupied Paris, citywide.",
+        "sourceId": "book-import-53",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1940–1944; Occupied Paris, citywide.",
+        "sourceId": "book-import-53"
+      }
+    },
+    {
+      "id": "les-parisiennes",
+      "title": "Les Parisiennes",
+      "creator": "Anne Sebba",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Lives and moral choices of women in wartime Paris.",
+      "sourceIds": [
+        "book-import-54"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1940s; Occupied Paris.",
+        "sourceId": "book-import-54",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1940s; Occupied Paris.",
+        "sourceId": "book-import-54"
+      }
+    },
+    {
+      "id": "paris-after-the-liberation-19441949",
+      "title": "Paris After the Liberation: 1944–1949",
+      "creator": "Antony Beevor and Artemis Cooper",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Rebuilding public life, culture, politics and memory after occupation.",
+      "sourceIds": [
+        "book-import-55"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1944–1949; Liberated Paris.",
+        "sourceId": "book-import-55",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1944–1949; Liberated Paris.",
+        "sourceId": "book-import-55"
+      }
+    },
+    {
+      "id": "eleven-days-in-august",
+      "title": "Eleven Days in August",
+      "creator": "Matthew Cobb",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A detailed account of the struggle to liberate the capital.",
+      "sourceIds": [
+        "book-import-56"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. August 1944; Central Paris / barricades.",
+        "sourceId": "book-import-56",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. August 1944; Central Paris / barricades.",
+        "sourceId": "book-import-56"
+      }
+    },
+    {
+      "id": "is-paris-burning",
+      "title": "Is Paris Burning?",
+      "creator": "Larry Collins and Dominique Lapierre",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Narrative of the liberation later adapted into a 1966 film.",
+      "sourceIds": [
+        "book-import-57"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. August 1944; Central Paris.",
+        "sourceId": "book-import-57",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. August 1944; Central Paris.",
+        "sourceId": "book-import-57"
+      }
+    },
+    {
+      "id": "and-the-show-went-on",
+      "title": "And the Show Went On",
+      "creator": "Alan Riding",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "How writers, performers and artists worked under German occupation.",
+      "sourceIds": [
+        "book-import-58"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1940–1944; Paris theaters / cultural world.",
+        "sourceId": "book-import-58",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1940–1944; Paris theaters / cultural world.",
+        "sourceId": "book-import-58"
+      }
+    },
+    {
+      "id": "a-train-in-winter",
+      "title": "A Train in Winter",
+      "creator": "Caroline Moorehead",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Story of female Resistance members arrested in France and deported to Auschwitz.",
+      "sourceIds": [
+        "book-import-59"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1940s; Paris / deportation route.",
+        "sourceId": "book-import-59",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1940s; Paris / deportation route.",
+        "sourceId": "book-import-59"
+      }
+    },
+    {
+      "id": "dora-bruder",
+      "title": "Dora Bruder",
+      "creator": "Patrick Modiano",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A haunting, research-driven search for a Jewish teenager lost during occupation.",
+      "sourceIds": [
+        "book-import-60"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1941–1942 and later; 18th arrondissement / wartime streets.",
+        "sourceId": "book-import-60",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1941–1942 and later; 18th arrondissement / wartime streets.",
+        "sourceId": "book-import-60"
+      }
+    },
+    {
+      "id": "missing-person-rue-des-boutiques-obscures",
+      "title": "Missing Person (Rue des Boutiques Obscures)",
+      "creator": "Patrick Modiano",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A detective searches for his identity through a city haunted by wartime memory.",
+      "sourceIds": [
+        "book-import-61"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Postwar / wartime echoes; Paris streets / archives.",
+        "sourceId": "book-import-61",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Postwar / wartime echoes; Paris streets / archives.",
+        "sourceId": "book-import-61"
+      }
+    },
+    {
+      "id": "honeymoon",
+      "title": "Honeymoon",
+      "creator": "Patrick Modiano",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Twilit Paris, missing histories, and fragmented memory.",
+      "sourceIds": [
+        "book-import-62"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 20th century; Paris / wartime traces.",
+        "sourceId": "book-import-62",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 20th century; Paris / wartime traces.",
+        "sourceId": "book-import-62"
+      }
+    },
+    {
+      "id": "sarahs-key",
+      "title": "Sarah’s Key",
+      "creator": "Tatiana de Rosnay",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Fiction interweaving a present-day journalist and a Jewish girl’s fate in 1942.",
+      "sourceIds": [
+        "book-import-63"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1942 and present day; Marais / Vél d’Hiv history.",
+        "sourceId": "book-import-63",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1942 and present day; Marais / Vél d’Hiv history.",
+        "sourceId": "book-import-63"
+      }
+    },
+    {
+      "id": "the-paris-library",
+      "title": "The Paris Library",
+      "creator": "Janet Skeslien Charles",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Historical fiction about librarians facing occupation.",
+      "sourceIds": [
+        "book-import-64"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1940s / later; American Library in Paris.",
+        "sourceId": "book-import-64",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1940s / later; American Library in Paris.",
+        "sourceId": "book-import-64"
+      }
+    },
+    {
+      "id": "suite-francaise",
+      "title": "Suite Française",
+      "creator": "Irène Némirovsky",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Fiction written during the war that follows the invasion and French society beyond Paris.",
+      "sourceIds": [
+        "book-import-65"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1940–1941; Paris exodus / occupied France.",
+        "sourceId": "book-import-65",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1940–1941; Paris exodus / occupied France.",
+        "sourceId": "book-import-65"
+      }
+    },
+    {
+      "id": "all-the-light-we-cannot-see",
+      "title": "All the Light We Cannot See",
+      "creator": "Anthony Doerr",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Begins in Paris and moves to Saint-Malo; important French wartime crossover.",
+      "sourceIds": [
+        "book-import-66"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1930s–1940s; Paris / Saint-Malo.",
+        "sourceId": "book-import-66",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 04 — Occupation, Resistance, Liberation, and memory.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1930s–1940s; Paris / Saint-Malo.",
+        "sourceId": "book-import-66"
+      }
+    },
+    {
+      "id": "the-red-notebook",
+      "title": "The Red Notebook",
+      "creator": "Antoine Laurain",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A lost handbag becomes a literary-romantic mystery across the city.",
+      "sourceIds": [
+        "book-import-68"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris streets / bookshops.",
+        "sourceId": "book-import-68",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris streets / bookshops.",
+        "sourceId": "book-import-68"
+      }
+    },
+    {
+      "id": "the-presidents-hat",
+      "title": "The President’s Hat",
+      "creator": "Antoine Laurain",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A found hat moves among strangers and changes their lives.",
+      "sourceIds": [
+        "book-import-69"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1980s; Paris bistros / professional life.",
+        "sourceId": "book-import-69",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1980s; Paris bistros / professional life.",
+        "sourceId": "book-import-69"
+      }
+    },
+    {
+      "id": "lullaby-the-perfect-nanny",
+      "title": "Lullaby (The Perfect Nanny)",
+      "creator": "Leïla Slimani",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A psychological novel of work, privilege and domestic life.",
+      "sourceIds": [
+        "book-import-70"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris family apartment.",
+        "sourceId": "book-import-70",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris family apartment.",
+        "sourceId": "book-import-70"
+      }
+    },
+    {
+      "id": "the-girl-who-reads-on-the-metro",
+      "title": "The Girl Who Reads on the Métro",
+      "creator": "Christine Féret-Fleury",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A reader’s daily commute becomes an adventure in chance encounters.",
+      "sourceIds": [
+        "book-import-71"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris Métro / bookshops.",
+        "sourceId": "book-import-71",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris Métro / bookshops.",
+        "sourceId": "book-import-71"
+      }
+    },
+    {
+      "id": "the-little-paris-bookshop",
+      "title": "The Little Paris Bookshop",
+      "creator": "Nina George",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A floating Paris bookstore provides the opening to a wider French journey.",
+      "sourceIds": [
+        "book-import-72"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Seine houseboat / Provence.",
+        "sourceId": "book-import-72",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Seine houseboat / Provence.",
+        "sourceId": "book-import-72"
+      }
+    },
+    {
+      "id": "french-exit",
+      "title": "French Exit",
+      "creator": "Patrick deWitt",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Dark comedy about a wealthy New York widow starting over in Paris.",
+      "sourceIds": [
+        "book-import-73"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris apartments / society.",
+        "sourceId": "book-import-73",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris apartments / society.",
+        "sourceId": "book-import-73"
+      }
+    },
+    {
+      "id": "the-paris-apartment",
+      "title": "The Paris Apartment",
+      "creator": "Lucy Foley",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A locked-building suspense novel with secrets among its residents.",
+      "sourceIds": [
+        "book-import-74"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris apartment building.",
+        "sourceId": "book-import-74",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris apartment building.",
+        "sourceId": "book-import-74"
+      }
+    },
+    {
+      "id": "the-anomaly",
+      "title": "The Anomaly",
+      "creator": "Hervé Le Tellier",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "High-concept literary puzzle with important Paris-connected characters.",
+      "sourceIds": [
+        "book-import-75"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Paris / New York / global.",
+        "sourceId": "book-import-75",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Paris / New York / global.",
+        "sourceId": "book-import-75"
+      }
+    },
+    {
+      "id": "paris-for-one-and-other-stories",
+      "title": "Paris for One and Other Stories",
+      "creator": "Jojo Moyes",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Romantic escapism centered partly on an unplanned Paris visit.",
+      "sourceIds": [
+        "book-import-76"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Paris city break.",
+        "sourceId": "book-import-76",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Contemporary; Paris city break.",
+        "sourceId": "book-import-76"
+      }
+    },
+    {
+      "id": "the-paris-secret",
+      "title": "The Paris Secret",
+      "creator": "Natasha Lester",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Historical fiction linking couture and wartime secrets.",
+      "sourceIds": [
+        "book-import-77"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 20th century; Paris fashion / wartime France.",
+        "sourceId": "book-import-77",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 20th century; Paris fashion / wartime France.",
+        "sourceId": "book-import-77"
+      }
+    },
+    {
+      "id": "paris",
+      "title": "Paris",
+      "creator": "Edward Rutherfurd",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Intergenerational historical epic in which Paris is the central character.",
+      "sourceIds": [
+        "book-import-78"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Medieval–20th century; Multiple Paris landmarks.",
+        "sourceId": "book-import-78",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Medieval–20th century; Multiple Paris landmarks.",
+        "sourceId": "book-import-78"
+      }
+    },
+    {
+      "id": "the-paris-hours",
+      "title": "The Paris Hours",
+      "creator": "Alex George",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Four interlinked lives converge over a day in 1920s Paris.",
+      "sourceIds": [
+        "book-import-79"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1927; Paris night streets.",
+        "sourceId": "book-import-79",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1927; Paris night streets.",
+        "sourceId": "book-import-79"
+      }
+    },
+    {
+      "id": "paris-by-the-book",
+      "title": "Paris by the Book",
+      "creator": "Liam Callanan",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An American family searches for its missing father through books and Paris.",
+      "sourceIds": [
+        "book-import-80"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris bookshops / family life.",
+        "sourceId": "book-import-80",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris bookshops / family life.",
+        "sourceId": "book-import-80"
+      }
+    },
+    {
+      "id": "french-lessons",
+      "title": "French Lessons",
+      "creator": "Ellen Sussman",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Three intertwined stories built around encounters with French tutors.",
+      "sourceIds": [
+        "book-import-81"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris streets and cafés.",
+        "sourceId": "book-import-81",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 05 — Contemporary and recent fiction.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris streets and cafés.",
+        "sourceId": "book-import-81"
+      }
+    },
+    {
+      "id": "paris-to-the-moon",
+      "title": "Paris to the Moon",
+      "creator": "Adam Gopnik",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Wry New Yorker essays on expatriate family life and French institutions.",
+      "sourceIds": [
+        "book-import-82"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1990s; Tuileries / cafés / daily life.",
+        "sourceId": "book-import-82",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1990s; Tuileries / cafés / daily life.",
+        "sourceId": "book-import-82"
+      }
+    },
+    {
+      "id": "down-and-out-in-paris-and-london",
+      "title": "Down and Out in Paris and London",
+      "creator": "George Orwell",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An unsentimental look at poverty and restaurant labor in both cities.",
+      "sourceIds": [
+        "book-import-83"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1920s; Paris kitchens / working-class quarters.",
+        "sourceId": "book-import-83",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. 1920s; Paris kitchens / working-class quarters.",
+        "sourceId": "book-import-83"
+      }
+    },
+    {
+      "id": "my-life-in-france",
+      "title": "My Life in France",
+      "creator": "Julia Child with Alex Prud’homme",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Julia Child’s memoir of discovering French cooking and living in France.",
+      "sourceIds": [
+        "book-import-84"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Late 1940s onward; Paris markets / culinary schools.",
+        "sourceId": "book-import-84",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Partial Paris connection; substantial settings or subjects extend beyond Paris. Late 1940s onward; Paris markets / culinary schools.",
+        "sourceId": "book-import-84"
+      }
+    },
+    {
+      "id": "lappart",
+      "title": "L’Appart",
+      "creator": "David Lebovitz",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A funny and frequently exasperated renovation memoir.",
+      "sourceIds": [
+        "book-import-86"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Modern; Paris property / renovation.",
+        "sourceId": "book-import-86",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Modern; Paris property / renovation.",
+        "sourceId": "book-import-86"
+      }
+    },
+    {
+      "id": "between-meals-an-appetite-for-paris",
+      "title": "Between Meals: An Appetite for Paris",
+      "creator": "A. J. Liebling",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Classic reflections on Paris eating culture and its characters.",
+      "sourceIds": [
+        "book-import-87"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s–1950s; Restaurants / cafés.",
+        "sourceId": "book-import-87",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s–1950s; Restaurants / cafés.",
+        "sourceId": "book-import-87"
+      }
+    },
+    {
+      "id": "paris-was-ours",
+      "title": "Paris Was Ours",
+      "creator": "Penelope Rowlands (editor)",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A collection of varied expatriate essays beyond one narrator’s perspective.",
+      "sourceIds": [
+        "book-import-88"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Late 20th–21st century; Across Paris.",
+        "sourceId": "book-import-88",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Late 20th–21st century; Across Paris.",
+        "sourceId": "book-import-88"
+      }
+    },
+    {
+      "id": "paris-letters",
+      "title": "Paris Letters",
+      "creator": "Janice MacLeod",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A memoir of reinvention and the illustrated letters it inspired.",
+      "sourceIds": [
+        "book-import-89"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris streets / illustration.",
+        "sourceId": "book-import-89",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris streets / illustration.",
+        "sourceId": "book-import-89"
+      }
+    },
+    {
+      "id": "the-last-time-i-saw-paris",
+      "title": "The Last Time I Saw Paris",
+      "creator": "Elliot Paul",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Affectionate and poignant memoir of a neighborhood before war.",
+      "sourceIds": [
+        "book-import-90"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s–1930s; Rue de la Huchette.",
+        "sourceId": "book-import-90",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s–1930s; Rue de la Huchette.",
+        "sourceId": "book-import-90"
+      }
+    },
+    {
+      "id": "the-piano-shop-on-the-left-bank",
+      "title": "The Piano Shop on the Left Bank",
+      "creator": "T. E. Carhart",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A small Paris shop opens a world of craftsmanship and music.",
+      "sourceIds": [
+        "book-import-91"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Modern; Left Bank / piano atelier.",
+        "sourceId": "book-import-91",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Modern; Left Bank / piano atelier.",
+        "sourceId": "book-import-91"
+      }
+    },
+    {
+      "id": "almost-french",
+      "title": "Almost French",
+      "creator": "Sarah Turnbull",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A candid account of cultural adjustment after moving to France.",
+      "sourceIds": [
+        "book-import-92"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris relationships / daily life.",
+        "sourceId": "book-import-92",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris relationships / daily life.",
+        "sourceId": "book-import-92"
+      }
+    },
+    {
+      "id": "my-paris-kitchen",
+      "title": "My Paris Kitchen",
+      "creator": "David Lebovitz",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Recipes with stories about everyday life and ingredients in Paris.",
+      "sourceIds": [
+        "book-import-93"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris markets / home cooking.",
+        "sourceId": "book-import-93",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 06 — Memoir, expatriate life, everyday Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris markets / home cooking.",
+        "sourceId": "book-import-93"
+      }
+    },
+    {
+      "id": "at-the-existentialist-cafe",
+      "title": "At the Existentialist Café",
+      "creator": "Sarah Bakewell",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Sartre, Beauvoir, Camus and the social life of existentialist philosophy.",
+      "sourceIds": [
+        "book-import-94"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1930s–1960s; Montparnasse / Saint-Germain.",
+        "sourceId": "book-import-94",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1930s–1960s; Montparnasse / Saint-Germain.",
+        "sourceId": "book-import-94"
+      }
+    },
+    {
+      "id": "in-montmartre",
+      "title": "In Montmartre",
+      "creator": "Sue Roe",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Artists and friendships behind the emergence of modernist painting.",
+      "sourceIds": [
+        "book-import-95"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1900–1910s; Montmartre / Bateau-Lavoir.",
+        "sourceId": "book-import-95",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1900–1910s; Montmartre / Bateau-Lavoir.",
+        "sourceId": "book-import-95"
+      }
+    },
+    {
+      "id": "in-montparnasse",
+      "title": "In Montparnasse",
+      "creator": "Sue Roe",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The community of artists that helped propel surrealism and modernism.",
+      "sourceIds": [
+        "book-import-96"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1910s–1930s; Montparnasse studios and cafés.",
+        "sourceId": "book-import-96",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1910s–1930s; Montparnasse studios and cafés.",
+        "sourceId": "book-import-96"
+      }
+    },
+    {
+      "id": "the-beautiful-fall",
+      "title": "The Beautiful Fall",
+      "creator": "Alicia Drake",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "The rivalry of Yves Saint Laurent and Karl Lagerfeld and French fashion culture.",
+      "sourceIds": [
+        "book-import-97"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1960s–1980s; Paris fashion houses.",
+        "sourceId": "book-import-97",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1960s–1980s; Paris fashion houses.",
+        "sourceId": "book-import-97"
+      }
+    },
+    {
+      "id": "shakespeare-and-company-a-history-of-the-rag-bone-shop-of-the-heart",
+      "title": "Shakespeare and Company: A History of the Rag & Bone Shop of the Heart",
+      "creator": "Krista Halverson (editor)",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An illustrated history of the later Paris bookshop founded by George Whitman.",
+      "sourceIds": [
+        "book-import-98"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1950s–today; 37 rue de la Bûcherie.",
+        "sourceId": "book-import-98",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1950s–today; 37 rue de la Bûcherie.",
+        "sourceId": "book-import-98"
+      }
+    },
+    {
+      "id": "the-eater-guide-to-paris",
+      "title": "The Eater Guide to Paris",
+      "creator": "Eater and Lindsey Tramuta",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "An up-to-date, geographically structured window into modern Paris eating culture.",
+      "sourceIds": [
+        "book-import-101"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Food neighborhoods citywide.",
+        "sourceId": "book-import-101",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Food neighborhoods citywide.",
+        "sourceId": "book-import-101"
+      }
+    },
+    {
+      "id": "rooftops-of-paris",
+      "title": "Rooftops of Paris",
+      "creator": "Fabrice Moireau and Carl Norac",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Watercolor perspectives above the streets, selected by Shakespeare and Company.",
+      "sourceIds": [
+        "book-import-102"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary visual Paris; Rooftops / skyline.",
+        "sourceId": "book-import-102",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary visual Paris; Rooftops / skyline.",
+        "sourceId": "book-import-102"
+      }
+    },
+    {
+      "id": "paris-in-bloom",
+      "title": "Paris in Bloom",
+      "creator": "Georgianna Lane",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Photographic study of flowers and the city’s textures.",
+      "sourceIds": [
+        "book-import-103"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary visual Paris; Florists / gardens / façades.",
+        "sourceId": "book-import-103",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary visual Paris; Florists / gardens / façades.",
+        "sourceId": "book-import-103"
+      }
+    },
+    {
+      "id": "paris-sweets",
+      "title": "Paris Sweets",
+      "creator": "Dorie Greenspan",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Desserts and bakery culture through recipes and essays.",
+      "sourceIds": [
+        "book-import-104"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Modern culinary Paris; Bakeries / pâtisseries.",
+        "sourceId": "book-import-104",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Modern culinary Paris; Bakeries / pâtisseries.",
+        "sourceId": "book-import-104"
+      }
+    },
+    {
+      "id": "the-food-lovers-guide-to-paris",
+      "title": "The Food Lover’s Guide to Paris",
+      "creator": "Patricia Wells",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "A culinary reference organized around where and how Parisians eat.",
+      "sourceIds": [
+        "book-import-105"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary dining; Markets / restaurants / shops.",
+        "sourceId": "book-import-105",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary dining; Markets / restaurants / shops.",
+        "sourceId": "book-import-105"
+      }
+    },
+    {
+      "id": "the-book-of-salt",
+      "title": "The Book of Salt",
+      "creator": "Monique Truong",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Fiction about a Vietnamese cook working in the expatriate Stein–Toklas world.",
+      "sourceIds": [
+        "book-import-106"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. 1920s–1930s; Gertrude Stein’s Paris household.",
+        "sourceId": "book-import-106",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. 1920s–1930s; Gertrude Stein’s Paris household.",
+        "sourceId": "book-import-106"
+      }
+    },
+    {
+      "id": "parisian-chic",
+      "title": "Parisian Chic",
+      "creator": "Inès de la Fressange with Sophie Gachet",
+      "kind": "book",
+      "form": "Book",
+      "language": "See linked editions",
+      "destinationId": "paris",
+      "description": "Style and shopping culture; more of a practical style guide than a city history.",
+      "sourceIds": [
+        "book-import-107"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "Paris connection from the supplied reading list. Contemporary; Paris fashion / shopping.",
+        "sourceId": "book-import-107",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "context": [
+        "Selected from the supplied Paris reading list: 07 — Art, design, philosophy, food, and visual Paris.",
+        "Paris connections and place leads are editorial research notes, not verified scene locations. The linked catalog record or supplied research link provides a starting point for edition research. Publication dates are omitted until verified."
+      ],
+      "geography": {
+        "area": "paris_city",
+        "note": "Paris connection from the supplied reading list. Contemporary; Paris fashion / shopping.",
+        "sourceId": "book-import-107"
+      }
+    }
+  ]
+}

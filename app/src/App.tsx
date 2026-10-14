@@ -24,6 +24,7 @@ export const routes: RouteObject[] = [
     hydrateFallbackElement: <p role="status">Opening Elsewhere…</p>,
     lazy: async () => { const m = await discovery(); return { Component: m.DiscoveryLayout, loader: m.discoveryLoader, ErrorBoundary: m.DiscoveryError } },
     children: [
+      { path: 'spotify/callback', lazy: async () => ({ Component: (await import('./pages/elsewhere/SpotifyPlayer')).SpotifyCallback }) },
       { index: true, lazy: async () => ({ Component: (await discovery()).DiscoveryEntry }) },
       { path: 'browse', lazy: async () => ({ Component: (await discovery()).DiscoveryHome }) },
       { path: 'place/paris/atlas', lazy: async () => ({ Component: (await import('./pages/elsewhere/ParisAtlas')).ParisAtlasPage }) },

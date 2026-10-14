@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-13",
+  "implementation": "Paris editorial shell, overview, browse cards, Places and People indexes; media providers preserved",
+  "responsiveWidths": [
+    1440,
+    1280,
+    768,
+    390,
+    320
+  ],
+  "browserVerified": [
+    "No overview horizontal overflow at all five widths",
+    "Paris search returns matching film",
+    "Mobile menu Escape restores toggle focus",
+    "Save count changes and test save restored",
+    "Amelie trailer plays in selected results",
+    "La Boheme music persists into song page and search",
+    "Before Sunset trailer stops music dock",
+    "Places and People indexes with active navigation"
+  ],
+  "deployment": "local preview only"
+}

@@ -1,0 +1,34 @@
+/* Floating playback stays visible without occupying the full viewport width. */
+body .ew-spotify-player,body .ew-youtube-player,body:has(.po-shell) section.ew-spotify-player,body:has(.po-shell) section.ew-youtube-player {
+ left:auto; right:24px; bottom:24px; width:360px; max-width:calc(100vw - 32px); max-height:calc(100dvh - 48px); overflow-y:auto;
+ display:flex; flex-direction:column; align-items:stretch; gap:14px; padding:20px; border:1px solid #cad4c7; border-radius:20px;
+ background:#faf9f3; color:#233e34; box-shadow:0 16px 60px #132e3433,0 3px 12px #132e3417; z-index:100;
+}
+body .ew-youtube-player { width:400px; }
+body .ew-spotify-track { width:100%; gap:14px; flex:none; }
+body .ew-spotify-track img { width:64px; height:64px; flex-shrink:0; }
+.ew-player-art { display:grid!important; place-items:center; width:64px; height:64px; flex-shrink:0; background:#25483c; color:#f5f0dc; border-radius:12px; font-size:30px!important; }
+body .ew-spotify-track small { font-size:9px; letter-spacing:.13em; }
+body .ew-spotify-track strong { font-size:18px; white-space:normal; line-height:1.2; }
+body .ew-spotify-track span { font-size:12px; }
+.ew-player-state { margin:0; font-size:11px; color:#536a5b; }
+.ew-player-state:before { content:'●'; margin-right:7px; color:#288156; }
+body .ew-spotify-controls { justify-content:center; gap:14px; }
+body .ew-spotify-controls button { min-height:44px; }
+body .ew-spotify-progress { width:100%; gap:8px; }
+body .ew-spotify-links { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; font-size:11px; }
+body .ew-spotify-message { font-size:12px; line-height:1.5; margin:0; padding:12px; border-radius:10px; background:#eeeee4; }
+.ew-player-volume { display:flex; gap:12px; align-items:center; font-size:11px; }
+.ew-player-volume input { min-width:0; flex:1; accent-color:#31594c; }
+.ew-player-alternative { display:flex; align-items:center; justify-content:space-between; border-top:1px solid #e0e4d9; padding-top:10px; font-size:11px; }
+body .ew-youtube-video { height:200px; width:100%; min-width:200px; }
+body .ew-youtube-player .ew-youtube-info { width:100%; }
+body .ew-youtube-heading { margin-bottom:8px; }
+body .ew-youtube-actions { margin:12px 0; }
+body .ew-music-options .ew-spotify-play { background:#31594c; color:white; border:1px solid #31594c; text-decoration:none; padding:10px 15px; margin:0; min-height:44px; }
+body .ew-music-options .ew-youtube-play { background:transparent; color:#31594c; border:1px solid transparent; text-decoration:underline; text-underline-offset:3px; padding:8px 10px; }
+body .ew-music-options .ew-spotify-play:hover { background:#234437; }
+body .ew-player-alternative .ew-youtube-play { background:transparent; color:#31594c; }
+@media(max-width:600px) {
+ body .ew-spotify-player,body .ew-youtube-player,body:has(.po-shell) section.ew-spotify-player,body:has(.po-shell) section.ew-youtube-player { right:12px; bottom:calc(12px + env(safe-area-inset-bottom)); width:calc(100vw - 24px); max-width:none; padding:16px; gap:10px; max-height:80dvh; border-radius:16px; }
+}

@@ -1,0 +1,40 @@
+.ew-music-options { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.ew-youtube-play { border: 1px solid #31594c; border-radius: 999px; padding: 10px 16px; background: #31594c; color: white; font: inherit; font-size: 13px; cursor: pointer; min-height: 44px; }
+.ew-youtube-play:hover { background: #234437; }
+.ew-music-options .ew-spotify-play, .ew-youtube-links .ew-spotify-play { background: transparent; color: #31594c; border-color: transparent; text-decoration: underline; text-underline-offset: 3px; margin: 0; min-height: 44px; }
+.ew-music-options small { flex-basis: 100%; color: #69766c; font-size: 11px; }
+.po-tracks li > .ew-music-options { grid-column: 3; grid-row: 1 / 3; max-width: 185px; }
+.ew-youtube-space { height: 300px; }
+.ew-youtube-player { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 356px minmax(0, 1fr); gap: 24px; padding: 16px 24px calc(16px + env(safe-area-inset-bottom)); background: #f8f5ed; color: #233e34; border-top: 1px solid #b9c4b8; box-shadow: 0 -4px 24px #233e3414; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.ew-youtube-video { width: 100%; min-width: 200px; height: 200px; background: #111; align-self: center; }
+.ew-youtube-video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.ew-youtube-info { min-width: 0; }
+.ew-youtube-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.ew-youtube-heading small { font-size: 10px; letter-spacing: .1em; }
+.ew-youtube-info > strong, .ew-youtube-info > span { display: block; }
+.ew-youtube-info > strong { font-size: 17px; margin: 4px 0; }
+.ew-youtube-info > span { font-size: 13px; }
+.ew-youtube-credit { font-size: 12px; line-height: 1.4; margin: 8px 0; color: #5d6c62; }
+.ew-youtube-credit span { display: block; }
+.ew-youtube-actions, .ew-youtube-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.ew-youtube-player button { font: inherit; font-size: 12px; min-height: 44px; padding: 8px 12px; background: transparent; border: 1px solid #829587; border-radius: 999px; color: inherit; cursor: pointer; }
+.ew-youtube-player button:disabled { opacity: .4; cursor: default; }
+.ew-youtube-links { font-size: 12px; margin-top: 4px; }
+.ew-youtube-links a { color: inherit; text-underline-offset: 3px; }
+.ew-youtube-status { font-size: 12px; line-height: 1.4; margin: 4px 0 0; }
+.ew-youtube-status:empty { display: none; }
+.ew-youtube-player :focus-visible, .ew-youtube-play:focus-visible { outline: 3px solid #b47930; outline-offset: 3px; }
+@media(max-width: 700px) {
+  .ew-youtube-player { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); max-height: 85dvh; overflow-y: auto; }
+  .ew-youtube-video { width: min(100%, 480px); justify-self: center; height: 200px; }
+  .ew-youtube-info > strong { font-size: 14px; }
+  .ew-youtube-info > span { font-size: 12px; }
+  .ew-youtube-credit { margin: 4px 0; font-size: 11px; }
+  .ew-youtube-actions { gap: 8px; }
+  .ew-youtube-player button { padding: 6px 12px; }
+  .ew-youtube-links { gap: 4px 12px; }
+  .ew-youtube-space { height: 450px; }
+}
+@media(max-width: 650px) {
+  .po-tracks li > .ew-music-options { grid-column: 2; grid-row: 3; max-width: none; }
+}

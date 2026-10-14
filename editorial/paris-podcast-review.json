@@ -1,0 +1,206 @@
+{
+  "reviewedOn": "2026-10-13",
+  "input": "paris_podcast_episodes.md",
+  "provenance": "User-supplied descriptions and publisher references; Spotify catalog used to verify exact episode identity, dates and duration. Publisher pages were not independently checked.",
+  "imported": 39,
+  "pending": [
+    {
+      "n": 16,
+      "title": "Alexandre Dumas hosts a party",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16884848-alexandre-dumas-hosts-a-party",
+      "show": "Improbable Walks",
+      "language": "EN",
+      "duration": "11 min",
+      "description": "An extravagant 1833 costume party with décor by Delacroix. **Places/topics:** 9th arrondissement; Alexandre Dumas",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 20,
+      "title": "Le Marais Neighborhood in Paris",
+      "url": "https://joinusinfrance.com/show-notes/paris-the-marais/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "An exploration of the Jewish quarter, historic mansions, museums, and Place des Vosges. **Places/topics:** Le Marais; Place des Vosges",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 21,
+      "title": "The Lure of Montmartre",
+      "url": "https://joinusinfrance.com/episode/lure-of-montmartre-episode-134/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "The art, village history, atmosphere and crowds of Montmartre. **Places/topics:** Montmartre; Sacré-Cœur",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 29,
+      "title": "In the Studio: The rebuilding of Notre Dame",
+      "url": "https://podcasts.apple.com/us/podcast/in-the-studio-the-rebuilding-of-notre-dame/id73802620?i=1000678751898",
+      "show": "BBC The Documentary Podcast",
+      "language": "EN",
+      "duration": "51 min",
+      "description": "Agnès Poirier visits the craftspeople rebuilding the cathedral. **Places/topics:** Notre-Dame; Île de la Cité",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 30,
+      "title": "How the Marais Neighborhood Was Almost Razed",
+      "url": "https://joinusinfrance.com/episode/how-the-marais-neighborhood-was-almost-razed/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "Le Corbusier, the Plan Voisin and a failed redevelopment scheme. **Places/topics:** Le Marais; urban planning",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 31,
+      "title": "The Pantheon in Paris",
+      "url": "https://joinusinfrance.com/show-notes/pantheon-in-paris/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "The Panthéon as a memorial to notable French figures and an evolving national symbol. **Places/topics:** Panthéon; Latin Quarter",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 34,
+      "title": "The Paris Bookseller",
+      "url": "https://joinusinfrance.com/episode/the-paris-bookseller/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "Interview with Kerri Maher about the story of Sylvia Beach and her bookshop. **Places/topics:** Shakespeare and Company; Latin Quarter",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 37,
+      "title": "The Hunchback of Notre Dame",
+      "url": "https://joinusinfrance.com/episode/the-hunchback-of-notre-dame-episode-181/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "Victor Hugo’s 1831 novel and Notre-Dame’s place in the cultural imagination. **Places/topics:** Notre-Dame; Victor Hugo",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 38,
+      "title": "Paris: Art - A Neighborhood Guide, Part I",
+      "url": "https://podcasts.apple.com/ca/podcast/paris-art-a-neighborhood-guide-part-i/id1627436363?i=1000570554717",
+      "show": "The Cerca Guide to Paris",
+      "language": "EN",
+      "duration": "40 min",
+      "description": "Paris’s art movements, museums, and galleries. **Places/topics:** Louvre; art history",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 39,
+      "title": "Paris: Art - A Neighborhood Guide, Part II",
+      "url": "https://podcasts.apple.com/ie/podcast/paris-art-a-neighborhood-guide-part-ii/id1627436363?i=1000571306755",
+      "show": "The Cerca Guide to Paris",
+      "language": "EN",
+      "duration": "37 min",
+      "description": "From Musée d’Orsay and Van Gogh to Belleville’s art scene. **Places/topics:** Musée d’Orsay; Belleville",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 43,
+      "title": "Paris Museums Big and Small: Overview of Paris Museums",
+      "url": "https://joinusinfrance.com/episode/overview-of-paris-museums-episode-187/",
+      "show": "Join Us in France",
+      "language": "EN",
+      "duration": "—",
+      "description": "A survey of major and lesser-known Paris collections, from the Louvre to Carnavalet. **Places/topics:** Paris museums",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 44,
+      "title": "Un poète marginal sur Île Saint-Louis et les Grands Boulevards",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/les-nuits-de-france-culture/baudelaire-a-paris-un-marginal-sous-le-regne-du-roi-bourgeois-2308785",
+      "show": "France Culture / Les Nuits",
+      "language": "FR",
+      "duration": "69 min",
+      "description": "Baudelaire’s literary and personal geography, including Hôtel de Lauzun. **Places/topics:** Baudelaire; Île Saint-Louis",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 45,
+      "title": "La place des Abbesses au cours des saisons et des jours",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/les-nuits-de-france-culture/la-place-des-abbesses-au-cours-des-saisons-et-des-jours-3460142",
+      "show": "France Culture / Les Nuits",
+      "language": "FR",
+      "duration": "85 min",
+      "description": "Archival documentary with local Montmartre residents recorded in 1980. **Places/topics:** Place des Abbesses; Montmartre",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 49,
+      "title": "Les Buttes Chaumont",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/lsd-la-serie-documentaire/les-buttes-chaumont-9750961",
+      "show": "France Culture / LSD",
+      "language": "FR",
+      "duration": "55 min",
+      "description": "A former quarry remade as a dramatic landscape garden in the Second Empire. **Places/topics:** Parc des Buttes-Chaumont",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 51,
+      "title": "La Maison dorée, le Café Riche, le Café Anglais : histoire des grands restaurants parisiens de la Belle Époque",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/les-nuits-de-france-culture/tourisme-et-gastronomie-les-grands-restaurants-parisiens-de-la-belle-epoque-1ere-diffusion-18-04-1952-paris-inter-6416213",
+      "show": "France Culture / Les Nuits",
+      "language": "FR",
+      "duration": "21 min",
+      "description": "Archival radio history of legendary nineteenth-century Paris restaurants. **Places/topics:** Belle Époque; restaurants",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 52,
+      "title": "Paris, capitale intellectuelle?",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/la-fabrique-de-l-histoire/paris-capitale-intellectuelle-4303892",
+      "show": "France Culture / La Fabrique de l’Histoire",
+      "language": "FR",
+      "duration": "52 min",
+      "description": "Historians debate Paris’s status as a global center of intellectual life. **Places/topics:** Paris; intellectual history",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 53,
+      "title": "De la Rue Saint-Vincent au Temps des Cerises : une histoire de Paris en chansons",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/les-nuits-de-france-culture/de-la-rue-saint-vincent-au-temps-des-cerises-une-histoire-de-paris-en-chansons-5043640",
+      "show": "France Culture / Les Nuits",
+      "language": "FR",
+      "duration": "45 min",
+      "description": "Historic recordings of Paris songs, including Brassens and *Le Temps des Cerises*. **Places/topics:** Montmartre; popular music",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    },
+    {
+      "n": 56,
+      "title": "La tour Eiffel, 300 mètres de défis (partie 1)",
+      "url": "https://www.europe1.fr/emissions/Au-coeur-de-l-histoire/la-tour-eiffel-300-metres-de-defis-partie-1-152605",
+      "show": "Au Cœur de l'Histoire / Europe 1",
+      "language": "FR",
+      "duration": "—",
+      "description": "Engineering and controversy surrounding the Eiffel Tower and the 1889 exposition. **Places/topics:** Tour Eiffel; 1889",
+      "spotify": null,
+      "reason": "No exact Spotify episode match verified; publication date missing from supplied list."
+    }
+  ]
+}

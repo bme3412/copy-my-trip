@@ -63,7 +63,7 @@ export function parseCatalog(value: unknown): CultureCatalog {
     for(const k of ['title','creator','form','language','description'])text(w[k]);
     if(!isCultureKind(w.kind)||(value.schemaVersion===1&&!['book','film'].includes(w.kind))||(value.schemaVersion===2&&['tv_show','essay','poem'].includes(w.kind)))throw Error('Invalid work kind');
     const legacyWork=['book','film','essay','poem'].includes(w.kind), audio=w.kind==='song'||w.kind==='podcast_episode';
-    if(legacyWork||w.year!==undefined||w.yearLabel!==undefined){
+    if((legacyWork&&w.kind!=='book')||w.year!==undefined||w.yearLabel!==undefined){
       const labels=legacyWork?['First published','Film released','English edition','Cited edition','Film year']:w.kind==='song'?['Recording released','Performance broadcast']:w.kind==='tv_show'?['Series began']:['Episode published'];
       if(!Number.isInteger(w.year)||Number(w.year)<1400||Number(w.year)>2100||!labels.includes(String(w.yearLabel)))throw Error('Invalid work year');
     }

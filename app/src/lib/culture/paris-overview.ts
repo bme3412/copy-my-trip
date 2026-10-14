@@ -1,5 +1,5 @@
 import type { CultureCatalog } from './schema';
-import { entitiesFor, parisDiscovery, placeFor } from './paris-discovery';
+import { PARIS_ROOT, entitiesFor, parisDiscovery, placeFor } from './paris-discovery';
 
 export const featuredParisIds = ['a-moveable-feast', 'before-sunset', 'call-my-agent', 'sous-le-ciel-de-paris', 'an-intro-to-jazz-in-paris', 'the-painter-of-modern-life'];
 export const recentParisIds = ['the-belly-of-paris', 'paris-13th-district', 'full-time', 'paname-slimane', 'the-seine-past-and-present', 'an-attempt-at-exhausting-a-place-in-paris'];
@@ -35,3 +35,21 @@ export function overviewSelection(catalog: CultureCatalog) {
   if (playlist.kind !== 'playlist' || !playlist.tracks?.length) throw Error('Paris playlist unavailable');
   return { featured: select(featuredParisIds), recent: select(recentParisIds), playlist, tracks: select(playlist.tracks), connections, places, entities };
 }
+
+export function isParisContext(pathname: string, search: string, catalog: CultureCatalog) {
+  const path = pathname.replace(/\/$/, '');
+  if (path === '/discover/place/paris' || path.startsWith('/discover/place/paris/')) return true;
+  if (path === '/discover/browse') return new URLSearchParams(search).get('destination') === 'paris';
+  const workId = path.match(/^\/discover\/work\/([^/]+)$/)?.[1];
+  return !!workId && catalog.works.some(work => work.id === workId && work.destinationId === 'paris');
+}
+export function parisCounts(catalog: CultureCatalog) {
+  const works = catalog.works.filter(work => work.destinationId === 'paris');
+  return {total: works.length, byKind: Object.fromEntries(parisFormats.map(([, kind]) => [kind, works.filter(work => work.kind === kind).length]))};
+}
+export const parisSections = [
+  ['Overview', PARIS_ROOT], ['Collections', PARIS_ROOT + '/collections'],
+  ['Discovery trails', PARIS_ROOT + '/trails'], ['Places', PARIS_ROOT + '/places'],
+  ['People', PARIS_ROOT + '/people'], ['Stories', PARIS_ROOT + '/stories'],
+  ['My Paris atlas ↗', PARIS_ROOT + '/atlas'],
+] as const;

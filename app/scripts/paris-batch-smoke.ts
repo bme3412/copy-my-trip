@@ -10,7 +10,7 @@ import decisions from '../../editorial/paris-atlas-120/decisions.json';
 import batch from '../src/lib/culture/paris-batch.json';
 const copy=(v:any)=>JSON.parse(JSON.stringify(v));
 assert.deepEqual(batch.works,decisions.approvedWorks);assert.deepEqual(batch.sources,decisions.sources);
-assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,55);
+assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,188);
 for(const old of baseline.works){const current=cultureCatalog.works.find(w=>w.id===old.id)!;for(const [key,value] of Object.entries(old))assert.deepEqual((current as any)[key],value,`${old.id}: ${key} changed`);}
 assert.equal(parseCatalog(baseline).schemaVersion,2);
 const v1=copy(baseline);v1.schemaVersion=1;v1.works=v1.works.filter((w:any)=>['book','film'].includes(w.kind));assert.equal(parseCatalog(v1).works.length,21);

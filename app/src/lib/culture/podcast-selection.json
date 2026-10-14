@@ -1,0 +1,2385 @@
+{
+  "sources": [
+    {
+      "id": "podcast-import-1",
+      "title": "The Rest Is History · supplied episode reference",
+      "url": "https://therestishistory.com/episodes/paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-1-spotify",
+      "title": "The Rest Is History · 57. Paris",
+      "url": "https://open.spotify.com/episode/1CZHa9ZL9kzyV57O5P4cPs?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=a8d96db6-76f2-4624-bce1-a8a0f813ac6a",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-2",
+      "title": "Vis a Vis · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/in-search-of-the-lost-generation-american-writers-in-paris/id1637928696?i=1000699743668",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-2-spotify",
+      "title": "Vis a Vis · In Search of the ‘Lost Generation’: American Writers in Paris",
+      "url": "https://open.spotify.com/episode/5yzRhnoQFWyTucSN5dcOJv?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=795036b1-d956-4e0a-8058-6bffa05a3bec",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-3",
+      "title": "99% Invisible · supplied episode reference",
+      "url": "https://99percentinvisible.org/episode/576-chambre-de-bonne/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-3-spotify",
+      "title": "99% Invisible · Chambre de Bonne",
+      "url": "https://open.spotify.com/episode/3raH4R1C7q33dQAfe2D76Q?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b81ada4d-8c69-4127-a930-7c86cb3c1b3f",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-4",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16713073-charles-baudelaire-the-club-des-hashischins",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-4-spotify",
+      "title": "Improbable Walks · Charles Baudelaire & the Club des Hashischins",
+      "url": "https://open.spotify.com/episode/3txRT4wtcub81qDz5BnVqF?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=d4b7a55a-8fdf-429f-855b-26db2a7dcfda",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-5",
+      "title": "Journey Through Time · supplied episode reference",
+      "url": "https://www.youtube.com/watch?v=4b44qyAZfL4",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-5-spotify",
+      "title": "Journey Through Time · 46. The Paris Commune: France’s Bloodiest Revolution (Ep 1) ",
+      "url": "https://open.spotify.com/episode/2BJjfpZLlkNVNbr6cTA300?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b7dc339c-899f-4824-b87e-14809ffa8dcd",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-6",
+      "title": "Overheard at National Geographic · supplied episode reference",
+      "url": "https://www.nationalgeographic.com/podcasts/article/resurrecting-notre-dame-de-paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-6-spotify",
+      "title": "Overheard at National Geographic · Resurrecting Notre-Dame de Paris",
+      "url": "https://open.spotify.com/episode/1pyCTKYzKrP1kL0kt2B75P?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=4bd2cbb7-b2c9-4059-8d7b-3b95cb877acc",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-7",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://www.buzzsprout.com/1162985/episodes/17208689-writers-war-heroes-rue-victor-schoelcher",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-7-spotify",
+      "title": "Improbable Walks · Writers & War Heroes: rue Victor Schoelcher",
+      "url": "https://open.spotify.com/episode/5a0JZqFrZdHGfy6eW6OiIY?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=4438fd5e-e2e6-4c75-a600-cd937043b143",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-8",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16197223-sublime-seedy-delacroix-on-rue-visconti",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-8-spotify",
+      "title": "Improbable Walks · Sublime & Seedy: Delacroix on rue Visconti",
+      "url": "https://open.spotify.com/episode/76DshTC9uQbJC5RpEXV3GO?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=3a992ddd-04ee-4b82-963f-b9a9efa62ecd",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-9",
+      "title": "The Earful Tower · supplied episode reference",
+      "url": "https://theearfultower.libsyn.com/josephine-baker-who-was-this-iconic-parisienne",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-9-spotify",
+      "title": "The Earful Tower: Paris · Josephine Baker: Who was this iconic Parisienne?",
+      "url": "https://open.spotify.com/episode/3MKBvzSdH8j7YAmifDGQ0M?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=ea0002ec-b153-492a-bf31-454935d61d38",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-10",
+      "title": "The Earful Tower · supplied episode reference",
+      "url": "https://theearfultower.libsyn.com/the-origin-of-paris-i-saw-the-2000-year-old-secret-beneath-paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-10-spotify",
+      "title": "The Earful Tower: Paris · The origin of Paris: I saw the 2,000-Year-Old Secret Beneath Paris",
+      "url": "https://open.spotify.com/episode/2QjIPdzYKrIHREY5KOYtit?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=43816619-f6a0-485f-ba44-21604703fd0f",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-11",
+      "title": "The Earful Tower · supplied episode reference",
+      "url": "https://theearfultower.libsyn.com/hotel-de-ville-can-i-get-inside-the-impenetrable-city-hall-of-paris",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-11-spotify",
+      "title": "The Earful Tower: Paris · Hotel de Ville: Can I get inside the 'impenetrable' City Hall of Paris",
+      "url": "https://open.spotify.com/episode/6p3wCqBAyDXAlvmZ2GbRT3?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=2e4ffad7-9490-4135-821e-b5c099f4f1aa",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-12",
+      "title": "The Earful Tower · supplied episode reference",
+      "url": "https://theearfultower.libsyn.com/the-14th-arrondissement-of-paris-with-a-local",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-12-spotify",
+      "title": "The Earful Tower: Paris · The 14th arrondissement of Paris (with a local)",
+      "url": "https://open.spotify.com/episode/7fkhpcHDILfP7e8iEqQ8T7?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8532414b-2cad-42bf-9315-ec60ab0b521c",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-13",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17930564-rue-du-paradis",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-13-spotify",
+      "title": "Improbable Walks · Rue du Paradis",
+      "url": "https://open.spotify.com/episode/0MOBGqwHk3LZx3rJ2PV42T?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=f8bb8768-bb0b-4464-aaa9-a7088970e116",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-14",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17578566-rene-lalique-refreshing-glass",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-14-spotify",
+      "title": "Improbable Walks · René Lalique: refreshing glass",
+      "url": "https://open.spotify.com/episode/2MNjkR4m1E0cdYnHUjBViM?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=e2f5643b-9ae1-4ccd-b727-688bd69d2b1f",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-15",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17423941-the-paris-hours-of-the-duc-de-berry",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-15-spotify",
+      "title": "Improbable Walks · The Paris Hours of the Duc de Berry",
+      "url": "https://open.spotify.com/episode/6IvDblFLH2f31DZO4txW4D?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=716c1dc5-3b44-4317-b2e9-ca88027d7a4a",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-17",
+      "title": "Improbable Walks · supplied episode reference",
+      "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16541578-in-the-shadow-of-notre-dame",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-17-spotify",
+      "title": "Improbable Walks · In the Shadow of Notre Dame",
+      "url": "https://open.spotify.com/episode/562XAzTVvZlXcyhZrDzHlK?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bf5d86d5-0602-4563-a49b-573c55b377b8",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-18",
+      "title": "Coffee Pot Conversations · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/coffee-pot-conversations-hosted-by-an-englishman-in-paris/id1560899289",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-18-spotify",
+      "title": "Coffee Pot Conversations hosted by An Englishman in Paris · 5.8 Parks and Gardens of Paris (part 1)",
+      "url": "https://open.spotify.com/episode/5x384fMQm5NFKXWfCMDaMR?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=a23c164d-e8a1-44f0-a98a-f093f55a4b5f",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-19",
+      "title": "Coffee Pot Conversations · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/coffee-pot-conversations-hosted-by-an-englishman-in-paris/id1560899289",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-19-spotify",
+      "title": "Coffee Pot Conversations hosted by An Englishman in Paris · 5.9 Parks and Gardens of Paris (part 2)",
+      "url": "https://open.spotify.com/episode/1bwT4C0E02u9mfTlBg73ta?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8aedc624-f7fb-4bbd-858d-d5da8af613e9",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-22",
+      "title": "HistoryExtra · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/the-belle-%C3%A9poque-everything-you-wanted-to-know/id256580326?i=1000701228100",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-22-spotify",
+      "title": "HistoryExtra podcast · The Belle Époque: everything you wanted to know",
+      "url": "https://open.spotify.com/episode/4Jhox1k8cOXNzadvffpldu?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=9ff70eed-2f10-4583-aa4c-d96fd41f2e22",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-23",
+      "title": "HistoryExtra · supplied episode reference",
+      "url": "https://open.spotify.com/episode/0lWPrKjejq7q1wF74xRhdd",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-23-spotify",
+      "title": "HistoryExtra podcast · The Paris Commune: everything you wanted to know",
+      "url": "https://open.spotify.com/episode/0lWPrKjejq7q1wF74xRhdd?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=63826fdf-f213-4485-8188-485b59422441",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-24",
+      "title": "The Rest Is History · supplied episode reference",
+      "url": "https://therestishistory.com/episodes/bloodbath-in-paris-part-1",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-24-spotify",
+      "title": "The Rest Is History · 503. The French Revolution: Bloodbath in Paris (Part 1)",
+      "url": "https://open.spotify.com/episode/3BDIjgZI5eHW9nZ2sU9bVb?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=72f6178f-15f2-4e84-951c-988a484dbdcd",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-25",
+      "title": "The Rest Is History · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/the-french-revolution-the-september-massacres-part-1/id1537788786?i=1000691417299",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-25-spotify",
+      "title": "The Rest Is History · 544. The French Revolution: The September Massacres (Part 1)",
+      "url": "https://open.spotify.com/episode/0tfK4qNRppD0q3i2GYOVyz?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8fcfe68a-9b2b-406a-be14-acf23a21e252",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-26",
+      "title": "The Rest Is History · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/paris-1968-the-students-revolt/id1537788786?i=1000622076100",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-26-spotify",
+      "title": "The Rest Is History · 353: Paris 1968: The Students' Revolt (Part 1)",
+      "url": "https://open.spotify.com/episode/5PAlWTr4SP5FWjWZhk8BCd?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b8f13fd7-5a58-4bab-806a-3a396bb49d85",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-27",
+      "title": "The Rest Is History · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/paris-1968-the-return-of-de-gaulle/id1537788786?i=1000622077450",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-27-spotify",
+      "title": "The Rest Is History · 354: Paris 1968: The Return of De Gaulle (Part 2)",
+      "url": "https://open.spotify.com/episode/3uBMplPAaFYcPvP2uCmY8Z?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=27e9ef30-38ef-4393-bd07-c435f959acb5",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-28",
+      "title": "History Daily · supplied episode reference",
+      "url": "https://www.noiser.com/history-daily/the-liberation-of-paris-in-wwii",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-28-spotify",
+      "title": "History Daily · The Liberation of Paris in WWII",
+      "url": "https://open.spotify.com/episode/4JZn7YY1ZroWS0ecrIbWnT?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=24105066-3dd8-4773-85b8-cdf2bf608403",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-32",
+      "title": "Lost Ladies of Lit · supplied episode reference",
+      "url": "https://www.lostladiesoflit.com/podcast/101-sylvia-beach-and-ulysses",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-32-spotify",
+      "title": "Lost Ladies of Lit · Sylvia Beach and Ulysses",
+      "url": "https://open.spotify.com/episode/55CUBtxEilF6XksJXnlB5Y?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=781e05ee-bdb2-4f30-8053-c9d72599abe2",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-33",
+      "title": "The Manuscript Academy · supplied episode reference",
+      "url": "https://podcasts.apple.com/us/podcast/shakespeare-and-company-paris-in-the-1920s-author/id1171799743?i=1000548232673",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-33-spotify",
+      "title": "The Manuscript Academy · Shakespeare and Company, Paris in the 1920s & Author Kerri Maher, Who Brings Them To Life",
+      "url": "https://open.spotify.com/episode/10UatwQIahakYrleuT8yGS?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=03d5530f-9d49-43ea-a695-7e15beb4067b",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-35",
+      "title": "Filmspotting · supplied episode reference",
+      "url": "https://www.filmspotting.net/episodes-archive/2011/6/3/349-midnight-in-paris-top-5-paris-movies-red",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-35-spotify",
+      "title": "Filmspotting Archive · #349: Midnight In Paris / Top 5 Paris Movies / Three Colors: Red",
+      "url": "https://open.spotify.com/episode/5yd929OXOiU5nCwh4Y22m1?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=3b16172a-8e65-458c-9fbc-af2064e896af",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-36",
+      "title": "Join Us in France · supplied episode reference",
+      "url": "https://joinusinfrance.com/episode/eugene-delacroix-the-painter-critics-loved-to-hate/",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-36-spotify",
+      "title": "Join Us in France Travel Podcast · Eugène Delacroix: The Painter Critics Loved to Hate, Episode 606",
+      "url": "https://open.spotify.com/episode/6jz317d0iCnGvYefnQe8Oz?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bf096f99-3a91-479a-b61a-482cd2b2a693",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-40",
+      "title": "The Cerca Guide to Paris · supplied episode reference",
+      "url": "https://podcasts.apple.com/cl/podcast/paris-architecture-beauty-by-design/id1627436363?i=1000580882805",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-40-spotify",
+      "title": "The Cerca Guide to Paris · Paris: Architecture - Beauty by Design",
+      "url": "https://open.spotify.com/episode/3QLnYSegACQtLkr6p1xN28?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=d947088f-623c-4051-838e-4ceb0064047c",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-41",
+      "title": "The Cerca Guide to Paris · supplied episode reference",
+      "url": "https://getpodcast.com/podcast/the-cerca-guide-to-paris/paris-strut-here-parisian-style_6c21abaad5",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-41-spotify",
+      "title": "The Cerca Guide to Paris · Paris: Strut Here - Parisian Style",
+      "url": "https://open.spotify.com/episode/6VaR5jQUayo5iZ7odDDPL7?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=f4bbd691-3612-4e32-a96d-6549070d5097",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-42",
+      "title": "Coffee Pot Conversations · supplied episode reference",
+      "url": "https://open.spotify.com/episode/0N0RG2XBfDxbLJWBSZHunK",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-42-spotify",
+      "title": "Coffee Pot Conversations hosted by An Englishman in Paris · An Interview with Charles Pappas - Unveiling the Power of Serendipity and Expos",
+      "url": "https://open.spotify.com/episode/0N0RG2XBfDxbLJWBSZHunK?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=c32f982b-d5c8-48a7-913d-8adb9d5673ef",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-46",
+      "title": "France Culture / Une histoire de Paris · supplied episode reference",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/une-ville-sans-coeur-2875582",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-46-spotify",
+      "title": "Une histoire de... · Une histoire de Paris 7/20 : Une ville sans cœur",
+      "url": "https://open.spotify.com/episode/0C7tJd0RI8aMqz10iRQwHG?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=0f45a479-508f-477d-8abf-488362907c85",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-47",
+      "title": "France Culture / Une histoire de Paris · supplied episode reference",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/ainsi-va-la-ville-la-place-des-victoires-et-les-passages-parisiens-9130280",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-47-spotify",
+      "title": "Une histoire de... · Une histoire de Paris 17/20 : Ainsi va la ville : la place des Victoires et les passages parisiens",
+      "url": "https://open.spotify.com/episode/7xVD7HsVn6MGsNPUEGTAfg?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bbdb0872-d0fc-4113-880c-c9aef596eac7",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-48",
+      "title": "France Culture / Une histoire de Paris · supplied episode reference",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/ainsi-va-la-ville-un-6e-arrondissement-petrifie-et-sterilise-1715658",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-48-spotify",
+      "title": "Une histoire de... · Une histoire de Paris 19/20 : Ainsi va la ville : un 6e arrondissement pétrifié et stérilisé",
+      "url": "https://open.spotify.com/episode/0CiK6abdaCdmrnnjVSclqR?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=803ac7fb-5150-48f3-b548-6af936dc05cb",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-50",
+      "title": "France Culture / Une histoire de Paris · supplied episode reference",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/des-bistrots-bien-parisiens-2451153",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-50-spotify",
+      "title": "Une histoire de... · Une histoire de Paris 13/20 : Des bistrots bien parisiens",
+      "url": "https://open.spotify.com/episode/5nL0rDZcdclbogLJxf34yj?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=82e2eea1-2b3c-4f5e-b0d3-ac54c221151d",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-54",
+      "title": "Pour Qui Sonne Le Jazz / TSF Jazz · supplied episode reference",
+      "url": "https://podcasts.apple.com/fr/podcast/django-reinhardt-et-le-hot-club-la-quinte-royale/id1607312201?i=1000630668055",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-54-spotify",
+      "title": "Pour Qui Sonne Le Jazz · Django Reinhardt et le Hot Club, la quinte royale",
+      "url": "https://open.spotify.com/episode/3uCuIXPii1uPNSx4XH5V6d?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=65347178-bd84-4dfd-86a0-b27afe843041",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-55",
+      "title": "Histoire d'en dire plus Cinéma ! · supplied episode reference",
+      "url": "https://podcasts.apple.com/fr/podcast/le-fabuleux-bordel-dam%C3%A9lie-poulain-un-podcast-bien/id1614252806?i=1000736764175",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-55-spotify",
+      "title": "Histoire d'en dire plus Cinéma ! · Le Fabuleux Bordel d'Amélie Poulain - Un Podcast Bien de Chez Nous",
+      "url": "https://open.spotify.com/episode/0GSqk73d5Glgih7rWQ6JDL?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=35e7517d-588d-4316-b944-d416b4b1ee8f",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-57",
+      "title": "France Culture / Une histoire de Paris · supplied episode reference",
+      "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/paris-finit-par-des-chansons-8908138",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    },
+    {
+      "id": "podcast-import-57-spotify",
+      "title": "Une histoire de... · Une histoire de Paris 20/20 : Paris finit par des chansons",
+      "url": "https://open.spotify.com/episode/7cjETgeXg8JkPLIUG7wQfJ?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=24553ef6-27d5-47df-a559-9d0c32ef8a44",
+      "checkedAt": "2026-10-13",
+      "policy": "citation-and-facts-only"
+    }
+  ],
+  "works": [
+    {
+      "id": "podcast-paris",
+      "title": "Paris",
+      "creator": "The Rest Is History",
+      "kind": "podcast_episode",
+      "year": 2021,
+      "yearLabel": "Episode published",
+      "publishedOn": "2021-05-27",
+      "durationSeconds": 3089,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Rest Is History · 57. Paris",
+      "podcast": {
+        "show": "The Rest Is History",
+        "guest": "Not specified"
+      },
+      "description": "Agnès Poirier on Paris as a cultural and historical capital.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris-wide; cultural history",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-1",
+        "podcast-import-1-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris-wide; cultural history.",
+        "sourceId": "podcast-import-1",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/1CZHa9ZL9kzyV57O5P4cPs?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=a8d96db6-76f2-4624-bce1-a8a0f813ac6a",
+          "sourceId": "podcast-import-1-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://therestishistory.com/episodes/paris",
+          "sourceId": "podcast-import-1"
+        }
+      ]
+    },
+    {
+      "id": "podcast-in-search-of-the-lost-generation-american-writers-in-paris",
+      "title": "In Search of the Lost Generation: American Writers in Paris",
+      "creator": "Vis a Vis",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-03-19",
+      "durationSeconds": 1994,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Vis a Vis · In Search of the ‘Lost Generation’: American Writers in Paris",
+      "podcast": {
+        "show": "Vis a Vis",
+        "guest": "Not specified"
+      },
+      "description": "Hemingway, Fitzgerald, Gertrude Stein and the literary world recreated in Midnight in Paris.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Latin Quarter; Saint-Germain-des-Prés; 1920s",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-2",
+        "podcast-import-2-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Latin Quarter; Saint-Germain-des-Prés; 1920s.",
+        "sourceId": "podcast-import-2",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5yzRhnoQFWyTucSN5dcOJv?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=795036b1-d956-4e0a-8058-6bffa05a3bec",
+          "sourceId": "podcast-import-2-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/in-search-of-the-lost-generation-american-writers-in-paris/id1637928696?i=1000699743668",
+          "sourceId": "podcast-import-2"
+        }
+      ]
+    },
+    {
+      "id": "podcast-chambre-de-bonne",
+      "title": "Chambre de Bonne",
+      "creator": "99% Invisible",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "publishedOn": "2024-04-02",
+      "durationSeconds": 2002,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "99% Invisible · Chambre de Bonne",
+      "podcast": {
+        "show": "99% Invisible",
+        "guest": "Not specified"
+      },
+      "description": "The servant rooms built into Haussmann apartments, and their modern housing implications.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Haussmannian Paris; architecture",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-3",
+        "podcast-import-3-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Haussmannian Paris; architecture.",
+        "sourceId": "podcast-import-3",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3raH4R1C7q33dQAfe2D76Q?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b81ada4d-8c69-4127-a930-7c86cb3c1b3f",
+          "sourceId": "podcast-import-3-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://99percentinvisible.org/episode/576-chambre-de-bonne/",
+          "sourceId": "podcast-import-3"
+        }
+      ]
+    },
+    {
+      "id": "podcast-charles-baudelaire-the-club-des-hashischins",
+      "title": "Charles Baudelaire & the Club des Hashischins",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-03-01",
+      "durationSeconds": 1084,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · Charles Baudelaire & the Club des Hashischins",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Baudelaire, Hôtel de Lauzun and the bohemian Île Saint-Louis.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Île Saint-Louis; Hôtel de Lauzun",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-4",
+        "podcast-import-4-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Île Saint-Louis; Hôtel de Lauzun.",
+        "sourceId": "podcast-import-4",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3txRT4wtcub81qDz5BnVqF?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=d4b7a55a-8fdf-429f-855b-26db2a7dcfda",
+          "sourceId": "podcast-import-4-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16713073-charles-baudelaire-the-club-des-hashischins",
+          "sourceId": "podcast-import-4"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-paris-commune-france-s-bloodiest-revolution-ep1",
+      "title": "The Paris Commune: France's Bloodiest Revolution (Ep1)",
+      "creator": "Journey Through Time",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-11-10",
+      "durationSeconds": 2311,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Journey Through Time · 46. The Paris Commune: France’s Bloodiest Revolution (Ep 1) ",
+      "podcast": {
+        "show": "Journey Through Time",
+        "guest": "Not specified"
+      },
+      "description": "Sarah Churchwell and David Olusoga examine the conditions that gave rise to the Commune.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris; 1871",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-5",
+        "podcast-import-5-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris; 1871.",
+        "sourceId": "podcast-import-5",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/2BJjfpZLlkNVNbr6cTA300?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b7dc339c-899f-4824-b87e-14809ffa8dcd",
+          "sourceId": "podcast-import-5-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.youtube.com/watch?v=4b44qyAZfL4",
+          "sourceId": "podcast-import-5"
+        }
+      ]
+    },
+    {
+      "id": "podcast-resurrecting-notre-dame-de-paris",
+      "title": "Resurrecting Notre-Dame de Paris",
+      "creator": "Overheard at National Geographic",
+      "kind": "podcast_episode",
+      "year": 2022,
+      "yearLabel": "Episode published",
+      "publishedOn": "2022-01-18",
+      "durationSeconds": 1732,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Overheard at National Geographic · Resurrecting Notre-Dame de Paris",
+      "podcast": {
+        "show": "Overheard at National Geographic",
+        "guest": "Not specified"
+      },
+      "description": "An investigation of Notre-Dame’s history and rebuilding after the 2019 fire.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Notre-Dame; Île de la Cité",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-6",
+        "podcast-import-6-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Notre-Dame; Île de la Cité.",
+        "sourceId": "podcast-import-6",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/1pyCTKYzKrP1kL0kt2B75P?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=4bd2cbb7-b2c9-4059-8d7b-3b95cb877acc",
+          "sourceId": "podcast-import-6-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.nationalgeographic.com/podcasts/article/resurrecting-notre-dame-de-paris",
+          "sourceId": "podcast-import-6"
+        }
+      ]
+    },
+    {
+      "id": "podcast-writers-war-heroes-rue-victor-schoelcher",
+      "title": "Writers & War Heroes: rue Victor Schoelcher",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-05-22",
+      "durationSeconds": 923,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · Writers & War Heroes: rue Victor Schoelcher",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Lee Miller, Anaïs Nin, Simone de Beauvoir and Resistance history on one street.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Rue Victor-Schoelcher; Montparnasse",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-7",
+        "podcast-import-7-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Rue Victor-Schoelcher; Montparnasse.",
+        "sourceId": "podcast-import-7",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5a0JZqFrZdHGfy6eW6OiIY?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=4438fd5e-e2e6-4c75-a600-cd937043b143",
+          "sourceId": "podcast-import-7-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.buzzsprout.com/1162985/episodes/17208689-writers-war-heroes-rue-victor-schoelcher",
+          "sourceId": "podcast-import-7"
+        }
+      ]
+    },
+    {
+      "id": "podcast-sublime-seedy-delacroix-on-rue-visconti",
+      "title": "Sublime & Seedy: Delacroix on rue Visconti",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "publishedOn": "2024-11-30",
+      "durationSeconds": 881,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · Sublime & Seedy: Delacroix on rue Visconti",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Delacroix, George Sand, Chopin and Balzac intersect on an extraordinary street.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Rue Visconti; Saint-Germain-des-Prés",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-8",
+        "podcast-import-8-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Rue Visconti; Saint-Germain-des-Prés.",
+        "sourceId": "podcast-import-8",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/76DshTC9uQbJC5RpEXV3GO?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=3a992ddd-04ee-4b82-963f-b9a9efa62ecd",
+          "sourceId": "podcast-import-8-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16197223-sublime-seedy-delacroix-on-rue-visconti",
+          "sourceId": "podcast-import-8"
+        }
+      ]
+    },
+    {
+      "id": "podcast-josephine-baker-who-was-this-iconic-parisienne",
+      "title": "Josephine Baker: Who was this iconic Parisienne?",
+      "creator": "The Earful Tower: Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-10-12",
+      "durationSeconds": 2080,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Earful Tower: Paris · Josephine Baker: Who was this iconic Parisienne?",
+      "podcast": {
+        "show": "The Earful Tower: Paris",
+        "guest": "Not specified"
+      },
+      "description": "Josephine Baker’s Parisian life and legacy, with historian Brian Scott Bagley.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Josephine Baker; Paris",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-9",
+        "podcast-import-9-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Josephine Baker; Paris.",
+        "sourceId": "podcast-import-9",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3MKBvzSdH8j7YAmifDGQ0M?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=ea0002ec-b153-492a-bf31-454935d61d38",
+          "sourceId": "podcast-import-9-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://theearfultower.libsyn.com/josephine-baker-who-was-this-iconic-parisienne",
+          "sourceId": "podcast-import-9"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-origin-of-paris-i-saw-the-2-000-year-old-secret-beneath-paris",
+      "title": "The origin of Paris: I saw the 2,000-Year-Old Secret Beneath Paris",
+      "creator": "The Earful Tower: Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-10-05",
+      "durationSeconds": 2168,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Earful Tower: Paris · The origin of Paris: I saw the 2,000-Year-Old Secret Beneath Paris",
+      "podcast": {
+        "show": "The Earful Tower: Paris",
+        "guest": "Not specified"
+      },
+      "description": "Archaeological discovery of a possible Parisii-era rampart beneath Hôtel-Dieu.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Île de la Cité; Hôtel-Dieu; ancient Lutetia",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-10",
+        "podcast-import-10-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Île de la Cité; Hôtel-Dieu; ancient Lutetia.",
+        "sourceId": "podcast-import-10",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/2QjIPdzYKrIHREY5KOYtit?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=43816619-f6a0-485f-ba44-21604703fd0f",
+          "sourceId": "podcast-import-10-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://theearfultower.libsyn.com/the-origin-of-paris-i-saw-the-2000-year-old-secret-beneath-paris",
+          "sourceId": "podcast-import-10"
+        }
+      ]
+    },
+    {
+      "id": "podcast-hotel-de-ville-can-i-get-inside-the-impenetrable-city-hall-of-paris",
+      "title": "Hotel de Ville: Can I get inside the 'impenetrable' City Hall of Paris",
+      "creator": "The Earful Tower: Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-09-14",
+      "durationSeconds": 1509,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Earful Tower: Paris · Hotel de Ville: Can I get inside the 'impenetrable' City Hall of Paris",
+      "podcast": {
+        "show": "The Earful Tower: Paris",
+        "guest": "Not specified"
+      },
+      "description": "Exploring the history and interior of Paris City Hall.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Hôtel de Ville; 4th arrondissement",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-11",
+        "podcast-import-11-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Hôtel de Ville; 4th arrondissement.",
+        "sourceId": "podcast-import-11",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/6p3wCqBAyDXAlvmZ2GbRT3?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=2e4ffad7-9490-4135-821e-b5c099f4f1aa",
+          "sourceId": "podcast-import-11-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://theearfultower.libsyn.com/hotel-de-ville-can-i-get-inside-the-impenetrable-city-hall-of-paris",
+          "sourceId": "podcast-import-11"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-14th-arrondissement-of-paris-with-a-local",
+      "title": "The 14th arrondissement of Paris (with a local)",
+      "creator": "The Earful Tower: Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-09-06",
+      "durationSeconds": 2003,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Earful Tower: Paris · The 14th arrondissement of Paris (with a local)",
+      "podcast": {
+        "show": "The Earful Tower: Paris",
+        "guest": "Not specified"
+      },
+      "description": "A neighborhood portrait with local guide April Pett.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: 14th arrondissement; Montparnasse",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-12",
+        "podcast-import-12-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to 14th arrondissement; Montparnasse.",
+        "sourceId": "podcast-import-12",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/7fkhpcHDILfP7e8iEqQ8T7?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8532414b-2cad-42bf-9315-ec60ab0b521c",
+          "sourceId": "podcast-import-12-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://theearfultower.libsyn.com/the-14th-arrondissement-of-paris-with-a-local",
+          "sourceId": "podcast-import-12"
+        }
+      ]
+    },
+    {
+      "id": "podcast-rue-du-paradis",
+      "title": "Rue du Paradis",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-09-30",
+      "durationSeconds": 868,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · Rue du Paradis",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Ceramic murals, Madame Hamelin and fashionable society after the Revolution.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Rue du Paradis; 10th arrondissement",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-13",
+        "podcast-import-13-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Rue du Paradis; 10th arrondissement.",
+        "sourceId": "podcast-import-13",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0MOBGqwHk3LZx3rJ2PV42T?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=f8bb8768-bb0b-4464-aaa9-a7088970e116",
+          "sourceId": "podcast-import-13-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17930564-rue-du-paradis",
+          "sourceId": "podcast-import-13"
+        }
+      ]
+    },
+    {
+      "id": "podcast-rene-lalique-refreshing-glass",
+      "title": "René Lalique: refreshing glass",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-07-28",
+      "durationSeconds": 1031,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · René Lalique: refreshing glass",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Art Nouveau jewelry and Art Deco glass linked to Lalique’s Paris address.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: 8th arrondissement; Art Nouveau",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-14",
+        "podcast-import-14-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to 8th arrondissement; Art Nouveau.",
+        "sourceId": "podcast-import-14",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/2MNjkR4m1E0cdYnHUjBViM?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=e2f5643b-9ae1-4ccd-b727-688bd69d2b1f",
+          "sourceId": "podcast-import-14-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17578566-rene-lalique-refreshing-glass",
+          "sourceId": "podcast-import-14"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-paris-hours-of-the-duc-de-berry",
+      "title": "The Paris Hours of the Duc de Berry",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-06-30",
+      "durationSeconds": 1028,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · The Paris Hours of the Duc de Berry",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Manuscript illumination and Christine de Pizan in medieval Paris.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Rue de la Parcheminerie; Latin Quarter",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-15",
+        "podcast-import-15-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Rue de la Parcheminerie; Latin Quarter.",
+        "sourceId": "podcast-import-15",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/6IvDblFLH2f31DZO4txW4D?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=716c1dc5-3b44-4317-b2e9-ca88027d7a4a",
+          "sourceId": "podcast-import-15-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/17423941-the-paris-hours-of-the-duc-de-berry",
+          "sourceId": "podcast-import-15"
+        }
+      ]
+    },
+    {
+      "id": "podcast-in-the-shadow-of-notre-dame",
+      "title": "In the Shadow of Notre Dame",
+      "creator": "Improbable Walks",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-01-31",
+      "durationSeconds": 742,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Improbable Walks · In the Shadow of Notre Dame",
+      "podcast": {
+        "show": "Improbable Walks",
+        "guest": "Not specified"
+      },
+      "description": "Medieval streets that survived Haussmann’s remaking of the city.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Île de la Cité; Notre-Dame",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-17",
+        "podcast-import-17-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Île de la Cité; Notre-Dame.",
+        "sourceId": "podcast-import-17",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/562XAzTVvZlXcyhZrDzHlK?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bf5d86d5-0602-4563-a49b-573c55b377b8",
+          "sourceId": "podcast-import-17-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://improbablewalks.buzzsprout.com/1162985/episodes/16541578-in-the-shadow-of-notre-dame",
+          "sourceId": "podcast-import-17"
+        }
+      ]
+    },
+    {
+      "id": "podcast-parks-and-gardens-of-paris-part-1",
+      "title": "Parks and Gardens of Paris (part 1)",
+      "creator": "Coffee Pot Conversations hosted by An Englishman in Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-04-28",
+      "durationSeconds": 1477,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Coffee Pot Conversations hosted by An Englishman in Paris · 5.8 Parks and Gardens of Paris (part 1)",
+      "podcast": {
+        "show": "Coffee Pot Conversations hosted by An Englishman in Paris",
+        "guest": "Not specified"
+      },
+      "description": "Tuileries, Luxembourg Gardens, and Jardin des Plantes.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Tuileries; Luxembourg; Jardin des Plantes",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-18",
+        "podcast-import-18-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Tuileries; Luxembourg; Jardin des Plantes.",
+        "sourceId": "podcast-import-18",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5x384fMQm5NFKXWfCMDaMR?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=a23c164d-e8a1-44f0-a98a-f093f55a4b5f",
+          "sourceId": "podcast-import-18-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/coffee-pot-conversations-hosted-by-an-englishman-in-paris/id1560899289",
+          "sourceId": "podcast-import-18"
+        }
+      ]
+    },
+    {
+      "id": "podcast-parks-and-gardens-of-paris-part-2",
+      "title": "Parks and Gardens of Paris (part 2)",
+      "creator": "Coffee Pot Conversations hosted by An Englishman in Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-05-12",
+      "durationSeconds": 1695,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Coffee Pot Conversations hosted by An Englishman in Paris · 5.9 Parks and Gardens of Paris (part 2)",
+      "podcast": {
+        "show": "Coffee Pot Conversations hosted by An Englishman in Paris",
+        "guest": "Not specified"
+      },
+      "description": "Parc Monceau, Montsouris, smaller squares and Apollinaire.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Parc Monceau; Parc Montsouris",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-19",
+        "podcast-import-19-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Parc Monceau; Parc Montsouris.",
+        "sourceId": "podcast-import-19",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/1bwT4C0E02u9mfTlBg73ta?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8aedc624-f7fb-4bbd-858d-d5da8af613e9",
+          "sourceId": "podcast-import-19-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/coffee-pot-conversations-hosted-by-an-englishman-in-paris/id1560899289",
+          "sourceId": "podcast-import-19"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-belle-epoque-everything-you-wanted-to-know",
+      "title": "The Belle Époque: everything you wanted to know",
+      "creator": "HistoryExtra podcast",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-03-30",
+      "durationSeconds": 2779,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "HistoryExtra podcast · The Belle Époque: everything you wanted to know",
+      "podcast": {
+        "show": "HistoryExtra podcast",
+        "guest": "Not specified"
+      },
+      "description": "Paris cafés, entertainment and society at the turn of the twentieth century.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Belle Époque; 1880–1914",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-22",
+        "podcast-import-22-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Belle Époque; 1880–1914.",
+        "sourceId": "podcast-import-22",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/4Jhox1k8cOXNzadvffpldu?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=9ff70eed-2f10-4583-aa4c-d96fd41f2e22",
+          "sourceId": "podcast-import-22-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/the-belle-%C3%A9poque-everything-you-wanted-to-know/id256580326?i=1000701228100",
+          "sourceId": "podcast-import-22"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-paris-commune-everything-you-wanted-to-know",
+      "title": "The Paris Commune: everything you wanted to know",
+      "creator": "HistoryExtra podcast",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-08-16",
+      "durationSeconds": 3150,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "HistoryExtra podcast · The Paris Commune: everything you wanted to know",
+      "podcast": {
+        "show": "HistoryExtra podcast",
+        "guest": "Not specified"
+      },
+      "description": "Historian David A. Shafer answers questions about the Commune of 1871.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris Commune; 1871",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-23",
+        "podcast-import-23-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris Commune; 1871.",
+        "sourceId": "podcast-import-23",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0lWPrKjejq7q1wF74xRhdd?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=63826fdf-f213-4485-8188-485b59422441",
+          "sourceId": "podcast-import-23-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://open.spotify.com/episode/0lWPrKjejq7q1wF74xRhdd",
+          "sourceId": "podcast-import-23"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-french-revolution-bloodbath-in-paris-part-1",
+      "title": "The French Revolution: Bloodbath in Paris (Part 1)",
+      "creator": "The Rest Is History",
+      "kind": "podcast_episode",
+      "year": 2024,
+      "yearLabel": "Episode published",
+      "publishedOn": "2024-10-13",
+      "durationSeconds": 3590,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Rest Is History · 503. The French Revolution: Bloodbath in Paris (Part 1)",
+      "podcast": {
+        "show": "The Rest Is History",
+        "guest": "Not specified"
+      },
+      "description": "The Champ de Mars Massacre and revolutionary tensions.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Champ de Mars; French Revolution",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-24",
+        "podcast-import-24-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Champ de Mars; French Revolution.",
+        "sourceId": "podcast-import-24",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3BDIjgZI5eHW9nZ2sU9bVb?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=72f6178f-15f2-4e84-951c-988a484dbdcd",
+          "sourceId": "podcast-import-24-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://therestishistory.com/episodes/bloodbath-in-paris-part-1",
+          "sourceId": "podcast-import-24"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-french-revolution-the-september-massacres-part-1",
+      "title": "The French Revolution: The September Massacres (Part 1)",
+      "creator": "The Rest Is History",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-03-03",
+      "durationSeconds": 3419,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Rest Is History · 544. The French Revolution: The September Massacres (Part 1)",
+      "podcast": {
+        "show": "The Rest Is History",
+        "guest": "Not specified"
+      },
+      "description": "A dark chapter of revolutionary violence in September 1792.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris; 1792",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-25",
+        "podcast-import-25-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris; 1792.",
+        "sourceId": "podcast-import-25",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0tfK4qNRppD0q3i2GYOVyz?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=8fcfe68a-9b2b-406a-be14-acf23a21e252",
+          "sourceId": "podcast-import-25-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/the-french-revolution-the-september-massacres-part-1/id1537788786?i=1000691417299",
+          "sourceId": "podcast-import-25"
+        }
+      ]
+    },
+    {
+      "id": "podcast-paris-1968-the-students-revolt",
+      "title": "Paris 1968: The Students' Revolt",
+      "creator": "The Rest Is History",
+      "kind": "podcast_episode",
+      "year": 2023,
+      "yearLabel": "Episode published",
+      "publishedOn": "2023-07-24",
+      "durationSeconds": 2783,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Rest Is History · 353: Paris 1968: The Students' Revolt (Part 1)",
+      "podcast": {
+        "show": "The Rest Is History",
+        "guest": "Not specified"
+      },
+      "description": "Students, barricades, strikes and the May 1968 uprising.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Latin Quarter; May 1968",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-26",
+        "podcast-import-26-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Latin Quarter; May 1968.",
+        "sourceId": "podcast-import-26",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5PAlWTr4SP5FWjWZhk8BCd?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=b8f13fd7-5a58-4bab-806a-3a396bb49d85",
+          "sourceId": "podcast-import-26-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/paris-1968-the-students-revolt/id1537788786?i=1000622076100",
+          "sourceId": "podcast-import-26"
+        }
+      ]
+    },
+    {
+      "id": "podcast-paris-1968-the-return-of-de-gaulle",
+      "title": "Paris 1968: The Return of De Gaulle",
+      "creator": "The Rest Is History",
+      "kind": "podcast_episode",
+      "year": 2023,
+      "yearLabel": "Episode published",
+      "publishedOn": "2023-07-27",
+      "durationSeconds": 2508,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Rest Is History · 354: Paris 1968: The Return of De Gaulle (Part 2)",
+      "podcast": {
+        "show": "The Rest Is History",
+        "guest": "Not specified"
+      },
+      "description": "De Gaulle’s response to the extraordinary political crisis of 1968.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris; May 1968",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-27",
+        "podcast-import-27-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris; May 1968.",
+        "sourceId": "podcast-import-27",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3uBMplPAaFYcPvP2uCmY8Z?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=27e9ef30-38ef-4393-bd07-c435f959acb5",
+          "sourceId": "podcast-import-27-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/paris-1968-the-return-of-de-gaulle/id1537788786?i=1000622077450",
+          "sourceId": "podcast-import-27"
+        }
+      ]
+    },
+    {
+      "id": "podcast-the-liberation-of-paris-in-wwii",
+      "title": "The Liberation of Paris in WWII",
+      "creator": "History Daily",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-08-25",
+      "durationSeconds": 1145,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "History Daily · The Liberation of Paris in WWII",
+      "podcast": {
+        "show": "History Daily",
+        "guest": "Not specified"
+      },
+      "description": "The end of the Nazi occupation in August 1944. Note: archived and may require a subscription.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris; August 1944",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-28",
+        "podcast-import-28-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris; August 1944.",
+        "sourceId": "podcast-import-28",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/4JZn7YY1ZroWS0ecrIbWnT?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=24105066-3dd8-4773-85b8-cdf2bf608403",
+          "sourceId": "podcast-import-28-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.noiser.com/history-daily/the-liberation-of-paris-in-wwii",
+          "sourceId": "podcast-import-28"
+        }
+      ]
+    },
+    {
+      "id": "podcast-sylvia-beach-and-ulysses",
+      "title": "Sylvia Beach and Ulysses",
+      "creator": "Lost Ladies of Lit",
+      "kind": "podcast_episode",
+      "year": 2022,
+      "yearLabel": "Episode published",
+      "publishedOn": "2022-08-16",
+      "durationSeconds": 826,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Lost Ladies of Lit · Sylvia Beach and Ulysses",
+      "podcast": {
+        "show": "Lost Ladies of Lit",
+        "guest": "Not specified"
+      },
+      "description": "How Sylvia Beach opened Shakespeare and Company and published Joyce’s Ulysses.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Shakespeare and Company; James Joyce",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-32",
+        "podcast-import-32-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Shakespeare and Company; James Joyce.",
+        "sourceId": "podcast-import-32",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/55CUBtxEilF6XksJXnlB5Y?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=781e05ee-bdb2-4f30-8053-c9d72599abe2",
+          "sourceId": "podcast-import-32-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.lostladiesoflit.com/podcast/101-sylvia-beach-and-ulysses",
+          "sourceId": "podcast-import-32"
+        }
+      ]
+    },
+    {
+      "id": "podcast-shakespeare-and-company-paris-in-the-1920s-author-kerri-maher",
+      "title": "Shakespeare and Company, Paris in the 1920s & Author Kerri Maher",
+      "creator": "The Manuscript Academy",
+      "kind": "podcast_episode",
+      "year": 2022,
+      "yearLabel": "Episode published",
+      "publishedOn": "2022-01-18",
+      "durationSeconds": 1632,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Manuscript Academy · Shakespeare and Company, Paris in the 1920s & Author Kerri Maher, Who Brings Them To Life",
+      "podcast": {
+        "show": "The Manuscript Academy",
+        "guest": "Not specified"
+      },
+      "description": "Kerri Maher on the bookshop, Sylvia Beach, and literary expatriates.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Latin Quarter; Lost Generation",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-33",
+        "podcast-import-33-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Latin Quarter; Lost Generation.",
+        "sourceId": "podcast-import-33",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/10UatwQIahakYrleuT8yGS?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=03d5530f-9d49-43ea-a695-7e15beb4067b",
+          "sourceId": "podcast-import-33-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/us/podcast/shakespeare-and-company-paris-in-the-1920s-author/id1171799743?i=1000548232673",
+          "sourceId": "podcast-import-33"
+        }
+      ]
+    },
+    {
+      "id": "podcast-midnight-in-paris-top-5-paris-movies-red",
+      "title": "Midnight in Paris / Top 5 Paris Movies / Red",
+      "creator": "Filmspotting Archive",
+      "kind": "podcast_episode",
+      "year": 2011,
+      "yearLabel": "Episode published",
+      "publishedOn": "2011-06-04",
+      "durationSeconds": 5468,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Filmspotting Archive · #349: Midnight In Paris / Top 5 Paris Movies / Three Colors: Red",
+      "podcast": {
+        "show": "Filmspotting Archive",
+        "guest": "Not specified"
+      },
+      "description": "Woody Allen’s Midnight in Paris and other films set in Paris.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris in cinema; 1920s imagination",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-35",
+        "podcast-import-35-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris in cinema; 1920s imagination.",
+        "sourceId": "podcast-import-35",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5yd929OXOiU5nCwh4Y22m1?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=3b16172a-8e65-458c-9fbc-af2064e896af",
+          "sourceId": "podcast-import-35-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.filmspotting.net/episodes-archive/2011/6/3/349-midnight-in-paris-top-5-paris-movies-red",
+          "sourceId": "podcast-import-35"
+        }
+      ]
+    },
+    {
+      "id": "podcast-eugene-delacroix-the-painter-critics-loved-to-hate",
+      "title": "Eugène Delacroix: The Painter Critics Loved to Hate",
+      "creator": "Join Us in France Travel Podcast",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-07-12",
+      "durationSeconds": 4030,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Join Us in France Travel Podcast · Eugène Delacroix: The Painter Critics Loved to Hate, Episode 606",
+      "podcast": {
+        "show": "Join Us in France Travel Podcast",
+        "guest": "Not specified"
+      },
+      "description": "Delacroix, French Romanticism and Liberty Leading the People.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Louvre; Saint-Sulpice; Delacroix",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-36",
+        "podcast-import-36-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Louvre; Saint-Sulpice; Delacroix.",
+        "sourceId": "podcast-import-36",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/6jz317d0iCnGvYefnQe8Oz?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bf096f99-3a91-479a-b61a-482cd2b2a693",
+          "sourceId": "podcast-import-36-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://joinusinfrance.com/episode/eugene-delacroix-the-painter-critics-loved-to-hate/",
+          "sourceId": "podcast-import-36"
+        }
+      ]
+    },
+    {
+      "id": "podcast-paris-architecture-beauty-by-design",
+      "title": "Paris: Architecture - Beauty by Design",
+      "creator": "The Cerca Guide to Paris",
+      "kind": "podcast_episode",
+      "year": 2022,
+      "yearLabel": "Episode published",
+      "publishedOn": "2022-09-28",
+      "durationSeconds": 2234,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Cerca Guide to Paris · Paris: Architecture - Beauty by Design",
+      "podcast": {
+        "show": "The Cerca Guide to Paris",
+        "guest": "Not specified"
+      },
+      "description": "The choices and historical forces that shaped Paris’s architecture.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris-wide; urban design",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-40",
+        "podcast-import-40-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris-wide; urban design.",
+        "sourceId": "podcast-import-40",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3QLnYSegACQtLkr6p1xN28?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=d947088f-623c-4051-838e-4ceb0064047c",
+          "sourceId": "podcast-import-40-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/cl/podcast/paris-architecture-beauty-by-design/id1627436363?i=1000580882805",
+          "sourceId": "podcast-import-40"
+        }
+      ]
+    },
+    {
+      "id": "podcast-paris-strut-here-parisian-style",
+      "title": "Paris: Strut Here - Parisian Style",
+      "creator": "The Cerca Guide to Paris",
+      "kind": "podcast_episode",
+      "year": 2022,
+      "yearLabel": "Episode published",
+      "publishedOn": "2022-06-22",
+      "durationSeconds": 3347,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "The Cerca Guide to Paris · Paris: Strut Here - Parisian Style",
+      "podcast": {
+        "show": "The Cerca Guide to Paris",
+        "guest": "Not specified"
+      },
+      "description": "Fashion history and the Parisian style industry.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Fashion; Paris",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-41",
+        "podcast-import-41-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Fashion; Paris.",
+        "sourceId": "podcast-import-41",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/6VaR5jQUayo5iZ7odDDPL7?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=f4bbd691-3612-4e32-a96d-6549070d5097",
+          "sourceId": "podcast-import-41-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://getpodcast.com/podcast/the-cerca-guide-to-paris/paris-strut-here-parisian-style_6c21abaad5",
+          "sourceId": "podcast-import-41"
+        }
+      ]
+    },
+    {
+      "id": "podcast-an-interview-with-charles-pappas-unveiling-the-power-of-serendipity-and",
+      "title": "An Interview with Charles Pappas - Unveiling the Power of Serendipity and Expos",
+      "creator": "Coffee Pot Conversations hosted by An Englishman in Paris",
+      "kind": "podcast_episode",
+      "year": 2026,
+      "yearLabel": "Episode published",
+      "publishedOn": "2026-07-05",
+      "durationSeconds": 3054,
+      "form": "Podcast episode",
+      "language": "English",
+      "destinationId": "paris",
+      "recording": "Coffee Pot Conversations hosted by An Englishman in Paris · An Interview with Charles Pappas - Unveiling the Power of Serendipity and Expos",
+      "podcast": {
+        "show": "Coffee Pot Conversations hosted by An Englishman in Paris",
+        "guest": "Not specified"
+      },
+      "description": "How Paris world’s fairs and chance encounters influenced design and innovation.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: World’s fairs; Eiffel Tower",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-42",
+        "podcast-import-42-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to World’s fairs; Eiffel Tower.",
+        "sourceId": "podcast-import-42",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0N0RG2XBfDxbLJWBSZHunK?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=c32f982b-d5c8-48a7-913d-8adb9d5673ef",
+          "sourceId": "podcast-import-42-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://open.spotify.com/episode/0N0RG2XBfDxbLJWBSZHunK",
+          "sourceId": "podcast-import-42"
+        }
+      ]
+    },
+    {
+      "id": "podcast-une-ville-sans-cur",
+      "title": "Une ville sans cœur",
+      "creator": "Une histoire de...",
+      "kind": "podcast_episode",
+      "year": 2005,
+      "yearLabel": "Episode published",
+      "publishedOn": "2005-10-03",
+      "durationSeconds": 1206,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Une histoire de... · Une histoire de Paris 7/20 : Une ville sans cœur",
+      "podcast": {
+        "show": "Une histoire de...",
+        "guest": "Not specified"
+      },
+      "description": "The destruction of Les Halles and transformation of central Paris.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Les Halles; Baltard; urban planning",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-46",
+        "podcast-import-46-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Les Halles; Baltard; urban planning.",
+        "sourceId": "podcast-import-46",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0C7tJd0RI8aMqz10iRQwHG?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=0f45a479-508f-477d-8abf-488362907c85",
+          "sourceId": "podcast-import-46-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/une-ville-sans-coeur-2875582",
+          "sourceId": "podcast-import-46"
+        }
+      ]
+    },
+    {
+      "id": "podcast-ainsi-va-la-ville-la-place-des-victoires-et-les-passages-parisiens",
+      "title": "Ainsi va la ville : la place des Victoires et les passages parisiens",
+      "creator": "Une histoire de...",
+      "kind": "podcast_episode",
+      "year": 2005,
+      "yearLabel": "Episode published",
+      "publishedOn": "2005-10-17",
+      "durationSeconds": 1206,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Une histoire de... · Une histoire de Paris 17/20 : Ainsi va la ville : la place des Victoires et les passages parisiens",
+      "podcast": {
+        "show": "Une histoire de...",
+        "guest": "Not specified"
+      },
+      "description": "Historic squares, luxury, and covered passages.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Place des Victoires; passages",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-47",
+        "podcast-import-47-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Place des Victoires; passages.",
+        "sourceId": "podcast-import-47",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/7xVD7HsVn6MGsNPUEGTAfg?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=bbdb0872-d0fc-4113-880c-c9aef596eac7",
+          "sourceId": "podcast-import-47-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/ainsi-va-la-ville-la-place-des-victoires-et-les-passages-parisiens-9130280",
+          "sourceId": "podcast-import-47"
+        }
+      ]
+    },
+    {
+      "id": "podcast-ainsi-va-la-ville-un-6e-arrondissement-petrifie-et-sterilise",
+      "title": "Ainsi va la ville : un 6e arrondissement pétrifié et stérilisé",
+      "creator": "Une histoire de...",
+      "kind": "podcast_episode",
+      "year": 2005,
+      "yearLabel": "Episode published",
+      "publishedOn": "2005-10-19",
+      "durationSeconds": 1206,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Une histoire de... · Une histoire de Paris 19/20 : Ainsi va la ville : un 6e arrondissement pétrifié et stérilisé",
+      "podcast": {
+        "show": "Une histoire de...",
+        "guest": "Not specified"
+      },
+      "description": "How property prices reshaped literary and artistic Saint-Germain.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Saint-Germain-des-Prés; gentrification",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-48",
+        "podcast-import-48-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Saint-Germain-des-Prés; gentrification.",
+        "sourceId": "podcast-import-48",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0CiK6abdaCdmrnnjVSclqR?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=803ac7fb-5150-48f3-b548-6af936dc05cb",
+          "sourceId": "podcast-import-48-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/ainsi-va-la-ville-un-6e-arrondissement-petrifie-et-sterilise-1715658",
+          "sourceId": "podcast-import-48"
+        }
+      ]
+    },
+    {
+      "id": "podcast-des-bistrots-bien-parisiens",
+      "title": "Des bistrots bien parisiens",
+      "creator": "Une histoire de...",
+      "kind": "podcast_episode",
+      "year": 2005,
+      "yearLabel": "Episode published",
+      "publishedOn": "2005-10-11",
+      "durationSeconds": 1205,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Une histoire de... · Une histoire de Paris 13/20 : Des bistrots bien parisiens",
+      "podcast": {
+        "show": "Une histoire de...",
+        "guest": "Not specified"
+      },
+      "description": "Portraits of neighborhood cafés, owners and immigrant communities.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Bistros; Opéra",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-50",
+        "podcast-import-50-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Bistros; Opéra.",
+        "sourceId": "podcast-import-50",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/5nL0rDZcdclbogLJxf34yj?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=82e2eea1-2b3c-4f5e-b0d3-ac54c221151d",
+          "sourceId": "podcast-import-50-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/des-bistrots-bien-parisiens-2451153",
+          "sourceId": "podcast-import-50"
+        }
+      ]
+    },
+    {
+      "id": "podcast-django-reinhardt-et-le-hot-club-la-quinte-royale",
+      "title": "Django Reinhardt et le Hot Club, la quinte royale",
+      "creator": "Pour Qui Sonne Le Jazz",
+      "kind": "podcast_episode",
+      "year": 2023,
+      "yearLabel": "Episode published",
+      "publishedOn": "2023-05-16",
+      "durationSeconds": 921,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Pour Qui Sonne Le Jazz · Django Reinhardt et le Hot Club, la quinte royale",
+      "podcast": {
+        "show": "Pour Qui Sonne Le Jazz",
+        "guest": "Not specified"
+      },
+      "description": "The emergence of the Hot Club de France in 1930s Paris.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Jazz; Pigalle; Django Reinhardt",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-54",
+        "podcast-import-54-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Jazz; Pigalle; Django Reinhardt.",
+        "sourceId": "podcast-import-54",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/3uCuIXPii1uPNSx4XH5V6d?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=65347178-bd84-4dfd-86a0-b27afe843041",
+          "sourceId": "podcast-import-54-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/fr/podcast/django-reinhardt-et-le-hot-club-la-quinte-royale/id1607312201?i=1000630668055",
+          "sourceId": "podcast-import-54"
+        }
+      ]
+    },
+    {
+      "id": "podcast-le-fabuleux-bordel-d-amelie-poulain-un-podcast-bien-de-chez-nous",
+      "title": "Le Fabuleux Bordel d'Amélie Poulain – Un Podcast Bien de Chez Nous",
+      "creator": "Histoire d'en dire plus Cinéma !",
+      "kind": "podcast_episode",
+      "year": 2025,
+      "yearLabel": "Episode published",
+      "publishedOn": "2025-11-14",
+      "durationSeconds": 2268,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Histoire d'en dire plus Cinéma ! · Le Fabuleux Bordel d'Amélie Poulain - Un Podcast Bien de Chez Nous",
+      "podcast": {
+        "show": "Histoire d'en dire plus Cinéma !",
+        "guest": "Not specified"
+      },
+      "description": "The making of Amélie and its Montmartre film locations; explicit language.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Montmartre; Amélie; film",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-55",
+        "podcast-import-55-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Montmartre; Amélie; film.",
+        "sourceId": "podcast-import-55",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/0GSqk73d5Glgih7rWQ6JDL?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=35e7517d-588d-4316-b944-d416b4b1ee8f",
+          "sourceId": "podcast-import-55-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://podcasts.apple.com/fr/podcast/le-fabuleux-bordel-dam%C3%A9lie-poulain-un-podcast-bien/id1614252806?i=1000736764175",
+          "sourceId": "podcast-import-55"
+        }
+      ]
+    },
+    {
+      "id": "podcast-paris-finit-par-des-chansons",
+      "title": "Paris finit par des chansons",
+      "creator": "Une histoire de...",
+      "kind": "podcast_episode",
+      "year": 2005,
+      "yearLabel": "Episode published",
+      "publishedOn": "2005-10-20",
+      "durationSeconds": 1205,
+      "form": "Podcast episode",
+      "language": "French",
+      "destinationId": "paris",
+      "recording": "Une histoire de... · Une histoire de Paris 20/20 : Paris finit par des chansons",
+      "podcast": {
+        "show": "Une histoire de...",
+        "guest": "Not specified"
+      },
+      "description": "Popular songs tracing Parisian history from the Fronde to the Commune.",
+      "context": [
+        "From the supplied Paris episode selection. Topics: Paris; historical music",
+        "Episode identity, publication date and running time matched on Spotify."
+      ],
+      "sourceIds": [
+        "podcast-import-57",
+        "podcast-import-57-spotify"
+      ],
+      "relationship": {
+        "type": "about",
+        "scope": "city",
+        "statement": "The supplied episode selection connects this conversation to Paris; historical music.",
+        "sourceId": "podcast-import-57",
+        "review": "source_reported"
+      },
+      "immersion": "unreviewed",
+      "listeningLinks": [
+        {
+          "provider": "Spotify",
+          "url": "https://open.spotify.com/episode/7cjETgeXg8JkPLIUG7wQfJ?utm_source=openai&utm_medium=chatgpt&go=1&nap_web=1&request_id=24553ef6-27d5-47df-a559-9d0c32ef8a44",
+          "sourceId": "podcast-import-57-spotify"
+        },
+        {
+          "provider": "episode source",
+          "url": "https://www.radiofrance.fr/franceculture/podcasts/une-histoire-de/paris-finit-par-des-chansons-8908138",
+          "sourceId": "podcast-import-57"
+        }
+      ]
+    }
+  ]
+}
