@@ -35,14 +35,14 @@ export async function discoveryLoader({request}:LoaderFunctionArgs) {
 }
 function ShellContent({catalog}:{catalog:CultureCatalog}) {
   const location=useLocation(),main=useRef<HTMLElement>(null),initial=useRef(true),shelf=useShelf();
-  useEffect(()=>{document.title='Elsewhere · Discover a place through its stories';if(initial.current){initial.current=false;return;}main.current?.focus();},[location.pathname]);
+  useEffect(()=>{document.title='Elsewhere · Discover more. Plan better. Travel deeper.';if(initial.current){initial.current=false;return;}main.current?.focus();},[location.pathname]);
   const overview=isParisContext(location.pathname,location.search,catalog);
   return <div className={overview?"ew po-shell":"ew"}><a className="skip-link" href="#ew-main">Skip to content</a>
     {overview?<ParisOverviewNavigation key={location.pathname + location.search}/>:<header className="ew-header"><Link className="ew-brand" to="/discover">Elsewhere</Link><nav aria-label="Elsewhere navigation"><NavLink end to="/discover">Destinations</NavLink><NavLink to="/discover/browse">Discover</NavLink><NavLink to="/discover/place/paris">Paris</NavLink><NavLink to="/discover/saved">Saved<span className="ew-saved-count">{shelf.ids.length}</span></NavLink><Link to="/paris/saved">My trips</Link></nav></header>}
     {shelf.error&&<div className="ew-notice" role="alert">{shelf.error} <Link to="/discover/saved">Saved list & recovery</Link></div>}
     <div className="ew-announcement" role="status" aria-live="polite">{shelf.message}</div>
     <main ref={main} id="ew-main" tabIndex={-1}><Outlet context={catalog}/></main>
-    <footer className="ew-footer"><Link className="ew-brand" to="/discover">Elsewhere</Link><p>Places, stories, and the paths between them.</p><Link to="/paris">Trip planning by Copy My Trip</Link></footer><ScrollRestoration/>
+    <footer className="ew-footer"><Link className="ew-brand" to="/discover">Elsewhere</Link><p>Discover more. Plan better. Travel deeper.</p><Link to="/paris">Trip planning by Copy My Trip</Link></footer><ScrollRestoration/>
   </div>;
 }
 export function DiscoveryLayout(){const catalog=useLoaderData() as CultureCatalog;return <ShelfProvider><ParisPersonalProvider><MusicProvider works={catalog.works}><ShellContent catalog={catalog}/></MusicProvider></ParisPersonalProvider></ShelfProvider>;}

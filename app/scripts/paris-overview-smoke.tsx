@@ -29,14 +29,14 @@ for(const route of ['/discover/place/paris','/discover/place/paris/'])assert(isP
 for(const route of ['/discover/browse','/discover/place/paris/atlas','/discover/place/paris/places/shakespeare','/paris/archive','/paris/itinerary/1'])assert(!isParisOverview(route));
 for(const [,kind] of parisFormats){const u=new URL(parisBrowse(kind),'https://example.org');assert.equal(u.searchParams.get('destination'),'paris');assert.equal(u.searchParams.get('kind'),kind);}
 const html=renderToStaticMarkup(<MemoryRouter><ShelfProvider><ParisPersonalProvider><MusicProvider works={cultureCatalog.works}><ParisOverview catalog={cultureCatalog}/></MusicProvider></ParisPersonalProvider></ShelfProvider></MemoryRouter>);
-for(const anchor of ['paris-search','paris-feature-heading','more-discover-title','paris-places','paris-writer-heading','paris-guide-heading','paris-archive-heading'])assert(html.includes(`id="${anchor}"`));
-for(const id of [...featuredParisIds,...recentParisIds,...parisTrackIds.slice(0,4)]) {
+for(const anchor of ['paris-search','paris-feature-heading','paris-places','paris-writer-heading','paris-guide-heading','paris-archive-heading'])assert(html.includes(`id="${anchor}"`));
+for(const id of [...featuredParisIds,...parisTrackIds.slice(0,4)]) {
  const work=cultureCatalog.works.find(work=>work.id===id)!;
  if([...featuredParisIds,...recentParisIds].includes(id)) assert(html.includes(`aria-label="Preview ${work.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')}"`));
  else assert(html.includes(work.title.replaceAll("&","&amp;").replaceAll("'","&#x27;")));
 }
 for(const e of selection.entities.filter(e=>['place','person','collection'].includes(e.kind)))assert(html.includes(entityHref(e)));
-assert.equal((html.match(/class="po-work /g)??[]).length,12);
+assert.equal((html.match(/class="po-work /g)??[]).length,6);
 assert(html.includes('8 tracks'));assert(!html.includes('Follow a connection'));assert(html.includes('Place positions · schematic'));
 assert(html.includes('Listen with Spotify Premium, or choose YouTube.'));assert(html.includes('▶ Play on Spotify'));
 assert.equal((html.match(/class="ew-spotify-play"/g)??[]).length,10);
@@ -52,8 +52,9 @@ assert(!isParisContext('/discover/work/unknown','',cultureCatalog));
 const counts=parisCounts(cultureCatalog);
 assert.equal(counts.total,cultureCatalog.works.filter(w=>w.destinationId==='paris').length);
 assert.equal(counts.byKind.film,137);
-assert(html.includes('Curated works'));
-assert(html.includes('Explore Paris places'));
+assert(html.includes('Discover the places, stories and culture that make the city yours.'));
+assert(!html.includes('po-invitation'));
+assert(!html.includes('Recently added'));
 
 // The requested eight films lead the Films filter, including the three new entries.
 import { priorityParisFilmIds, prioritizeParisFilms } from '../src/lib/culture/paris-overview';

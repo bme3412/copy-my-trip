@@ -323,3 +323,82 @@
 .po-discovery-tabs .po-entity { max-width:760px; }
 @media(max-width:1199px) { .po-overview .po-work-grid.po-card-rail { grid-auto-columns:calc((100% - 32px)/3); gap:16px; } }
 @media(max-width:650px) { .po-overview .po-work-grid.po-card-rail { grid-auto-columns:78%; gap:12px; } .po-shortcuts { margin-bottom:20px; } .po-pagination { gap:6px; } .po-pagination button { padding:8px 12px; } }
+
+/* Keep the collection title and navigation on one compact line. */
+.po-carousel-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
+.po-carousel-heading h2 { margin:0; font-size:32px; }
+.po-carousel-heading .po-carousel-controls { margin:0; gap:8px; flex-shrink:0; }
+.po-carousel-heading .po-carousel-controls button { width:44px; padding:8px; }
+.po-carousel-heading .po-filter-reset { margin-top:8px; min-height:32px; }
+.po-overview .po-shortcuts { margin-bottom:20px; }
+.po-overview .po-hero:after { background:linear-gradient(90deg,rgba(16,27,24,.76),rgba(16,27,24,.42) 38%,rgba(16,27,24,.04) 72%); }
+.po-overview .po-hero>.ew-photo img { filter:none; }
+@media(max-width:650px) { .po-carousel-heading h2 { font-size:26px; } .po-carousel-heading { gap:8px; } .po-carousel-heading .po-carousel-controls { gap:4px; } }
+
+.po-overview .po-hero>.ew-photo img { border-radius:0; }
+
+/* A short editorial introduction keeps the collection within reach. */
+.po-shell .po-topbar { min-height:64px; padding-block:7px; }
+.po-overview .po-hero.po-city-intro { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); height:240px; background:#eeece3; margin-bottom:12px; border-radius:10px; }
+.po-city-intro:after { display:none; }
+.po-city-intro .po-hero-copy { padding:28px 32px; max-width:none; color:#263b32; align-self:center; }
+.po-city-intro .po-hero-copy h1 { font-size:64px; color:#263b32; margin:12px 0; }
+.po-city-intro .po-monograph { color:#697266; font-size:9px; }
+.po-city-intro .po-monograph:before { display:none; }
+.po-city-intro .po-hero-copy .po-city-description { font-size:16px; line-height:1.5; max-width:30ch; margin:0; color:#4d5d50; }
+.po-overview .po-city-intro>.ew-photo { position:relative; inset:auto; z-index:auto; height:240px; margin:0; min-width:0; }
+.po-overview .po-city-intro>.ew-photo img { width:100%; height:100%; object-fit:cover; filter:none; }
+.po-city-intro>.ew-photo figcaption { bottom:8px; right:8px; font-size:9px; }
+.po-overview .po-shortcuts { margin-bottom:12px; padding-block:8px; }
+.po-carousel-heading { margin-bottom:12px; }
+@media(max-width:650px) {
+ .po-overview .po-hero.po-city-intro { grid-template-columns:1fr; height:auto; margin-inline:0; }
+ .po-city-intro .po-hero-copy { padding:20px; }
+ .po-city-intro .po-hero-copy h1 { font-size:46px; margin:8px 0; }
+ .po-city-intro .po-hero-copy .po-city-description { max-width:34ch; font-size:14px; }
+ .po-overview .po-city-intro>.ew-photo { height:140px; }
+}
+@media(min-width:1024px) {
+ .po-overview #paris-work-cards .po-work-art { height:180px; aspect-ratio:auto; }
+ .po-overview #paris-work-cards .po-work-art img { object-fit:contain; }
+}
+@media(min-width:1024px) {
+ .po-overview .po-hero.po-city-intro,.po-overview .po-city-intro>.ew-photo { height:220px; }
+ .po-overview #paris-work-cards .po-work-art { height:160px; }
+}
+/* Editorial cards: compact artwork, readable copy, aligned actions. */
+.po-overview #paris-search { padding:22px 26px 30px; background:#f8f7f2; border:1px solid #e4e1d8; border-radius:16px; }
+.po-overview #paris-search .po-carousel-heading { padding-bottom:24px; margin-bottom:28px; border-bottom:1px solid #e9e6de; }
+.po-overview #paris-search .po-carousel-heading h2 { font-size:40px; color:#242722; }
+.po-overview #paris-search .po-section-caption { font-size:10px; margin-top:10px; letter-spacing:.13em; }
+.po-overview #paris-work-cards { gap:24px; grid-auto-columns:calc((100% - 72px)/4); }
+.po-overview #paris-work-cards .po-work { padding:20px 20px 0; border-radius:16px; background:#fff; border-color:#e5e1d8; box-shadow:0 5px 18px #33291706; }
+.po-overview #paris-work-cards .po-card-kicker { margin:0 0 20px; font-size:9px; letter-spacing:.06em; min-height:16px; align-items:center; }
+.po-overview #paris-work-cards .po-card-kicker>span:first-child:before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:#da850b; margin-right:6px; }
+.po-overview #paris-work-cards .po-kind-film .po-card-kicker>span:first-child:before { background:#d93535; }
+.po-overview #paris-work-cards .po-kind-tv_show .po-card-kicker>span:first-child:before { background:#129567; }
+.po-overview #paris-work-cards .po-kind-song .po-card-kicker>span:first-child:before,.po-overview #paris-work-cards .po-kind-podcast_episode .po-card-kicker>span:first-child:before { background:#6550d8; }
+.po-overview #paris-work-cards .po-work-art { height:156px; aspect-ratio:auto; border-radius:11px; }
+.po-overview #paris-work-cards .po-work-art img { object-fit:contain; }
+.po-overview #paris-work-cards .po-work-copy { padding-top:22px; }
+.po-overview #paris-work-cards .po-work h3 { font-size:24px; margin-bottom:8px; line-height:1.15; }
+.po-overview #paris-work-cards .po-creator { font-size:12px; margin-bottom:16px; color:#787469; }
+.po-overview #paris-work-cards .po-summary { display:block; -webkit-line-clamp:unset; overflow:visible; font-size:13px; line-height:1.65; margin-bottom:20px; }
+.po-overview #paris-work-cards .po-work-copy { min-height:250px; }
+.po-overview #paris-work-cards .po-card-footer { min-height:64px; padding:12px 0; }
+.po-overview #paris-work-cards .po-card-footer>button { font-size:12px; }
+.po-overview #paris-work-cards .po-card-footer .ew-save { padding:6px 9px; border-radius:8px; }
+.po-overview #paris-work-cards .po-card-footer .ew-save[aria-pressed=true] { background:#eeece5; }
+.po-overview #paris-work-cards .ew-music-options { margin-bottom:18px; }
+@media(min-width:651px) and (max-width:1199px) { .po-overview #paris-work-cards { grid-auto-columns:calc((100% - 40px)/3); gap:20px; } }
+@media(max-width:650px) {
+ .po-overview #paris-search { padding:16px 12px 20px; }
+ .po-overview #paris-search .po-carousel-heading { padding-bottom:16px; margin-bottom:18px; }
+ .po-overview #paris-search .po-carousel-heading h2 { font-size:28px; }
+ .po-overview #paris-search .po-section-caption { font-size:8px; }
+ .po-overview #paris-work-cards { grid-auto-columns:88%; gap:14px; }
+ .po-overview #paris-work-cards .po-work { padding:16px 16px 0; }
+ .po-overview #paris-work-cards .po-work h3 { font-size:23px; }
+}
+.po-overview #paris-work-cards .po-card-footer { width:100%; }
+.po-overview #paris-work-cards .ew-music-options small { display:none; }
