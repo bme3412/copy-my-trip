@@ -31,7 +31,7 @@ export function MediaPreview({work, onClose}: {work: CultureWork; onClose: () =>
       if (opener?.isConnected) opener.focus({preventScroll:true});
     };
   }, []);
-  return <dialog ref={dialog} className="po-film-preview" aria-labelledby="film-preview-title"
+  return <dialog ref={dialog} className={`po-film-preview${work.kind==='film'?' po-cinema-preview':''}`} aria-labelledby="film-preview-title"
     onCancel={event => {event.preventDefault(); onClose();}}
     onClick={event => {
       if (event.target !== event.currentTarget) return;
@@ -40,11 +40,11 @@ export function MediaPreview({work, onClose}: {work: CultureWork; onClose: () =>
     }}>
     <div className="po-preview-bar"><span>Paris / {label} preview</span><button type="button" onClick={onClose} aria-label={`Close ${label} preview`}>Close ×</button></div>
     <div className="po-preview-content">
-      <p className="ew-eyebrow">{formatLabel(work.kind)} · {work.language}</p>
+      <div className="po-preview-summary"><p className="ew-eyebrow">{formatLabel(work.kind)}{work.kind==='film' && work.year ? ` · ${work.year}` : ''} · {work.language}</p>
       <h2 ref={heading} tabIndex={-1} id="film-preview-title">{work.title}</h2>
       <p className="po-preview-director">{work.kind==='film'?'Directed by ':work.kind==='tv_show'?'Created by ':''}{work.creator}</p>
-      <WorkMetadata work={work}/>
-      <p>{work.description}</p>
+      {work.kind!=='film' && <WorkMetadata work={work}/>}
+      <p>{work.description}</p></div>
       {!music && work.kind!=='film' && work.kind!=='podcast_episode' && <div className="po-preview-art"><WorkCover work={work}/></div>}
       {cover && <p className="ew-small"><a href={cover.source} target="_blank" rel="noreferrer">Cover: Open Library</a> · Cover edition may differ from the cited edition.</p>}
       {work.kind==='podcast_episode' && <><PodcastPlayer key={work.id} work={work}/><ListeningLinks work={work}/></>}

@@ -374,10 +374,6 @@
 .po-overview #paris-work-cards { gap:24px; grid-auto-columns:calc((100% - 72px)/4); }
 .po-overview #paris-work-cards .po-work { padding:20px 20px 0; border-radius:16px; background:#fff; border-color:#e5e1d8; box-shadow:0 5px 18px #33291706; }
 .po-overview #paris-work-cards .po-card-kicker { margin:0 0 20px; font-size:9px; letter-spacing:.06em; min-height:16px; align-items:center; }
-.po-overview #paris-work-cards .po-card-kicker>span:first-child:before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:#da850b; margin-right:6px; }
-.po-overview #paris-work-cards .po-kind-film .po-card-kicker>span:first-child:before { background:#d93535; }
-.po-overview #paris-work-cards .po-kind-tv_show .po-card-kicker>span:first-child:before { background:#129567; }
-.po-overview #paris-work-cards .po-kind-song .po-card-kicker>span:first-child:before,.po-overview #paris-work-cards .po-kind-podcast_episode .po-card-kicker>span:first-child:before { background:#6550d8; }
 .po-overview #paris-work-cards .po-work-art { height:156px; aspect-ratio:auto; border-radius:11px; }
 .po-overview #paris-work-cards .po-work-art img { object-fit:contain; }
 .po-overview #paris-work-cards .po-work-copy { padding-top:22px; }
@@ -402,3 +398,42 @@
 }
 .po-overview #paris-work-cards .po-card-footer { width:100%; }
 .po-overview #paris-work-cards .ew-music-options small { display:none; }
+
+/* Film previews frame the trailer alongside concise context. */
+.po-preview-summary>.ew-eyebrow { font-size:10px; margin:0 0 8px; }
+.po-preview-summary>.po-preview-director { font-size:13px; color:#74786e; margin:12px 0 16px; }
+.po-preview-summary>p:last-child { font-size:14px; line-height:1.65; margin:0; }
+.po-cinema-preview { width:min(1000px,calc(100vw - 40px)); }
+.po-cinema-preview .po-preview-bar { padding:8px 20px; }
+.po-cinema-preview .po-preview-bar>span { font-size:10px; }
+.po-cinema-preview .po-preview-content { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr); gap:24px 28px; padding:28px; align-items:start; }
+.po-cinema-preview #film-preview-title { font-size:36px; line-height:1.08; margin:8px 0 12px; }
+.po-cinema-preview .ew-film-trailer { margin:0; display:flex; flex-direction:column; min-width:0; }
+.po-cinema-preview .ew-trailer-heading { order:2; margin:8px 0 0; }
+.po-cinema-preview .ew-trailer-heading button { min-height:36px; padding:6px 12px; background:transparent; color:#536057; border:1px solid #d9ddd3; font-size:12px; }
+.po-cinema-preview .ew-trailer-video { height:auto; min-height:0; aspect-ratio:16/9; border-radius:8px; overflow:hidden; }
+.po-cinema-preview .ew-trailer-launch .ew-trailer-thumbnail img { height:auto; aspect-ratio:16/9; object-fit:contain; }
+.po-cinema-preview .ew-trailer-launch { border:1px solid #deddd5; }
+.po-cinema-preview .ew-trailer-cta { padding:10px; }
+.po-cinema-preview .ew-film-trailer>.ew-link { order:3; font-size:11px; }
+.po-cinema-preview .ew-film-trailer>[role=status] { order:4; }
+.po-cinema-preview .po-preview-connection { grid-column:1/-1; border-top:1px solid #e5e3da; padding-top:18px; }
+.po-cinema-preview .po-preview-connection h3 { font-size:20px; }
+.po-cinema-preview .po-preview-connection p { max-width:85ch; }
+.po-cinema-preview>.po-preview-actions { padding:12px 28px; }
+.po-cinema-preview .po-preview-actions .ew-button { min-height:44px; padding:12px 20px; font-size:13px; }
+@media(max-width:700px) {
+ .po-cinema-preview { width:calc(100vw - 20px); }
+ .po-cinema-preview .po-preview-content { grid-template-columns:1fr; gap:20px; padding:20px; }
+ .po-cinema-preview #film-preview-title { font-size:30px; }
+ .po-cinema-preview .po-preview-summary>.po-preview-director { margin:8px 0; }
+ .po-cinema-preview>.po-preview-actions { padding:10px 20px; }
+}
+
+.po-card-kicker>span:first-child { display:inline-flex; align-items:center; gap:7px; }
+.po-format-icon { width:15px; height:15px; flex-shrink:0; }
+.po-overview #paris-work-cards .po-card-kicker { text-transform:none; font-size:11px; letter-spacing:.02em; }
+
+.po-overview #paris-work-cards.po-paged-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-flow:row; grid-auto-columns:auto; overflow:visible; gap:24px; }
+@media(max-width:1199px) { .po-overview #paris-work-cards.po-paged-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; } }
+@media(max-width:599px) { .po-overview #paris-work-cards.po-paged-grid { grid-template-columns:1fr; } }

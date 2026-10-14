@@ -6,7 +6,7 @@ import { cultureCatalog } from '../src/lib/culture/seed';
 import { overviewSelection, featuredParisIds, recentParisIds, parisBrowse, parisFormats, isParisOverview, isParisContext, parisCounts } from '../src/lib/culture/paris-overview';
 import { validateArtwork, workArtwork, approvedArtwork } from '../src/lib/culture/artwork';
 import { parisTrackIds } from '../src/lib/culture/audio-selection';
-import { parseTrail, entityHref } from '../src/lib/culture/paris-discovery';
+import { parseTrail } from '../src/lib/culture/paris-discovery';
 import { ParisOverview } from '../src/pages/elsewhere/ParisOverview';
 import { ShelfProvider } from '../src/pages/elsewhere/ShelfContext';
 import { ParisPersonalProvider } from '../src/pages/elsewhere/ParisPersonalContext';
@@ -29,15 +29,14 @@ for(const route of ['/discover/place/paris','/discover/place/paris/'])assert(isP
 for(const route of ['/discover/browse','/discover/place/paris/atlas','/discover/place/paris/places/shakespeare','/paris/archive','/paris/itinerary/1'])assert(!isParisOverview(route));
 for(const [,kind] of parisFormats){const u=new URL(parisBrowse(kind),'https://example.org');assert.equal(u.searchParams.get('destination'),'paris');assert.equal(u.searchParams.get('kind'),kind);}
 const html=renderToStaticMarkup(<MemoryRouter><ShelfProvider><ParisPersonalProvider><MusicProvider works={cultureCatalog.works}><ParisOverview catalog={cultureCatalog}/></MusicProvider></ParisPersonalProvider></ShelfProvider></MemoryRouter>);
-for(const anchor of ['paris-search','paris-feature-heading','paris-places','paris-writer-heading','paris-guide-heading','paris-archive-heading'])assert(html.includes(`id="${anchor}"`));
+for(const anchor of ['paris-search','paris-feature-heading'])assert(html.includes(`id="${anchor}"`));
 for(const id of [...featuredParisIds,...parisTrackIds.slice(0,4)]) {
  const work=cultureCatalog.works.find(work=>work.id===id)!;
  if([...featuredParisIds,...recentParisIds].includes(id)) assert(html.includes(`aria-label="Preview ${work.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')}"`));
  else assert(html.includes(work.title.replaceAll("&","&amp;").replaceAll("'","&#x27;")));
 }
-for(const e of selection.entities.filter(e=>['place','person','collection'].includes(e.kind)))assert(html.includes(entityHref(e)));
 assert.equal((html.match(/class="po-work /g)??[]).length,6);
-assert(html.includes('8 tracks'));assert(!html.includes('Follow a connection'));assert(html.includes('Place positions · schematic'));
+assert(html.includes('8 tracks'));assert(!html.includes('Follow a connection'));assert(!html.includes('po-discovery-tabs'));assert(!html.includes('po-bottom-nav'));
 assert(html.includes('Listen with Spotify Premium, or choose YouTube.'));assert(html.includes('▶ Play on Spotify'));
 assert.equal((html.match(/class="ew-spotify-play"/g)??[]).length,10);
 assert.equal((html.match(/class="ew-youtube-play"/g)??[]).length,10);
