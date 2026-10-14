@@ -52,6 +52,18 @@ export function SpotifyProvider({children, works = []}: {children: ReactNode; wo
   const [dockHeight, setDockHeight] = useState(0);
   const stop = useCallback(() => { requestVersion.current++; generation.current++; player.current?.disconnect(); player.current = null; device.current = null; setNeedsAuth(false); setConnected(false); setPlayback(null); setSelection(null); setMessage(''); }, []);
   useEffect(() => () => { focus.release(stop); }, [focus, stop]);
+  const introduced = useRef(false);
+  useEffect(() => {
+    if (introduced.current || location.pathname.replace(/\/$/,'') !== '/discover/place/paris') return;
+    introduced.current = true;
+    if (selection) return;
+    const ids = works.find(work => work.id === 'paris-playlist')?.tracks?.filter(id => spotifyTracks[id]);
+    if (!ids?.length) return;
+    // Show a ready queue only; SDK loading, authentication and playback remain user initiated.
+    focus.claim(stop);
+    setSelection({ids, index:0});
+    setNeedsAuth(!hasSpotifySession());
+  }, [location.pathname, works, selection, focus, stop]);
   const report = (error: unknown) => setMessage(error instanceof Error ? error.message : 'Spotify playback is unavailable. Please try again.');
   useEffect(() => () => { generation.current++; player.current?.disconnect(); player.current = null; device.current = null; }, []);
   useEffect(() => {

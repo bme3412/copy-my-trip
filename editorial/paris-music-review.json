@@ -1,0 +1,792 @@
+{
+  "added": 149,
+  "merged": 8,
+  "notes": "Source keys and verification statuses are supplied labels; no source bibliography or exact Spotify recordings were provided.",
+  "entries": [
+    {
+      "inputId": "music-edith-piaf-sous-le-ciel-de-paris",
+      "workId": "sous-le-ciel-de-paris",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-joe-dassin-les-champs-elysees",
+      "workId": "les-champs-elysees",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-jacques-dutronc-il-est-cinq-heures-paris-seveille",
+      "workId": "paris-seveille",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-yves-montand-a-paris",
+      "workId": "music-yves-montand-a-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yves-montand-les-grands-boulevards",
+      "workId": "music-yves-montand-les-grands-boulevards",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-charles-aznavour-la-boheme",
+      "workId": "la-boheme",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-charles-aznavour-jaime-paris-au-mois-de-mai",
+      "workId": "music-charles-aznavour-jaime-paris-au-mois-de-mai",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-charles-aznavour-paris-au-mois-daout",
+      "workId": "music-charles-aznavour-paris-au-mois-daout",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-leo-ferre-paris-canaille",
+      "workId": "music-leo-ferre-paris-canaille",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-maurice-chevalier-paris-sera-toujours-paris",
+      "workId": "music-maurice-chevalier-paris-sera-toujours-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-maurice-chevalier-paris-je-taime-damour",
+      "workId": "music-maurice-chevalier-paris-je-taime-damour",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-charles-trenet-menilmontant",
+      "workId": "music-charles-trenet-menilmontant",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-charles-trenet-revoir-paris",
+      "workId": "music-charles-trenet-revoir-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-charles-trenet-la-romance-de-paris",
+      "workId": "music-charles-trenet-la-romance-de-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-jacqueline-francois-la-seine",
+      "workId": "music-jacqueline-francois-la-seine",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-georgel-sous-les-ponts-de-paris",
+      "workId": "music-georgel-sous-les-ponts-de-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-edith-piaf-les-amants-de-paris",
+      "workId": "music-edith-piaf-les-amants-de-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-mireille-mathieu-paris-en-colere",
+      "workId": "music-mireille-mathieu-paris-en-colere",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-joe-dassin-la-complainte-de-lheure-de-pointe",
+      "workId": "music-joe-dassin-la-complainte-de-lheure-de-pointe",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-marc-lavoine-paris",
+      "workId": "music-marc-lavoine-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-camille-la-rue-de-menilmontant",
+      "workId": "music-camille-la-rue-de-menilmontant",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-malcolm-mclaren-feat-catherine-deneuve-paris-paris",
+      "workId": "music-malcolm-mclaren-feat-catherine-deneuve-paris-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-malcolm-mclaren-pere-lachaise",
+      "workId": "music-malcolm-mclaren-pere-lachaise",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-malcolm-mclaren-rue-dauphine",
+      "workId": "music-malcolm-mclaren-rue-dauphine",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-malcolm-mclaren-jazz-is-paris",
+      "workId": "music-malcolm-mclaren-jazz-is-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-malcolm-mclaren-walking-with-satie",
+      "workId": "music-malcolm-mclaren-walking-with-satie",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-thomas-dutronc-jaime-plus-paris",
+      "workId": "music-thomas-dutronc-jaime-plus-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-alain-souchon-rive-gauche",
+      "workId": "music-alain-souchon-rive-gauche",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-zazie-rue-de-la-paix",
+      "workId": "music-zazie-rue-de-la-paix",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-renaud-amoureux-de-paname",
+      "workId": "music-renaud-amoureux-de-paname",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-renaud-les-bobos",
+      "workId": "music-renaud-les-bobos",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-julien-dore-paris-seychelles",
+      "workId": "music-julien-dore-paris-seychelles",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-josephine-baker-jai-deux-amours",
+      "workId": "jai-deux-amours",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-mistinguett-ca-cest-paris",
+      "workId": "music-mistinguett-ca-cest-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-mistinguett-mon-homme",
+      "workId": "music-mistinguett-mon-homme",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-frehel-ou-est-il-donc",
+      "workId": "music-frehel-ou-est-il-donc",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-frehel-la-java-bleue",
+      "workId": "music-frehel-la-java-bleue",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-georges-ulmer-pigalle",
+      "workId": "music-georges-ulmer-pigalle",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-cora-vaucaire-la-complainte-de-la-butte",
+      "workId": "music-cora-vaucaire-la-complainte-de-la-butte",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yves-montand-rue-saint-vincent",
+      "workId": "music-yves-montand-rue-saint-vincent",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-aristide-bruant-nini-peau-dchien",
+      "workId": "music-aristide-bruant-nini-peau-dchien",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-aristide-bruant-a-la-villette",
+      "workId": "music-aristide-bruant-a-la-villette",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-juliette-greco-si-tu-timagines",
+      "workId": "music-juliette-greco-si-tu-timagines",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-juliette-greco-deshabillez-moi",
+      "workId": "music-juliette-greco-deshabillez-moi",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-serge-gainsbourg-la-javanaise",
+      "workId": "music-serge-gainsbourg-la-javanaise",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-serge-gainsbourg-la-chanson-de-prevert",
+      "workId": "music-serge-gainsbourg-la-chanson-de-prevert",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-serge-gainsbourg-le-poinconneur-des-lilas",
+      "workId": "music-serge-gainsbourg-le-poinconneur-des-lilas",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yves-montand-le-temps-des-cerises",
+      "workId": "music-yves-montand-le-temps-des-cerises",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-stephane-grappelli-minor-swing",
+      "workId": "music-django-reinhardt-stephane-grappelli-minor-swing",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-nuages",
+      "workId": "music-django-reinhardt-nuages",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-stephane-grappelli-djangology",
+      "workId": "music-django-reinhardt-stephane-grappelli-djangology",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-swing-de-paris",
+      "workId": "music-django-reinhardt-swing-de-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-belleville",
+      "workId": "music-django-reinhardt-belleville",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-manoir-de-mes-reves-djangos-castle",
+      "workId": "music-django-reinhardt-manoir-de-mes-reves-djangos-castle",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-django-reinhardt-nuits-de-saint-germain-des-pres",
+      "workId": "music-django-reinhardt-nuits-de-saint-germain-des-pres",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-sidney-bechet-si-tu-vois-ma-mere",
+      "workId": "music-sidney-bechet-si-tu-vois-ma-mere",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-sidney-bechet-petite-fleur",
+      "workId": "music-sidney-bechet-petite-fleur",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-sidney-bechet-les-oignons",
+      "workId": "music-sidney-bechet-les-oignons",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-count-basie-orchestra-april-in-paris",
+      "workId": "music-count-basie-orchestra-april-in-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-ella-fitzgerald-i-love-paris",
+      "workId": "music-ella-fitzgerald-i-love-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-bud-powell-parisian-thoroughfare",
+      "workId": "music-bud-powell-parisian-thoroughfare",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-miles-davis-generique-ascenseur-pour-lechafaud",
+      "workId": "music-miles-davis-generique-ascenseur-pour-lechafaud",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-miles-davis-florence-sur-les-champs-elysees",
+      "workId": "florence-sur-les-champs-elysees",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-duke-ellington-paris-blues",
+      "workId": "music-duke-ellington-paris-blues",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-frank-sinatra-i-love-paris",
+      "workId": "music-frank-sinatra-i-love-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-billie-holiday-april-in-paris",
+      "workId": "music-billie-holiday-april-in-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-joni-mitchell-free-man-in-paris",
+      "workId": "music-joni-mitchell-free-man-in-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-gary-moore-feat-phil-lynott-parisian-walkways",
+      "workId": "music-gary-moore-feat-phil-lynott-parisian-walkways",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-morrissey-i-m-throwing-my-arms-around-paris",
+      "workId": "music-morrissey-i-m-throwing-my-arms-around-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-grace-potter-the-nocturnals-paris-ooh-la-la",
+      "workId": "music-grace-potter-the-nocturnals-paris-ooh-la-la",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-friendly-fires-paris",
+      "workId": "music-friendly-fires-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-the-1975-paris",
+      "workId": "music-the-1975-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-the-chainsmokers-paris",
+      "workId": "music-the-chainsmokers-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-taylor-swift-paris",
+      "workId": "music-taylor-swift-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-lauv-paris-in-the-rain",
+      "workId": "music-lauv-paris-in-the-rain",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-corinne-bailey-rae-paris-nights-new-york-mornings",
+      "workId": "music-corinne-bailey-rae-paris-nights-new-york-mornings",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-rammstein-fruhling-in-paris",
+      "workId": "music-rammstein-fruhling-in-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-ladyhawke-paris-is-burning",
+      "workId": "music-ladyhawke-paris-is-burning",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-st-vincent-paris-is-burning",
+      "workId": "music-st-vincent-paris-is-burning",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-magic-man-paris",
+      "workId": "music-magic-man-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-george-gershwin-an-american-in-paris",
+      "workId": "music-george-gershwin-an-american-in-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-hector-berlioz-symphonie-fantastique",
+      "workId": "music-hector-berlioz-symphonie-fantastique",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-jacques-offenbach-orphee-aux-enfers-galop-infernal",
+      "workId": "music-jacques-offenbach-orphee-aux-enfers-galop-infernal",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-jacques-offenbach-la-vie-parisienne-overture",
+      "workId": "music-jacques-offenbach-la-vie-parisienne-overture",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-georges-bizet-carmen-habanera",
+      "workId": "music-georges-bizet-carmen-habanera",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-erik-satie-gymnopedie-no-1",
+      "workId": "music-erik-satie-gymnopedie-no-1",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-erik-satie-je-te-veux",
+      "workId": "music-erik-satie-je-te-veux",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-claude-debussy-prelude-a-lapres-midi-dun-faune",
+      "workId": "music-claude-debussy-prelude-a-lapres-midi-dun-faune",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-claude-debussy-la-mer-de-laube-a-midi-sur-la-mer",
+      "workId": "music-claude-debussy-la-mer-de-laube-a-midi-sur-la-mer",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-maurice-ravel-daphnis-et-chloe-suite-no-2",
+      "workId": "music-maurice-ravel-daphnis-et-chloe-suite-no-2",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-igor-stravinsky-le-sacre-du-printemps-the-rite-of-spring",
+      "workId": "music-igor-stravinsky-le-sacre-du-printemps-the-rite-of-spring",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-erik-satie-parade",
+      "workId": "music-erik-satie-parade",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-darius-milhaud-le-buf-sur-le-toit",
+      "workId": "music-darius-milhaud-le-buf-sur-le-toit",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-maurice-ravel-la-valse",
+      "workId": "music-maurice-ravel-la-valse",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-darius-milhaud-la-creation-du-monde",
+      "workId": "music-darius-milhaud-la-creation-du-monde",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-maurice-ravel-bolero",
+      "workId": "music-maurice-ravel-bolero",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-pierre-schaeffer-etude-aux-chemins-de-fer",
+      "workId": "music-pierre-schaeffer-etude-aux-chemins-de-fer",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yann-tiersen-comptine-dun-autre-ete-lapres-midi",
+      "workId": "music-yann-tiersen-comptine-dun-autre-ete-lapres-midi",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yann-tiersen-la-valse-damelie",
+      "workId": "music-yann-tiersen-la-valse-damelie",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-yann-tiersen-jy-suis-jamais-alle",
+      "workId": "music-yann-tiersen-jy-suis-jamais-alle",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-camille-le-festin",
+      "workId": "music-camille-le-festin",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-corinne-marchand-michel-legrand-sans-toi",
+      "workId": "music-corinne-marchand-michel-legrand-sans-toi",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-anna-karina-michel-legrand-la-chanson-dangela",
+      "workId": "music-anna-karina-michel-legrand-la-chanson-dangela",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-stephane-wrembel-bistro-fada",
+      "workId": "music-stephane-wrembel-bistro-fada",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-fred-astaire-audrey-hepburn-kay-thompson-bonjour-paris",
+      "workId": "music-fred-astaire-audrey-hepburn-kay-thompson-bonjour-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-kay-thompson-think-pink",
+      "workId": "music-kay-thompson-think-pink",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-bernadette-peters-jonathan-dokuchitz-paris-holds-the-key-to-your-heart",
+      "workId": "music-bernadette-peters-jonathan-dokuchitz-paris-holds-the-key-to-your-heart",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-garou-daniel-lavoie-patrick-fiori-belle",
+      "workId": "music-garou-daniel-lavoie-patrick-fiori-belle",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-bruno-pelletier-le-temps-des-cathedrales",
+      "workId": "music-bruno-pelletier-le-temps-des-cathedrales",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-michael-crawford-sarah-brightman-the-phantom-of-the-opera",
+      "workId": "music-michael-crawford-sarah-brightman-the-phantom-of-the-opera",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-les-miserables-original-london-cast-do-you-hear-the-people-sing",
+      "workId": "music-les-miserables-original-london-cast-do-you-hear-the-people-sing",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-nicole-kidman-ewan-mcgregor-come-what-may",
+      "workId": "music-nicole-kidman-ewan-mcgregor-come-what-may",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-nicole-kidman-ewan-mcgregor-elephant-love-medley",
+      "workId": "music-nicole-kidman-ewan-mcgregor-elephant-love-medley",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-gato-barbieri-last-tango-in-paris-main-theme",
+      "workId": "music-gato-barbieri-last-tango-in-paris-main-theme",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-barbara-gare-de-lyon",
+      "workId": "music-barbara-gare-de-lyon",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-zaz-je-veux",
+      "workId": "music-zaz-je-veux",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-cur-de-pirate-place-de-la-republique",
+      "workId": "music-cur-de-pirate-place-de-la-republique",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-zaz-paris-sera-toujours-paris",
+      "workId": "paris-sera-toujours-paris",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-zaz-sous-le-ciel-de-paris",
+      "workId": "music-zaz-sous-le-ciel-de-paris",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-zaz-feat-charles-aznavour-jaime-paris-au-mois-de-mai",
+      "workId": "music-zaz-feat-charles-aznavour-jaime-paris-au-mois-de-mai",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-taxi-girl-cherchez-le-garcon",
+      "workId": "music-taxi-girl-cherchez-le-garcon",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-les-rita-mitsouko-marcia-baila",
+      "workId": "music-les-rita-mitsouko-marcia-baila",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-mano-negra-mala-vida",
+      "workId": "music-mano-negra-mala-vida",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-les-negresses-vertes-voila-lete",
+      "workId": "music-les-negresses-vertes-voila-lete",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-slimane-paname",
+      "workId": "paname-slimane",
+      "action": "merged; existing recording retained"
+    },
+    {
+      "inputId": "music-alain-bashung-la-nuit-je-mens",
+      "workId": "music-alain-bashung-la-nuit-je-mens",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-clara-luciani-la-grenade",
+      "workId": "music-clara-luciani-la-grenade",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-limperatrice-agitations-tropicales",
+      "workId": "music-limperatrice-agitations-tropicales",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-christine-and-the-queens-la-vita-nuova",
+      "workId": "music-christine-and-the-queens-la-vita-nuova",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-daft-punk-da-funk",
+      "workId": "music-daft-punk-da-funk",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-daft-punk-around-the-world",
+      "workId": "music-daft-punk-around-the-world",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-daft-punk-one-more-time",
+      "workId": "music-daft-punk-one-more-time",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-daft-punk-harder-better-faster-stronger",
+      "workId": "music-daft-punk-harder-better-faster-stronger",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-stardust-music-sounds-better-with-you",
+      "workId": "music-stardust-music-sounds-better-with-you",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-cassius-1999",
+      "workId": "music-cassius-1999",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-cassius-feeling-for-you",
+      "workId": "music-cassius-feeling-for-you",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-air-sexy-boy",
+      "workId": "music-air-sexy-boy",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-air-kelly-watch-the-stars",
+      "workId": "music-air-kelly-watch-the-stars",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-modjo-lady-hear-me-tonight",
+      "workId": "music-modjo-lady-hear-me-tonight",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-etienne-de-crecy-prix-choc",
+      "workId": "music-etienne-de-crecy-prix-choc",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-etienne-de-crecy-am-i-wrong",
+      "workId": "music-etienne-de-crecy-am-i-wrong",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-choice-laurent-garnier-shazz-acid-eiffel",
+      "workId": "music-choice-laurent-garnier-shazz-acid-eiffel",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-laurent-garnier-the-man-with-the-red-face",
+      "workId": "music-laurent-garnier-the-man-with-the-red-face",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-st-germain-rose-rouge",
+      "workId": "music-st-germain-rose-rouge",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-justice-d-a-n-c-e",
+      "workId": "music-justice-d-a-n-c-e",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-justice-waters-of-nazareth",
+      "workId": "music-justice-waters-of-nazareth",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-supreme-ntm-seine-saint-denis-style",
+      "workId": "music-supreme-ntm-seine-saint-denis-style",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-supreme-ntm-quest-ce-quon-attend",
+      "workId": "music-supreme-ntm-quest-ce-quon-attend",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-supreme-ntm-le-monde-de-demain",
+      "workId": "music-supreme-ntm-le-monde-de-demain",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-supreme-ntm-thats-my-people",
+      "workId": "music-supreme-ntm-thats-my-people",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-grand-corps-malade-saint-denis",
+      "workId": "music-grand-corps-malade-saint-denis",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-grand-corps-malade-je-viens-de-la",
+      "workId": "music-grand-corps-malade-je-viens-de-la",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-doc-gyneco-dans-ma-rue",
+      "workId": "music-doc-gyneco-dans-ma-rue",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-kery-james-banlieusards",
+      "workId": "music-kery-james-banlieusards",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-la-fouine-banlieue-sale",
+      "workId": "music-la-fouine-banlieue-sale",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-oxmo-puccino-pam-pa-nam",
+      "workId": "music-oxmo-puccino-pam-pa-nam",
+      "action": "added as research selection"
+    },
+    {
+      "inputId": "music-supreme-ntm-feat-lord-kossity-ma-benz",
+      "workId": "music-supreme-ntm-feat-lord-kossity-ma-benz",
+      "action": "added as research selection"
+    }
+  ]
+}

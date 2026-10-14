@@ -10,7 +10,7 @@ import decisions from '../../editorial/paris-atlas-120/decisions.json';
 import batch from '../src/lib/culture/paris-batch.json';
 const copy=(v:any)=>JSON.parse(JSON.stringify(v));
 assert.deepEqual(batch.works,decisions.approvedWorks);assert.deepEqual(batch.sources,decisions.sources);
-assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,314);
+assert.equal(batch.works.length,22);assert.equal(cultureCatalog.works.length,463);
 for(const old of baseline.works){const current=cultureCatalog.works.find(w=>w.id===old.id)!;for(const [key,value] of Object.entries(old))assert.deepEqual((current as any)[key],value,`${old.id}: ${key} changed`);}
 assert.equal(parseCatalog(baseline).schemaVersion,2);
 const v1=copy(baseline);v1.schemaVersion=1;v1.works=v1.works.filter((w:any)=>['book','film'].includes(w.kind));assert.equal(parseCatalog(v1).works.length,21);
@@ -29,7 +29,7 @@ for(const modify of [
  (c:any)=>c.works[0].identifiers.push(c.works[0].identifiers[0]),
  (c:any)=>c.works[0].publication.originalYear=2099,
 ]){const c=copy(cultureCatalog);modify(c);assert.throws(()=>parseCatalog(c));}
-const large=copy(cultureCatalog);for(let i=0;i<120;i++){large.works.push({...copy(large.works[0]),id:`fixture-${i}`});large.sources.push({...large.sources[0],id:`source-${i}`});}assert.ok(parseCatalog(large).works.length>100);const over=copy(large);while(over.works.length<=CATALOG_LIMITS.works)over.works.push({...over.works[0],id:`over-${over.works.length}`});assert.throws(()=>parseCatalog(over));
+const large=copy(cultureCatalog);for(let i=0;i<Math.min(120,CATALOG_LIMITS.works-cultureCatalog.works.length);i++){large.works.push({...copy(large.works[0]),id:`fixture-${i}`});large.sources.push({...large.sources[0],id:`source-${i}`});}assert.ok(parseCatalog(large).works.length>100);const over=copy(large);while(over.works.length<=CATALOG_LIMITS.works)over.works.push({...over.works[0],id:`over-${over.works.length}`});assert.throws(()=>parseCatalog(over));
 const ids=(q:any)=>queryCatalog(cultureCatalog,q).map(w=>w.id);
 assert.ok(ids({area:'greater_paris'}).includes('full-time'));assert.ok(ids({area:'paris_city'}).includes('full-time'));
 assert.ok(ids({area:'greater_paris'}).includes('les-miserables-ladj-ly'));assert.ok(!ids({area:'paris_city'}).includes('les-miserables-ladj-ly'));

@@ -8,7 +8,7 @@ import baseline from '../../editorial/paris-atlas-120/existing-catalog.json';
 const previous=parseCatalog(baseline);
 const previousIds=new Set(previous.works.map(w=>w.id));
 const clone=()=>JSON.parse(JSON.stringify(cultureCatalog));
-assert.equal(parseCatalog(clone()).works.length,314);
+assert.equal(parseCatalog(clone()).works.length,463);
 const cases=[
   [{destination:'paris',kind:'book'},['the-only-street-in-paris','the-seine','paris-paris','the-other-paris','impossible-city','a-waiter-in-paris','the-flaneur','the-most-beautiful-walk-in-the-world','the-new-paris','my-paris-dream','the-sweet-life-in-paris','pancakes-in-paris','giovannis-room']],
   [{destination:'rome',kind:'film'},['the-great-beauty']],
@@ -59,7 +59,7 @@ console.log('PASS culture: 7 golden queries; source/scope/rights validation; API
 const legacy=JSON.parse(JSON.stringify(previous));legacy.schemaVersion=1;legacy.works=legacy.works.filter((w:any)=>['book','film'].includes(w.kind));
 assert.equal(parseCatalog(legacy).works.length,21);
 const audioInLegacy=clone();audioInLegacy.schemaVersion=1;assert.throws(()=>parseCatalog(audioInLegacy));
-assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'song'}).length,11);
+assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'song'}).length,160);
 assert.equal(queryCatalog(cultureCatalog,{destination:'paris',kind:'podcast_episode'}).length,46);
 assert.equal(queryCatalog(cultureCatalog,{q:'earful tower'}).length,6);
 assert.equal(queryCatalog(cultureCatalog,{q:'Gregory'}).at(0)?.id,'carving-paris');

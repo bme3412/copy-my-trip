@@ -30,17 +30,16 @@ for(const route of ['/discover/browse','/discover/place/paris/atlas','/discover/
 for(const [,kind] of parisFormats){const u=new URL(parisBrowse(kind),'https://example.org');assert.equal(u.searchParams.get('destination'),'paris');assert.equal(u.searchParams.get('kind'),kind);}
 const html=renderToStaticMarkup(<MemoryRouter><ShelfProvider><ParisPersonalProvider><MusicProvider works={cultureCatalog.works}><ParisOverview catalog={cultureCatalog}/></MusicProvider></ParisPersonalProvider></ShelfProvider></MemoryRouter>);
 for(const anchor of ['paris-search','paris-feature-heading'])assert(html.includes(`id="${anchor}"`));
-for(const id of [...featuredParisIds,...parisTrackIds.slice(0,4)]) {
+for(const id of featuredParisIds) {
  const work=cultureCatalog.works.find(work=>work.id===id)!;
  if([...featuredParisIds,...recentParisIds].includes(id)) assert(html.includes(`aria-label="Preview ${work.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')}"`));
  else assert(html.includes(work.title.replaceAll("&","&amp;").replaceAll("'","&#x27;")));
 }
 assert.equal((html.match(/class="po-work /g)??[]).length,6);
-assert(html.includes('8 tracks'));assert(!html.includes('Follow a connection'));assert(!html.includes('po-discovery-tabs'));assert(!html.includes('po-bottom-nav'));
-assert(html.includes('Listen with Spotify Premium, or choose YouTube.'));assert(html.includes('▶ Play on Spotify'));
-assert.equal((html.match(/class="ew-spotify-play"/g)??[]).length,10);
-assert.equal((html.match(/class="ew-youtube-play"/g)??[]).length,10);
-for(const track of selection.tracks)assert(html.includes(`Play ${track.title.replaceAll('&','&amp;').replaceAll("'",'&#x27;')} on YouTube`));
+assert(!html.includes('po-playlist-feature'));assert(!html.includes('Follow a connection'));assert(!html.includes('po-discovery-tabs'));assert(!html.includes('po-bottom-nav'));
+assert(html.includes('▶ Play on Spotify'));
+assert.equal((html.match(/class="ew-spotify-play"/g)??[]).length,1);
+assert.equal((html.match(/class="ew-youtube-play"/g)??[]).length,1);
 console.log('Paris overview: curated IDs, reviewed connections, exact route scope, links, anchors, playlist, map pins and artwork gates passed.');
 
 for(const route of ['/discover/place/paris','/discover/place/paris/atlas','/discover/place/paris/places/shakespeare','/discover/work/before-sunset'])assert(isParisContext(route,'',cultureCatalog));
@@ -63,3 +62,13 @@ assert.equal(orderedFilms.length,137);
 assert.equal(new Set(orderedFilms.map(w=>w.id)).size,137);
 assert.equal(cultureCatalog.works.find(w=>w.id==='film-mon-oncle-1958')?.geography?.area,'greater_paris');
 assert.equal(cultureCatalog.works.filter(w=>w.kind==='film'&&w.title==='Les Misérables').length,3);
+
+import { parisGenres, parisGenreCounts } from '../src/lib/culture/paris-genres';
+for(const kind of ['book','film'] as const) {
+ const works=cultureCatalog.works.filter(work=>work.destinationId==='paris'&&work.kind===kind);
+ const counts=parisGenreCounts(works);
+ assert(counts.length>1);
+ for(const [genre,count] of counts)assert.equal(works.filter(work=>parisGenres(work).includes(genre)).length,count);
+ assert(works.every(work=>parisGenres(work).length>0));
+}
+assert(parisGenres(cultureCatalog.works.find(work=>work.id==='film-daguerreotypes-1975')!).includes('Documentary'));

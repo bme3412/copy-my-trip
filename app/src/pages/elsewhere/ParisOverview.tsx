@@ -1,3 +1,4 @@
+import { parisGenres, parisGenreCounts } from '../../lib/culture/paris-genres';
 import { MusicPlay } from './MusicPlayer';
 import { MediaPreview } from './MediaPreview';
 import { useMemo, useRef, useState, type ReactNode } from 'react';
@@ -37,31 +38,25 @@ function WorkCarousel({works,onPreview,id,heading,grid=false}:{works:CultureWork
 }
 export function ParisOverview({catalog}:{catalog:CultureCatalog}) {
   const selection=useMemo(()=>overviewSelection(catalog),[catalog]);
-  const {featured,playlist,tracks}=selection;
+  const {featured}=selection;
   const [preview,setPreview]=useState<CultureWork | null>(null);
   const counts=parisCounts(catalog);
   const [format,setFormat]=useState<string | null>(null);
   const [page,setPage]=useState(0);
-  const chooseFormat=(value:string|null)=>{setFormat(value);setPage(0);};
+  const [genre,setGenre]=useState<string | null>(null);
+  const chooseFormat=(value:string|null)=>{setFormat(value);setGenre(null);setPage(0);};
   const filteredWorks=format===null ? featured : catalog.works.filter(work=>work.destinationId==='paris' && (!format || work.kind===format));
-  const visibleWorks=format==='film'?prioritizeParisFilms(filteredWorks):filteredWorks;
+  const genreOptions=(format==='book'||format==='film'||format==='song')?parisGenreCounts(filteredWorks):[];
+  const genreWorks=genre?filteredWorks.filter(work=>parisGenres(work).includes(genre)):filteredWorks;
+  const visibleWorks=format==='film'?prioritizeParisFilms(genreWorks):genreWorks;
   const formatTitle=format===null ? 'Editor’s picks' : format==='' ? 'All works' : parisFormats.find(([,kind])=>kind===format)?.[0] ?? 'Works';
   return <div className="po-overview">
     {preview && <MediaPreview key={preview.id} work={preview} onClose={()=>setPreview(null)}/>}
     <section className="po-hero po-city-intro" aria-labelledby="paris-title"><div className="po-hero-copy"><p className="po-monograph">France · Île-de-France</p><h1 id="paris-title">Paris</h1><p className="po-city-description">Discover the places, stories and culture that make the city yours.</p></div><ArchivePhoto photo="garden" eager sizes="(min-width:1024px) 55vw, 100vw"/></section>
     <nav className="po-shortcuts" aria-label="Paris formats"><button type="button" aria-pressed={format===null} aria-controls="paris-search" onClick={()=>chooseFormat(null)}>Editor’s picks</button><button type="button" aria-pressed={format===''} aria-controls="paris-search" onClick={()=>chooseFormat('')}>All works <span>{counts.total}</span></button>{parisFormats.map(([label,kind])=><button type="button" aria-pressed={format===kind} aria-controls="paris-search" onClick={()=>chooseFormat(kind)} key={kind}>{label} <span>{counts.byKind[kind]}</span></button>)}</nav>
+    {genreOptions.length>0 && <nav className="po-genre-filters" aria-label="Genres and themes"><span>Genres &amp; themes</span><button type="button" aria-pressed={genre===null} aria-controls="paris-work-cards" onClick={()=>{setGenre(null);setPage(0);}}>All <span>{filteredWorks.length}</span></button>{genreOptions.map(([label,count])=><button key={label} type="button" aria-pressed={genre===label} aria-controls="paris-work-cards" onClick={()=>{setGenre(label);setPage(0);}}>{label} <span>{count}</span></button>)}</nav>}
     <PersonalNotice/>
-    <section id="paris-search" aria-labelledby="paris-feature-heading"><WorkCarousel key={`${format}-${page}`} id="paris-work-cards" grid={format!==null} heading={<div><h2 id="paris-feature-heading">{formatTitle}</h2><p className="po-section-caption">{format===null?'Handpicked stories with a Paris connection':`${visibleWorks.length} works · Paris`}</p></div>} works={visibleWorks.slice(page*8,page*8+8)} onPreview={setPreview}/>{format!==null && visibleWorks.length>0 && <div className="po-pagination"><button type="button" disabled={page===0} onClick={()=>setPage(value=>value-1)}>Previous 8</button><span role="status">{page*8+1}–{Math.min(page*8+8,visibleWorks.length)} of {visibleWorks.length}</span><button type="button" disabled={(page+1)*8>=visibleWorks.length} onClick={()=>setPage(value=>value+1)}>Next 8</button></div>}{!visibleWorks.length && <p>No works in this format yet. Choose another format or All works.</p>}</section>
-    <div className="po-middle">
-      <section className="po-panel po-playlist" aria-labelledby="po-playlist-title">
-        <div className="po-playlist-feature"><ArchivePhoto photo="river" sizes="(max-width:650px) 90vw, 320px"/><div className="po-playlist-heading"><p className="po-label">The Paris soundtrack · {tracks.length} tracks</p><h2 id="po-playlist-title">{playlist.title}</h2><p>{playlist.description}</p><MusicPlay work={playlist}/><div className="po-playlist-save"><SaveWork id={playlist.id} title="Paris playlist"/><button type="button" onClick={()=>setPreview(playlist)} aria-haspopup="dialog">About this playlist</button></div></div></div>
-        <details className="po-track-disclosure"><summary>Show the {tracks.length} tracks</summary>
-        <ol className="po-playlist-rows">{tracks.map((track,index)=><li key={track.id}><span className="po-track-index" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div className="po-track-copy"><button type="button" onClick={()=>setPreview(track)} aria-haspopup="dialog">{track.title}</button><p>{track.creator}</p></div><MusicPlay work={track} tracks={tracks} index={index}/><SaveWork id={track.id} title={track.title}/></li>)}</ol></details>
-        <p className="po-playlist-note">Listen with Spotify Premium, or choose YouTube. Recordings may differ by service.</p>
-      </section>
-
-
-    </div>
+    <section id="paris-search" aria-labelledby="paris-feature-heading"><WorkCarousel key={`${format}-${genre}-${page}`} id="paris-work-cards" grid={format!==null} heading={<div><h2 id="paris-feature-heading">{formatTitle}</h2><p className="po-section-caption">{format===null?'Handpicked stories with a Paris connection':`${visibleWorks.length} works · ${genre??'Paris'}`}</p></div>} works={visibleWorks.slice(page*8,page*8+8)} onPreview={setPreview}/>{format!==null && visibleWorks.length>0 && <div className="po-pagination"><button type="button" disabled={page===0} onClick={()=>setPage(value=>value-1)}>Previous 8</button><span role="status">{page*8+1}–{Math.min(page*8+8,visibleWorks.length)} of {visibleWorks.length}</span><button type="button" disabled={(page+1)*8>=visibleWorks.length} onClick={()=>setPage(value=>value+1)}>Next 8</button></div>}{!visibleWorks.length && <p>No works in this format yet. Choose another format or All works.</p>}</section>
 
   </div>;
 }
